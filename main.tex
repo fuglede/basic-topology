@@ -1,0 +1,118 @@
+\newcommand{\electronic}[2]{#2} % #1 = printer friendly version, #2 = screen viewing version
+
+\electronic{\documentclass[article]{memoir}}{\documentclass[article,openany]{memoir}}
+
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\electronic{\usepackage[colorlinks=true,urlcolor=black,citecolor=black,linkcolor=black]{hyperref}}{\usepackage[colorlinks=true,urlcolor=darkblue,citecolor=darkgreen,linkcolor=darkblue]{hyperref}}
+
+\usepackage{bbm}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[all,cmtip]{xy}
+
+\electronic{\setlrmarginsandblock{*}{4.0cm}{0.75}}{\setlrmarginsandblock{*}{3.5cm}{1}}
+\setulmarginsandblock{3.0cm}{*}{1.2}
+\checkandfixthelayout
+
+\renewcommand{\bibname}{References}
+
+\newcommand{\word}[1]{#1\index{#1}}
+\newcommand{\emphword}[1]{\emph{#1}\index{#1}}
+
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\Abs}[1]{\lVert #1 \rVert}
+
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+\newcommand{\calT}{\mathcal{T}}
+
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\theoremstyle{plain}
+\newtheorem{lem}{Lemma}[chapter]
+\newtheorem{thm}[lem]{Theorem}
+\newtheorem{prop}[lem]{Proposition}
+\newtheorem{cor}[lem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}[lem]{Definition}
+\newtheorem{example}[lem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{rem}[lem]{Remark}
+
+\makechapterstyle{combined}{
+  \setlength{\midchapskip}{10pt}
+  \setlength{\afterchapskip}{2.5cm}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\chapnumfont}{\normalfont\sffamily\bfseries\fontsize{42}{0}\selectfont}
+  \renewcommand*{\printchapternum}{\flushright\normalfont\sffamily\Huge\bfseries Chapter \chapnumfont{\thechapter}}
+  \renewcommand*{\chaptitlefont}{\normalfont\sffamily\bfseries\Huge}
+  \renewcommand*{\printchaptertitle}[1]{\bfseries\chaptitlefont{##1}}
+    %\raggedright\chaptitlefont\parbox[t]{\textwidth}{\raggedright##1}}
+}
+\chapterstyle{combined}
+
+\renewcommand{\secheadstyle}{\sffamily\LARGE\bfseries}
+\renewcommand{\subsecheadstyle}{\sffamily\Large\bfseries}
+\counterwithout{section}{chapter}
+\setsecnumdepth{subsection}
+\setcounter{tocdepth}{2}
+
+\makeindex
+\begin{document}
+
+\frontmatter
+
+\include{frontpage}
+
+\tableofcontents
+
+\include{preface}
+
+\include{introduction}
+
+\mainmatter
+
+\include{set-theory}
+
+\include{topological-spaces}
+
+\include{homeomorphisms}
+ 
+\include{connectedness}
+
+\include{compactness}
+
+\include{separation}
+
+\include{homotopy}
+
+\include{manifolds}
+
+
+\backmatter
+\appendix
+
+\printindex
+
+\include{dictionary}
+
+\setlength\bibitemsep{0pt}
+\bibliographystyle{is-alpha}
+\bibliography{references}
+
+\end{document}
