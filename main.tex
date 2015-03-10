@@ -83,24 +83,24 @@
 \makeatletter
 \let\alist\@empty
 \newcommand{\addtolist}[2]{\lst@lAddTo#1{#2}}
-\newcommand{\word}[2]{\emph{#1}\index{#1}\addtolist{\alist}{#1#2,}\expandafter\gdef\csname#1#2\endcsname{#1&#2\cr\relax}\lst@BubbleSort{\alist}}
+\newcommand{\word}[2]{\emph{#1} (sv: \emph{#2})\index{#1}\addtolist{\alist}{#1#2,}\expandafter\gdef\csname#1#2\endcsname{#1&#2\cr\relax}\lst@BubbleSort{\alist}}
 
 
 \frontmatter
 \input{content/frontpage}
 \tableofcontents
 \input{content/preface}
-%\input{content/introduction}
+\input{content/introduction}
 
 \mainmatter
 \input{content/set-theory}
-%\input{content/topological-spaces}
-%\input{content/homeomorphisms}
-%\input{content/connectedness}
-%\input{content/compactness}
-%\input{content/separation}
-%\input{content/homotopy}
-%\input{content/manifolds}
+\input{content/topological-spaces}
+\input{content/homeomorphisms}
+\input{content/connectedness}
+\input{content/compactness}
+\input{content/separation}
+\input{content/homotopy}
+\input{content/manifolds}
 
 \backmatter
 \appendix
