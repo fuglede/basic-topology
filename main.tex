@@ -6,7 +6,6 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \definecolor{darkblue}{rgb}{0,0,0.5}
-\electronic{\usepackage[colorlinks=true,urlcolor=black,citecolor=black,linkcolor=black]{hyperref}}{\usepackage[colorlinks=true,urlcolor=darkblue,citecolor=darkgreen,linkcolor=darkblue]{hyperref}}
 
 \usepackage{bbm}
 \usepackage[latin1]{inputenc}
@@ -14,6 +13,11 @@
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage[all,cmtip]{xy}
+\usepackage[pdftex,bookmarks,raiselinks,pageanchor,hyperindex,colorlinks,\electronic{urlcolor=black,linkcolor=black,citecolor=black}{urlcolor=darkblue,linkcolor=darkblue,citecolor=darkgreen}]{hyperref}
+\usepackage{lstdoc}
+
+%\electronic{\usepackage[colorlinks=true,urlcolor=black,citecolor=black,linkcolor=black]{hyperref}}{\usepackagecolorlinks=true,urlcolor=darkblue,citecolor=darkgreen,linkcolor=darkblue]{hyperref}}
+
 
 \electronic{\setlrmarginsandblock{*}{4.0cm}{0.75}}{\setlrmarginsandblock{*}{3.5cm}{1}}
 \setulmarginsandblock{3.0cm}{*}{1.2}
@@ -21,8 +25,6 @@
 
 \renewcommand{\bibname}{References}
 
-\newcommand{\word}[1]{#1\index{#1}}
-\newcommand{\emphword}[1]{\emph{#1}\index{#1}}
 
 \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
 
@@ -73,42 +75,40 @@
 \setcounter{tocdepth}{2}
 
 \makeindex
+
+%%%%% End preample
+
 \begin{document}
 
+% Commands related to the index and the list of translations.
+% This one is largely taken from
+%   https://tex.stackexchange.com/questions/19746/cunning-latex-tricks/19761#19761
+
+\makeatletter
+\let\alist\@empty
+\newcommand{\addtolist}[2]{\lst@lAddTo#1{#2}}
+\newcommand{\word}[2]{\emph{#1}\index{#1}\addtolist{\alist}{#1#2,}\expandafter\gdef\csname#1#2\endcsname{#1&#2\cr\relax}\lst@BubbleSort{\alist}}
+
+
 \frontmatter
-
-\include{content/frontpage}
-
+\input{content/frontpage}
 \tableofcontents
-
-\include{content/preface}
-
-\include{content/introduction}
+%\input{content/preface}
+%\input{content/introduction}
 
 \mainmatter
-
-\include{content/set-theory}
-
-\include{content/topological-spaces}
-
-\include{content/homeomorphisms}
- 
-\include{content/connectedness}
-
-\include{content/compactness}
-
-\include{content/separation}
-
-\include{content/homotopy}
-
-\include{content/manifolds}
-
+\input{content/set-theory}
+%\input{content/topological-spaces}
+%\input{content/homeomorphisms}
+%\input{content/connectedness}
+%\input{content/compactness}
+%\input{content/separation}
+%\input{content/homotopy}
+%\input{content/manifolds}
 
 \backmatter
 \appendix
-
 \printindex
-
 \include{content/dictionary}
 
 \setlength\bibitemsep{0pt}
