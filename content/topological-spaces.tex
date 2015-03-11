@@ -1,2 +1,31 @@
 \section{Topological spaces}
 \label{topological-spaces}
+We now turn to the definition of the objects that will be the most interesting to us: topological spaces.
+\subsection{Definition}
+\begin{defn}
+  Let $X$ be a set, and let $\calT \subset \calP(X)$ be a collection of subsets of $X$. Then $\calT$ is called a \word{topology}{topologi} if
+  \begin{enumerate}
+    \item[(T1)] $\emptyset \in \calT$ and $X \in \calT$,
+    \item[(T2)] infinite unions of elements of $\calT$ are once again elements of $\calT$; in symbols, if $U_i \in \calT$ for $i \in I$, then $\bigcup_{i \in I} U_i \in \calT$,
+    \item[(T3)] \emph{finite} intersections of elements of $\calT$ are again elements of $\calT$. That is, if $U_1, \dots, U_n \in \calT$, then $U_1 \cap U_2 \cap \dots \cap U_n \in \calT$.
+  \end{enumerate}
+  If $\calT$ is a topology on $X$, then the pair $(X,\calT)$ is called a \word{topological space}{topologiskt rum}.
+\end{defn}
+Note that we will often say that $X$ is a topological space when we mean that $(X,\calT)$ is a topological space. This can be a bit misleading since as the following example shows, a set $X$ might have many different topologies.
+\begin{example}
+  Let $X = \{a,b\}$ be a set containing two elements $a$ and $b$. Then each of the four following subsets of $\calP(X)$ define topologies on $X$:
+  \begin{align*}
+    \calT_1 &= \{\emptyset,X\},\\
+    \calT_2 &= \{\emptyset, \{a\}, X\},\\
+    \calT_3 &= \{\emptyset, \{b\}, X\}, \\
+    \calT_4 &= \{\emptyset,\{a,b\},X\}.
+  \end{align*}
+  That is, $X$ is a topological space in at least four different ways. In fact, there are $12$ other ways to pick out subsets of $\calP(X)$ but it turns out that these four are the only ones that are topologies; simply put, (T1) fails for the the other ones. (Rather abstractly, topologies are themselves elements in $\calP(\calP(X))$, which in this case consists of $2^{2^2} = 16$ elements.)
+\end{example}
+\begin{example}
+  In fact, any set $X$ can be given a topology in at least two natural ways:
+  \begin{itemize}
+    \item Let $\calT = \{ \emptyset, X \} \subset \calP(X)$. Then $\calT$ is a topology, which is refered to as \word{the trivial topology}{den triviala topologin}.
+    \item Let $\calT = \calP(X)$ itself. Then $\calT$ is a topology called \word{the discrete topology}{den diskreta topologin}.
+  \end{itemize}
+\end{example}
