@@ -239,6 +239,55 @@ We will now show how to use the open balls to define a topology, called \word{th
   Now clearly, every set $U$ in $X$ is a union of sets from this collection since $U = \bigcup_{x \in U} \{x\}$, so it follows that the induced topology consists of all subsets of $X$.
 \end{example}
 
+
 \section{Continuous functions}
+As mentioned in the introduction, having the data of open sets turns out to be sufficient to define continuous functions. Recall that if $f : X \to Y$ is a function between two sets, and $A \subset Y$ is a subset, then we define the \word{preimage}{urbild} of $A$ to be the set
+\[
+  f^{-1}(A) = \{ x \in X \mid f(x) \in A \}.
+\]
+Be aware that the notation $f^{-1}$ is often used for the inverse of an invertible function, but one does \emph{not} need a function to be invertible to talk about preimages.
 
-
+\begin{prop}
+  The preimage behaves nicely with respect to various operations of sets. In particular, if $f : X \to Y$ and $\{B_i\}_{i \in I}$ is a family of subsets of $Y$, then
+  \begin{align*}
+    f^{-1}\left( \bigcup_{i \in I} B_i \right) = \bigcup_{i \in I} f^{-1}(B_i), \quad f^{-1}\left( \bigcap_{i \in I} B_i \right) = \bigcap_{i \in I} f^{-1}(B_i).
+  \end{align*}
+  If $B \subset Y$, then $f^{-1}(B^c) = f^{-1}(B)^c$, and if $g : Y \to Z$ is another map, then
+  \[
+    (g \circ f)^{-1}(U) = f^{-1}(g^{-1}(U)).
+  \]
+\end{prop}
+\begin{defn}
+  Let $(X,\calT_X)$ and $(Y,\calT_Y)$ be topological spaces. A function $f : X \to Y$ is called \word{continuous}{kontinuerlig} if $f^{-1}(U) \in \calT_X$ for all $U \in \calT_Y$, or in words, if the preimages of open sets are open.
+  
+  A function $f : X \to Y$ is called \emph{continuous at a point $x \in X$} if for every $U \in \calT_Y$ with $f(x) \in U$ there is a $V \in \calT_X$ so that $x \in V$ and $F(V) \subset U$.
+\end{defn}
+\trans{continuous}{kontinuerlig}
+\begin{example}
+  Let $X$ be a topological space. Then the identity map $\id : X \to X$ is continuous since $f^{-1}(U) = U$ for every subset $U \subset X$.
+\end{example}
+\begin{example}
+  Let $(X,\calT_X)$ and $(Y,\calT_Y)$ be topological spaces, and let $y \in Y$. Then the constant map $f : X \to Y$, $f(x) = y$ for all $x$, is continuous. To see this, let $U \in \calT_Y$ and let us consider two cases: if $y \in U$, then $f^{-1}(U) = X$ which is open, and if $y \notin U$, then $f^{-1}(U) = \emptyset$, which is also open.
+\end{example}
+\begin{example}
+  Let $X$ have the discrete topology, and let $Y$ be any topological space. Then any map $f : X \to Y$ is continuous, since $f^{-1}(U) \in \calP(X)$ no matter what $U$ is.
+\end{example}
+\begin{example}
+  Let $X$ be any topological space, and let $Y$ have the trivial topology. Then any map $f : X \to Y$ is continuous since $f^{-1}(\emptyset) = \emptyset$, which is open in $X$, and $f^{-1}(Y) = X$, which is also open.
+\end{example}
+We will soon have a huge family of examples of functions which are \emph{not} continuous; thus in particular the last two examples show that the notion of ``continuity'' depends heavily on the topologies on the spaces under consideration.
+\begin{thm}
+  The following properties hold for continuous functions:
+  \begin{enumerate}
+    \item[(i)] If $f: X \to Y$ and $g : Y \to Z$ are continuous, then so is $g \circ f : X \to Z$.
+    \item[(ii)] A function $f : X \to Y$ is continuous if and only if the preimage of any closed set is closed.
+    \item[(iii)] A function $f : X \to Y$ is continuous if and only if it is continuous at $x$ for all $x \in X$.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  To see the first part, let $U \subset Z$ be open in $Z$. Then since $U \in \calT_Z$ and $g$ is continous, $g^{-1}(U) \in \calT_Y$, and since $f$ is continuous, we have $(g \circ f)^{-1}(U) = f^{-1}(g^{-1}(U)) \in \calT_X$.
+  
+  For the second part, suppose first that $f$ is continuous, and let $C \subset Y$ be closed. Then $C^c$ is open, and $f^{-1}(C)^c = f^{-1}(C^c)$ is open. The other direction is similar.
+  
+  Finally, suppose that $f$ is continuous, let $x \in X$, and let $U \in \calT_Y$ with $f(x) \in U$. Then $V = f^{-1}(U)$ is open in $X$ and $f(V) = U$, so $f$ is continuous at $x$. Suppose on the other hand that $f$ is continuous at $x$ for all $x \in X$, and let $U \in \calT_Y$. Assume without loss of generality that $f^{-1}(U)$ is non-empty, and let $x \in f^{-1}(U)$. Then there exists $V_x \in \calT_X$ so that $x \in V_x$ and $f(V_x) \subset U$. Now $f^{-1}(U)$ is the union of such a collection of such $V_x$ thus open by (T2) since each $V_x$ is.
+\end{proof}
