@@ -34,6 +34,7 @@
 \newcommand{\bbQ}{\mathbb{Q}}
 \newcommand{\bbZ}{\mathbb{Z}}
 
+\newcommand{\calB}{\mathcal{B}}
 \newcommand{\calP}{\mathcal{P}}
 \newcommand{\calT}{\mathcal{T}}
 
@@ -86,8 +87,9 @@
 \makeatletter
 \let\alist\@empty
 \newcommand{\addtolist}[2]{\lst@lAddTo#1{#2}}
-\newcommand{\word}[2]{\emph{#1} (sv: \emph{#2})\index{#1}\addtolist{\alist}{#1#2,}\expandafter\gdef\csname#1#2\endcsname{#1&#2\cr\relax}\lst@BubbleSort{\alist}}
-
+\newcommand{\trans}[2]{\addtolist{\alist}{#1#2,}\expandafter\gdef\csname#1#2\endcsname{#1&#2\cr\relax}\lst@BubbleSort{\alist}}
+\newcommand{\wordexp}[4]{\emph{#1} (sv: \emph{#2})\index{#3}\addtolist{\alist}{#3#4,}\expandafter\gdef\csname#3#4\endcsname{#3&#4\cr\relax}\lst@BubbleSort{\alist}}
+\newcommand{\word}[2]{\wordexp{#1}{#2}{#1}{#2}}
 
 \frontmatter
 \input{content/frontpage}

@@ -1,18 +1,22 @@
 \section{Topological spaces}
 \label{topological-spaces}
 We now turn to the definition of the objects that will be the most interesting to us: topological spaces.
-\subsection{Definition}
+
+\subsection{Definitions and first examples}
+\trans{topology}{topologi}\trans{topological space}{topologiskt rum}
 \begin{defn}
   Let $X$ be a set, and let $\calT \subset \calP(X)$ be a collection of subsets of $X$. Then $\calT$ is called a \word{topology}{topologi} if
   \begin{enumerate}
     \item[(T1)] $\emptyset \in \calT$ and $X \in \calT$,
-    \item[(T2)] infinite unions of elements of $\calT$ are once again elements of $\calT$; in symbols, if $U_i \in \calT$ for $i \in I$, then $\bigcup_{i \in I} U_i \in \calT$,
+    \item[(T2)] infinite unions of elements of $\calT$ are once again elements of $\calT$; in symbols, if $U_i \in \calT$ for $i \in I$, then $\bigcup_{i \in I} U_i \in \calT$, and
     \item[(T3)] \emph{finite} intersections of elements of $\calT$ are again elements of $\calT$. That is, if $U_1, \dots, U_n \in \calT$, then $U_1 \cap U_2 \cap \dots \cap U_n \in \calT$.
   \end{enumerate}
-  If $\calT$ is a topology on $X$, then the pair $(X,\calT)$ is called a \word{topological space}{topologiskt rum}.
+  If $\calT$ is a topology on $X$, then the pair $(X,\calT)$ is called a \word{topological space}{topologiskt rum}. A set $U \in \calT$ is called \word{open}{{\"o}ppen}.
 \end{defn}
+\trans{open}{{\"o}ppen}
 Note that we will often say that $X$ is a topological space when we mean that $(X,\calT)$ is a topological space. This can be a bit misleading since as the following example shows, a set $X$ might have many different topologies.
 \begin{example}
+  \label{two-point-topologies}
   Let $X = \{a,b\}$ be a set containing two elements $a$ and $b$. Then each of the four following subsets of $\calP(X)$ define topologies on $X$:
   \begin{align*}
     \calT_1 &= \{\emptyset,X\},\\
@@ -20,12 +24,90 @@ Note that we will often say that $X$ is a topological space when we mean that $(
     \calT_3 &= \{\emptyset, \{b\}, X\}, \\
     \calT_4 &= \{\emptyset,\{a,b\},X\}.
   \end{align*}
-  That is, $X$ is a topological space in at least four different ways. In fact, there are $12$ other ways to pick out subsets of $\calP(X)$ but it turns out that these four are the only ones that are topologies; simply put, (T1) fails for the the other ones. (Rather abstractly, topologies are themselves elements in $\calP(\calP(X))$, which in this case consists of $2^{2^2} = 16$ elements.)
+  That is, $X$ is a topological space in at least four different ways. In fact, there are $12$ other ways to pick out subsets of $\calP(X)$ but it turns out that these four are the only ones that are topologies. (Rather abstractly, topologies are themselves elements in $\calP(\calP(X))$, which in this case consists of $2^{2^2} = 16$ elements.)
 \end{example}
+\trans{trivial topology}{den triviala toplogin}\trans{discrete topology}{den diskreta topologin}
 \begin{example}
   In fact, any set $X$ can be given a topology in at least two natural ways:
   \begin{itemize}
-    \item Let $\calT = \{ \emptyset, X \} \subset \calP(X)$. Then $\calT$ is a topology, which is refered to as \word{the trivial topology}{den triviala topologin}.
-    \item Let $\calT = \calP(X)$ itself. Then $\calT$ is a topology called \word{the discrete topology}{den diskreta topologin}.
+    \item Let $\calT = \{ \emptyset, X \} \subset \calP(X)$. Then $\calT$ is a topology, which is refered to as \wordexp{the trivial topology}{den triviala topologin}{trivial topology, the}{den triviala toplogin}.
+    \item Let $\calT = \calP(X)$ itself. Then $\calT$ is a topology called \wordexp{the discrete topology}{den diskreta topologin}{discrete topology, the}{den diskreta topologin}.
   \end{itemize}
+\end{example}
+\trans{coarse}{?}\trans{fine}{?}\trans{closed}{sluten}
+\begin{defn}
+  Let $X$ be a set, and let $\calT$ and $\calT'$ be topologies on $X$. If $\calT \subset \calT'$ then we say that $\calT$ is \word{coarser}{?} than $\calT'$, and that $\calT'$ is \word{finer}{?} than $\calT$. If $\calT \subsetneq \calT'$, we say that $\calT$ is \word{strictly coarser}{?} than $\calT'$, and that $\calT'$ is \word{strictly finer}{?} than $\calT$. If either $\calT \subset \calT'$ or $\calT' \subset \calT$, we say that $\calT$ and $\calT'$ are \word{comparable}{?}.
+\end{defn}
+\begin{example}
+  In Example~\ref{two-point-topologies}, $\calT_2$ is strictly coarser than $\calT_4$, but $\calT_2$ and $\calT_3$ are not comparable. The trivial topology on a set is always coarser than the discrete topology, since $\{\emptyset,X \} \subset \calP(X)$.
+\end{example}
+
+\begin{defn}
+  A subset $A \subset X$ of a topological space is called \word{closed}{sluten} if $A^c$ is open.
+\end{defn}
+\begin{prop}
+  In a topological space $X$,
+  \begin{enumerate}
+    \item[(T1')] $\emptyset$ and $X$ are closed,
+    \item[(T2')] if $C_i$ are closed for $i \in I$, then $\bigcap_{i\in I} C_i$ is closed, and
+    \item[(T3')] if $C_1, \dots, C_n$ are closed, then $C_1 \cup \dots \cup C_n$ is closed.
+  \end{enumerate}
+\end{prop}
+
+\begin{rem}
+  If one has taken a course on measure theory, the definition of a topological space will look familiar: the $\sigma$-algebras appearing for measurable spaces are defined to have particular properties under union, complement, and closure, not unlike topological spaces, but be aware that the two notions are not the same, even though the level of abstraction required to work with them is. However, one could consider the smallest $\sigma$-algebra such that all open sets are measurable (obtaining the so-called Borel sets) and thus turn any topological space into a measurable space in a natural manner. This idea of using some measurable sets to generate a full $\sigma$-algebra is what we will mimic in the following section.
+\end{rem}
+
+\subsection{Basis for a topology}
+For a given topological space $(X,\calT)$ it can often be a bit clumsy to describe \emph{all} open sets. What one does instead is to describe a certain collection of sets that one wants in $\calT$, and then includes the sets necessary to obtain a full topology, using the rules (T1)--(T3). This idea is contained in what is called a basis for a topology.
+\trans{basis}{bas}
+\begin{defn}
+  Let $X$ be a set, and let $\calB \subseteq \calP(X)$ be any collection of subsets of $X$. Then $\calB$ is called a \word{basis}{bas} for a topology on $X$ if
+  \begin{enumerate}
+    \item[(B1)] for each $x \in X$, there is a $B \in \calB$ such that $x \in B$, and
+    \item[(B2)] if $x \in B_1 \cap B_2$ for $B_1, B_2 \in \calB$, then there is a $B_3 \in \calB$ such that $x \in B_3 \subset B_1 \cap B_2$.
+  \end{enumerate}
+\end{defn}
+If $\calB$ is a basis, we define $\calT_\calB$, the \word{topology generated by}{topologin genererad av} $\calB$ by declaring that $U \in \calT$ if for every $x \in U$, there is a basis element $B \in \calB$ such that $x \in B \subset U$. At first, the condition (B2) might look a little odd but it plays a very explicit role in the proof of the following lemma.
+\begin{lem}
+  This collection $\calT_\calB \subset \calP(X)$ is a topology.
+\end{lem}
+\begin{proof}
+  Let us show that $\calT_\calB$ satisfies the properties (T1)--(T3) for a topology.
+
+  Notice first that $\emptyset \in \calT_\calB$: a set is in $\calT_\calB$ if all of its elements satisfy a certain condition, but $\emptyset$ contains no elements at all, so the condition is automatically satisfied for all its elements.
+  
+  That $X \in \calT_\calB$ is exactly (B1). This shows (T1).
+  
+  To see (T2), let $U_i \in \calT_\calB$ for $i \in I$ and let $x \in \bigcup_{i \in I} U_i$. Then there exists an $i \in I$ so that $x \in U_i$, and since $U_i \in \calT_\calB$ we get a basis element $B \in \calB$ so that $x \in B \subset U_i \subset \bigcup_{i \in I} U_i$. But this says exactly that $\bigcup_{i \in I} U_i \in \calT_\calB$, so this shows (T2).
+  
+  Finally, to see (T3), let us first show that $U_1 \cap U_2 \in \calT_\calB$ whenever $U_1, U_2 \in \calT_\calB$. To do this, let $x \in U_1 \cap U_2$. Then $x \in U_1$ and $x \in U_2$, so we get sets $B_1, B_2 \in \calB$ so that $x \in B_1 \subseteq U_1$ and $x \in B_2 \subseteq U_2$. Now, by (B2) we get a set $B_3 \in \calB$ so that $x \in B_3 \subset B_1 \cap B_2$. Now clearly, $B_1 \cap B_2 \subset U_1 \cap U_2$ so that we have $x \in B_3 \subset U_1 \cap U_2$, or, in other words, that $U_1 \cap U_2 \in \calT_\calB$.
+  
+  Finally, let $U_1, \dots, U_n \in \calT_\calB$. Now (T3) follows by induction: if $U_1 \cap \dots \cap U_{n-1} \in \calT_\calB$, then also $U_1 \cap \dots \cap U_n \in \calT_\calB$ since
+  \[
+    U_1 \cap \dots \cap U_n = (U_1 \cap \dots \cap U_{n-1}) \cap U_n
+  \]
+  and we now how to handle intersections of only two sets.
+\end{proof}
+The following proof shows very clearly why we need the condition (B2) in the definition of a basis. The following result gives what might be an easier way to think about $\calT_\calB$.
+\begin{lem}
+  Let $\calB$ be the basis for a topology on a set $X$. Then $U \in \calT_\calB$ if and only if $U = \bigcup_{i \in I} B_i$ for some sets $B_i \in \calB$. That is, $\calT_\calB$ consists of all unions of elements from $\calB$.
+\end{lem}
+\begin{proof}
+  First of all, notice that the $\emptyset$ is the empty union by convention, so we may assume that $U$ is non-empty.
+
+  There are two things to show. First let $U = \bigcup_{i \in I} B_i$ for $B_i \in \calB$, and let $x \in U$. Then there is an $i \in I$ so that $x \in B_i \subset U$. This shows that $U \in \calT_\calB$.
+  
+  On the other hand, let $U \in \calT_\calB$, and let us see that $U$ is a union of basis elements $B_i$. For every $x \in U$, choose a basis element $B_x$ so that $x \in B_x \subset U$. This is possible since $U \in \calT_\calB$. We now claim that $U = \bigcup_{x \in U} B_x$ which would complete our proof.
+  
+  To see this, let $y \in U$ be arbitrary. Then $y \in B_y$ and $B_y \subset \bigcup_{x \in U} B_x$, so $y$ is an element of the union. On the other hand, if $y \in \bigcup_{x \in U} B_x$, then there exists a $z \in U$ so that $y \in B_z$, but by our choices of the basis elements, we have that $B_z \subset U$, so $y \in B_z \subset U$.
+\end{proof}
+
+
+\begin{example}
+  If $X = \{a,b\}$, then $\calB = \{ \{a\}, \{b\} \}$ is a basis for a topology on $X$. The topology $\calT_\calB$ is exactly the discrete topology, $\calT_\calB = \calP(X)$. More generally, let $X$ be any set, and let $\calB$ consist of those sets that contain only a single element, that is
+  \[
+    \calB = \{ \{x \} \mid x \in X\}.
+  \]
+  Then $\calB$ is a basis for a topology, and $\calT_\calB$ is the discrete topology.
 \end{example}

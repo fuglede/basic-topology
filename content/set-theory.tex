@@ -1,6 +1,5 @@
 \section{Set theory and logic}
 \label{set-theory}
-
 The theory of sets, typically referred to as \word{set theory}{m{\"a}ngdteori}, forms the basic fundament of all of mathematics. As such, it is probably unsurprising that a huge body of work has been devoted to it. This, however, is not obvious if one simply reads these notes as we will not at all deal with many of the important ideas that underly the theory. Moreover, even though set theory plays an essential role in our study, our treatment of set theory will be rather brief, so the inexperienced reader is also strongly encouraged to study \cite[\S1]{Mun} in detail.
 
 \subsection{Basic notions}
@@ -38,7 +37,7 @@ and say that $A$ is a \word{proper subset}{{\"a}kta delm{\"a}ngd} of $B$. Set-th
   \]
   which should be read as ``$x$ such that $x$ is an even integer''.
   
-  We will also often be considering the set which contains no elements at all; this set is called \word{the empty set}{den tomma m{\"a}ngden} and is denoted $\emptyset$. This has the property that $\emptyset \subset X$, no matter what $X$ is.
+  We will also often be considering the set which contains no elements at all; this set is called \wordexp{the empty set}{den tomma m{\"a}ngden}{empty set, the}{den tomma m{\"a}ngden} and is denoted $\emptyset$. This has the property that $\emptyset \subset X$, no matter what $X$ is.
 \end{example}
 \begin{defn}
   Let $X$ be any set. The \word{power set}{potensm{\"a}ngd} of $X$, denoted $\calP(X)$ is the set of all subsets of $X$, that is
@@ -58,11 +57,12 @@ and say that $A$ is a \word{proper subset}{{\"a}kta delm{\"a}ngd} of $B$. Set-th
   \]
   Be aware that $\{ \emptyset \}$ consists of a single element, namely $\emptyset$, so $\{\emptyset\}$ is not itself empty, even though it is tempting to read the notation like that.
 \end{example}
+\trans{intersection}{snitt}\trans{disjoint}{disjunkt}\trans{difference}{differens}\trans{complement}{komplement}
 \begin{defn}
   Given two sets $A$ and $B$, we define their \word{union}{union} $A \cup B$ and \word{intersection}{snitt} $A \cap B$ as
   \begin{align*}
     A \cup B = \{ x \mid \text{$x \in A$ or $x \in B$} \}, \\
-    A \cup B = \{ x \mid \text{$x \in A$ and $x \in B$} \}. \\
+    A \cup B = \{ x \mid \text{$x \in A$ and $x \in B$} \}.
   \end{align*}
   The sets $A$ and $B$ are called \word{disjoint}{disjunkt} if $A \cap B = \emptyset$. We also introduce the \word{difference}{differens} $A \setminus B$, or sometimes $A - B$, given by
   \[
@@ -149,7 +149,7 @@ It might be helpful to compare these definitions with the definitions of union a
 \end{proof}
 
 \subsection{Cartesian product}
-Another way of constructing new sets from old sets is through the so-called Cartesian product, often simply called a product. In words, if $A$ and $B$ are two sets, then the \word{Cartesian product}{kartesisk product, m{\"a}ngdprodukt} $A \times B$ is the set of all pairs $(a,b)$, where $a \in A$, or $b \in B$; that is,
+Another way of constructing new sets from old sets is through the so-called Cartesian product, often simply called a product. In words, if $A$ and $B$ are two sets, then the \word{Cartesian product}{kartesisk produkt} $A \times B$ is the set of all pairs $(a,b)$, where $a \in A$, or $b \in B$; that is,
 \[
   A \times B = \{ (a,b) \mid \text{$a \in A$ and $b \in B$}\}.
 \]
@@ -176,6 +176,7 @@ Above, we have talked about various relations between sets; these we will now ma
   The subset of $\bbR \times \bbR$ given by $C = \{(x,y) \mid x \leq y\}$ is a relation on $\bbR$, and $xCy$ if and only if $x \leq y$.
 \end{example}
 
+\trans{reflexive}{reflexiv}\trans{symmetric}{symmetrisk}\trans{anti-symmetric}{antisymmetrisk}\trans{transitive}{transitiv}\trans{total}{total}
 \begin{defn}
   A relation $C \subseteq A \times A$ is called
   \begin{itemize}
@@ -189,9 +190,11 @@ Above, we have talked about various relations between sets; these we will now ma
 \begin{example}
   The relation $\leq$ from Example~\ref{example-inequality} is reflexive, anti-symmetric, transitive, and total, but it is not symmetric.
 \end{example}
+\trans{partial order}{partiell ordning}
 \begin{defn}
   A relation $C$ on a set $A$ is called a \word{partial order}{partiell ordning} if it is reflexive, anti-symmetric, and transitive. The pair $(A,C)$ is called a \word{poset}{pom{\"a}ngd}.
 \end{defn}
+\trans{poset}{pom{\"a}ngd}\trans{equivalence relation}{ekvivalensrelation}
 \begin{defn}
   An \word{equivalence relation}{ekvivalensrelation} is a relation which is reflexive, symmetric, and transitive.
 \end{defn}
