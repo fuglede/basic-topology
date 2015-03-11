@@ -116,6 +116,7 @@ While bases are interesting because they allow us to define topologies with less
 \end{proof}
 
 \begin{example}
+  \label{example-discrete-topology}
   If $X = \{a,b\}$, then $\calB = \{ \{a\}, \{b\} \}$ is a basis for a topology on $X$. The topology $\calT_\calB$ is exactly the discrete topology, $\calT_\calB = \calP(X)$. More generally, let $X$ be any set, and let $\calB$ consist of those sets that contain only a single element, that is
   \[
     \calB = \{ \{x \} \mid x \in X\}.
@@ -132,6 +133,7 @@ For $x \in \bbR^n$ and $r > 0$, let
 be the open ball centered in $x$ with radius $r$.
 
 \begin{prop}
+  \label{basis-euclidean}
   The collection
   \[
     \calB = \{ B(x,r) \mid x \in \bbR^n, r > 0 \}
@@ -173,3 +175,70 @@ So, at this point we have introduced three different topologies on $\bbR$ and we
   
   Finally, one can show that $U \in \calT_K$ but $U \notin \calT_l$, and that $[1,2) \in \calT_l$ but $[1,2) \notin \calT_K$.
 \end{proof}
+
+\subsection{Metric spaces}
+Roughly speaking, metric spaces are spaces where one can always measure distances between two points. This makes them a generalisation of $\bbR^n$ and in this section we will see that they are special cases of topological spaces. That is, that having a notion of distance is sufficient to obtain a notion of open sets.
+
+\trans{metric space}{metriskt rum}\trans{metric}{metrik}\trans{distance}{avst{\aa}nd}
+\begin{defn}
+  A \word{metric space}{metriskt rum} $(X,d)$ is a set $X$ together with a non-negative function $d : X \times X \to \bbR_{\geq 0}$ satisfying for all $x,y,z \in X$ that
+  \begin{enumerate}
+    \item[(M1)] $d(x,y) = 0$ if and only if $x = y$,
+    \item[(M2)] $d(x,y) = d(y,x)$, and
+    \item[(M3)] the triangle inequality $d(x,y) + d(y,z) \leq d(x,z)$.
+  \end{enumerate}
+  The function $d$ is called a \word{metric}{metrik}, and $d(x,y)$ is called the \word{distance}{avst{\aa}nd} from $x$ to $y$.
+\end{defn}
+Having a metric is sufficient to mimic the definition of open balls that we know for $\bbR^n$. More precisely, for a metric space $(X,d)$ the open \word{ball}{boll} $B_d(x,r)$ centered at $x$, with radius $r > 0$, with respect to the metric $d$ is defined as
+\[
+  B_d(x,r) = \{ y \in X \mid d(x,y) < r \}.
+\]
+We will now show how to use the open balls to define a topology, called \word{the metric topology}{den metriska topologin}{metric topology, the}{den metriska topologin}, on any metric space. As promised, this includes Proposition~\ref{basis-euclidean} as a special case.
+
+\begin{prop}
+  \label{metric-basis}
+  If $(X,d)$ is a metric space, then the collection
+  \[
+    \calB = \{ B_d(x,r) \mid x \in X, r > 0\}
+  \]
+  is a basis for a topology.
+\end{prop}
+\begin{proof}
+  We need to show that $\calB$ satisfies (B1) and (B2). Firstly, (B1) follows since $x \in B_d(x,r)$ for any $r > 0$.
+  
+  To see (B2), let $x \in B_d(y_1,r_1) \cap B_d(y_2,r_2)$ and let us show that there is a $r > 0$ so that
+  \begin{align}
+    \label{balls-triangle}
+    B_d(x,r) \subset B_d(y_1,r_1) \cap B_d(y_2,r_2)
+  \end{align}
+  Drawing the situation in $\bbR^2$ one sees that the existence of this $r$ is rather reasonable, and that a good guess would be
+  \[
+    r = \min(r_1 - d(x,y_1) , r_2 - d(x,y_2)),
+  \]
+  so let us check that this \eqref{balls-triangle} holds with this choice of $r$. Let $z \in B_d(x,r)$ and let us show that $z \in B_d(y_1,r_1)$ and $z \in B_d(y_2,r_2)$. This follows from (M3) as
+  \[
+    d(z,y_i) \leq d(z,x) + d(x,y_i) < r + d(x,y_i) < r_i
+  \]
+  for $i = 1,2$.
+\end{proof}
+\begin{rem}
+  One can show from the definition of the induced topology, that a set $U$ is open in the metric topology exactly if for every point $x \in U$ there is an $r > 0$ so that $B_d(x,r) \subset U$, that is, for the case of $\bbR^n$, we recover the usual condition for a set to be open.
+\end{rem}
+\begin{example}
+  As already alluded to above, Euclidean space $\bbR^n$ is a metric space with metric $d(x,y) = \Abs{x-y}$.
+\end{example}
+\begin{example}
+  Let $X$ be any set. Then we can define a metric on $X$ by
+  \[
+    d(x,y) = \begin{cases} 0, & \text{if $x = y$,} \\ 1, & \text{if $x \not= y$.} \end{cases}
+  \]
+  The topology induced by this metric is the discrete topology. This follows almost directly from Example~\ref{example-discrete-topology}; let us describe the collection of open balls. Let $x \in X$ be arbitrary. If $r \leq 1$, then $B_d(x,r) = \{x\}$ while if $r > 1$ then $B_d(x,r) = X$. Thus the basis of open balls is
+  \[
+    \calB = \{ \{x \} \mid x \in X \} \cup \{X\}.
+  \]
+  Now clearly, every set $U$ in $X$ is a union of sets from this collection since $U = \bigcup_{x \in U} \{x\}$, so it follows that the induced topology consists of all subsets of $X$.
+\end{example}
+
+\section{Continuous functions}
+
+
