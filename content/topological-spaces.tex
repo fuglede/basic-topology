@@ -431,6 +431,7 @@ Finally, let us show the following result, which says that to check that a funct
 \subsection{The poset and order topologies}
 Recall from Definition~\ref{def-poset} the definition of a poset $(X,\preceq)$.
 \begin{prop}
+  \label{poset-top-def}
   Let $(X,\preceq)$ be a poset and define for every $a \in X$ a subset
   \[
     P_a = \{ x \in X \mid a \preceq x\}.
@@ -624,4 +625,29 @@ Note that clearly, a $T_2$-space is $T_1$, and a $T_1$-space is $T_0$.
 \end{prop}
 \begin{proof}
   Suppose first that $\{x\}$ is closed for all $x \in X$, and let $x,y \in X$, $x \not= y$. Then $X \setminus \{x\}$ is a neighbourhood of $y$ that does not contain $x$, and $X \setminus \{y \}$ is a neighbourhood of $x$ not containing $y$, so $X$ is $T_1$.
+  
+  For the converse, suppose that $X$ is $T_1$, and let $x \in X$. Now every $y \in X$ has a neighbourhood $U_y$ that does not contain $x$, and so
+  \[
+    \bigcup_{y \not= x} U_y = X \setminus \{ x\}
+  \]
+  is open, and $\{x\}$ is closed.
 \end{proof}
+\begin{example}
+  Let $X$ contain at least two points, and endow $X$ with the trivial topology. Then $X$ is not $T_0$ (or $T_1$ or $T_2$), since the only neighborhood of a point $x$ is $X$.
+\end{example}
+\begin{example}
+  If $X$ has the discrete topology, then $X$ is Hausdorff (and $T_1$ and $T_2$).
+\end{example}
+\begin{example}
+  Any poset $(X,\preceq)$ with the poset topology (Proposition~\ref{poset-top-def}) is $T_0$: let $x,y \in X$, $x \not= y$, and suppose that $x \preceq y$. Then $P_y = \{ z \in X \mid y \preceq z\}$ is a neighbourhood of $y$ which does not contain $x$.
+\end{example}
+\begin{example}
+  Let $X = \{a,b,c\}$ with the topology
+  \[
+    \calT = \{ \emptyset, \{b\}, \{c\}, \{b,c\}, X \}.
+  \]
+  Then $X$ is $T_0$ but not $T_1$.
+\end{example}
+\begin{example}
+  All metric spaces (with the metric topology) are Hausdorff: If $x$ and $y$ are distinct points in a metric space $(X,d)$, let $r = d(x,y)/2$, and define $U_x = B_d(x,r)$, $U_y = B_d(y,r)$. Then $U_x$ and $U_y$ are distinct neighbourhoods of $x$ and $y$ respectively.
+\end{example}
