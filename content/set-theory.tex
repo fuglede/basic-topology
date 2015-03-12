@@ -61,8 +61,8 @@ and say that $A$ is a \word{proper subset}{{\"a}kta delm{\"a}ngd} of $B$. Set-th
 \begin{defn}
   Given two sets $A$ and $B$, we define their \word{union}{union} $A \cup B$ and \word{intersection}{snitt} $A \cap B$ as
   \begin{align*}
-    A \cup B = \{ x \mid \text{$x \in A$ or $x \in B$} \}, \\
-    A \cup B = \{ x \mid \text{$x \in A$ and $x \in B$} \}.
+    A \cup B &= \{ x \mid \text{$x \in A$ or $x \in B$} \}, \\
+    A \cap B &= \{ x \mid \text{$x \in A$ and $x \in B$} \}.
   \end{align*}
   The sets $A$ and $B$ are called \word{disjoint}{disjunkt} if $A \cap B = \emptyset$. We also introduce the \word{difference}{differens} $A \setminus B$, or sometimes $A - B$, given by
   \[
@@ -130,6 +130,7 @@ Let $I$ is any set. Then a collection $\{ A_i \}_{i \in I}$ of sets $A_i$ is cal
 It might be helpful to compare these definitions with the definitions of union and intersection from above, which is the case where $I$ contains two elements.
 
 \begin{prop}
+  \label{de-morgan}
   For sets $A$, $B$, $C$, and $X$, for a family $\{ A_i \}_{i \in I}$ with $A_i \subset X$ for all $i \in I$, one has the useful identities,
   \begin{align*}
     A \cap (B \cup C) &= (A \cap B) \cup (A \cap C), \\
@@ -137,6 +138,7 @@ It might be helpful to compare these definitions with the definitions of union a
     X \setminus \bigcup_{i \in I} A_i &= \bigcap_{i \in I} X \setminus A_i, \\
     X \setminus \bigcap_{i \in I} A_i &= \bigcup_{i \in I} X \setminus A_i.
   \end{align*}
+  Various versions of these equalities are known as \emph{De Morgan's laws}\index{De Morgan's laws}.
 \end{prop}
 \begin{proof}[Partial proof]
   Set theoretical identities like the above are typically shown in the same way: one starts with an element in the left hand side and proves that it is an element of the right hand side, which shows ``$\subset$'', and one then proceeds to do the same thing the other way around. To convince oneself that the identities indeed hold, it may be helpful to draw the corresponding Euler diagrams.
@@ -149,6 +151,7 @@ It might be helpful to compare these definitions with the definitions of union a
 \end{proof}
 
 \subsection{Cartesian product}
+\label{cartesian-product}
 Another way of constructing new sets from old sets is through the so-called Cartesian product, often simply called a product. In words, if $A$ and $B$ are two sets, then the \word{Cartesian product}{kartesisk produkt} $A \times B$ is the set of all pairs $(a,b)$, where $a \in A$, or $b \in B$; that is,
 \[
   A \times B = \{ (a,b) \mid \text{$a \in A$ and $b \in B$}\}.
@@ -192,8 +195,10 @@ Above, we have talked about various relations between sets; these we will now ma
 \end{example}
 \trans{partial order}{partiell ordning}
 \begin{defn}
+  \label{def-poset}
   A relation $C$ on a set $A$ is called a \word{partial order}{partiell ordning} if it is reflexive, anti-symmetric, and transitive. The pair $(A,C)$ is called a \word{poset}{pom{\"a}ngd}.
 \end{defn}
+We will often denote partial orders by the symbol $\preceq$.
 \trans{poset}{pom{\"a}ngd}\trans{equivalence relation}{ekvivalensrelation}
 \begin{defn}
   An \word{equivalence relation}{ekvivalensrelation} is a relation which is reflexive, symmetric, and transitive.

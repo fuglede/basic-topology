@@ -222,7 +222,14 @@ We will now show how to use the open balls to define a topology, called \word{th
   for $i = 1,2$.
 \end{proof}
 \begin{rem}
-  One can show from the definition of the induced topology, that a set $U$ is open in the metric topology exactly if for every point $x \in U$ there is an $r > 0$ so that $B_d(x,r) \subset U$, that is, for the case of $\bbR^n$, we recover the usual condition for a set to be open.
+  \label{remark-def-open-balls}
+  One can show from the definition of the induced topology, that a set $U$ is open in the metric topology if and only if for every point $x \in U$ there is an $r > 0$ so that $B_d(x,r) \subset U$, that is, for the case of $\bbR^n$, we recover the usual condition for a set to be open.
+  
+  To see this, suppose that $U$ is open in the metric topology, and let $x \in U$. Since the topology is induced by the basis of open balls, there exists an open ball $B_d(y,\eps)$ so that $x \in B_d(y,\eps) \subset U$. By setting $r = \eps - d(x,y) > 0$ we see that
+  \[
+    x \in B_d(x,r) \subset B_d(y,\eps) \subset U.
+  \]
+  Likewise, the other direction follows from the definition of the topology as induced by the basis of open balls.
 \end{rem}
 \begin{example}
   As already alluded to above, Euclidean space $\bbR^n$ is a metric space with metric $d(x,y) = \Abs{x-y}$.
@@ -240,7 +247,7 @@ We will now show how to use the open balls to define a topology, called \word{th
 \end{example}
 
 
-\section{Continuous functions}
+\subsection{Continuous functions}
 As mentioned in the introduction, having the data of open sets turns out to be sufficient to define continuous functions. Recall that if $f : X \to Y$ is a function between two sets, and $A \subset Y$ is a subset, then we define the \word{preimage}{urbild} of $A$ to be the set
 \[
   f^{-1}(A) = \{ x \in X \mid f(x) \in A \}.
@@ -258,6 +265,7 @@ Be aware that the notation $f^{-1}$ is often used for the inverse of an invertib
   \]
 \end{prop}
 \begin{defn}
+  \label{continuity-def}
   Let $(X,\calT_X)$ and $(Y,\calT_Y)$ be topological spaces. A function $f : X \to Y$ is called \word{continuous}{kontinuerlig} if $f^{-1}(U) \in \calT_X$ for all $U \in \calT_Y$, or in words, if the preimages of open sets are open.
   
   A function $f : X \to Y$ is called \emph{continuous at a point $x \in X$} if for every $U \in \calT_Y$ with $f(x) \in U$ there is a $V \in \calT_X$ so that $x \in V$ and $F(V) \subset U$.
@@ -277,6 +285,7 @@ Be aware that the notation $f^{-1}$ is often used for the inverse of an invertib
 \end{example}
 We will soon have a huge family of examples of functions which are \emph{not} continuous; thus in particular the last two examples show that the notion of ``continuity'' depends heavily on the topologies on the spaces under consideration.
 \begin{thm}
+  \label{continuous-props}
   The following properties hold for continuous functions:
   \begin{enumerate}
     \item[(i)] If $f: X \to Y$ and $g : Y \to Z$ are continuous, then so is $g \circ f : X \to Z$.
@@ -291,3 +300,175 @@ We will soon have a huge family of examples of functions which are \emph{not} co
   
   Finally, suppose that $f$ is continuous, let $x \in X$, and let $U \in \calT_Y$ with $f(x) \in U$. Then $V = f^{-1}(U)$ is open in $X$ and $f(V) = U$, so $f$ is continuous at $x$. Suppose on the other hand that $f$ is continuous at $x$ for all $x \in X$, and let $U \in \calT_Y$. Assume without loss of generality that $f^{-1}(U)$ is non-empty, and let $x \in f^{-1}(U)$. Then there exists $V_x \in \calT_X$ so that $x \in V_x$ and $f(V_x) \subset U$. Now $f^{-1}(U)$ is the union of such a collection of such $V_x$ thus open by (T2) since each $V_x$ is.
 \end{proof}
+
+As the reader will likely have encountered the concept of continuity in other contexts, let us now show that these notions actually coincide. For convenience, let us recall what continuity ``normally'' means.
+
+\begin{defn}
+  A function $f : \bbR^n \to \bbR$ is called \emph{continuous at a point} $x \in \bbR^n$ if for every $\eps > 0$ there exists is a $\delta > 0$ such that for every $y \in \bbR^n$ with $\Abs{x-y} < \delta$, one has $\abs{f(x)-f(y)} < \eps$. A function is called \emph{continuous} if it is continuous in every point.
+\end{defn}
+This definition can be mirrored for general metric spaces by replacing the distances induced by the norms by the metrics.
+\begin{thm}
+  \label{continuity-def-equivalent}
+  Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces with their induced metric topologies. Then a function $f : X \to Y$ is continuous, in the sense of Definition~\ref{continuity-def} if and only if
+  \[
+    \forall x \in X, \forall \eps > 0, \exists \delta > 0 : d_X(x,y) < \delta \Rightarrow d_Y(f(x),f(y)) < \eps.
+  \]
+\end{thm}
+We will prove this theorem in a second, using the following result.
+\begin{lem}
+  \label{continuity-def-equivalent-lemma}
+  Let $(X,d_X)$, $(Y,d_Y)$ be metric spaces with the metric topologies. Then a function $f : X \to Y$ is continuous at a point $x \in X$, in the sense of Definition~\ref{continuity-def}, if and only if
+  \begin{align}
+    \label{cont-at-point-balls}
+    \forall \eps > 0, \exists \delta > 0 : f(B_{d_X}(x,\delta)) \subset B_{d_Y}(f(x),\eps).
+  \end{align}
+\end{lem}
+\begin{proof}
+  Suppose first that $f$ is continuous at a given point $x \in X$ and let $\eps > 0$. Since $f(x)$ lies in the open set $B_{d_Y}(f(x),\eps)$, there is an open set $V$ in $X$ such that $x \in V$ and $f(V) \subset B_{d_Y}(f(x),\eps)$. By the discussion in Remark~\ref{remark-def-open-balls} the openness of $V$ implies that there is a $\delta > 0$ so that $B_{d_X}(x,\delta) \subset V$, and then in particular $f(B_{d_X}(x,\delta)) \subset f(V) \subset B_{d_Y}(f(x),\eps)$.
+  
+  Suppose now that \eqref{cont-at-point-balls} holds for $f$ and let $U$ be an open set in $Y$ containing $f(x)$. Once again, by Remark~\ref{remark-def-open-balls}, this implies that there exists an $\eps > 0$ so that $B_{d_Y}(f(x),\eps) \subset U$. By \eqref{cont-at-point-balls} we then get a $\delta > 0$ with $f(B_{d_X}(x,\delta)) \subset B_{d_Y}(f(x),\eps)$, and since $B_{d_X}(x,\delta)$ is open in $X$ and contains $x$ we are done.
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{continuity-def-equivalent}]
+  This follows by combining Lemma~\ref{continuity-def-equivalent-lemma} and the last part of Theorem~\ref{continuous-props}.
+\end{proof}
+
+
+\subsection{The subspace topology}
+Often, we will be dealing with subsets of topological spaces, and we want to be able to consider these subsets as topological spaces in their own right.
+\trans{subspace topology}{underrumstopologi}\trans{relative topology}{relativ topologi}
+\begin{defn}
+  Let $(X,\calT)$ be a topological space, and let $Y \subset X$ be any subset of $X$. Then the collection
+  \[
+    \calT_Y = \{ Y \cap U \mid U \in \calT \}
+  \]
+  is called the \wordexp{the subspace topology}{underrumstopologin}{subspace topology, the}{underrumstopologi}.
+\end{defn}
+\begin{lem}
+  The collection $\calT_Y$ actually defines a topology on $Y$.
+\end{lem}
+\begin{proof}
+  Obviously $\emptyset$ and $Y$ are in $\calT_Y$, so (T1) holds. Let $\{U_i\}_{i\in I}$ be a family of subsets $U_i \in \calT_Y$. That is, for every $i \in Y$ there exists a $V_i \in \calT$ so that $U_i = Y \cap V_i$. Then by (an infinite version) of De Morgan's law (Proposition~\ref{de-morgan}),
+  \[
+    \bigcup_{i \in I} U_i = \bigcup_{i \in I} Y \cap V_i = Y \cap \bigcup_{i \in I} V_i,
+  \]
+  and since $\bigcup_{i \in I} V_i \in \calT$ by (T2), applied to $\calT$, this shows (T2) for $\calT_Y$.
+  
+  Finally, (T3) follows by the other of De Morgan's laws by the exact same logic.
+\end{proof}
+Equipping $Y$ with the subspace topology, we will call $Y$ a \emph{subspace}\index{subspace} of $X$. If a set $U$ belongs to $\calT_Y$ we will often say that \emph{$U$ is open in $Y$}.
+\begin{example}
+  As a word of warning, a subspace might have open sets that would not be considered open in the full topological space. For instance, let $X = \bbR$ and $Y = [0,\infty)$. Then the half-open interval $[0,1)$ is open in $Y$ since $[0,1) = Y \cap (-1,1)$, but $[0,1)$ is not open in $X$.
+\end{example}
+\begin{prop}
+  \label{props-subspace-top}
+  Let $(X,\calT)$ be a topological space, and let $(Y,\calT_Y)$ be a subspace. Then
+  \begin{enumerate}
+    \item[(i)] the inclusion map $\iota : Y \to X$ given by $\iota(y) = y$ is continuous,
+    \item[(ii)] if $Z$ is a topological space, and $f : X \to Z$ is a continuous map, then the restriction $f|_Y : Y \to Z$ is also continuous, and
+    \item[(iii)] a set $F \subset Y$ is closed in $Y$ if and only if there is a set $G \subset X$ which is closed in $X$ so that $F = Y \cap G$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  To see (i), let $U$ be open in $X$. Then $\iota^{-1}(U) = U \cap Y$, which is open in $Y$ by definition, so $\iota$ is continuous.
+  
+  To see (ii), let $U$ be open in $Z$. Then $f|_Y^{-1}(U) = f^{-1}(U) \cap Y$, which is open in $Y$ since $f^{-1}(U)$ is open in $X$.
+  
+  Finally, let us show (iii). Let $F \subset Y$ be closed in $Y$. This means that $Y \setminus F$ is open in $Y$ so there is an set $U$ which is open in $X$ and $Y \setminus F = Y \cap U$. Let $G = X \setminus U$. Then $G$ is closed in $X$ and
+  \[
+    F = Y \setminus (Y \setminus F) = Y \setminus (Y \cap U) = (Y \setminus Y) \cup (Y \setminus U) = Y \setminus U = Y \cap (X \setminus U) = Y \cap G.
+  \]
+  On the other hand, let $G \subset X$ be closed so that $X \setminus G$ is open, and let $F = Y \cap G$. We have to show that $F$ is closed in $Y$. We know that $Y \cap (X \setminus G)$ is open in $Y$ and find that
+  \[
+    Y \cap (X \setminus G) = Y \setminus (Y \cap G) = Y \setminus F,
+  \]
+  so $F$ is closed in $Y$.
+\end{proof}
+\begin{example}
+  The subspace topology on $\bbZ \subset \bbR$ is the discrete topology on $\bbZ$: the set $\{n\}$ is open in $\bbZ$ for any integer $n$.
+  
+  On the other hand, the subspace on $\bbQ \subset \bbR$ is \emph{not} the discrete topology, essentially because any non-empty open interval in $\bbR$ contains infinitely many rational numbers.
+\end{example}
+
+In metric spaces, all subsets are automatically metric spaces as one can restrict metrics to subsets. The following result shows that the subspace topology gives the ``right'' thing in this case.
+
+\begin{prop}
+  If $(X,d)$ is a metric space and $Y \subset X$, then the metric topology induced by the restricted metric $d|_{Y \times Y}$ is exactly the subspace topology on $Y$.
+\end{prop}
+\begin{proof}
+  Left to the reader.
+\end{proof}
+Finally, let us show the following result, which says that to check that a function is continuous, it suffices to check it on a collection of open (or closed) sets that together make up the entire space.
+\begin{example}
+  For the familiar topological spaces, this should not be a big surprise: if a function $f : \bbR \to \bbR$ is continuous on $(-\infty,1)$ and $(-1,\infty)$, then it is continuous on all of $(-\infty,\infty)$.
+\end{example}
+
+\begin{lem}[The pasting lemma]
+  Let $X$ and $Y$ be topological spaces, and let $U,V \subset X$ be two open subsets such that $X = U \cup V$. Let $f : U \to Y$ and $g : V \to Y$ be two functions so that $f|_{U \cap V} = g|_{U \cap V}$. Then $f$ and $g$ are continuous with respect to the the subspace topologies on $U$ and $V$ if and only if the function $h : X \to Y$ given by
+  \[
+    h(x) = \begin{cases} f(x), & \text{if $x \in U$}, \\ g(x), & \text{if $x \in V$,} \end{cases}
+  \]
+  is continuous.
+\end{lem}
+\begin{proof}
+  Notice first of all that $h$ is well-defined since $f|_{U \cap V} = g|_{U \cap V}$. If $h$ is continuous, then so are $f$ and $g$ by Proposition~\ref{props-subspace-top}.
+  
+  Assume that $f$ and $g$ are continuous and let $W \subset Y$ be open in $Y$. Choose open sets $U'$ and $V'$ in $X$ so that $f^{-1}(W) = U \cap U'$ and $g^{-1}(W) = V \cap V'$. Now
+  \begin{align*}
+    h^{-1}(W) &= \{ x \in X \mid h(x) \in W \} = \{x \in U \mid h(x) \in W \} \cup \{x \in V \mid h(x) \in W \} \\
+              &= \{ x \in U \mid f(x) \in W \} \cup \{ x \in V \mid g(x) \in W \} \\
+              &= (f^{-1}(W) \cap U) \cup (g^{-1}(W) \cap W) = (U \cap U') \cup (V \cup V'),
+  \end{align*}
+  which is open in $X$ since we assumed that both $U$ and $V$ were.
+\end{proof}
+\begin{rem}
+  Notice that the exact same result would hold if we replaced ``open'' with ``closed'' everywhere in the statement and proof.
+  
+  Notice also that the result would also be true if we replaced $U$ and $V$ with an infinite collection of open (or closed) sets $\{U_i\}_{i \in I}$ so that $X = \bigcup_{i \in I} U_i$.
+\end{rem}
+
+\subsection{The poset and order topologies}
+Recall from Definition~\ref{def-poset} the definition of a poset $(X,\preceq)$.
+\begin{prop}
+  Let $(X,\preceq)$ be a poset and define for every $a \in X$ a subset
+  \[
+    P_a = \{ x \in X \mid a \preceq x\}.
+  \]
+  Then the collection
+  \[
+    \calB = \{ P_a \mid a \in X \}
+  \]
+  is the basis for a topology $\calT_\calB$ called the \word{poset topology}{pom{\"a}ngdtopologin} on $X$.
+\end{prop}
+\begin{proof}
+  For every $x \in X$ we have that $x \preceq x$ so $x \in P_x$ which implies (B1).
+  
+  Suppose that $x \in P_a \cap P_b$ for $a,b \in X$. We claim that $x \in P_x \subset P_a \cap P_b$. This holds since we know that $a \preceq x$ and $b \preceq x$ so for any $y$ with $x \preceq y$, transitivity implies that $a \preceq y$ and $b \preceq y$ so $y \in P_a \cap P_b$.
+\end{proof}
+For any poset $(X,\preceq)$, we can define \emph{intervals}\index{interval}
+\begin{align*}
+  [a,b] &= \{ x \in X \mid a \preceq x \preceq b \},\\
+  [a,b) &= \{ x \in X \mid a \preceq x \preceq b, x \not= b \},\\
+  (a,b] &= \{ x \in X \mid a \preceq x \preceq b, x \not= a \},\\
+  (a,b) &= \{ x \in X \mid a \preceq x \preceq b, x\not= a, x \not= b \}.
+\end{align*}
+We say that an element $a_0 \in X$ is the \emph{smallest element}\index{smallest element} of $X$ if $a_0 \preceq x$ for all $x \in X$, and similarly, we say that $b_0$ is the \emph{largest element}\index{largest element} of $X$ if $x \preceq b_0$ for all $x \in X$. Notice that the word \emph{the} is justified since there can be at most one smallest and one largest element. There need not be any smallest/largest elements at all though, as is evident from the example of the poset $(\bbR,\leq)$.
+\trans{order topology}{?}
+\begin{prop}
+  For a poset $(X,\preceq)$ define a collection $\calB$ of subsets to consist of
+  \begin{itemize}
+    \item all open intervals $(a,b)$, $a,b \in X$,
+    \item all intervals $[a_0,b)$, $b \in X$, if $X$ has a smallest element $a_0$, and
+    \item all intervals $(a,b_0]$, $a \in X$, if $X$ has a largest element $b_0$.
+  \end{itemize}
+  Then $\calB$ is the basis for a topological $\calT_\calB$ on $X$, called the \word{order topology}{?}.
+\end{prop}
+\begin{proof}
+  One needs to check (B1) and (B2) for $\calB$. We leave this to the reader.
+\end{proof}
+\begin{example}
+  Since $(\bbR,\leq)$ has no smallest or largest elements, the basis for its order topology simply consists of all open intervals. That is, the order topology is exactly the standard topology on $\bbR$.
+\end{example}
+
+\subsection{The product topology}
+Recall from Section~\ref{cartesian-product} how to define, for any collection of sets, their Cartesian product. In this section we will show how to define a topology on a product of topological spaces.
+
