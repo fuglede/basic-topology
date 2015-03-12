@@ -46,6 +46,7 @@ Note that we will often say that $X$ is a topological space when we mean that $(
   A subset $A \subset X$ of a topological space is called \word{closed}{sluten} if $A^c$ is open.
 \end{defn}
 \begin{prop}
+  \label{prop-closed}
   In a topological space $X$,
   \begin{enumerate}
     \item[(T1')] $\emptyset$ and $X$ are closed,
@@ -489,7 +490,7 @@ To make this more concrete, let us consider the case of a product of just two to
 \[
   \calB = \{ U \times V \mid U \in \calT_{X_1}, V \in \calT_{X_2} \},
 \]
-then $\calB$ is a basis for the product topology on $X_1 \times X_2$.
+then $\calB$ is a basis for the product topology on $X_1 \times X_2$. Similarly, open sets in $X = \prod_{i \in I} X_i$ are unions of sets of the form $\prod_{i \in I} U_i$, where $U_i$ is open in $X_i$ for each $i \in I$.
 
 \begin{thm}
   Let $X$ be a topological space, and let $\{Y_i\}_{i \in I}$ be a family of topological spaces. A function $f : X \to \prod_{i \in I} Y_i$ consists of a family of functions $\{f_i\}_{i \in I}$ where $f_i : X \to Y_i$ for all $i \in I$. Then $f$ is continuous if and only if $f_i$ is continuous for every $i$.
@@ -503,3 +504,124 @@ then $\calB$ is a basis for the product topology on $X_1 \times X_2$.
 \end{proof}
 
 % It would make sense to talk about universal properties here. Maybe I'll do that.
+
+\subsection{Interior, closure, boundary, and limit points}
+\begin{defn}
+  Let $(X,\calT)$ be a topological space, and let $Y \subset X$ be a subset. Then
+  \begin{enumerate}
+    \item[(i)] the \word{interior}{inre} of $Y$, denoted $\mathring{Y}$ or $\Int Y$, is the union of all open subsets in $Y$,
+    \item[(ii)] the \word{closure}{slutna h{\"o}ljet} of $Y$, denoted $\bar{Y}$, is the intersection of all closed subsets containing $Y$.
+    \item[(iii)] The subset $Y$ is called \word{dense}{t{\"a}t} in $X$ if $\bar{Y} = X$.
+  \end{enumerate}
+\end{defn}
+\trans{interior}{inre}\trans{closure}{slutet h{\"o}lje}\trans{boundary}{rand}\trans{dense}{t{\"a}t}
+Notice that $\Int Y$ is open, since it is a union of open sets. Likewise, $\bar Y$ is closed by Proposition~\ref{prop-closed}, and we have
+\[
+  \Int Y \subset Y \subset \bar{Y}.
+\]
+It also follows directly from the definition that $Y$ is open if and only $Y = \Int Y$ and that $Y$ is closed if and only if $Y = \bar Y$. The definition also implies that $\Int Y$ is the largest open subset contained in $Y$, and that $\bar Y$ is the smallest closed subset containing $Y$.
+
+Furthermore, it is useful to note that the complement of an open set contained in $Y$ is a closed set containing $Y^c$ and on the other hand, the complement of a closed set containing $Y$ is an open set contained in $Y^c$. This implies that
+\begin{align}
+  \label{int-versus-closure}
+  \Int Y = X \setminus \bar{(X \setminus Y)}, \quad \bar{Y} = X \setminus \Int(X \setminus Y),
+\end{align}
+which can also be shown more precisely by using De Morgan's laws.
+\begin{prop}
+  Let $Y$ and $Z$ be subsets of a topological space $X$. Then
+  \begin{enumerate}
+    \item[(i)] $\bar{Y \cup Z} = \bar Y \cup \bar Z$,
+    \item[(ii)] $\bar{Y \cap Z} \subset \bar Y \cap \bar Z$,
+    \item[(iii)] $\Int Y \cup \Int Z \subset \Int(Y \cup Z)$, and
+    \item[(iv)] $\Int Y \cap \Int Z = \Int (Y \cap Z)$.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  Let us show (i) and (ii); (iii) and (iv) follow by the same logic. First, note that since $Y \subset \bar Y$ and $Z \subset \bar Z$ we get that $Y \cup Z \subset \bar Y \cup \bar Z$. This says that $\bar Y \cup \bar Z$ is a closed subset containing $Y \cup Z$; since $\bar{Y \cup Z}$ is the smallest closed subset containing $Y \cup Z$, this tells us that $\bar{Y \cup Z} \subset \bar Y \cup \bar Z$.
+  
+  On the other hand $Y \subset Y \cup Z \subset \bar {Y \cup Z}$ and the latter set is closed so $\bar Y \subset \bar Y \cup \bar Z$. For the same reason $\bar Z \subset \bar Y \cup \bar Z$, and this implies that $\bar Y \cup \bar Z \subset \bar { Y \cup Z}$.
+  
+  Since $Y \subset \bar Y$ and $Z \subset \bar Z$ we have $Y \cap Z \subset \bar Y \cap \bar Z$. The latter set is closed so $\bar {Y\cap Z} \subset \bar Y \cap \bar Z$.
+\end{proof}
+For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivning} of a point $x$ if $x \in U$.
+
+
+\begin{defn}
+  Let $Y$ be a subset of a topological space $X$. Then
+  \begin{enumerate}
+    \item[(i)] the \word{boundary}{rand} of $Y$, denoted $\dd Y$ is the set
+      \[
+        \dd Y = \{ x \in X \mid \text{$U \cap Y \not= \emptyset$ and $U \cap Y^c \not= \emptyset$ for all neighbourhoods $U$ of $x$}\}.
+      \]
+      That is, $x \in \dd Y$ if all neighbourhoods of $x$ intersect both $Y$ and $Y^c$.
+    \item[(ii)] A \word{limit point}{gr{\"a}nspunkt} of $Y$ is a point $x \in X$ with the property that all its neighbourhoods intersect $Y$ in a point which is not $x$ itself. Let
+    \[
+      Y' = \{x \in X \mid \text{$x$ is a limit point of $Y$} \}
+    \]
+  \end{enumerate}
+\end{defn}
+\trans{limit point}{gr{\"a}nspunkt}
+\begin{example}
+  Let $Y = [0,1) \cup \{2\} \subset \bbR$ with the standard topology on $\bbR$. Then $\Int Y = (0,1)$, $\bar{Y} = [0,1] \cup \{2\}$, $\dd Y = \{0,1,2\}$, and $Y' = [0,1]$.
+\end{example}
+\begin{thm}
+  Let $X$ be a topological space and $Y \subset X$ a subset. Then
+  \begin{enumerate}
+    \item[(i)]  $\dd Y = X \setminus (\Int Y \cup \Int (X \setminus Y)) = \bar Y \cap \bar{X \setminus Y}$,
+    \item[(ii)] $\bar{Y} = Y \cup \dd Y$, and
+    \item[(iii)] $\bar{Y} = Y \cup Y'$.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  The second equality in (i) is obtained directly from \eqref{int-versus-closure}, so it suffices to show the first equality. Taking complements, this becomes
+  \[
+    X \setminus \dd Y = \Int Y \cup \Int (X \setminus Y).
+  \]
+  Let $x \in X \setminus \dd Y$. This means that there is a neighbourhood $U$ of $x$ so that $x \in U \subset Y$ or $x \in U \subset X \setminus Y$. This means that either $x \in \Int Y$ or $x \in \Int (X \setminus Y)$.
+  
+  Suppose that either $x \in \Int Y$ or $x \in \Int (X \setminus Y)$. If $x \in \Int Y$ then there is an open set $U$ such that $x \in U \subset Y$, and so $U \cap Y^c = \emptyset$, so $x \notin \dd Y$. Similarly, if $x \in \Int(X \setminus Y)$, one gets an open neighbourhood $U$ of $x$ with $U \cap Y = \emptyset$, so once again $x \notin \dd Y$. This shows (i).
+  
+  From (i) and \eqref{int-versus-closure} it follows that
+  \[
+    Y \cup \dd Y = Y \cup (\bar Y \cap \bar{X \setminus Y}) = (Y \cup \bar Y) \cap (Y \cup \bar{X \setminus Y}) = \bar Y \cap X = \bar Y,
+  \]
+  which is (ii).
+  
+  Finally, we use (ii) and show that $Y \cup \dd Y = Y \cup Y'$. To see this, it suffices to show that $\dd Y \setminus Y = Y' \setminus Y$ as one can then take the union with $Y$ on both sides. So, let $x \in \dd Y \setminus Y$. Then any neighbourhood $U$ of $x$ intersects $Y$, and since $x \notin Y$, this necessarily means that $U$ intersects $Y$ in a point which is not $x$ itself, so $x \in Y'$, and since $x \notin Y$, we have $x \in Y' \setminus Y$.
+  
+  On the other hand, if $x \in Y' \setminus Y$, any neighborhood $U$ of $x$ will intersect $Y$; it will also intersect $X \setminus Y$, since $x$ belongs to that set. This implies that $x \in \dd Y$, and as before, $x \in \dd Y \setminus Y$. This completes the proof.
+\end{proof}
+\begin{example}
+  We claim that $\bbQ$ is dense in $\bbR$, i.e. that $\bar \bbQ = \bbR$. By the above theorem, it suffices to show that $\dd \bbQ \cup \bbQ = \bbR$. To see this, let $x \in \bbR$ be arbitrary, and let $U$ be any neighbourhood of $x$. Now, an open set like $U$ is the union of a number of intervals, any interval contains (an infinite number of) both rational and irrational numbers, that is, $U \cap \bbQ \not= \emptyset$, and $U \cap (\bbR \setminus \bbQ) \not= \emptyset$. This is exactly the condition that $x \in \dd \bbQ$. Notice, not only did we show that $\dd \bbQ \cup \bbQ = \bbR$; we actually see that $\dd \bbQ = \bbR$.
+\end{example}
+\begin{prop}
+  Let $\{X_i\}_{i \in I}$ be a family of topological spaces, and let $A_i \subset X_i$ be subsets of each of them. Then
+  \[
+    \prod_{i \in I} \bar {A_i} = \bar{\prod_{i \in I} A_i}.
+  \]
+\end{prop}
+\begin{proof}
+  Let $x = \{x_i\}_{i \in I} \in \prod_{i \in I} \bar {A_i}$. Let $U = \prod_{i \in I} U_i$ be any of the basis elements for the product topology $x \in U$, i.e. such that $x_i \in U_i$ and such that $U_i$ is open in $X_i$ for every $i \in I$. Since also $x_i \in \bar A_i$ for all $i$, we can choose a $y_i \in U_i \cap A_i$ for all $i$, so $y = \{y_i\}_{i \in I} \in U \cap \prod_{i\in I} A_i$. In other words, any neighbourhood $U$ of $x$ contains points from $\prod_{i\in I} A_i$ so $x \in \bar{\prod_{i\in I} A_i}$.
+  
+  For the converse, suppose that $x \in \bar{\prod_{i\in I} A_i}$. Let $V_i$ be any open set that contains $x_i$. Then by definition of the product topology, $\pi_i^{-1}(V_i)\subset X$ is a neighbourhood of $x$ and so contains a point $y \in \prod_{i\in I} A_i$. This says that $y_i \in A_i \cap V_i$ so that $x_i \in \bar{A_i}$ and $x \in \prod_{i \in I} \bar{A_i}$.
+\end{proof}
+
+\subsection{Separation axioms and Hausdorff spaces}
+In $\bbR^n$ we have a very good idea of what it means for two points to be separated: if they're different, they're separated. We now ask ourselves the question if its possible to separate points in general topological spaces, using only the data of open sets. Consider for instance the topological space $X = \{a,b,c\}$ with the topology $\calT = \{ \emptyset, \{a\}, \{b,c\} , X\}$. From the viewpoint of topology, there is no way to tell the points $b$ and $c$ apart using only open sets; we consider the points inseparable.
+
+Now for general topological spaces, it turns out that there are plenty of meaningful ways -- called separation axioms -- to then actually separate points, some of which lead to more interesting mathematics than others. In this section, we give the first few of these, including the immensely important Hausdorff axiom.
+\begin{defn}
+  A topological space $(X,\calT)$ is called
+  \begin{enumerate}
+    \item[(i)] $T_0$ if for every pair $x, y \in X$, $x \not= y$, there exists a neighbourhood of $x$ that does not contain $y$, \emph{or} there exists a neighbourhood of $y$ that does not contain $x$.
+    \item[(ii)] $T_1$ if for every pair $x,y \in X$, $x \not= y$, $x$ has a neighborhood not containing $y$, \emph{and} $y$ has a neighbourhood not containing $x$.
+    \item[(iii)] $T_2$ or \emph{Hausdorff}\index{Hausdorff} if for every pair $x, y \in X$, $x \not= y$, there exists neighbourhoods $U_x$ and $U_y$ of $x$ and $y$ respectively so that $U_x \cap U_y \not= \emptyset$.
+  \end{enumerate}
+\end{defn}
+Note that clearly, a $T_2$-space is $T_1$, and a $T_1$-space is $T_0$.
+\begin{prop}
+  A topological space $X$ is $T_1$ if and only if $\{x \}$ is closed for all $x \in X$.
+\end{prop}
+\begin{proof}
+  Suppose first that $\{x\}$ is closed for all $x \in X$, and let $x,y \in X$, $x \not= y$. Then $X \setminus \{x\}$ is a neighbourhood of $y$ that does not contain $x$, and $X \setminus \{y \}$ is a neighbourhood of $x$ not containing $y$, so $X$ is $T_1$.
+\end{proof}
