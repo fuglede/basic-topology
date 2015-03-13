@@ -1,5 +1,5 @@
 \section{Exercises}
-The exercises are split into four sets, corresponding to the four exercise sessions held as part of the course. Many of the exercises are collected from previous iterations of the course, and these in turn may originate from \cite{Hum}.
+The exercises are split into four sets, corresponding to the four exercise sessions held as part of the course. Many of the exercises are collected from previous iterations of the course, and these in turn may originate from \cite{Mun}.
 
 \subsection{Set \#1}
 
@@ -10,15 +10,45 @@ The exercises are split into four sets, corresponding to the four exercise sessi
     \]
     Show that $C$ is an equivalence relation and describe the equivalence classes of $C$.
   \item Describe all possible topologies on the set $X = \{a,b,c\}$.
-  \item Let $X$ be a set, and let $\calT_1$ and $\calT_2$ be two different topologies on $X$. When is the identity map $\id_X : X \to X$ given by $\id_X(x) = x$ a continuous map from $(X,\calT_1)$ to $(X,\calT_2)$.
+  \item Let $X$ be a set, and let $\calT_1$ and $\calT_2$ be two different topologies on $X$. When is the identity map $\id : X \to X$ given by $\id(x) = x$ a continuous map from $(X,\calT_1)$ to $(X,\calT_2)$.
   \item \begin{itemize}
 		\item[($a$)] Show that the subspace topology $\calT_Y$ is the smallest (meaning coarsest) topology on $Y\subset X$ for which the inclusion $\iota:Y \rightarrow X$ is a continuous map.
-		\item[($b$)] Let $Y\subset X$ be an open (closed) subset of a topological space $X$. Decribe the open (closed) subsets of $Y$ in the subspace topology
+		\item[($b$)] Let $Y\subset X$ be an open (closed) subset of a topological space $X$. Describe the open (closed) subsets of $Y$ in the subspace topology
 	\end{itemize}
-    
+  \item \begin{itemize}
+		\item[($a$)] Describe the open sets in the poset topology on $\{a,b,c,d\}$ defined by the relations $a\preceq b\preceq c$ and $a\preceq d$.
+		\item[($b$)] Describe as many as possible of the topologies on $\{a,b\}$ and $\{a,b,c\}$ in terms of poset topologies.
+		\item[($c$)] Describe the open sets in the poset topology on $(\bbR,\leq)$.
+	\end{itemize}
+	
   \item The Euclidean space $\bbR^2$ can be identified with the Cartesian product $\bbR \times \bbR$. Use Lemma~\ref{compare-bases} to show that the standard topology on $\bbR^2$ equals the product topology from $\bbR$ (were each $\bbR$ has the standard topology).
   
+  	\item Let $(X_1,d_1)$ and $(X_2,d_2)$ be metric spaces. Define a metric on $X_1 \times X_2$ by
+	  \[
+	    d((x_1,x_2),(y_1,y_2)) = \max(d_1(x_1,y_1),d_2(x_2,y_2)).
+	  \]
+    Show that the metric topology on $X_1 \times X_2$ induced $d$ is the product topology, where $X_1$ and $X_2$ have the metric topologies from $d_1$ and $d_2$ respectively.
+  
+  \item Show that the order topology is $T_1$
+  
   \item \label{metric-Hausdorff} Show that metric spaces are always Hausdorff.
+  
+  \item Show that if $X$ is Hausdorff, then so is any subset $Y\subset X$ with the subspace topology.
+  
+  \item Show that the product of two Hausdorff spaces is Hausdorff.
+  
+  \item Let $Y$ be an ordered set made into a space with the order topology, and let $f,g:X\to Y$ be two continuous functions. Show that the set $\{x \mid f(x)\leq g(x)\}$ is closed in $X$.
+  
+  \item Let $X,Y,Z$ be topological spaces and consider a function $F:X\times Y\rightarrow Z$. We say that $F$ is \emph{continuous in each variable} if for each $y_0\in Y$ the function $h:X\rightarrow Z$ defined by $h(x)=F(y_0,x)$ is continuous, \emph{and} if for each $x_0\in X$ the function $g:Y\rightarrow Z$ defined by $g(y) = F(x_0,y)$ is continuous. Show that if $F$ is continuous, then $F$ is continuous in each variable.
+  
+  \item \begin{itemize}
+		\item[($a$)] A poset topology is $T_0$. When is it $T_1$?
+		\item[($b$)] If $X$ is a $T_0$-space with finitely many elements. Then we can define a relation
+		\[x\preceq y \Leftrightarrow y\in \bigcap_{U\subset X\text{ open}, x\in U} U.\]
+		Show that $\preceq$ is a partial order. What is the poset topology on $(X,\preceq)$?
+		\item[($c$)] Describe continuity for a map from $(X,\preceq_X)$ to $(Y,\preceq_Y)$ in terms of the partial orders.
+	\end{itemize}
+  
 \end{enumerate}
 
 \subsection{Set \#2}
