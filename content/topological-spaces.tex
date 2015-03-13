@@ -447,7 +447,7 @@ Recall from Definition~\ref{def-poset} the definition of a poset $(X,\preceq)$.
   
   Suppose that $x \in P_a \cap P_b$ for $a,b \in X$. We claim that $x \in P_x \subset P_a \cap P_b$. This holds since we know that $a \preceq x$ and $b \preceq x$ so for any $y$ with $x \preceq y$, transitivity implies that $a \preceq y$ and $b \preceq y$ so $y \in P_a \cap P_b$.
 \end{proof}
-For any poset $(X,\preceq)$, we can define \emph{intervals}\index{interval}
+For a totally ordered set $(X,\preceq)$, define \emph{intervals}\index{interval}
 \begin{align*}
   [a,b] &= \{ x \in X \mid a \preceq x \preceq b \},\\
   [a,b) &= \{ x \in X \mid a \preceq x \preceq b, x \not= b \},\\
@@ -457,7 +457,7 @@ For any poset $(X,\preceq)$, we can define \emph{intervals}\index{interval}
 We say that an element $a_0 \in X$ is the \emph{smallest element}\index{smallest element} of $X$ if $a_0 \preceq x$ for all $x \in X$, and similarly, we say that $b_0$ is the \emph{largest element}\index{largest element} of $X$ if $x \preceq b_0$ for all $x \in X$. Notice that the word \emph{the} is justified since there can be at most one smallest and one largest element. There need not be any smallest/largest elements at all though, as is evident from the example of the poset $(\bbR,\leq)$.
 \trans{order topology}{?}
 \begin{prop}
-  For a poset $(X,\preceq)$ define a collection $\calB$ of subsets to consist of
+  For a totally ordered $(X,\preceq)$ define a collection $\calB$ of subsets to consist of
   \begin{itemize}
     \item all open intervals $(a,b)$, $a,b \in X$,
     \item all intervals $[a_0,b)$, $b \in X$, if $X$ has a smallest element $a_0$, and
