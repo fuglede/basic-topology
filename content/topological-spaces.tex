@@ -651,3 +651,42 @@ Note that clearly, a $T_2$-space is $T_1$, and a $T_1$-space is $T_0$.
 \begin{example}
   All metric spaces (with the metric topology) are Hausdorff (Exercise~1.\ref{metric-Hausdorff}).
 \end{example}
+
+\section{Sequences and convergence}
+When one first encounters sequences in calculus and analysis, their convergence is typically worded in an $\eps$-$\delta$-fashion where one considers a sequence as convergent if it gets arbitrarily close to a given limit. Now, in topological spaces we do not have a concept of ``distance'' to guide our intuition but just as we were able to recover a natural concept of continuity, so are we still able to discuss convergence.
+\begin{defn}
+  Let $X$ be a topological space. A \word{sequence}{f{\"o}ljd} in $X$ is a family $\{x_n\}_{n \in \bbN}$ of points in $X$. We say that a sequence $\{x_n\}_{n \in \bbN}$ \word{converges}{konvergera} to a point $x \in X$, if for any neighbourhood $U$ of $x$, there is an $N \in \bbN$ so that $x_n \in U$ for all $n > N$, and in this case, we write $x_n \to x$. A \word{subsequence}{delf{\"o}ljd} $\{y_n\}_{n\in \bbN}$ is a sequence such that $y_i = x_{n_i}$ for some $n_1 < n_2 < \dots$.
+\end{defn}
+\trans{sequence}{f{\"o}ljd}\trans{subsequence}{delf{\"o}ljd}\trans{convergent}{konvergent}
+From the definition, one immediately obtains the following result.
+\begin{prop}
+  If $\{y_n\}$ is a subsequence of $\{x_n\}$ and $x_n \to x$, then $y_n \to x$.
+\end{prop}
+The next example shows that the concept of convergence depends on the topology of the underlying topological space.
+\begin{example}
+  \label{example-convergence}
+  In the trivial topology, all sequences converge to any given point. In the discrete topology, for a sequence $\{x_n\}$ to converge to a point $x$, it has to be constantly equal to $x$ for all large enough $n$.
+\end{example}
+\begin{example}
+  The constant sequence is convergent, regardless of the topology on the space.
+\end{example}
+Let us show that we recover the possibly well-known definition of convergence for metric spaces and in particular for $\bbR^n$.
+\begin{prop}
+  Let $(X,d)$ be a metric space with the metric topology. Then a sequence $\{x_n\}$ in $X$ converges to $x \in X$ if and only if
+  \[
+    \forall \eps > 0, \exists N > 0 : n > N \Rightarrow d(x_n,x) < \eps
+  \] 
+\end{prop}
+\begin{proof}
+  Suppose that $x_n \to x$ and let $\eps > 0$ be given. Let $U = B_d(x,\eps)$. Then by definition of convergence, there exists an $N > 0$ so that $x_n \in U$ for all $n > N$, but this says that $d(x_n,x) < \eps$ for all $n > N$.
+  
+  For the converse, let $U$ be a neighbourhood of $x$. As we saw in Remark~\ref{remark-def-open-balls}, this implies that there exists an $\eps > 0$ so that $B_d(x,\eps) \subset U$. Now by assumption there is an $N > 0$ so that $x_n \in B_d(x,\eps) \subset U$ for all $n > N$.
+\end{proof}
+In spaces like $\bbR^n$ we are used to convergent sequences only having a single limit, but Example~\ref{example-convergence} above shows that this need not be the case in general. It is, however, true for Hausdorff spaces.
+\begin{prop}
+  Let $X$ be Hausdorff. If $x_n \to x$ and $x_n \to y$ in $X$, then $x = y$.
+\end{prop}
+\begin{proof}
+  Suppose that $x \not= y$. Choose $U$ and $V$ disjoint neighbourhoods of $x$ and $y$ respectively. By definition of convergence, we get $N_U, N_V > 0$ so that $x_n \in U$ for all $n > N_U$ and $x_n \in V$ for all $n > N_V$. For $n > \max(N_U,N_V)$ we therefore have $x_n \in U \cap V = \emptyset$ which is a contradiction.
+\end{proof}
+In analysis, one might have encountered the important characterization of continuity that for sequences in $\bbR^n$, $x_n \to x$ if and only $f(x_n) \to f(x)$ when $f$ is continuous.
