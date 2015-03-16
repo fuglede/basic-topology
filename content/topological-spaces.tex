@@ -689,4 +689,11 @@ In spaces like $\bbR^n$ we are used to convergent sequences only having a single
 \begin{proof}
   Suppose that $x \not= y$. Choose $U$ and $V$ disjoint neighbourhoods of $x$ and $y$ respectively. By definition of convergence, we get $N_U, N_V > 0$ so that $x_n \in U$ for all $n > N_U$ and $x_n \in V$ for all $n > N_V$. For $n > \max(N_U,N_V)$ we therefore have $x_n \in U \cap V = \emptyset$ which is a contradiction.
 \end{proof}
-In analysis, one might have encountered the important characterization of continuity that for sequences in $\bbR^n$, $x_n \to x$ if and only $f(x_n) \to f(x)$ when $f$ is continuous.
+In analysis, one might have encountered the important characterization of continuity that for sequences in $\bbR^n$, $x_n \to x$ if and only $f(x_n) \to f(x)$ when $f$ is continuous. It turns out that this is not true for general continuous maps between topological spaces without further assumptions.
+\begin{defn}
+  We say that a topological space $X$ has a \emph{countable basis at $x\in X$} if there is a collection of neighbourhoods $\{B_n\}_{n\in \bbN}$ of $x$ so that if $U$ is any neighbourhood of $x$ there exists an $n \in \bbN$ so that $B_n \subset U$. The space $X$ is called \word{first-countable}{?} if it has a countable basis at $x$ for all $x \in X$.
+\end{defn}
+\begin{example}
+  Metric spaces are first countable.
+\end{example}
+\trans{first-countable}{?}
