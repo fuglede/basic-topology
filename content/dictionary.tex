@@ -1,19 +1,12 @@
-%\section{Dictionary}
-%\label{dictionary}
+\section{Dictionary}
+\label{dictionary}
 % Once more, this is taken from
 %   https://tex.stackexchange.com/questions/19746/cunning-latex-tricks/19761#19761
-\newsavebox{\tempbox}
-\savebox{\tempbox}{
-\centering
-\begin{tabular}{llll}
+
+\begin{longtable}{llll}
   \toprule[1pt]
   English & Swedish \\
   \midrule
   \@for\i:=\alist \do{\csname\i\endcsname}
   \vspace{-14pt}\\\bottomrule
-\end{tabular}
-}
-
-\begin{table}[h]
-\usebox{\tempbox}
-\end{table}
+\end{longtable}
