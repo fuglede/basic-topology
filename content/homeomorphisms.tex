@@ -68,3 +68,28 @@ The important thing to note is that if $f$ is a topological invariant and $f(X) 
 
 We will encounter many other topological properties later on, one of the most important ones being the fundamental group, which is to be introduced in Section~\ref{homotopy}.
 
+\subsection{The $n$-dimensional sphere}
+\begin{defn}
+  The \emph{$n$-sphere} is the set
+  \[
+    S^n = \{ x \in \bbR^{n+1} \mid \Abs{x} = 1 \} \subset \bbR^{n+1}
+  \]
+  with the subspace topology from $\bbR^{n+1}$.
+\end{defn}
+\begin{prop}
+  Let $p = (0,0,\dots,0,1) \in S^n$ be the ``north pole''. Then $S^n \setminus \{p\} \simeq \bbR^n$.
+\end{prop}
+\begin{proof}
+  We will construct a homeomorphism explicitly, leaving some of the details to the reader. Let $x = (x_1, \dots, x_{n+1}) \in S^n \setminus \{ p \}$ so that $x_{n+1} \not= 1$. We then define the \word{stereographic projection}{stereografisk projektion} of $x$ by
+  \[
+    \Pi(x) = \Pi(x_1,\dots,x_n,x_{n+1}) = \frac{1}{1-x_{n+1}) (x_1, \dots, x_n) \in \bbR^n.
+  \]
+  Geometrically, if one draws a straight line between $x$ and $p$, then its intersection with $\bbR^n \times \{0 \}$ will be the point $(\Pi(x),0)$. Now $\Pi$ is continuous because each of its components are (use Proposition~\ref{subspace-continuity}), and one can check that it has an inverse $g : \bbR^n \to S^n \setminus \{p \}$ given by
+  \[
+    g(y_1, \dots, y_n) = (t(y) y_1, \dots, t(y)y_n, 1-t(y)),
+  \]
+  where $t(y) = 2/(1+\Abs{y}^2)$.
+\end{proof}
+\begin{remark}
+  If $q = (0,\dots,0,-1) \in S^n$ is the south pole, then the map $(x_1, \dots, x_n,x_{n+1}) \mapsto (x_1,\dots,
+\end{remark}
