@@ -82,7 +82,7 @@ We will encounter many other topological properties later on, one of the most im
 \begin{proof}
   We will construct a homeomorphism explicitly, leaving some of the details to the reader. Let $x = (x_1, \dots, x_{n+1}) \in S^n \setminus \{ p \}$ so that $x_{n+1} \not= 1$. We then define the \word{stereographic projection}{stereografisk projektion} of $x$ by
   \[
-    \Pi(x) = \Pi(x_1,\dots,x_n,x_{n+1}) = \frac{1}{1-x_{n+1}) (x_1, \dots, x_n) \in \bbR^n.
+    \Pi(x) = \Pi(x_1,\dots,x_n,x_{n+1}) = \frac{1}{1-x_{n+1}} (x_1, \dots, x_n) \in \bbR^n.
   \]
   Geometrically, if one draws a straight line through $x$ and $p$, then its intersection with $\bbR^n \times \{0 \}$ will be the point $(\Pi(x),0)$. Now $\Pi$ is continuous because each of its components are (use Proposition~\ref{props-subspace-top}), and one can check that it has an inverse $g : \bbR^n \to S^n \setminus \{p \}$ given by
   \[
@@ -90,9 +90,9 @@ We will encounter many other topological properties later on, one of the most im
   \]
   where $t(y) = 2/(1+\Abs{y}^2)$.
 \end{proof}
-\begin{remark}
+\begin{rem}
   If $q = (0,\dots,0,-1) \in S^n$ is the south pole, then the map $(x_1, \dots, x_n,x_{n+1}) \mapsto (x_1,\dots,x_n,-x_{n+1})$ is a homeomorphism from $S^n \setminus \{p\}$ to $S^n \setminus \{ q \}$, so we also have that $S^n \setminus \{ q \}$ is homeomorphic with $\bbR^n$. More generally, one can show $S^n \setminus \{x\} \simeq \bbR^n$ for all $x \in S^n$.
-\end{remark}
+\end{rem}
 \begin{example}
   Let $f : [0,1) \to S^1$ be the map $f(x) = (\cos (2\pi x), \sin(2\pi x))$. Then $f$ is a bijection with inverse $f^{-1}(x,y) = \arcsin(y)/(2\pi)$. Moreover, $f$ is continuous: Let $U \subset S^1$ be open. Then there is an open set $V$ in $\bbR^2$ so that $U = S^1 \cap V$.
 \end{example}
