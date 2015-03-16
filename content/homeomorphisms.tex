@@ -1,2 +1,20 @@
 \section{Homeomorphisms}
 \label{homeomorphisms}
+Often in mathematics, when talking about objects as certains things coming with certain structures, we want to be able to say when two objects are ``the same''. Consider for instance the two topological spaces $X = \{ 1 , 2 , 3 \}$ and $Y = \{ 4, 5, 6 \}$ with the topologies
+\begin{align*}
+  \calT_X &= \{ \emptyset, \{1 \}, \{ 2 \}, \{ 1, 2 \}, \{1,2,3\} \}, \\
+  \calT_Y &= \{ \emptyset, \{4 \}, \{ 5 \}, \{ 4, 5 \}, \{4,5,6\} \}.
+\end{align*}
+These spaces are not particularly different for if we identify $1 \leftrightarrow 4$, $2 \leftrightarrow 5$, $3 \leftrightarrow 6$, we have no way to tell them apart. This notion of being the same is made precise in the definition of a ``homeomorphism'' below.
+
+The well-educated mathematics student will have likely come across this general idea before: we consider two vector spaces the same if there is a linear isomorphism from one to the other, we consider algebraic objects such as groups and rings the same if they are isomorphic, and if all we know about two given sets is that they are in bijection, we may as well treat them as the same. This language of ``objects'' being ``the same'' is unified in the branch of mathematics called \word{category theory}{kategoriteori}, sometimes referred to as \emph{abstract nonsense}\index{abstract nonsense}. We will be discussing category theory in any detail in these notes, but it is useful to be aware of its existence.
+
+\subsection{Homeomorphisms}
+In the example above, we notice that crucial property of two topological spaces that ``are the same'' is that they are in bijection and have the same open sets. This leads to the following definition.
+\begin{defn}
+  A bijection $f : X \to Y$ between two topological spaces is called a \word{homeomorphism}{homeomorfi} if $f$ and its inverse $f^{-1}$ are continuous. In this case, we say that $X$ and $Y$ are \word{homeomorphic}{homeomorfa} and we write $X \simeq Y$.
+\end{defn}
+\trans{homeomorphism}{homeomorfi}\trans{homeomorphic}{homeomorfa}
+\begin{example}
+  In the example in the beginning of this section, the bijection $f : X \to Y$ given by $f(1) = 4$, $f(2) = 5$, $f(3) = 6$ is a homeomorphism.
+\end{example}
