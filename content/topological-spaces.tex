@@ -334,7 +334,7 @@ We will prove this theorem in a second, using the following result.
   This follows by combining Lemma~\ref{continuity-def-equivalent-lemma} and the last part of Theorem~\ref{continuous-props}.
 \end{proof}
 
-
+\section{Constructing topologies}
 \subsection{The subspace topology}
 Often, we will be dealing with subsets of topological spaces, and we want to be able to consider these subsets as topological spaces in their own right.
 \trans{subspace topology}{underrumstopologi}\trans{relative topology}{relativ topologi}
@@ -506,6 +506,7 @@ then $\calB$ is a basis for the product topology on $X_1 \times X_2$. Similarly,
 
 % It would make sense to talk about universal properties here. Maybe I'll do that.
 
+\section{Topological spaces up close}
 \subsection{Interior, closure, boundary, and limit points}
 \begin{defn}
   Let $(X,\calT)$ be a topological space, and let $Y \subset X$ be a subset. Then
@@ -566,6 +567,7 @@ For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivni
   Let $Y = [0,1) \cup \{2\} \subset \bbR$ with the standard topology on $\bbR$. Then $\Int Y = (0,1)$, $\bar{Y} = [0,1] \cup \{2\}$, $\dd Y = \{0,1,2\}$, and $Y' = [0,1]$.
 \end{example}
 \begin{thm}
+  \label{relations-closure-boundary}
   Let $X$ be a topological space and $Y \subset X$ a subset. Then
   \begin{enumerate}
     \item[(i)]  $\dd Y = X \setminus (\Int Y \cup \Int (X \setminus Y)) = \bar Y \cap \bar{X \setminus Y}$,
@@ -652,7 +654,7 @@ Note that clearly, a $T_2$-space is $T_1$, and a $T_1$-space is $T_0$.
   All metric spaces (with the metric topology) are Hausdorff (Exercise~1.\ref{metric-Hausdorff}).
 \end{example}
 
-\section{Sequences and convergence}
+\subsection{Sequences and convergence}
 When one first encounters sequences in calculus and analysis, their convergence is typically worded in an $\eps$-$\delta$-fashion where one considers a sequence as convergent if it gets arbitrarily close to a given limit. Now, in topological spaces we do not have a concept of ``distance'' to guide our intuition but just as we were able to recover a natural concept of continuity, so are we still able to discuss convergence.
 \begin{defn}
   Let $X$ be a topological space. A \word{sequence}{f{\"o}ljd} in $X$ is a family $\{x_n\}_{n \in \bbN}$ of points in $X$. We say that a sequence $\{x_n\}_{n \in \bbN}$ \word{converges}{konvergera} to a point $x \in X$, if for any neighbourhood $U$ of $x$, there is an $N \in \bbN$ so that $x_n \in U$ for all $n > N$, and in this case, we write $x_n \to x$. A \word{subsequence}{delf{\"o}ljd} $\{y_n\}_{n\in \bbN}$ is a sequence such that $y_i = x_{n_i}$ for some $n_1 < n_2 < \dots$.
@@ -689,11 +691,30 @@ In spaces like $\bbR^n$ we are used to convergent sequences only having a single
 \begin{proof}
   Suppose that $x \not= y$. Choose $U$ and $V$ disjoint neighbourhoods of $x$ and $y$ respectively. By definition of convergence, we get $N_U, N_V > 0$ so that $x_n \in U$ for all $n > N_U$ and $x_n \in V$ for all $n > N_V$. For $n > \max(N_U,N_V)$ we therefore have $x_n \in U \cap V = \emptyset$ which is a contradiction.
 \end{proof}
-In analysis, one might have encountered the important characterization of continuity that for sequences in $\bbR^n$, $x_n \to x$ if and only $f(x_n) \to f(x)$ when $f$ is continuous. It turns out that this is not true for general continuous maps between topological spaces without further assumptions.
+In analysis, one might have encountered the important characterization of continuity in $\bbR^n$ that a function $f$ is continuous if and only $x_n \to x$ implies that $f(x_n) \to f(x)$. It turns out that this is not quite true for general continuous maps between topological spaces without further assumptions.
 \begin{defn}
   We say that a topological space $X$ has a \emph{countable basis at $x\in X$} if there is a collection of neighbourhoods $\{B_n\}_{n\in \bbN}$ of $x$ so that if $U$ is any neighbourhood of $x$ there exists an $n \in \bbN$ so that $B_n \subset U$. The space $X$ is called \word{first-countable}{?} if it has a countable basis at $x$ for all $x \in X$.
 \end{defn}
 \begin{example}
-  Metric spaces are first countable.
+  All metric spaces are first-countable by Exercise~\ref{metric-first-countable}.
 \end{example}
 \trans{first-countable}{?}
+\begin{lem}[The sequence lemma]
+  \label{closure-convergence}
+  Let $X$ be a topological space and let $A \subset X$. If there is a sequence in $A$ that converges to $x$ then $x \in \bar A$. The converse holds if $X$ is first-countable.
+\end{lem}
+\begin{proof}
+  Suppose that $x_n \to x$ and that $x_n \in A$ for all $N$. If $x \in A$ we are done, so suppose that $x \in X \setminus A$. Let $U$ be a neighbourhood of $x$; then there is an $N > 0$ so that $x_n \in U$ for all $n > N$. This implies that $U \cap A \not= \emptyset$ and $U \cap X \setminus A \not= \emptyset$, so $x \in \dd A$, and so $x \in \bar A$ by Theorem~\ref{relations-closure-boundary}.
+  
+  Suppose that $X$ is first-countable. Let $x \in \bar A$ and let us show that there is a sequence $\{x_n\}$ in $A$ with $x_n \to x$. Let $\{B_n\}$ be a countable basis at $x$ and define for every $n \in \bbN$ an open neighbourhood $U_n = \bigcap_{k=1}^n B_k$ of $x$. Since $x \in A$ or $x \in \dd A$ by Theorem~\ref{relations-closure-boundary} it follows that $U_n \cap A \not= \emptyset$ for every $n$, and we can choose $x_n \in U_n \cap A$ for every $n$. We claim that $x_n \to x$. To see this, let $U$ be any neighbourhood of $x$. Then by definition of first-countability there is an $N \in \bbN$ so that $B_N \subset U$. Now clearly, $U_n \subset U_N \subset B_N$ for all $n > N$ so $x_n \in B_N \subset U$ for all $n > N$ which means that $x_n \to x$.
+\end{proof}
+\begin{thm}
+  Let $X$ and $Y$ be topological spaces. If $f : X \to Y$ be continuous, then $x_n \to x$ in $X$ implies that $f(x_n) \to f(x)$ in $Y$. The converse holds if $X$ is first countable.
+\end{thm}
+\begin{proof}
+  Suppose that $f$ is continuous, let $\{x_n\}$ be a sequence with $x_n \to x$, and let us show that $f(x_n) \to f(x)$. Let $U$ be a neighborhood of $f(x)$. Then $f^{-1}(U)$ is a neighbourhood of $x$, and we can choose an $N > 0$ so that $x_n \in f^{-1}(U)$ for all $n > N$. Thus $f(x_n) \in U$ for all $n > N$ so $f(x_n) \to f(x)$.
+  
+  Suppose that $X$ is first-countable and that all sequences satisfy the condition that if $x_n \to x$ then $f(x_n) \to f(x)$. Let $A$ be a subset in $X$ and let us show that $f(\bar A) \subset \bar f(A)$. Assume that there is a point $x$ so that $f$ is not continuous at $x$. That is, that there is a neighbourhood $U$ of $f(x)$ so that no matter which neighbourhood $V$ of $x$ we choose, it is \emph{not} true that $f(V) \subset U$.
+  
+  As before, take $\{B_n\}$ a countable basis at $x$ and let $U_n = \bigcap_{k=1}^n B_k$. Then in particular, $f(U_n) \not\subset U$ for all $n \in \bbN$. Let $x_n \in U_n$ be arbitrary. Then by the exact same argument as in the proof of Lemma~\ref{closure-convergence} we see that $x_n \to x$, but $f(x_n) \notin U$ for all $n$ so $f(x_n)$ does not converge to $f(x)$.
+\end{proof}
