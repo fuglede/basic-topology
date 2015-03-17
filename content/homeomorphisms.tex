@@ -103,8 +103,28 @@ The quotient topology provides us with yet another way of making new topological
 \begin{defn}
   Let $X$ and $Y$ be topological spaces, and let $p : X \to Y$ be a surjective map. Then $p$ is called a \word{quotient map}{?} if it has the property that $U \subset Y$ is open if and only if $p^{-1}(U) \subset X$ is open.
 \end{defn}
+\trans{quotient map}{?}
 Notice that a quotient map is automatically continuous, but it need not be a homeomorphism since it is not necessarily injective; indeed we will be mostly interested in the cases where it's not.
 
 One motivation for studying quotient maps is that they allow us to glue topological spaces together to obtain new ones. In practice, one does this by introducing an equivalence relation whose equivalence classes correspond to the points that we want to glue.
 
-More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence class of a point $p \in X$ is exactly $[p] = f^{-1}(\{p\})$.
+More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence classes are exactly the sets in $X$ of the form $f^{-1}(\{p\})$ for $p \in Y$, and there is a bijection $Y \to X/\sim_f$ given by $p \mapsto f^{-1}(\{p\})$. Notice that we need $f$ to be surjective for this construction to work.
+
+\begin{defn}
+  Let $X$ be a topological space with an equivalence relation $\sim$. Let $p : X \to X/\sim$ be the map $p(x) = [x]$. The \word{quotient topology}{?} on $X/\sim$ is the topology defined by saying that $U \subset X/\sim$ is open if $p^{-1}(U) \subset X$ is open. In other words, it is the unique topology that forces $p$ to be a quotient map.
+\end{defn}
+\trans{quotient topology}{?}
+\begin{example}
+  \label{collapse-space}
+  We can use the quotient topology to collapse parts of a topological space to a point. Let $U \subset X$ be any subset in a topological space and define an equivalence relation $\sim_U$ on $X$ by $x \sim y$ if $x = y$ or $x,y \in U$. The equivalence class of a point $x$ is
+  \[
+    [x]_U = \begin{cases} \{x\},& \text{if $x \notin U$,} \\ U,& \text{if $x \in U$.}
+  \]
+  Intuitively speaking, in $X/\sim_U$ we have collapsed the set $U$ to consist of a single point while we have left the rest of the space unchanged.
+\end{example}
+We will write the notation $X/U = X/\sim_U$ for the space obtained using the equivalence relation of Example~\ref{collapse-space}.
+\begin{example}
+  Let us see what the above space means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We may prove this claim later on.
+  
+  More generally, if $X = B^n \subset \bbR^n$ is the closed unit ball, then the $(n-1)$-sphere $S^{n-1} \subset B^n$ forms the boundary of $B^n$ in $\bbR^n$. Now if $U = S^{n-1}$ one can show that $B^n/S^{n-1} \simeq S^n$. Picturing the case $n = 2$ is probably helpful.
+\end{example}
