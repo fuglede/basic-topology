@@ -96,3 +96,15 @@ We will encounter many other topological properties later on, one of the most im
 \begin{example}
   Let $f : [0,1) \to S^1$ be the map $f(x) = (\cos (2\pi x), \sin(2\pi x))$. Then $f$ is a bijection with inverse $f^{-1}(x,y) = \arcsin(y)/(2\pi)$. Moreover, $f$ is continuous by Proposition~\ref{props-subspace-top} and Lemma~\ref{universal-inclusion-lemma}. Now $U = [0,\tfrac{1}{2})$ is open in $[0,1)$ (recall Example~\ref{weird-opens-subspace-example}) but $f(U)$ is not open in $S^1$ (this is intuitively clear but of course requires a formal proof -- try to cook one up!). Thus $f$ is not a homeomorphism, even though it is a continuous bijection.
 \end{example}
+
+\subsection{The quotient topology}
+The quotient topology provides us with yet another way of making new topological spaces out of existing ones.
+
+\begin{defn}
+  Let $X$ and $Y$ be topological spaces, and let $p : X \to Y$ be a surjective map. Then $p$ is called a \word{quotient map}{?} if it has the property that $U \subset Y$ is open if and only if $p^{-1}(U) \subset X$ is open.
+\end{defn}
+Notice that a quotient map is automatically continuous, but it need not be a homeomorphism since it is not necessarily injective; indeed we will be mostly interested in the cases where it's not.
+
+One motivation for studying quotient maps is that they allow us to glue topological spaces together to obtain new ones. In practice, one does this by introducing an equivalence relation whose equivalence classes correspond to the points that we want to glue.
+
+More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence class of a point $p \in X$ is exactly $[p] = f^{-1}(\{p\})$.
