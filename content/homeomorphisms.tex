@@ -106,14 +106,14 @@ The quotient topology provides us with yet another way of making new topological
 \trans{quotient map}{?}
 Notice that a quotient map is automatically continuous, but it need not be a homeomorphism since it is not necessarily injective; indeed we will be mostly interested in the cases where it's not.
 
-One motivation for studying quotient maps is that they allow us to glue topological spaces together to obtain new ones. In practice, one does this by introducing an equivalence relation whose equivalence classes correspond to the points that we want to glue.
-
-More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence classes are exactly the sets in $X$ of the form $f^{-1}(\{p\})$ for $p \in Y$, and there is a bijection $Y \to X/\sim_f$ given by $p \mapsto f^{-1}(\{p\})$. Notice that we need $f$ to be surjective for this construction to work.
+One motivation for studying quotient maps is that they allow us to glue topological spaces together to obtain new ones. In practice, one does this by introducing an equivalence relation whose equivalence classes correspond to the points that we want to glue. An equivalent description is given in terms of general quotient a bit later in this section.
 
 \begin{defn}
+  \label{def-quotient-topology}
   Let $X$ be a topological space with an equivalence relation $\sim$. Let $p : X \to X/\!\sim$ be the map $p(x) = [x]$. The \word{quotient topology}{?} on $X/\!\sim$ is the topology defined by saying that $U \subset X/\!\sim$ is open if $p^{-1}(U) \subset X$ is open. In other words, it is the unique topology that forces $p$ to be a quotient map.
 \end{defn}
 \trans{quotient topology}{?}
+
 \begin{example}
   \label{collapse-space}
   We can use the quotient topology to collapse parts of a topological space to a point. Let $U \subset X$ be any subset in a topological space and define an equivalence relation $\sim_U$ on $X$ by $x \sim y$ if $x = y$ or $x,y \in U$. The equivalence class of a point $x$ is
@@ -124,7 +124,69 @@ More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivale
 \end{example}
 We will use the notation $X/U = X/\!\sim_U$ for the space obtained using the equivalence relation of Example~\ref{collapse-space}.
 \begin{example}
-  Let us see what the above space means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We may prove this claim later on.
+  Let us see what the above space means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We will show this precisely in Example~\ref{circle-from-interval}.
   
   More generally, if $X = B^n \subset \bbR^n$ is the closed unit ball, then the $(n-1)$-sphere $S^{n-1} \subset B^n$ forms the boundary of $B^n$ in $\bbR^n$. Now if $U = S^{n-1}$ one can show that $B^n/S^{n-1} \simeq S^n$. Picturing the case $n = 2$ is probably helpful.
 \end{example}
+The following result allows us to determine continuity of functions defined on quotient spaces in terms of the spaces they originate from.
+\begin{lem}
+  \label{universal-property-quotients}
+  Let $X$ and $Y$ be a topological spaces, and let $\sim$ be an equivalence relation on $X$. Suppose that $f : X \to Y$ is a map with the property that $x \sim y$ implies that $f(x) = f(y)$. There then exists a unique map $g : X /\!\sim \to Y$ so that $f = g \circ p$, where $p : X \to X/\!\sim$ is the canonical surjection $p(x) = [x]$. Moreover, $g$ is continuous if and only if $f$ is.
+\end{lem}
+\begin{proof}
+  Let us first define a $g$ that works: let $[x] \in X/\!\sim$ for $x \in X$. We then define $g([x]) = f(x) \in Y$. The condition on $f$ ensures that $g$ is well-defined, i.e. that if $[x] = [y]$, then $g([x]) = g([y])$. Now by construction $f = g \circ p$. We will show that $g$ is continuous if and only if $f$ is, and that $g$ is the only map that satisfies $f = g \circ p$.
+  
+  Let us start with the latter; assume that there is a map $g' : X/\!\sim \to Y$ with $f = g' \circ p$. We then have
+  \[
+    g([x]) = f(x) = (g' \circ p)(x) = g'(p(x)) = g'([x])
+  \]
+  for all $x \in X$ so in particular $g([x]) = g'([x])$ for all $[x] \in X/\!\sim$.
+  
+  Now if $g$ is continuous, so is $f$ since it is a composition of continuous maps.
+  
+  Assume that $f$ is continuous and let $V \subset Y$ be open. Then $f^{-1}(V) = p^{-1}(g^{-1}(V))$ is open, but the quotient topology is defined to ensure that $p$ is a quotient map, which implies that $g^{-1}(V)$ is open, so $g$ is continuous.
+\end{proof}
+Above we have seen how equivalence relations can be used to define interesting quotient spaces. We will now turn to a result which says that all such quotient spaces may be described in terms of quotient maps.
+
+More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence classes are exactly the sets in $X$ of the form $f^{-1}(\{p\})$ for $p \in Y$, and there is a bijection $g: X/\!\sim_f \to Y$ given by $g(f^{-1}(\{p\})) = p$. Notice that we need $f$ to be surjective for this construction to work.
+\begin{prop}
+  \label{quotients-are-equivalence-classes}
+  Let $X$ and $Y$ be topological spaces, let $f : X \to Y$ be a surjective map, and let $g : X/ \!\sim_f \to Y$ be the bijection defined by $f^{-1}(\{p\}) \mapsto p$. If $f$ is a quotient map, then $g$ is a homeomorphism.
+\end{prop}
+\begin{proof}
+  It follows from Lemma~\ref{universal-property-quotients} that $g$ is continuous, since $f$ is. Let $U \subset X/\!\sim_f$ be an open set, and let us show that $g(U)$ is open in $Y$ by showing that $g(U) = f(p^{-1}(U))$ which is open since $f$ is a quotient map. If $y \in g(U)$ there is an $[x] \in U$ so that $y = g([x]) = g(p(x)) = f(x)$, so $y \in f(U)$. Likewise, if $y \in f(p^{-1}(U))$, there is an $x \in p^{-1}(U)$ so that $f(x) = y$. This says that $[x] \in U$ and $g([x]) = f(x) = y$, so $y \in g(U)$.
+\end{proof}
+\begin{rem}
+  In general, if $f : X \to Y$ is a surjection, and $(X,\calT_X)$ is a topological space, it is customary to define the quotient topology $\calT_Y$ on $Y$ by
+  \[
+    \calT_Y = \{ U \subset Y \mid f^{-1}(U) \in \calT_X \}.
+  \]
+  Then $Y$, with its quotient topology $\calT_Y$ is homeomorphic to $X/\!\sim_f$ with its quotient topology (from Definition~\ref{def-quotient-topology}).
+\end{rem}
+\begin{example}
+  \label{circle-from-interval}
+  Let us show that $[0,1]/\{0,1\}$, with the quotient topology, is homeomorphic to $S^1$. Let $f : [0,1] \to S^1$ be the map $f(x) = (\cos(2\pi x), \sin(2\pi x))$. Then $f(x) = f(y)$ if and only if $x = y$ or either $x=1,y=0$ or $x=0,y=1$. This implies that $[0,1]/\!\sim_f\, = [0,1]/\{0,1\}$. As before, $f$ is continuous, and $f$ is clearly surjective, so the induced map $g : [0,1]/\!\sim_f \,\to S^1$ is a homeomorphism by Proposition~\ref{quotients-are-equivalence-classes}.
+\end{example}
+\begin{example}
+  Another way of viewing the same example is as follows: let $\sim$ be the equivalence relation on $\bbR$ given by $x \sim y$ if $x-y \in \bbZ$. Define $f : \bbR \to \S^1$ by $f(x) = (\cos(2\pi x), \sin(2\pi x))$ just like above. Then $f(x) = f(y)$ if and only if $x \sim y$, so $\sim = \sim_f$. This implies that $\bbR/\sim$ is homeomorphic to $S^1$.
+  
+  Be aware that the space $\bbR/\sim$ is often denoted $\bbR/\bbZ$ (because it is also a quotient of groups), but that this notation does \emph{not} agree with the one from Example~\ref{collapse-space}.
+\end{example}
+\begin{example}
+  Another important example is the so-called $2$-torus $T^2$, which should be familiar to those that are old enough to know the 1979 arcade shooter Asteroids. It is obtained by gluing together opposing sides of a rectangle $X=[0,1] \times [0,1]$. That is, define an equivalence relation $\sim$ on $X$ by $x \sim y$ of $x = y$, or $x=(p,0),y=(p,1)$, or $x=(0,p),y=(1,p)$, see Figure~\ref{fundamental-polygon-torus}. Just like $[0,1]/\{0,1\} \simeq S^1$, one can show that $X / \sim$ is homeomorphic to a circle of circles, $S^1 \times S^1$; we refer to \cite[\S 22]{Mun} where this is done by examining the open sets in both spaces. See Figure~\ref{figure-torus} for an illustration of the resulting space.
+\end{example}
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{fundamental-polygon-torus}
+  \captionof{figure}{Illustration of $X = [0,1] \times [0,1]/\sim$.}
+  \label{fundamental-polygon-torus}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{figure-torus}
+  \captionof{figure}{The resulting space $S^1 \times S^1$.}
+  \label{figure-torus}
+\end{minipage}
+\end{figure}
