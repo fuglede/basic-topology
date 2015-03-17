@@ -168,25 +168,53 @@ More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivale
   Let us show that $[0,1]/\{0,1\}$, with the quotient topology, is homeomorphic to $S^1$. Let $f : [0,1] \to S^1$ be the map $f(x) = (\cos(2\pi x), \sin(2\pi x))$. Then $f(x) = f(y)$ if and only if $x = y$ or either $x=1,y=0$ or $x=0,y=1$. This implies that $[0,1]/\!\sim_f\, = [0,1]/\{0,1\}$. As before, $f$ is continuous, and $f$ is clearly surjective, so the induced map $g : [0,1]/\!\sim_f \,\to S^1$ is a homeomorphism by Proposition~\ref{quotients-are-equivalence-classes}.
 \end{example}
 \begin{example}
-  Another way of viewing the same example is as follows: let $\sim$ be the equivalence relation on $\bbR$ given by $x \sim y$ if $x-y \in \bbZ$. Define $f : \bbR \to \S^1$ by $f(x) = (\cos(2\pi x), \sin(2\pi x))$ just like above. Then $f(x) = f(y)$ if and only if $x \sim y$, so $\sim = \sim_f$. This implies that $\bbR/\sim$ is homeomorphic to $S^1$.
+  Another way of viewing the same example is as follows: let $\sim$ be the equivalence relation on $\bbR$ given by $x \sim y$ if $x-y \in \bbZ$. Define $f : \bbR \to S^1$ by $f(x) = (\cos(2\pi x), \sin(2\pi x))$ just like above. Then $f(x) = f(y)$ if and only if $x \sim y$, so $\sim \,=\, \sim_f$. This implies that $\bbR/\sim$ is homeomorphic to $S^1$.
   
-  Be aware that the space $\bbR/\sim$ is often denoted $\bbR/\bbZ$ (because it is also a quotient of groups), but that this notation does \emph{not} agree with the one from Example~\ref{collapse-space}.
+  Be aware that the space $\bbR/\!\sim$ is often denoted $\bbR/\bbZ$ (because it is also a quotient of groups), but that this notation does \emph{not} agree with the one from Example~\ref{collapse-space}.
 \end{example}
 \begin{example}
-  Another important example is the so-called $2$-torus $T^2$, which should be familiar to those that are old enough to know the 1979 arcade shooter Asteroids. It is obtained by gluing together opposing sides of a rectangle $X=[0,1] \times [0,1]$. That is, define an equivalence relation $\sim$ on $X$ by $x \sim y$ of $x = y$, or $x=(p,0),y=(p,1)$, or $x=(0,p),y=(1,p)$, see Figure~\ref{fundamental-polygon-torus}. Just like $[0,1]/\{0,1\} \simeq S^1$, one can show that $X / \sim$ is homeomorphic to a circle of circles, $S^1 \times S^1$; we refer to \cite[\S 22]{Mun} where this is done by examining the open sets in both spaces. See Figure~\ref{figure-torus} for an illustration of the resulting space.
+  Another important example is the so-called $2$-torus $T^2$, which should be familiar to those that are old enough to know the 1979 arcade shooter Asteroids. It is obtained by gluing together opposing sides of a rectangle $X=[0,1] \times [0,1]$. That is, define an equivalence relation $\sim$ on $X$ by $x \sim y$ of $x = y$, or $x=(p,0),y=(p,1)$, or $x=(0,p),y=(1,p)$, see Figure~\ref{fundamental-polygon-torus}. Just like $[0,1]/\{0,1\} \simeq S^1$, one can show that $X /\!\sim$ is homeomorphic to a circle of circles, $S^1 \times S^1$; we refer to \cite[\S 22]{Mun} where this is done by examining the open sets in both spaces. See Figure~\ref{figure-torus} for an illustration of the resulting space.
 \end{example}
 \begin{figure}
 \centering
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.4\linewidth]{fundamental-polygon-torus}
-  \captionof{figure}{Illustration of $X = [0,1] \times [0,1]/\sim$.}
+  \includegraphics[width=.4\linewidth]{images/fundamental-polygon-torus}
+  \caption{Illustration of $X = [0,1] \times [0,1]/\sim$.}
   \label{fundamental-polygon-torus}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \includegraphics[width=.4\linewidth]{figure-torus}
-  \captionof{figure}{The resulting space $S^1 \times S^1$.}
+  \includegraphics[width=.5\linewidth]{images/figure-torus}
+  \caption{The resulting space $S^1 \times S^1$.}
   \label{figure-torus}
+\end{minipage}
+\end{figure}
+\trans{real projective space}{?}\trans{Klein bottle}{Kleinflaska}
+\begin{example}
+  Consider again the $X = [0,1] \times [0,1]$. One could have chosen to identify the opposite sides in various other ways to obtain important spaces. In Figure~\ref{fundamental-polygon-projective} and Figure~\ref{fundamental-polygon-klein} two such spaces are shown. The former is the so-called \word{real projective plane}{?} and the latter is the \word{Klein bottle}{Kleinflaska}. The glued-together Klein bottle can be pictured as in Figure~\ref{figure-klein}.
+\end{example}
+\begin{figure}
+\centering
+\begin{minipage}{.45\textwidth}
+\begin{minipage}{.95\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{images/fundamental-polygon-projective}
+  \caption{Gluing the real projective plane.}
+  \label{fundamental-polygon-projective}
+\end{minipage}\\
+\begin{minipage}{.95\textwidth}
+  \centering
+  \includegraphics[width=0.5\linewidth]{images/fundamental-polygon-klein}
+  \caption{Gluing the Klein bottle.}
+  \label{fundamental-polygon-klein}
+\end{minipage}
+
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{images/figure-klein}
+  \caption{The Klein bottle.}
+  \label{figure-klein}
 \end{minipage}
 \end{figure}
