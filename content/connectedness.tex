@@ -105,7 +105,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
 \begin{proof}
   Suppose that the product is connected. Recall that the projection $\pi_j : \prod_{i \in I} X_i \to X_j$ is continuous for every $j$, so every $X_j$ is connected by Theorem~\ref{images-of-connected}.
   
-  Let us show the converse in the case where $I$ is finite. The infinite case is left as Exercise~2.\ref{exercise-products-connected}. Moreover, we can reduce to the case $I = 2$ by induction since $(X_1 \times \cdots X_{n-1}) \times X_n \simeq X_1 \times \cdots X_n$, which is not difficult to show.
+  Let us show the converse in the case where $I$ is finite. The infinite case is left as Exercise~2.\ref{exercise-products-connected}. Moreover, we can reduce to the case $\abs{I} = 2$ by induction since $(X_1 \times \cdots X_{n-1}) \times X_n \simeq X_1 \times \cdots X_n$, which is not difficult to show.
   
   Thus, we are left to show that $X \times Y$ is connected when $X$ and $Y$ are. We will write $X \times Y$ as a union of connected spaces with a common point and use Theorem~\ref{unions-connected}. For any point $x \in X$, we let $A_x = \{x \} \times Y$. Then $A_x$ is the image of the map $Y \to X \times Y$ given by $y \mapsto (x,y)$, so $A_x$ is connected by Theorem~\ref{images-of-connected}. Similarly one shows that $B_y = X \times \{y\}$ is connected for all $y \in Y$. By Theorem~\ref{unions-connected}, $A_x \cup B_y$ is connected for all $y \in Y$ since $(x,y)$ is contained in both $A_x$ and $B_y$. Now clearly,
   \[
@@ -125,4 +125,27 @@ Since we have seen that $\bbR$ is connected, we immediately obtain the following
   
   Let us show that $S^n$ is connected. Recall from Proposition~\ref{north-pole-removed} That $S^n \setminus \{p\} \simeq \bbR^n$, where $p$ is the north pole. It follows that $S^n \setminus \{p\}$ is connected. Now one can show that $\bar{S^n \setminus \{p\}} = S^n$ and so the result follows from Theorem~\ref{connected-closures}.
 \end{proof}
-Alternatively, one can show that $\bbR^{n+1} \setminus \{0\}$ is connected when $n \geq 1$; then the connectedness of $S^n$ follows because $S^n$ is the image of the map $f : \bbR^{n+1} \to \bbR^{n+1}$ given by $f(x) = x/\Abs{x}$.
+Alternatively, one can show that $\bbR^{n+1} \setminus \{0\}$ is connected when $n \geq 1$ (Exercise~2.\ref{origin-removed-connected}); then the connectedness of $S^n$ follows because $S^n$ is the image of the continuous map $f : \bbR^{n+1} \setminus \{0 \} \to \bbR^{n+1}$ given by $f(x) = x/\Abs{x}$.
+
+The following is an example of how to use connectedness as a topological invariant
+\begin{prop}
+  For any $n \in \bbN$, we have $S^n \not\simeq \bbR$.
+\end{prop}
+\begin{proof}
+  Suppose that we had a homeomorphism $f : S^n \to \bbR$. Then $f$ would restrict to a homeomorphism if we removed the north pole $p$ from $S^n$; that is, $f|_{S^n \setminus \{p \}} : S^n \setminus \{p\} \to \bbR \setminus \{f(p)\}$ is a homeomorphism. This implies that $\bbR^n \simeq S^n \setminus \{p\} \simeq \bbR \setminus \{f(p)\}$, but $\bbR^n$ is connected while $\bbR \setminus \{f(p)\}$ is not connected, so they can not be homeomorphic, and we obtain a contradiction.
+\end{proof}
+
+\subsection{Paths and path-connectedness}
+Another natural notion of connectedness is obtained by requiring that all points in a space can be connected to each other; what exactly to mean by this is contained in the following definition
+
+\begin{defn}
+  Given two points $x$ and $y$ in a topological space $X$, a \word{path}{?} from $x$ to $y$ is a continuous map $\gamma : [0,1] \to X$ so that $\gamma(0) = x$, $\gamma(1) = y$. If for any pair $x,y$ in $X$ there is a path from $x$ to $y$, we say that $X$ is \word{path-connected}{b{\aa}gvis sammanh{\"a}ngande}.
+\end{defn}
+\trans{path}{?}\trans{path-connected}{b{\aa}gvis sammanh{\"a}ngande}
+\begin{prop}
+  A path-connected space is connected.
+\end{prop}
+\begin{proof}
+  We will prove the contrapositive, so let $X = U \cup V$ be a separation of $X$. Suppose that $\gamma : [0,1] \to X$ is any path. Then by Theorem~\ref{images-of-connected} we see that $\gamma([0,1])$ is connected and by Lemma~\ref{connectedness-subspace-lemma}, $\gamma([0,1])$ is contained entirely in $U$ or in $V$, it is not possible to find paths from points in $U$ to points in $V$.
+\end{proof}
+We will see below that the converse need not be true.
