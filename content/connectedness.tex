@@ -143,9 +143,48 @@ Another natural notion of connectedness is obtained by requiring that all points
 \end{defn}
 \trans{path}{?}\trans{path-connected}{b{\aa}gvis sammanh{\"a}ngande}
 \begin{prop}
+  \label{path-connected-implies-connected}
   A path-connected space is connected.
 \end{prop}
 \begin{proof}
   We will prove the contrapositive, so let $X = U \cup V$ be a separation of $X$. Suppose that $\gamma : [0,1] \to X$ is any path. Then by Theorem~\ref{images-of-connected} we see that $\gamma([0,1])$ is connected and by Lemma~\ref{connectedness-subspace-lemma}, $\gamma([0,1])$ is contained entirely in $U$ or in $V$, it is not possible to find paths from points in $U$ to points in $V$.
 \end{proof}
-We will see below that the converse need not be true.
+\begin{example}
+  For $x, y \in \bbR^n$, the path $\gamma : [0,1] \to \bbR^n$ defined by
+  \[
+    \gamma(t) = (1-t)x + ty
+  \]
+  is a path from $x$ to $y$, so $\bbR^n$ is path-connected.
+\end{example}
+\begin{example}
+  A subset $A$ of $\bbR^n$ is called convex if for any $x,y \in A$, the image of the straight line $\gamma(t) = (1-t)x + ty$ belongs to $A$. As in the previous example, it follows that convex subsets are path-connected and thus also connected.
+  
+  Some examples of convex subsets are the upper half-plane $\{(x_1,\dots,x_n) \in \bbR^n \mid x_n > 0\}$ and any ball $B(x,r)$, $x \in \bbR^n$, $r > 0$.
+\end{example}
+\begin{example}
+  A connected space does not need to be path-connected. A counter-example is the so-called topologist's sine curve
+  \[
+    S = \{(x,y) \in \bbR^2 \mid y = \sin(1/x), x > 0 \} \cup \{(0,y) \mid -1 \leq y \leq 1 \},
+  \]
+  that is, the closure of the graph of $x \mapsto \sin(1/x)$ for $x > 0$. For details, see \cite[\S 24]{Mun}.
+\end{example}
+On the other hand, the following result provides a necessary and sufficient condition for a connected space to be path-connected.
+\begin{thm}
+  Let $X$ be a topological space. Then $X$ is path-connected if and only if it is connected and every point in $X$ has a path-connected neighbourhood.
+\end{thm}
+One direction follows immediately from Proposition~\ref{path-connected-implies-connected}. For the other, it will be useful to have at our disposal the notion of connected components.
+
+\subsection{Connected components and path-connected components}
+Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It does however have two natural subspaces, $(-2,1)$ and $(1,2)$ which \emph{are} connected. We will now see how to split every topological space into connected parts.
+
+%\trans{connected component}{sammanh{\"a}ngande komponent}
+\begin{prop}
+  Let $X$ be a topological space. Define a relation $\sim$ by $x \sim y$ if and only if there is a connected set $A \subset X$ so that $x,y \in A$. Then $\sim$ is an equivalence relation. The equivalence classes of $\sim$ are called the \wordexp{connected components}{sammanh{\"a}ngande komponenter}{connected component}{sammanh{\"a}ngande komponent} of $X$.
+\end{prop}
+\begin{proof}
+  We see that $x \sim x$ for every $x$, since $\{x\}$ is connected.
+  
+  If $x \sim y$ there exists a connected set $A$ with $x,y \in A$. Then clearly $y,x \in A$ so $y \sim x$.
+  
+  If $x \sim y$ and $y \sim z$ we get connected sets $A$, $B$ so that $x,y \in A$ and $y,z \in B$. Let $C = A \cup B$. Then $x,z \in C$, and $C$ is connected by Theorem~\ref{unions-connected}, so $x \sim z$.
+\end{proof}
