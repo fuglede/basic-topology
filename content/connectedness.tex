@@ -38,13 +38,16 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   If $X$ has the discrete topology and consists of more than two points, then $X = \{x\} \cup (X \setminus \{x\})$ is a separation of $X$, so $X$ is not connected.
 \end{example}
 \begin{example}
-  \labels{intervals-are-connected}
+  \label{intervals-are-connected}
   Let $I \subset \bbR$ be any interval (bounded, unbounded, open, closed, or half-open). We claim that $I$ is connected. We will use the (hopefully) well-known fact that any subset $A \subset \bbR$ satisfies $\sup A \in \bar A$.
   
   Now to see the claim, assume that $I = U \cup V$ is a separation of $I$, let $x \in U$, $y \in V$, and assume without loss of generality that $x < y$. Then we have $[x,y] \subset I$. Let $U_0 = [x,y] \cap U$, $V_0 = [x,y] \cap V$ so that $[x,y] = U_0 \cap V_0$ is a separation of $[x,y]$, and define $z = \sup U_0 \in [x,y]$. Now as noticed above, $U_0$ is both open and closed in $[x,y]$ so in particular $U_0$ is also closed in $\bbR$, so $z \in \bar{U_0} = U_0$. If $z = y \in V_0$, we have a contradiction, so assume that $z \not= y$. Since $U_0$ is open in $[x,y]$ we can find $u \in U_0$ so that $z < u \leq y$, which contradicts the fact that $z = \sup U_0$ (to be completely precise about this last point, $U_0 = [x,y] \cap U_1$ for an open set $U_1 \subset \bbR$, and we can find a neighbourhood $B(z,r)$ of $z \in U_1$ so small that $B(z,r) \subset U_0$; we now just take $u = z+r/2$).
   
   On the other hand, one can show that if $I \subset \bbR$ is connected, then $I$ is an interval (this is Exercise~2.\ref{connected-implies-interval}).
 \end{example}
+\begin{rem}
+  Being connected is a topological property which can be used to define a simple topological invariant: if $X$ is connected any $Y$ is not, then $X$ and $Y$ are not homeomorphic.
+\end{rem}
 \begin{lem}
   \label{connectedness-subspace-lemma}
   Let $X = U \cup V$ for disjoint open sets $U$ and $V$, and let $Y \subset X$ be a subspace. If $Y$ is connected, then $Y \subset U$ or $Y \subset V$.
@@ -64,6 +67,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   Suppose that $\bigcup_{i \in I} A_i = U \cup V$ for disjoint subsets $U$ and $V$ that are open in $\bigcup_{i \in I} A_i$ and let us show that either $U$ or $V$ must be empty. Assume without loss of generality that $x \in U$. By Lemma~\ref{connectedness-subspace-lemma} we have for each $i$ that either $A_i \subset U$ or $A_i \subset V$. Since $x \in A_i$ we must have $A_i \subset U$ for all $i \in I$. This implies that $\bigcup_{i \in I} A_i \subset U$, so $V$ must be empty.
 \end{proof}
 \begin{thm}
+  \label{connected-closures}
   Let $A \subset X$ be connected. If a subset $B \subset X$ satisfies $A \subset B \subset \bar A$, then $B$ is also connected. In particular, $\bar A$ is connected when $A$ is.
 \end{thm}
 \begin{proof}
@@ -117,5 +121,8 @@ Since we have seen that $\bbR$ is connected, we immediately obtain the following
   The $n$-sphere $S^n$ and the $n$-torus $T^n$ are connected for all $n \in \bbN$.
 \end{prop}
 \begin{proof}
-  If we can show that $S^1$ is connected, then so is $T^n = S^1 \times \cdots \times S^1$ for all $n$.
+  If we can show that $S^1$ is connected, then so is $T^n = S^1 \times \cdots \times S^1$ for all $n \geq 1$.
+  
+  Let us show that $S^n$ is connected. Recall from Proposition~\ref{north-pole-removed} That $S^n \setminus \{p\} \simeq \bbR^n$, where $p$ is the north pole. It follows that $S^n \setminus \{p\}$ is connected. Now one can show that $\bar{S^n \setminus \{p\}} = S^n$ and so the result follows from Theorem~\ref{connected-closures}.
 \end{proof}
+Alternatively, one can show that $\bbR^{n+1} \setminus \{0\}$ is connected when $n \geq 1$; then the connectedness of $S^n$ follows because $S^n$ is the image of the map $f : \bbR^{n+1} \to \bbR^{n+1}$ given by $f(x) = x/\Abs{x}$.
