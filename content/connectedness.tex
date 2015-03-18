@@ -38,7 +38,9 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   If $X$ has the discrete topology and consists of more than two points, then $X = \{x\} \cup (X \setminus \{x\})$ is a separation of $X$, so $X$ is not connected.
 \end{example}
 \begin{example}
-  Intervals in $\bbR$ are connected. This looks extremely reasonable from the intuition about connectedness provided above, but we will only show it as a consequence of a few general results that we now turn to.
+  Let $I \subset \bbR$ be any interval (bounded, unbounded, open, closed, or half-open). We claim that $I$ is connected. To see this, assume that $I = U \cup V$ is a separation of $I$, let $x \in U$, $y \in V$, and assume without loss of generality that $x < y$. Then we have $[x,y] \subset I$. Let $U_0 = [x,y] \cap U$, $V_0 = [x,y] \cap V$ so that $[x,y] = U_0 \cap V_0$ is a separation of $[x,y]$, and define $z = \sup U_0 \in [x,y]$. We will show that $z$ belongs to neither $U_0$ or $V_0$ which is a contradiction.
+  
+  Suppose first that $z \in U_0$. Then $z \not= y$ so either $z = x$ or $x < z < y$. In any case we can choose a $u$ so that $z < u \leq y$ and $[z,u) \subset U_0$ since $U_0$ is open in $[x,y]$.
 \end{example}
 \begin{lem}
   \label{connectedness-subspace-lemma}
@@ -52,6 +54,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   is a separation of $Y$, since $Y \cap U$ and $Y \cap V$ are disjoint, non-empty and open in the subspace topology. Thus $Y$ is not connected.
 \end{proof}
 \begin{thm}
+  \label{unions-connected}
   Let $\{A_i\}_{i \in I}$ be a collection of connected subspaces of a topological space $X$ with a common point $x \in X$; i.e. $x \in A_i$ for all $i \in I$. Then $\bigcup_{i \in I} A_i$ is connected.
 \end{thm}
 \begin{proof}
@@ -83,10 +86,20 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   Give $Y$ the discrete topology. Then the condition that $f$ is locally constant implies that $f$ is continuous at every point, so $f$ is continuous. Thus $f(X)$ is connected by Theorem~\ref{images-of-connected}, but $f(X)$ also has the discrete topology, so by Example~\ref{discrete-connectedness} it consists of a single point which is the same as saying that $f$ is constant.
 \end{proof}
 \begin{thm}
-  If $\{X_i\}_{i \in I}$ is a family of topological spaces, then their product $\bigprod_{i \in I} X_i$ is connected if and only if every $X_i$ is.
+  \label{products-connected}
+  If $\{X_i\}_{i \in I}$ is a family of topological spaces, then their product $\prod_{i \in I} X_i$ is connected if and only if every $X_i$ is.
 \end{thm}
 \begin{proof}
-  Suppose that the product is connected. Recall that the projection $\pi_j : \bigprod_{i \in I} X_i \to X_j$ is continuous for every $j$, so every $X_j$ is connected by Theorem~\ref{images-of-connected}.
+  Suppose that the product is connected. Recall that the projection $\pi_j : \prod_{i \in I} X_i \to X_j$ is continuous for every $j$, so every $X_j$ is connected by Theorem~\ref{images-of-connected}.
   
-  Let us show the converse in the case where $I$ is finite. The infinite case is left as an Exercise.
+  Let us show the converse in the case where $I$ is finite. The infinite case is left as Exercise~2.\ref{exercise-products-connected}. Moreover, we can reduce to the case $I = 2$ by induction since $(X_1 \times \cdots X_{n-1}) \times X_n \simeq X_1 \times \cdots X_n$, which is not difficult to show.
+  
+  Thus, we are left to show that $X \times Y$ is connected when $X$ and $Y$ are. We will write $X \times Y$ as a union of connected spaces with a common point and use Theorem~\ref{unions-connected}. For any point $x \in X$, we let $A_x = \{x \} \times Y$. Then $A_x$ is the image of the map $Y \to X \times Y$ given by $y \mapsto (x,y)$, so $A_x$ is connected by Theorem~\ref{images-of-connected}. Similarly one shows that $B_y = X \times \{y\}$ is connected for all $y \in Y$. By Theorem~\ref{unions-connected}, $A_x \cup B_y$ is connected for all $y \in Y$ since $(x,y)$ is contained in both $A_x$ and $B_y$. Now clearly,
+  \[
+    X \times Y = \bigcup_{y \in Y} A_x \cup B_y,
+  \]
+  and all the sets on the right hand side have the common point $(x,y') \in A_x$, where $y' \in Y$ can be taken to be anything. Therefore, their union is connected by Theorem~\ref{unions-connected}.
 \end{proof}
+\begin{example}
+  We can now show that intervals in $\bbR$ are connected.
+\end{example}
