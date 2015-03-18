@@ -9,3 +9,84 @@ It turns out that having open sets is sufficient to define a notion of connected
   Let $X$ be a topological space. A \word{separation}{?} of $X$ is a pair $U$, $V$ of disjoint non-empty open subsets of $X$ so that $X = U \cup V$. We say that $X$ is \word{connected}{sammanh{\"a}ngande} if it has no separation.
 \end{defn}
 \trans{separation}{?}\trans{connected}{sammanh{\"a}ngande}
+In the following we will often be dealing with connectedness of subspaces. Keep in mind that when doing so, the subspace will always be equipped with the subspace topology.
+\begin{example}
+  The subspace $(-2,-1) \cup (1,2) \subset \bbR$ has a separation.
+\end{example}
+Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V = X \setminus U$. This means that both $U$ and $V$ are both open and closed.
+\begin{lem}
+  A topological space $X$ is connected if and only if $\emptyset$ and $X$ are the only subsets of $X$ that are both open and closed.
+\end{lem}
+\begin{proof}
+  Suppose that $U \subset X$ is both open and closed. Then $V = X \setminus U$ is open, and $X = U \cup V$ is a separation. If $X$ is connected one of $U$ and $V$ must be empty, since otherwise we would have a separation of $X$.
+\end{proof}
+% \begin{lem}
+%   A topological space $X$ is connected if and only if the following condition holds: if $X = C \cup D$ where $C$ and $D$ are disjoint closed subsets of $X$, then either $C = \emptyset$ or $D = \emptyset$.
+% \end{lem}
+% \begin{proof}
+%   Exercise.
+% \end{proof}
+\begin{example}
+  The rational numbers $\bbQ \subset \bbR$ are not connected: choose any irrational number $a \in \bbR$. Then
+  \[
+    \bbQ = ((-\infty, a) \cup (a,\infty)) \cap \bbQ = ((-\infty,a) \cap \bbQ) \cup (\bbQ \cap (a,\infty)),
+  \]
+  which is a separation by definition of the subspace topology on $\bbQ$.
+\end{example}
+\begin{example}
+  \label{discrete-connectedness}
+  If $X$ has the discrete topology and consists of more than two points, then $X = \{x\} \cup (X \setminus \{x\})$ is a separation of $X$, so $X$ is not connected.
+\end{example}
+\begin{example}
+  Intervals in $\bbR$ are connected. This looks extremely reasonable from the intuition about connectedness provided above, but we will only show it as a consequence of a few general results that we now turn to.
+\end{example}
+\begin{lem}
+  \label{connectedness-subspace-lemma}
+  Let $X = U \cup V$ for disjoint open sets $U$ and $V$, and let $Y \subset X$ be a subspace. If $Y$ is connected, then $Y \subset U$ or $Y \subset V$.
+\end{lem}
+\begin{proof}
+  We will show the contrapositive of the statement, so assume that $Y \cap U \not= \emptyset$ and $Y \cap V \not= \emptyset$. Then
+  \[
+    Y = Y \cap X = Y \cap (U \cup V) = (Y \cap U) \cup (Y \cap V)
+  \]
+  is a separation of $Y$, since $Y \cap U$ and $Y \cap V$ are disjoint, non-empty and open in the subspace topology. Thus $Y$ is not connected.
+\end{proof}
+\begin{thm}
+  Let $\{A_i\}_{i \in I}$ be a collection of connected subspaces of a topological space $X$ with a common point $x \in X$; i.e. $x \in A_i$ for all $i \in I$. Then $\bigcup_{i \in I} A_i$ is connected.
+\end{thm}
+\begin{proof}
+  Suppose that $\bigcup_{i \in I} A_i = U \cup V$ for disjoint subsets $U$ and $V$ that are open in $\bigcup_{i \in I} A_i$ and let us show that either $U$ or $V$ must be empty. Assume without loss of generality that $x \in U$. By Lemma~\ref{connectedness-subspace-lemma} we have for each $i$ that either $A_i \subset U$ or $A_i \subset V$. Since $x \in A_i$ we must have $A_i \subset U$ for all $i \in I$. This implies that $\bigcup_{i \in I} A_i \subset U$, so $V$ must be empty.
+\end{proof}
+\begin{thm}
+  Let $A \subset X$ be connected. If a subset $B \subset X$ satisfies $A \subset B \subset \bar A$, then $B$ is also connected. In particular, $\bar A$ is connected when $A$ is.
+\end{thm}
+\begin{proof}
+  Suppose that $B = U \cap V$ for disjoint subsets $U$ and $V$ that are open in $B$. Then by Lemma~\ref{connectedness-subspace-lemma} we must have that $A \subset U$ or $A \subset V$, so assume without loss of generality that $A \subset U$. Then $B \subset \bar A \subset \bar U$ (where all closures are in the bigger space $X$).
+  
+  By definition of the subspace topology, there are open sets $U'$ and $V'$ in $X$ so that $U = B \cap U'$, $V = B \cap V'$, and
+  \[
+    U = B \setminus V = B \setminus (B \cap V') \subset X \setminus V'.
+  \]
+  The latter space is closed so $\bar U \subset X \setminus V' \subset X \setminus V$. Putting this together, $B \subset X \setminus V$ which means that $B \cap V = \emptyset$, so $V = \emptyset$, and so $B$ is connected.
+\end{proof}
+\begin{thm}
+  \label{images-of-connected}
+  Let $f : X \to Y$ be a continuous map between two topological spaces. If $X$ is connected, then $f(X)$ is also connected.
+\end{thm}
+\begin{proof}
+  Suppose that $f(X) = U \cup V$ for disjoint subsets $U$ and $V$ that are open in $f(X)$. Then $f^{-1}(U)$ and $f^{-1}(V)$ are disjoint open subsets of $X$ with $X = f^{-1}(U) \cup f^{-1}(V)$. This means that either $f^{-1}(U)$ or $f^{-1}(V)$ is empty. Suppose that $f^{-1}(U)$ is empty. Then since $U \subset f(X)$ we must have $U = \emptyset$.
+\end{proof}
+\begin{cor}
+  Let $X$ be a connected topological space, and let $Y$ be any set. Suppose that $f : X \to Y$ is a locally constant map, meaning that every point $x \in X$ has a neighbourhood $U$ so that $f|_U$ is constant. Then $f$ is constant.
+\end{cor}
+\begin{proof}
+  Give $Y$ the discrete topology. Then the condition that $f$ is locally constant implies that $f$ is continuous at every point, so $f$ is continuous. Thus $f(X)$ is connected by Theorem~\ref{images-of-connected}, but $f(X)$ also has the discrete topology, so by Example~\ref{discrete-connectedness} it consists of a single point which is the same as saying that $f$ is constant.
+\end{proof}
+\begin{thm}
+  If $\{X_i\}_{i \in I}$ is a family of topological spaces, then their product $\bigprod_{i \in I} X_i$ is connected if and only if every $X_i$ is.
+\end{thm}
+\begin{proof}
+  Suppose that the product is connected. Recall that the projection $\pi_j : \bigprod_{i \in I} X_i \to X_j$ is continuous for every $j$, so every $X_j$ is connected by Theorem~\ref{images-of-connected}.
+  
+  Let us show the converse in the case where $I$ is finite. The infinite case is left as an Exercise.
+\end{proof}
