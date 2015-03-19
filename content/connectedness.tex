@@ -169,8 +169,13 @@ Another natural notion of connectedness is obtained by requiring that all points
   that is, the closure of the graph of $x \mapsto \sin(1/x)$ for $x > 0$. For details, see \cite[\S 24]{Mun}.
 \end{example}
 On the other hand, the following result provides a necessary and sufficient condition for a connected space to be path-connected.
+\begin{defn}
+  A topological space $X$ is called \emph{locally (path-)connected at $x \in X$} if every neighbourhood of $x$ contains a (path-)connected neighbourhood of $x$. If $X$ is locally (path-)connected at each point $x \in X$, we say that $X$ is \word{locally (path-)connected}{lokalt (b{\aa}gvis) sammanh{\"a}ngande}.
+\end{defn}
+\trans{locally (path-)connected}{lokalt (b{\aa}gvis) sammanh{\"a}ngande}
 \begin{thm}
-  Let $X$ be a topological space. Then $X$ is path-connected if and only if it is connected and every point in $X$ has a path-connected neighbourhood.
+  \label{path-connected-vs-connected}
+  A topological space is path-connected if and only if it is connected and locally path-connected.
 \end{thm}
 One direction follows immediately from Proposition~\ref{path-connected-implies-connected}. For the other, it will be useful to have at our disposal the notion of connected components.
 
@@ -231,3 +236,24 @@ With this, we can define a relation on $X$ by saying that $x \sim_{\mathrm{path}
   The constant path $\gamma:[0,1]\to X$, $\gamma(t) = x$, is continuous for any given $x \in X$, so $x \sim_{\mathrm{path}} x$. The other conditions for an equivalence relation are obtained by using the operations on paths introduced above.
 \end{proof}
 
+We have the following analogue of Proposition~\ref{props-of-conn-components} for path-connected components; its proof is similar and omitted.
+\begin{prop}
+  \label{prop-path-connected-components}
+  The path-connected components are path-connected disjoint subspaces of $X$ whose union is $X$. If a subspace is path-connected, it is contained in a path-connected component.
+\end{prop}
+\begin{thm}
+  If a topological space $X$ is locally path-connected, then its connected components and path-connected components are the same.
+\end{thm}
+The special case where $X$ consists of a single path-connected component is exactly Theorem~\ref{path-connected-vs-connected}.
+\begin{proof}
+  Let $C$ be a connected component of $X$, let $x \in C$, and let $P$ be the path-connected component containing $x$. Since $P$ is also connected by Proposition~\ref{path-connected-implies-connected}, Proposition~\ref{props-of-conn-components} implies that $P \subset C$. We want to show that $P = C$; assume that $P \not= C$, and let $Q$ denote the union of all the path-connected components of $X$ that intersect $C$ but are not equal to $P$. By the same argument, each of these path-connected components will necessarily be contained in $C$, so we can write $C = P \cup Q$. Since $P$ and $Q$ are disjoint non-empty sets, this would contradict the connectedness of $C$, if we can show that both $P$ and $Q$ are open. This is where we need the locally path-connectedness as $X$ and we word the result as a lemma below.
+\end{proof}
+\begin{lem}
+  If $X$ is locally (path-)connected, then all its (path-)connected components are open.
+\end{lem}
+\begin{proof}
+  Let us only show the result for locally path-connected spaces and leave the other part of the claim as Exercise~2.\ref{locally-connected-open}. Let $P$ be a path-connected component, and let us show that $P = \Int P$, so let $x \in P$. Since $X$ is locally path-connected, we can choose a path-connected neighbourhood $U$ of $x$. By Proposition~\ref{prop-path-connected-components}, $U \subset P$, so $x \in \Int P$.
+\end{proof}
+\begin{example}
+  Any open subset of $\bbR^n$ is locally path-connected. Thus in particular, connectedness and path-connectedness are equivalent for open subsets in $\bbR^n$.
+\end{example}
