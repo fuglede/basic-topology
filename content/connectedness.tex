@@ -220,9 +220,5 @@ We now turn back to our study of path-connected spaces, creating an analogous co
 \[
   \gamma_1 \star \gamma_2(t) = \begin{cases} \gamma_1(2t), & t \in [0,\tfrac{1}{2}],\\ \gamma_2(2t-1), & t \in [\tfrac{1}{2},1]. \end{cases}
 \]
-\begin{lem}
-  The concatenation of two paths in a topological space $X$ is continuous; the claim then follows from Theorem~\ref{continuous-props}. Let $F \subset X$ be closed.
-\end{lem}
-\begin{proof}
-  We will show that the preimage of any closed set is closed.
-\end{proof}
+We need to check that $\gamma_1 \star \gamma_2$ is actually continuous. This, however follows directly from the closed-set version of the pasting lemma, see Remark~\ref{pasting-closed}.
+
