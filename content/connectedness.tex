@@ -220,5 +220,14 @@ We now turn back to our study of path-connected spaces, creating an analogous co
 \[
   \gamma_1 \star \gamma_2(t) = \begin{cases} \gamma_1(2t), & t \in [0,\tfrac{1}{2}],\\ \gamma_2(2t-1), & t \in [\tfrac{1}{2},1]. \end{cases}
 \]
-We need to check that $\gamma_1 \star \gamma_2$ is actually continuous. This, however follows directly from the closed-set version of the pasting lemma, see Remark~\ref{pasting-closed}.
+We need to check that $\gamma_1 \star \gamma_2$ is actually continuous. This, however follows directly from the closed-set version of the pasting lemma, see Remark~\ref{pasting-closed}, applied to the two intervals $[0,\tfrac{1}{2}]$ and $[\tfrac{1}{2},1]$.
+
+With this, we can define a relation on $X$ by saying that $x \sim_{\mathrm{path}} y$ if there is a path from $x$ to $y$.
+\begin{lem}
+  The relation $\sim_{\mathrm{path}}$ is an equivalence relation. The equivalence classes of $\sim_{\mathrm{path}}$ are called the \word{path-connected components}{b{\aa}gvis sammanh{\"a}ngande komponenter}{path-connected component}{b{\aa}gvis sammanh{\"a}ngande komponent} of $X$.
+\end{lem}
+\trans{path-connected component}{b{\aa}gvis sammanh{\"a}ngande komponent}
+\begin{proof}
+  The constant path $\gamma:[0,1]\to X$, $\gamma(t) = x$, is continuous for any given $x \in X$, so $x \sim_{\mathrm{path}} x$. The other conditions for an equivalence relation are obtained by using the operations on paths introduced above.
+\end{proof}
 
