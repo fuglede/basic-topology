@@ -718,6 +718,7 @@ In analysis, one might have encountered the important characterization of contin
   Suppose that $X$ is first-countable. Let $x \in \bar A$ and let us show that there is a sequence $\{x_n\}$ in $A$ with $x_n \to x$. Let $\{B_n\}$ be a countable basis at $x$ and define for every $n \in \bbN$ an open neighbourhood $U_n = \bigcap_{k=1}^n B_k$ of $x$. Since $x \in A$ or $x \in \dd A$ by Theorem~\ref{relations-closure-boundary} it follows that $U_n \cap A \not= \emptyset$ for every $n$, and we can choose $x_n \in U_n \cap A$ for every $n$. We claim that $x_n \to x$. To see this, let $U$ be any neighbourhood of $x$. Then by definition of first-countability there is an $N \in \bbN$ so that $B_N \subset U$. Now clearly, $U_n \subset U_N \subset B_N$ for all $n > N$ so $x_n \in B_N \subset U$ for all $n > N$ which means that $x_n \to x$.
 \end{proof}
 \begin{thm}
+  \label{sequential-continuity}
   Let $X$ and $Y$ be topological spaces. If $f : X \to Y$ be continuous, then $x_n \to x$ in $X$ implies that $f(x_n) \to f(x)$ in $Y$. The converse holds if $X$ is first countable.
 \end{thm}
 \begin{proof}
