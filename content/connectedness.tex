@@ -216,4 +216,13 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
   The number of connected components is a topological invariant $\mathbf{Top} \to \bbZ \cup \{\infty\}$. That is, if two topological spaces have a different number of connected components, then they can not be homeomorphic.
 \end{rem}
 
-We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define $\gamma^\inv$ by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$. We then form the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2$.
+We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define $\gamma^\inv$ by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$, so that $\gamma_1$ is a path from $x$ to $y$, and $\gamma_2$ is a path from $y$ to $z$. We then form a path from $x$ to $z$ as follows: define the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2$ by
+\[
+  \gamma_1 \star \gamma_2(t) = \begin{cases} \gamma_1(2t), & t \in [0,\tfrac{1}{2}],\\ \gamma_2(2t-1), & t \in [\tfrac{1}{2},1]. \end{cases}
+\]
+\begin{lem}
+  The concatenation of two paths in a topological space $X$ is continuous; the claim then follows from Theorem~\ref{continuous-props}. Let $F \subset X$ be closed.
+\end{lem}
+\begin{proof}
+  We will show that the preimage of any closed set is closed.
+\end{proof}
