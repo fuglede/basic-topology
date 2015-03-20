@@ -461,7 +461,11 @@ For a totally ordered set $(X,\preceq)$, define \emph{intervals}\index{interval}
   [a,b] &= \{ x \in X \mid a \preceq x \preceq b \},\\
   [a,b) &= \{ x \in X \mid a \preceq x \preceq b, x \not= b \},\\
   (a,b] &= \{ x \in X \mid a \preceq x \preceq b, x \not= a \},\\
-  (a,b) &= \{ x \in X \mid a \preceq x \preceq b, x\not= a, x \not= b \}.
+  (a,b) &= \{ x \in X \mid a \preceq x \preceq b, x\not= a, x \not= b \},\\
+  (-\infty,b] &= \{ x \in X \mid x \preceq b \},\\
+  (-\infty,b) &= \{ x \in X \mid x \preceq b, x \not= b \},\\
+  [a,\infty) &= \{ x \in X \mid a \preceq x \},\\
+  (a,\infty) &= \{ x \in X \mid a \preceq x, x \not= a \}.
 \end{align*}
 We say that an element $a_0 \in X$ is the \emph{smallest element}\index{smallest element} of $X$ if $a_0 \preceq x$ for all $x \in X$, and similarly, we say that $b_0$ is the \emph{largest element}\index{largest element} of $X$ if $x \preceq b_0$ for all $x \in X$. Notice that the word \emph{the} is justified since there can be at most one smallest and one largest element. There need not be any smallest/largest elements at all though, as is evident from the example of the poset $(\bbR,\leq)$.
 \trans{order topology}{?}
