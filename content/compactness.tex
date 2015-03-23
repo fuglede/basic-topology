@@ -1,12 +1,35 @@
 \section{Compactness and sequential compactness}
 \label{compactness}
-\section{compactness}
+\subsection{Compactness}
 \begin{defn}
   Let $(X,\calT)$ be a topological space.
-  \begin{itemize}
-    \item[(i)] A collection $\calU \subset \calT$ of open sets of called an \word{open cover}{{\"o}ppen {\"o}vert{\"a}ckning} of $X$ if $X = \bigcup_{U \in \calU} U$.
+  \begin{enumerate}
+    \item[(i)] A collection $\calU \subset \calT$ of open sets of called an \wordexp{open~cover}{{\"o}ppen~{\"o}vert{\"a}ckning}{cover}{{\"o}vert{\"a}ckning} of $X$ if $X = \bigcup_{U \in \calU} U$.
     \item[(ii)] The space $X$ is called \word{compact}{kompakt} if \emph{every} open cover $\calU$ of $X$ has a finite subcover, meaning that one can find finitely many open sets $U_1, \dots, U_n \in \calU$ so that $X = \bigcup_{i=1}^n U_i$.
-  \end{itemize}
+  \end{enumerate}
 \end{defn}
-\trans{open cover}{{\"o}ppen {\"o}vert{\"a}ckning}
+\trans{cover}{{\"o}vert{\"a}ckning}
 \trans{compact}{kompakt}
+\begin{example}
+  Every finite topological space is compact, since there are only finitely many open sets. Thus, given any open cover $\calU$, the open cover $\calU$ is itself a finite subcover.
+\end{example}
+\begin{example}
+  \label{reals-not-compact}
+  The real line $\bbR$ is not compact: consider the open cover $\calU$ consisting of the open sets $U_n = (-n,n)$, $n \in \bbN$. Clearly, it is impossible to choose finitely many such $U_n$ and still have something that covers all of $\bbR$.
+\end{example}
+\begin{example}
+  The subspace $A = \{1/n \mid n \in \bbN\} \subset \bbR$ is not compact. One can see that $U_n = \{1/n\}$ is an open set in the subspace topology, so letting $\calU = \{U_n \mid n \in \bbN\}$, we get an open cover of $A$. Clearly, we can not find a finite subcover, since any finite subcover would cover only finitely many points of the infinite set $A$.
+\end{example}
+\begin{example}
+  Let $X = A \cup \{0\}$, where $A$ is the set from the previous example. We claim that $X$ is compact. Let $\calU$ be an arbitrary open cover of $X$. Then there is an open set $U \in \calU$ so that $0 \in U$. By definition of the topology on $\bbR$, $U$ will contain the points $1/n$ for all large enough $n$, say all $n > N$ for some $N$. Since $\calU$ is an open cover, we can also find open sets $U_1, \dots, U_N \in \calU$ so that $1/k \in U_k$ for all $k = 1, \dots, N$. We now see that the collection $U, U_1, \dots, U_N$ together form a finite subcover of $X$.
+\end{example}
+\begin{example}
+  The half-open interval $(0,1] \subset \bbR$ is not compact since the open cover $\calU$ consisting of open sets $U_n = (\tfrac{1}{n},1]$, $n \in \bbN$, does not have a finite subcover, by more or less the same argument as in Example~\ref{reals-not-compact}. Similarly, $(0,1)$ is not compact, since the sets $(\tfrac{1}{n},1-\tfrac{1}{n})$ form an open cover with no finite subcover.
+\end{example}
+\begin{example}
+  The closed interval $[0,1] \subset \bbR$ is compact. This is a special case of the Heine--Borel theorem, Theorem~\ref{heine-borel}, which we show below.
+\end{example}
+In the following theorems, we will collect a number of properties of compact sets that we will use over and over again.
+\begin{thm}
+  A closed subspace of a compact space is compact.
+\end{thm}
