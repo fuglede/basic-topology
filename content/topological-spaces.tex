@@ -124,7 +124,7 @@ While bases are interesting because they allow us to define topologies with less
   \[
     \calB = \{ \{x \} \mid x \in X\}.
   \]
-  Then $\calB$ is a basis for a topology, and $\calT_\calB$ is the discrete topology.
+  Then $\calB$ is a basis for a topology, and $\calT_\calB$ is the discrete topology: clearly, every set $U$ in $X$ is a union of sets from this collection since $U = \bigcup_{x \in U} \{x\}$, so it follows that $\calT_\calB$ consists of all subsets of $X$.
 \end{example}
 
 So far, we have been dealing with abstract sets and topological spaces, but at the end of the day, we will be interested in particular topologies on concrete spaces, so at this point, let us use the notion of a basis for a topology to show how we can easily describe a topology on $\bbR^n$ that agrees with the one we know from analysis.
@@ -244,9 +244,9 @@ We will now show how to use the open balls to define a topology, called \wordexp
   \]
   The topology induced by this metric is the discrete topology. This follows almost directly from Example~\ref{example-discrete-topology}; let us describe the collection of open balls. Let $x \in X$ be arbitrary. If $r \leq 1$, then $B_d(x,r) = \{x\}$ while if $r > 1$ then $B_d(x,r) = X$. Thus the basis of open balls is
   \[
-    \calB = \{ \{x \} \mid x \in X \} \cup \{X\}.
+    \calB = \{ \{x \} \mid x \in X \} \cup \{X\},
   \]
-  Now clearly, every set $U$ in $X$ is a union of sets from this collection since $U = \bigcup_{x \in U} \{x\}$, so it follows that the induced topology consists of all subsets of $X$.
+  and as previously, any set $U \subset X$ is the union of sets that are elements of $\calB$.
 \end{example}
 
 
@@ -272,7 +272,7 @@ Be aware that the notation $f^{-1}$ is often used for the inverse of an invertib
   \label{continuity-def}
   Let $(X,\calT_X)$ and $(Y,\calT_Y)$ be topological spaces. A function $f : X \to Y$ is called \word{continuous}{kontinuerlig} if $f^{-1}(U) \in \calT_X$ for all $U \in \calT_Y$, or in words, if the preimages of open sets are open.
   
-  A function $f : X \to Y$ is called \emph{continuous at a point $x \in X$} if for every $U \in \calT_Y$ with $f(x) \in U$ there is a $V \in \calT_X$ so that $x \in V$ and $F(V) \subset U$.
+  A function $f : X \to Y$ is called \emph{continuous at a point $x \in X$} if for every $U \in \calT_Y$ with $f(x) \in U$ there is a $V \in \calT_X$ so that $x \in V$ and $f(V) \subset U$.
 \end{defn}
 \trans{continuous}{kontinuerlig}
 \begin{example}
