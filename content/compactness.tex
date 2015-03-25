@@ -147,7 +147,32 @@ One of our next goals will be to give a characterization of the compact subsets 
   \[
     x_{n+1} \notin \bigcup_{i=1}^n B_d(x_i,r).
   \]
-  This sequence has the property that $d(x_n,x_m) > r$ for all $n \not= m \in \bbN$ so it can have no convergent subsequence.
+  This sequence has the property that $d(x_n,x_m) > r$ for all $n \not= m \in \bbN$ so it can have no convergent subsequence (recall the characterization of convergence in metric spaces from Proposition~\ref{metric-convergence}), which is our contradiction, so there is a finite subcover $\{B_d(x_i,r)\}_{i=1,\dots,n}$.
+  
+  Now let $\calU = \{U_i\}_{i \in I}$ be an arbitrary open cover of $X$. We claim that there is a real number $r > 0$ such that for every $x \in X$, $B_d(x,r) \subset U_i$ for some $i \in I$. This will complete the proof since then we could consider our finite subcover $\{B_d(x_\alpha,r)\}$ from before, and let $i_\alpha$ be so that $B_d(x_\alpha,r) \subset U_{i_\alpha}$. Then clearly, the finitely many $U_{i_\alpha}$ will cover $X$.
+  
+  So suppose once more for a contradiction that no such real number $r > 0$ exists. That is, suppose that for every $r > 0$ there exists an $x \in X$ so that $B_d(x,r)$ is not a subset of $U_i$ for any $i \in I$. In particular, for each $n \in \bbN$ we can choose $x_n$ so that $B_d(x_n,1/n)$ is not a subset of any $U_i$. Choose a convergent subsequence $\{x_{n_k}\}$ of $\{x_n\}$, i.e. $x_{n_k} \to x$ for some $x$.
+  
+  Then $x \in U_j$ for some $j \in I$, and since $U_j$ is open, we have $B_d(x,1/N) \subset U_j$ for some $N \in \bbN$. Now choose a $K$ so large that $d(x_{n_k},x) < \tfrac{1}{2N}$ for all $k > K$. Let moreover $k > K$ be large enough that $n_k > 2N$. Then for every $y \in B_d(x_{n_k},1/n_k)$, we have
+  \[
+    d(y,x) \leq d(y,x_{n_k}) + d(x_{n_k},x) < \frac{1}{n_k} + \frac{1}{2N} < \frac{1}{2N} + \frac{1}{2N} = \frac{1}{N},
+  \]
+  so $B_d(x_{n_k},1/n_k) \subset B_d(x,1/N) \subset U_j$ which is a contradiction.
 \end{proof}
 
 \subsection{Compactness in $\bbR^n$}
+We will use the above theorem to build up a characterization of the compact subsets of $\bbR^n$.
+
+\begin{defn}
+  Let $(X,d)$ be a metric space with the metric topology. A sequence $\{x_n\}$ in $X$ is called a \word{Cauchy sequence}{Cauchy-f{\"o}ljd} if
+  \[
+    \forall \eps > 0,\ \exists N > 0 : \ m,n > N \Rightarrow d(x_m,x_n) < \eps.
+  \]
+  A metric space is called \word{complete}{fullst{\"a}ndigt} if every Cauchy sequence is convergent.
+\end{defn}
+\trans{Cauchy sequence}{Cauchy-f{\"o}ljd}
+\trans{complete}{fullst{\"a}ndigt}
+\begin{fact}
+  The real numbers $\bbR$ with the usual metric $d(x,y) = \abs{x-y}$ is a complete metric space.
+\end{fact}
+
