@@ -50,6 +50,7 @@ In the following theorems, we will collect a number of properties of compact set
   Let $U^x = U_{y_1} \cap \dots \cap U_{y_n}$. Now $U^x$ is open by (T3), and $U^x \subset A^c$: if $z \in U^x$, then $z \in V_{y_i}^c$ for every $i = 1, \dots, n$, so $z \in (V_{y_1} \cup \dots \cup V_{y_n})^c \subset A^c$.
 \end{proof}
 \begin{thm}
+  \label{funcs-compact}
   Let $X$ and $Y$ be topological spaces, assume that $X$ is compact, and let $f : X \to Y$ be a continuous map. Then the image $f(X) \subset Y$ is compact. If furthermore $Y$ is Hausdorff, and $f$ is a bijection, then $f$ is a homeomorphism.
 \end{thm}
 \begin{proof}
@@ -58,12 +59,95 @@ In the following theorems, we will collect a number of properties of compact set
   Assume now that $Y$ is Hausdorff and $f$ is bijective. We have to show that $f^{-1}$ is continuous, so let $U \subset X$ be open, and let us show that $f(U)$ is also open. To do so, note that $U^c$ is closed and thus compact by Theorem~\ref{closed-in-compact}. By the first part of the theorem, $f(U)^c = f(U^c)$ is also compact. By Theorem~\ref{compact-in-Hausdorff}, this means that $f(U)^c$ is closed, so $f(U)$ is open.
 \end{proof}
 \begin{cor}
-  If $f: X \to Y$ is continuous, $X$ is compact, and $Y$ is Hausdorff, then $f : X \to f(X)$ is a homeomorphism.  
+  \label{cont-compact-Hausdorff}
+  If $f: X \to Y$ is continuous and injective, $X$ is compact, and $Y$ is Hausdorff, then $f : X \to f(X)$ is a homeomorphism.  
 \end{cor}
 \begin{proof}
-  This follows from the theorem above since $f(X)$ is Hausdorff by 
+  This follows from the theorem above since $f(X)$ is Hausdorff by Exercise~1.\ref{subspace-Hausdoff} and $f : X \to f(X)$ is a bijection.
 \end{proof}
 \begin{example}
+  \label{s1-compact}
   If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective.
 \end{example}
+\begin{example}
+  A \word{simple closed curve}{enkel sluten kurva} in a topological space $X$ is a continuous injective map $f : S^1 \to X$. If $X$ is Hausdorff, then $f : S^1 \to f(S^1)$ is a homeomorphism by Corollary~\ref{cont-compact-Hausdorff}.
+\end{example}
+\trans{simple closed curve}{enkel sluten kurva}
+Our next goal will be to see that any products of compact spaces are compact. To do so, the following result will be useful.
 
+\begin{lem}[The tube lemma]
+  \index{tube lemma}Let $X$ and $Y$ be topological spaces where $Y$ is compact. If $N$ is an open set of $X \times Y$ which contains $\{x_0\} \times Y$ for some $x_0 \in X$, then $N$ contains a ``tube'' $W \times Y$, where $W \subset X$ is a neighbourhood of $x_0$.
+\end{lem}
+\begin{proof}
+  Since $N$ is open we can choose, by the definition of the product topology, for any $y \in Y$ an open neighbourhood $U_y \times V_y \subset N$ of $(x_0,y)$. Since the map $Y \to X \times Y$ given by $y \mapsto (x_0,y)$ is continuous, its image $\{x_0\} \times Y$ is compact by Theorem~\ref{funcs-compact}. Therefore, since $\{U_y \times V_y\}_{y \in Y}$ is an open cover of $\{x_0 \} \times Y$, we can find $y_1, \dots, y_n \in Y$ so that $\{U_{y_1} \times V_{y_1}, \dots, U_{y_n} \times V_{y_n}\}$ is a subcover of $\{x_0 \} \times Y$. Now, let $W = \bigcap_{i=1}^n U_{y_i}$. Then $W$ is open by (T3), and is a non-empty neighbourhood of $x_0$. By construction, $W \times Y = W \times (V_{y_1} \cup \dots \cup V_{y_n}) \subset N$.
+\end{proof}
+
+\begin{thm}
+  \label{tikhonov-theorem}
+  Let $X_1, \dots, X_n$ be topological spaces. Then $\prod_{i=1}^n X_i$ is compact if and only if $X_i$ is compact for all $i = 1, \dots, n$.
+\end{thm}
+\begin{proof}
+  If the product is compact, then so is every $X_i$, since $X_i$ is the image of a continuous map; the projection.
+  
+  For the converse, by induction it suffices to show that a product $X \times Y$ of two compact spaces is compact. Let $\calU$ be an open cover of $X \times Y$. As in the proof of the tube lemma, for every $x \in X$ the space $\{x \} \times Y$ is compact. Therefore, its open cover $\{ (\{x\} \times Y) \cap U \mid U \in \calU\}$ has a finite subcover by sets
+  \[
+    (\{x\} \times Y) \cap U_i^x,
+  \]
+  where $i = 1, \dots, n$, and all $U_i^x$ are in $\calU$. Let $N_x = \bigcup_{i=1}^n U_i^x$. Then by the tube lemma, there is a neighbourhood $W_x$ of $x$ so that $W_x \times Y \subset N_x$. Now the collection $\{W_x \mid x \in X\}$ is an open cover of $X$, and since $X$ is compact, we can find finitely many elements $x_1, \dots, x_m \in X$ so that $\{W_{x_1}, \dots, W_{x_m}\}$ is a finite subcover. We claim that the finite collection
+  \[
+    \{U_i^{x_j} \mid i = 1, \dots, n,\ j = 1, \dots, m \} \subset \calU
+  \]
+  covers $X$. To see this, let $(x,y) \in X \times Y$ be arbitrary. Then there is a $j \in \{1, \dots, m\}$ so that $x \in W_{x_j}$, and $(x,y) \in N_{x_j}$, and then by definition of $N_{x_j}$, there is an $i \in \{1, \dots, n\}$ so that $(x,y) \in U_i^{x_j}$.
+\end{proof}
+\begin{rem}
+  The same result holds true even if one allows infinite products; this general statement is known as Tikhonov's theorem\index{Tikhonov's theorem}. We refer to \cite[\S 37]{Mun} for the details.
+\end{rem}
+\begin{example}
+  If we trust Example~\ref{s1-compact} which said that $S^1$ is compact, it follows from Theorem~\ref{tikhonov-theorem} that the $n$-torus $T^n = S^1 \times \cdots \times S^1$ is also compact.
+\end{example}
+Before moving on, let us remark that one can also characterize compactness in terms of closed sets rather than open sets:
+\begin{defn}
+  A collection of subsets $\calC \subset \calP(X)$ of a set $X$ is said to have the \word{finite intersection property}{?} if for every finite subcollection $\{C_1, \dots, C_n\} \subset \calC$, one has $\bigcap_{i=1}^n C_i \not= \emptyset$.
+\end{defn}
+\trans{finite intersection property}{?}
+\begin{prop}
+  A topological space $X$ is compact if and only if any collection $\calC$ of closed subsets of $X$ with the finite intersection property satisfies $\bigcap_{C \in \calC} C \not= \emptyset$.
+\end{prop}
+\begin{proof}
+  Exercise.
+\end{proof}
+
+\subsection{Sequential compactness}
+One of our next goals will be to give a characterization of the compact subsets of $\bbR^n$. For this purpose it will be useful to introduce the notion of sequential compactness.
+
+\begin{defn}
+  A topological space is called \word{sequentially compact}{?} if every sequence in it has a convergent subsequence.
+\end{defn}
+\trans{sequentially compact}{?}
+
+\begin{thm}
+  Let $X$ be a topological space.
+  \begin{enumerate}
+    \item[(i)] If $X$ is first countable, then compactness of $X$ implies sequential compactness.
+    \item[(ii)] If $X$ is a metric space with the metric topology, then compactness and sequential compactness of $X$ are equivalent.
+  \end{enumerate}
+\end{thm}
+\begin{proof}
+  Assume that $X$ is first countable and compact. Let $\{x_n\}$ be any sequence and let us show that it has a convergent subsequence. Assume first that there is a point $x \in X$ with the property that for any neighbourhood $U$ of $x$, there are infinitely many $n$ so that $x_n \in U$. Let $\{B_i\}$ be a countable basis at $x$ and let $U_k = \bigcap_{i=1}^k B_i$, which is a neighbourhood of $x$. Then $x_n \in U_k$ for infinitely many $n$, so in particular we can choose $x_{n_k} \in U_k$ for some increasing sequence $n_k$; we claim that $\{x_{n_k}\}$ converges to $x$.  For any neighbourhood $U$ there exists an $N \in \bbN$ so that $B_N \subset U$. It follows that for all $k$ with $n_k > N$,
+  \[
+    x_{n_k} \in U_{n_k} \subset U_N \subset B_N \subset U,
+  \]
+  which says that $x_{n_k} \to x$.
+  
+  Suppose now that no $x$ has the property we used above; that is, suppose that for every $x \in X$ there is a neighbourhood $U_x$ of $x$ so that only finitely many $x_n$ are in $U_x$. We will use compactness of $X$ to arrive at a contradiction. The collection $\{U_x \mid x \in X\}$ is a cover of $X$, so by compactness we get finitely many points $y_1, \dots, y_n \in X$ so that $U_{y_1}, \dots, U_{y_n}$ cover $X$. This is impossible though since then, at least one of the $U_{y_i}$ must contain infinitely many of the $x_n$.
+  
+  Next we turn our attention to the metric case. First of all, recall that metric spaces are first-countable, so we only need to show that sequential compactness implies compactness. So, assume that $(X,d)$ is a sequentially compact metric space.
+  
+  Fix a real number $r > 0$. Then the collection $\{B_d(x,r) \mid x \in X\}$ is an open cover which we claim has a finite subcover: if it didn't, we could define a sequence $\{x_n\}$ with the property that
+  \[
+    x_{n+1} \notin \bigcup_{i=1}^n B_d(x_i,r).
+  \]
+  This sequence has the property that $d(x_n,x_m) > r$ for all $n \not= m \in \bbN$ so it can have no convergent subsequence.
+\end{proof}
+
+\subsection{Compactness in $\bbR^n$}
