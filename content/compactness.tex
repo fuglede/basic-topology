@@ -27,6 +27,7 @@
   The half-open interval $(0,1] \subset \bbR$ is not compact since the open cover $\calU$ consisting of open sets $U_n = (\tfrac{1}{n},1]$, $n \in \bbN$, does not have a finite subcover, by more or less the same argument as in Example~\ref{reals-not-compact}. Similarly, $(0,1)$ is not compact, since the sets $(\tfrac{1}{n},1-\tfrac{1}{n})$ form an open cover with no finite subcover.
 \end{example}
 \begin{example}
+  \label{interval-compact}
   The closed interval $[0,1] \subset \bbR$ is compact. This is a special case of the Heine--Borel theorem, Theorem~\ref{heine-borel}, which we show below.
 \end{example}
 In the following theorems, we will collect a number of properties of compact sets that we will use over and over again.
@@ -38,6 +39,7 @@ In the following theorems, we will collect a number of properties of compact set
   Let $A \subset X$ be closed, and assume that $X$ is compact. To show that $A$ is compact, let $\calU = \{U_i\}_{i \in I}$ be an open cover of $A$. That is, every $U_i$ is open in $A$ in the subspace topology. By definition, we can find for every $i \in I$ open subsets $V_i$ of $X$ so that $U_i = A \cap V_i$. Since the $U_i$ cover $A$, it follows that the family $\calV = \{V_i\}_{i \in I} \cup \{A^c\}$ is an open cover of $X$; open because $A$ was assumed to be closed. Since $X$ is compact, there is a finite subcover $V_{i_1}, \dots, V_{i_n} \in \calV$ of $X$. Going, we see that $V_{i_1} \cap A, \dots, V_{i_n} \cap A \in \calU$ form a finite subcover of $A$, which is what we wanted to prove.
 \end{proof}
 \begin{thm}
+  \label{compact-in-Hausdorff}
   A compact subspace of a Hausdorff space is closed.
 \end{thm}
 \begin{proof}
@@ -48,10 +50,20 @@ In the following theorems, we will collect a number of properties of compact set
   Let $U^x = U_{y_1} \cap \dots \cap U_{y_n}$. Now $U^x$ is open by (T3), and $U^x \subset A^c$: if $z \in U^x$, then $z \in V_{y_i}^c$ for every $i = 1, \dots, n$, so $z \in (V_{y_1} \cup \dots \cup V_{y_n})^c \subset A^c$.
 \end{proof}
 \begin{thm}
-  Let $X$ and $Y$ be topological spaces, assume that $X$ is compact, and let $f : X \to Y$ be a continuous map. Then the image $f(X) \subset Y$ is compact. If furthermore $Y$ is Hausdorff, and $f$ is a bijection, then the inverse map $f^{-1} : Y \to X$ is continuous.
+  Let $X$ and $Y$ be topological spaces, assume that $X$ is compact, and let $f : X \to Y$ be a continuous map. Then the image $f(X) \subset Y$ is compact. If furthermore $Y$ is Hausdorff, and $f$ is a bijection, then $f$ is a homeomorphism.
 \end{thm}
 \begin{proof}
   Let $\calU = \{U_i \}_{i \in I}$ be an open cover of $f(X)$ and let us find a finite subcover. Define $V_i = f^{-1}(U_i)$ for every $i$. Then $\{V_i\}_{i \in I}$ is an open cover of $X$ which has a finite subcover $\{V_{i_1}, \dots, V_{i_n}\}$ since $X$ is compact. Now clearly, the corresponding collection $\{U_{i_1}, \dots, U_{i_n}\}$ is a finite subcover of $f(X)$.
   
-  Assume now that $Y$ is Hausdorff and $f$ is bijective. To show that $f^{-1}$ is continuous, let $U \subset X$ be open, and let us show that $f(U)$ is also open. To do so, note that $U^c$ is closed and thus compact by Theorem~\ref{closed-in-compact}.
+  Assume now that $Y$ is Hausdorff and $f$ is bijective. We have to show that $f^{-1}$ is continuous, so let $U \subset X$ be open, and let us show that $f(U)$ is also open. To do so, note that $U^c$ is closed and thus compact by Theorem~\ref{closed-in-compact}. By the first part of the theorem, $f(U)^c = f(U^c)$ is also compact. By Theorem~\ref{compact-in-Hausdorff}, this means that $f(U)^c$ is closed, so $f(U)$ is open.
 \end{proof}
+\begin{cor}
+  If $f: X \to Y$ is continuous, $X$ is compact, and $Y$ is Hausdorff, then $f : X \to f(X)$ is a homeomorphism.  
+\end{cor}
+\begin{proof}
+  This follows from the theorem above since $f(X)$ is Hausdorff by 
+\end{proof}
+\begin{example}
+  If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective.
+\end{example}
+
