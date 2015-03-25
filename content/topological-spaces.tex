@@ -98,7 +98,7 @@ The following result gives what might be an easier way to think about $\calT_\ca
   Let $\calB$ be the basis for a topology on a set $X$. Then $U \in \calT_\calB$ if and only if $U = \bigcup_{i \in I} B_i$ for some sets $B_i \in \calB$. That is, $\calT_\calB$ consists of all unions of elements from $\calB$.
 \end{lem}
 \begin{proof}
-  First of all, notice that the $\emptyset$ is the empty union by convention, so we may assume that $U$ is non-empty.
+  First of all, notice that $\emptyset$ is the empty union by convention, so we may assume that $U$ is non-empty.
 
   There are two things to show. First let $U = \bigcup_{i \in I} B_i$ for $B_i \in \calB$, and let $x \in U$. Then there is an $i \in I$ so that $x \in B_i \subset U$. This shows that $U \in \calT_\calB$.
   
@@ -194,7 +194,7 @@ Roughly speaking, metric spaces are spaces where one can always measure distance
   \begin{enumerate}
     \item[(M1)] $d(x,y) = 0$ if and only if $x = y$,
     \item[(M2)] $d(x,y) = d(y,x)$, and
-    \item[(M3)] the triangle inequality $d(x,y) + d(y,z) \leq d(x,z)$.
+    \item[(M3)] the triangle inequality $d(x,z) \leq d(x,y) + d(y,z)$.
   \end{enumerate}
   The function $d$ is called a \word{metric}{metrik}, and $d(x,y)$ is called the \word{distance}{avst{\aa}nd} from $x$ to $y$.
 \end{defn}
@@ -308,7 +308,7 @@ We will soon have a huge family of examples of functions which are \emph{not} co
   
   For the second part, suppose first that $f$ is continuous, and let $C \subset Y$ be closed. Then $C^c$ is open, and $f^{-1}(C)^c = f^{-1}(C^c)$ is open. The other direction is similar.
   
-  Finally, suppose that $f$ is continuous, let $x \in X$, and let $U \in \calT_Y$ with $f(x) \in U$. Then $V = f^{-1}(U)$ is open in $X$ and $f(V) = U$, so $f$ is continuous at $x$. Suppose on the other hand that $f$ is continuous at $x$ for all $x \in X$, and let $U \in \calT_Y$. Assume without loss of generality that $f^{-1}(U)$ is non-empty, and let $x \in f^{-1}(U)$. Then there exists $V_x \in \calT_X$ so that $x \in V_x$ and $f(V_x) \subset U$. Now $f^{-1}(U)$ is the union of such a collection of such $V_x$ thus open by (T2) since each $V_x$ is.
+  Finally, suppose that $f$ is continuous, let $x \in X$, and let $U \in \calT_Y$ with $f(x) \in U$. Then $V = f^{-1}(U)$ is open in $X$ and $f(V) = U$, so $f$ is continuous at $x$. Suppose on the other hand that $f$ is continuous at $x$ for all $x \in X$, and let $U \in \calT_Y$. Assume without loss of generality that $f^{-1}(U)$ is non-empty, and let $x \in f^{-1}(U)$. Then there exists $V_x \in \calT_X$ so that $x \in V_x$ and $f(V_x) \subset U$. Now $f^{-1}(U) = \bigcup_{x \in f^{-1}(U)} V_x$ and thus open by (T2) since each $V_x$ is.
 \end{proof}
 
 As the reader will likely have encountered the concept of continuity in other contexts, let us now show that these notions actually coincide. For convenience, let us recall what continuity ``normally'' means.
@@ -357,7 +357,7 @@ Often, we will be dealing with subsets of topological spaces, and we want to be 
   The collection $\calT_Y$ actually defines a topology on $Y$.
 \end{lem}
 \begin{proof}
-  Obviously $\emptyset$ and $Y$ are in $\calT_Y$, so (T1) holds. Let $\{U_i\}_{i\in I}$ be a family of subsets $U_i \in \calT_Y$. That is, for every $i \in Y$ there exists a $V_i \in \calT$ so that $U_i = Y \cap V_i$. Then by (an infinite version) of De Morgan's law (Proposition~\ref{de-morgan}),
+  Obviously $\emptyset$ and $Y$ are in $\calT_Y$, so (T1) holds. Let $\{U_i\}_{i\in I}$ be a family of subsets $U_i \in \calT_Y$. That is, for every $i \in I$ there exists a $V_i \in \calT$ so that $U_i = Y \cap V_i$. Then by (an infinite version) of De Morgan's law (Proposition~\ref{de-morgan}),
   \[
     \bigcup_{i \in I} U_i = \bigcup_{i \in I} Y \cap V_i = Y \cap \bigcup_{i \in I} V_i,
   \]
