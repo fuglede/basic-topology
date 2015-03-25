@@ -118,7 +118,7 @@ Before moving on, let us remark that one can also characterize compactness in te
 \end{proof}
 
 \subsection{Sequential compactness}
-One of our next goals will be to give a characterization of the compact subsets of $\bbR^n$. For this purpose it will be useful to introduce the notion of sequential compactness.
+In this section, we introduce a different notion of compactness that might look more familiar.
 
 \begin{defn}
   A topological space is called \word{sequentially compact}{?} if every sequence in it has a convergent subsequence.
@@ -126,6 +126,7 @@ One of our next goals will be to give a characterization of the compact subsets 
 \trans{sequentially compact}{?}
 
 \begin{thm}
+  \label{seq-compact-vs-compact}
   Let $X$ be a topological space.
   \begin{enumerate}
     \item[(i)] If $X$ is first countable, then compactness of $X$ implies sequential compactness.
@@ -161,18 +162,59 @@ One of our next goals will be to give a characterization of the compact subsets 
 \end{proof}
 
 \subsection{Compactness in $\bbR^n$}
-We will use the above theorem to build up a characterization of the compact subsets of $\bbR^n$.
+We will now turn to the promised characterisation of (sequentially) compact subsets in $\bbR^n$.
 
-\begin{defn}
-  Let $(X,d)$ be a metric space with the metric topology. A sequence $\{x_n\}$ in $X$ is called a \word{Cauchy sequence}{Cauchy-f{\"o}ljd} if
+\begin{thm}
+  \label{intervals-compact}
+  A closed bounded interval $[a,b] \subset \bbR$ is compact.
+\end{thm}
+\begin{proof}
+  Let $\{U_i\}_{i\in I}$ be an open cover of $[a,b]$, and consider the set
   \[
-    \forall \eps > 0,\ \exists N > 0 : \ m,n > N \Rightarrow d(x_m,x_n) < \eps.
+    M = \{x \in [a,b] \mid \text{$[a,x]$ is covered by finitely many $U_i$}\}.
   \]
-  A metric space is called \word{complete}{fullst{\"a}ndigt} if every Cauchy sequence is convergent.
+  We are done if we can show that $M = [a,b]$. Clearly, $a \in M$. Let $m = \sup M > a$. Clearly $M$ is an interval, and we claim that $m = b$. Assume that $m < b$.
+  
+  Since $m \in [a,b)$, there is a $j \in I$ with $m \in U_j$. Since $U_j$ is open (in the subspace topology of the standard topology on $\bbR$), we get that $(m-\eps,m+\eps) \subset U_j$ and $m - \eps \in M$ for some small enough $\eps$. This says that $[a,m-\eps]$ is covered by finitely many $U_i$, so by adding $U_j$ to this collection, we see that also $[a,m+\eps/2]$ is covered by finitely many $U_i$. That is, $m+\eps/2 \in M$, which contradicts the fact that $m = \sup M$.  
+\end{proof}
+\begin{defn}
+  %A subset $A \subset X$ of a metric space $(X,d)$ is called \word{bounded}{begr{\"a}nsad} if there is a number $r > 0$ so that $d(x,y) \leq r$ for all $x,y \in A$.
+  A subset $A \subset \bbR^n$ is called \word{bounded}{begr{\"a}nsad} if $A \subset [-K,K]^n$ for some $K > 0$.
 \end{defn}
-\trans{Cauchy sequence}{Cauchy-f{\"o}ljd}
-\trans{complete}{fullst{\"a}ndigt}
-\begin{fact}
-  The real numbers $\bbR$ with the usual metric $d(x,y) = \abs{x-y}$ is a complete metric space.
-\end{fact}
+\trans{bounded}{begr{\"a}nsad}
+\begin{thm}[Heine--Borel]
+  \index{Heine--Borel theorem}A set $A \subset \bbR^n$ is compact if and only if it is closed and bounded.
+\end{thm}
+\begin{proof}
+  If $A$ is compact, then $A$ is closed by Theorem~\ref{compact-in-Hausdorff}. If $A$ were not bounded, we could choose $x_k \in A$ with $d(x_k,0) > k$ for all $k \in \bbN$. Now clearly, the collection $U_k = A \cap B(0,k)$, $k \in \bbN$, is an open cover of $A$ but for all $k \in \bbN$ we see that $x_k \notin U_k$, so $\{U_k\}$ has no finite subcover, contradicting compactness, so $A$ is bounded.
+  
+  If $A$ is closed and bounded, $A \subset [-K,K]^n$ for some $K > 0$. Now $[-K,K]$ is compact by Theorem~\ref{intervals-compact}, so $[-K,K]^n$ is compact by Theorem~\ref{tikhonov-theorem}. Thus $A$ is compact by Theorem~\ref{closed-in-compact} (notice that $A$ is closed in the subspace topology on $[-K,K]^n$).
+\end{proof}
+\begin{cor}
+  If $X$ is compact and $f : X \to \bbR$ is continuous, then there are points $x_1$ and $x_2$ with $f(x_1) = \sup f(X)$, $f(x_2) = \inf f(X)$.
+\end{cor}
+\begin{proof}
+  By Theorem~\ref{funcs-compact}, $f(X)$ is compact, so by the Heine--Borel theorem, $f(X)$ is closed and bounded. Thus $\sup f(X) < \infty$ and $\sup f(X) \in f(X)$, and similarly for $\inf$.
+\end{proof}
+\begin{thm}[Bolzano--Weierstrass]
+  \index{Bolzano--Weierstrass}A set $A \subset \bbR^n$ is sequentially compact if and only if it is closed and bounded.
+\end{thm}
+\begin{proof}
+  This follows immediately by combining Theorem~\ref{seq-compact-vs-compact} and the Heine--Borel theorem.
+\end{proof}
+% \begin{defn}
+%   Let $(X,d)$ be a metric space with the metric topology. A sequence $\{x_n\}$ in $X$ is called a \word{Cauchy sequence}{Cauchy-f{\"o}ljd} if
+%   \[
+%     \forall \eps > 0,\ \exists N > 0 : \ m,n > N \Rightarrow d(x_m,x_n) < \eps.
+%   \]
+%   A metric space is called \word{complete}{fullst{\"a}ndigt} if every Cauchy sequence is convergent.
+% \end{defn}
+% \trans{Cauchy sequence}{Cauchy-f{\"o}ljd}
+% \trans{complete}{fullst{\"a}ndigt}
+% \begin{fact}
+%   The real numbers $\bbR$ with the usual metric $d(x,y) = \abs{x-y}$ is a complete metric space.
+% \end{fact}
+% \begin{thm}
+%   The subspace $[0,1] \subset \bbR$ is sequentially compact.
+% \end{thm}
 
