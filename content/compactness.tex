@@ -31,5 +31,27 @@
 \end{example}
 In the following theorems, we will collect a number of properties of compact sets that we will use over and over again.
 \begin{thm}
+  \label{closed-in-compact}
   A closed subspace of a compact space is compact.
 \end{thm}
+\begin{proof}
+  Let $A \subset X$ be closed, and assume that $X$ is compact. To show that $A$ is compact, let $\calU = \{U_i\}_{i \in I}$ be an open cover of $A$. That is, every $U_i$ is open in $A$ in the subspace topology. By definition, we can find for every $i \in I$ open subsets $V_i$ of $X$ so that $U_i = A \cap V_i$. Since the $U_i$ cover $A$, it follows that the family $\calV = \{V_i\}_{i \in I} \cup \{A^c\}$ is an open cover of $X$; open because $A$ was assumed to be closed. Since $X$ is compact, there is a finite subcover $V_{i_1}, \dots, V_{i_n} \in \calV$ of $X$. Going, we see that $V_{i_1} \cap A, \dots, V_{i_n} \cap A \in \calU$ form a finite subcover of $A$, which is what we wanted to prove.
+\end{proof}
+\begin{thm}
+  A compact subspace of a Hausdorff space is closed.
+\end{thm}
+\begin{proof}
+  Assume that $X$ is a Hausdorff space, and let $A \subset X$ be compact. We want to show that $A^c$ is open, and we will use the usual trick of showing that very point in $A^c$ has an open neighbourhood contained entirely in $A^c$, so that $A^c = \Int A^c$.
+  
+  Let $x \in A^c$ be a fixed point (and notice that if $A^c = \emptyset$, there is little to prove). For every point $y \in A$, we can find disjoint neighbourhoods $U_y$ and $V_y$ of $x$ and $y$ respectively, since $X$ is Hausdorff. Now the collection $\{A \cap V_y\}_{y \in A}$ is an open cover of $A$, and since $A$ is compact, we can choose finitely many $y_1, \dots, y_n$ so that $\{A \cap V_{y_i}\}_{i=1,\dots,n}$ is a finite subcover. In particular, $A \subset V_{y_1} \cup \dots \cup V_{y_n}$.
+  
+  Let $U^x = U_{y_1} \cap \dots \cap U_{y_n}$. Now $U^x$ is open by (T3), and $U^x \subset A^c$: if $z \in U^x$, then $z \in V_{y_i}^c$ for every $i = 1, \dots, n$, so $z \in (V_{y_1} \cup \dots \cup V_{y_n})^c \subset A^c$.
+\end{proof}
+\begin{thm}
+  Let $X$ and $Y$ be topological spaces, assume that $X$ is compact, and let $f : X \to Y$ be a continuous map. Then the image $f(X) \subset Y$ is compact. If furthermore $Y$ is Hausdorff, and $f$ is a bijection, then the inverse map $f^{-1} : Y \to X$ is continuous.
+\end{thm}
+\begin{proof}
+  Let $\calU = \{U_i \}_{i \in I}$ be an open cover of $f(X)$ and let us find a finite subcover. Define $V_i = f^{-1}(U_i)$ for every $i$. Then $\{V_i\}_{i \in I}$ is an open cover of $X$ which has a finite subcover $\{V_{i_1}, \dots, V_{i_n}\}$ since $X$ is compact. Now clearly, the corresponding collection $\{U_{i_1}, \dots, U_{i_n}\}$ is a finite subcover of $f(X)$.
+  
+  Assume now that $Y$ is Hausdorff and $f$ is bijective. To show that $f^{-1}$ is continuous, let $U \subset X$ be open, and let us show that $f(U)$ is also open. To do so, note that $U^c$ is closed and thus compact by Theorem~\ref{closed-in-compact}.
+\end{proof}
