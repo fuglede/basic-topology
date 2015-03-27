@@ -127,7 +127,11 @@ We will use the notation $X/U = X/\!\sim_U$ for the space obtained using the equ
 \begin{example}
   Let us see what the above space means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We will show this precisely in Example~\ref{circle-from-interval}.
   
-  More generally, if $X = B^n \subset \bbR^n$ is the closed unit ball, then the $(n-1)$-sphere $S^{n-1} \subset B^n$ forms the boundary of $B^n$ in $\bbR^n$. Now if $U = S^{n-1}$ one can show that $B^n/S^{n-1} \simeq S^n$. Picturing the case $n = 2$ is probably helpful.
+  More generally, if $X = D^n \subset \bbR^n$ is the closed unit ball, 
+  \[
+    D^n = \{x \in \bbR^n \mid \Abs{x} \leq 1 \},
+  \]
+  then the $(n-1)$-sphere $S^{n-1} \subset D^n$ forms the boundary of $D^n$ in $\bbR^n$. Now if $U = S^{n-1}$ one can show that $D^n/S^{n-1} \simeq S^n$; in fact, we will do so explicitly in Proposition~\ref{closing-the-bag} below. Picturing the case $n = 2$ is probably helpful.
 \end{example}
 The following result allows us to determine continuity of functions defined on quotient spaces in terms of the spaces they originate from.
 \begin{lem}
