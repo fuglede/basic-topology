@@ -80,9 +80,6 @@ In the following theorems, we will collect a number of properties of compact set
   A \word{simple closed curve}{enkel sluten kurva} in a topological space $X$ is a continuous injective map $f : S^1 \to X$. If $X$ is Hausdorff, then $f : S^1 \to f(S^1)$ is a homeomorphism by Corollary~\ref{cont-compact-Hausdorff}.
 \end{example}
 \trans{simple closed curve}{enkel sluten kurva}
-\begin{example}
-  
-\end{example}
 
 Our next goal will be to see that any products of compact spaces are compact. To do so, the following result will be useful.
 
@@ -213,6 +210,9 @@ We will now turn to the promised characterisation of (sequentially) compact subs
 \begin{proof}
   Clearly, the $n$-sphere is bounded. Notice that we can describe the sphere as $S^n = (\Abs{\cdot})^{-1}(\{1\})$, the pre-image of a closed set $\{1\}$ under the norm map $\Abs{\cdot} : \bbR^{n+1} \to \bbR$, which is continuous. Thus $S^n$ is closed, and therefore compact by the Heine--Borel theorem.
 \end{proof}
+\begin{example}
+  The genus $n$ surface from Example~\ref{surface-example} is compact for every $n$, since the $4n$-gon $X_n$ is closed and bounded, thus compact, and quotients of compact spaces are compact by Corollary~\ref{compact-quotient}.
+\end{example}
 \begin{thm}[Bolzano--Weierstrass]
   \index{Bolzano--Weierstrass}A set $A \subset \bbR^n$ is sequentially compact if and only if it is closed and bounded.
 \end{thm}
