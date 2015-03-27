@@ -65,14 +65,25 @@ In the following theorems, we will collect a number of properties of compact set
 \begin{proof}
   This follows from the theorem above since $f(X)$ is Hausdorff by Exercise~1.\ref{subspace-Hausdoff} and $f : X \to f(X)$ is a bijection.
 \end{proof}
+\begin{cor}
+  \label{compact-quotient}
+  If $p : X \to Y$ is a quotient map, and $X$ is compact, then so is $Y$.
+\end{cor}
+\begin{proof}
+  Quotient maps are continuous and surjective, so the claim follows from Theorem~\ref{funcs-compact}.
+\end{proof}
 \begin{example}
   \label{s1-compact}
-  If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective.
+  If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective. Alternatively, one could combine Example~\ref{circle-from-interval} and Corollary~\ref{compact-quotient}
 \end{example}
 \begin{example}
   A \word{simple closed curve}{enkel sluten kurva} in a topological space $X$ is a continuous injective map $f : S^1 \to X$. If $X$ is Hausdorff, then $f : S^1 \to f(S^1)$ is a homeomorphism by Corollary~\ref{cont-compact-Hausdorff}.
 \end{example}
 \trans{simple closed curve}{enkel sluten kurva}
+\begin{example}
+  
+\end{example}
+
 Our next goal will be to see that any products of compact spaces are compact. To do so, the following result will be useful.
 
 \begin{lem}[The tube lemma]
@@ -195,6 +206,12 @@ We will now turn to the promised characterisation of (sequentially) compact subs
 \end{cor}
 \begin{proof}
   By Theorem~\ref{funcs-compact}, $f(X)$ is compact, so by the Heine--Borel theorem, $f(X)$ is closed and bounded. Thus $\sup f(X) < \infty$ and $\sup f(X) \in f(X)$, and similarly for $\inf$.
+\end{proof}
+\begin{cor}
+  The $n$-sphere $S^n$ is compact.
+\end{cor}
+\begin{proof}
+  Clearly, the $n$-sphere is bounded. Notice that we can describe the sphere as $S^n = (\Abs{\cdot})^{-1}(\{1\})$, the pre-image of a closed set $\{1\}$ under the norm map $\Abs{\cdot} : \bbR^{n+1} \to \bbR$, which is continuous. Thus $S^n$ is closed, and therefore compact by the Heine--Borel theorem.
 \end{proof}
 \begin{thm}[Bolzano--Weierstrass]
   \index{Bolzano--Weierstrass}A set $A \subset \bbR^n$ is sequentially compact if and only if it is closed and bounded.
