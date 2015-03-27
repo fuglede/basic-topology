@@ -248,7 +248,7 @@ We also now have the necessary tools to prove a claim we gave in Example~\ref{ba
   \[
     \psi(x) = \begin{cases} (g \circ \phi)(x),& \text{if $x \in B^n$,} \\ p,& \text{if $x \in \dd D^n$.} \end{cases}
   \]
-  We claim that $\psi$ is continuous, which will then complete the proof: since $\psi$ is constant on $\dd D^n$, Lemma~\ref{universal-property-quotients} provides us with a continuous map $\hat{\psi} : D^n / \dd D^n \to S^n$, which is continuous if $\psi$ is, and which is bijective by construction.
+  See Figures~\ref{ball}--\ref{sphere} for an illustration of the map $\psi$. We claim that $\psi$ is continuous, which will then complete the proof: since $\psi$ is constant on $\dd D^n$, Lemma~\ref{universal-property-quotients} provides us with a continuous map $\hat{\psi} : D^n / \dd D^n \to S^n$, which is continuous if $\psi$ is, and which is bijective by construction.
   
   To show that $\psi$ is continuous, we will show that it is continuous at each point. It is continuous on each point in $B^n$, since its restriction to $B^n$ is continuous, so it suffices to show that it is continuous at every point in $\dd D^n$, so let $x \in \dd D^n$, so let $U \subset S^n$ be a neighbourhood of $f(x) = p$, and let us find a neighbourhood $V$ of $x$ so that $\psi(V) \subset U$. Since $U$ is open, there is a $k$, $0 < k < 1$ so close to $1$ that
   \[
@@ -267,5 +267,27 @@ We also now have the necessary tools to prove a claim we gave in Example~\ref{ba
     \psi(V) \subset \{ y \in S^n \mid k < y_{n+1} \leq 1 \} \subset U.
   \]
 \end{proof}
+\begin{figure}
+\centering
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/ball}
+  \caption{The closed unit ball $D^2$ and a number of contours in $B^2\subset D^2$.}
+  \label{ball}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/plane}
+  \caption{The result of applying $\phi : B^2 \to \bbR^2$.}
+  \label{plane}
+\end{minipage}
+\\
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{images/sphere}
+  \caption{The contours in $S^2$ obtained by the map $g \circ \phi$.}
+  \label{sphere}
+\end{minipage}
+\end{figure}
 
 \subsection{Local compactness and one-point compactification}
