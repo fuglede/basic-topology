@@ -262,8 +262,10 @@ We also now have the necessary tools to prove a claim we gave in Example~\ref{ba
   \[
     y_{n+1} = 1-t\left( \frac{z}{1-\Abs{z}} \right) = 1- \frac{2}{1+(\Abs{z}/(1-\Abs{z}))^2} = \frac{2\Abs{z} - 1 }{2\Abs{z}^2 - 2 \Abs{z} + 1}.
   \]
-  It follows that there is $K$ so close to $1$ so that all $z$ with $\Abs{z} > K$ very close to $1$ satisfy $y_{n+1} > k$. Therefore, if we let $V = \{z \mid \Abs{z} > K\}$, we have
+  It follows that there is $K$, $0 < K < 1$ so close to $1$ so that all $z \in D^n$ with $\Abs{z} > K$ very close to $1$ satisfy $y_{n+1} > k$. Therefore, if we let $V = \{z \mid \Abs{z} > K\}$, we have
   \[
     \psi(V) \subset \{ y \in S^n \mid k < y_{n+1} \leq 1 \} \subset U.
   \]
 \end{proof}
+
+\subsection{Local compactness and one-point compactification}
