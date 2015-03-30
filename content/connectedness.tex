@@ -212,7 +212,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
 \begin{proof}
   The first part is trivial since it it always true for equivalence classes of an equivalence relation. Let $Y \subset X$ be connected, and let $x \in Y$. Then $y \in [x]$ for all other $y \in Y$ since $Y$ is a connected set containing both $x$ and $y$, so $Y \subset [x]$, and $[x]$ is one of the $C_i$ by definition.
   
-  Similarly, fix $x \in C_i$. Then for every other $y \in C_i$ there a connected subset $A_y$ so that $x, y \in A_y$. Now we use our usual trick and find that $C_i = \bigcup_{y \in C_i} A_y$. Since all of the $A_y$ contain $x$, we use Theorem~\ref{union-connected} to conclude that $C_i$ is connected.
+  Similarly, fix $x \in C_i$. Then for every other $y \in C_i$ there a connected subset $A_y$ so that $x, y \in A_y$. Now we use our usual trick and find that $C_i = \bigcup_{y \in C_i} A_y$. Since all of the $A_y$ contain $x$, we use Theorem~\ref{unions-connected} to conclude that $C_i$ is connected.
   
   Finally, we will show that $C_i$ is closed by showing that $C_i = \bar{C_i}$. Once more, write $C_i = [x]$ for any $x \in C_i$. Let $y \in \bar{C_i}$. Then $\bar{C_i}$ is a subset containing both $x$ and $y$, and $\bar{C_i}$ is connected by Theorem~\ref{connected-closures}, so $y \in [x] = C_i$.
 \end{proof}
