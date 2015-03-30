@@ -562,11 +562,11 @@ which can also be shown more precisely by using De Morgan's laws.
 \begin{proof}
   Let us show (i) and (ii); (iii) and (iv) follow by the same logic. First, note that since $Y \subset \bar Y$ and $Z \subset \bar Z$ we get that $Y \cup Z \subset \bar Y \cup \bar Z$. This says that $\bar Y \cup \bar Z$ is a closed subset containing $Y \cup Z$; since $\bar{Y \cup Z}$ is the smallest closed subset containing $Y \cup Z$, this tells us that $\bar{Y \cup Z} \subset \bar Y \cup \bar Z$.
   
-  On the other hand $Y \subset Y \cup Z \subset \bar {Y \cup Z}$ and the latter set is closed so $\bar Y \subset \bar Y \cup \bar Z$. For the same reason $\bar Z \subset \bar Y \cup \bar Z$, and this implies that $\bar Y \cup \bar Z \subset \bar { Y \cup Z}$.
+  On the other hand $Y \subset Y \cup Z \subset \bar {Y \cup Z}$ and the latter set is closed so $\bar Y \subset \bar{Y \cup Z}$. For the same reason $\bar{Z \subset Y} \cup \bar Z$, and this implies that $\bar Y \cup \bar Z \subset \bar{Y \cup Z}$.
   
   Since $Y \subset \bar Y$ and $Z \subset \bar Z$ we have $Y \cap Z \subset \bar Y \cap \bar Z$. The latter set is closed so $\bar {Y\cap Z} \subset \bar Y \cap \bar Z$.
 \end{proof}
-For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivning} of a point $x$ if $x \in U$.
+For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivning} of a point $x$ if $U$ is open and $x \in U$.
 
 
 \begin{defn}
@@ -625,9 +625,9 @@ For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivni
   \]
 \end{prop}
 \begin{proof}
-  Let $x = \{x_i\}_{i \in I} \in \prod_{i \in I} \bar {A_i}$. Let $U = \prod_{i \in I} U_i$ be any of the basis elements for the product topology $x \in U$, i.e. such that $x_i \in U_i$ and such that $U_i$ is open in $X_i$ for every $i \in I$. Since also $x_i \in \bar A_i$ for all $i$, we can choose a $y_i \in U_i \cap A_i$ for all $i$, so $y = \{y_i\}_{i \in I} \in U \cap \prod_{i\in I} A_i$. In other words, any neighbourhood $U$ of $x$ contains points from $\prod_{i\in I} A_i$ so $x \in \bar{\prod_{i\in I} A_i}$.
+  Let $x = (x_i)_{i \in I} \in \prod_{i \in I} \bar {A_i}$. Let $U = \prod_{i \in I} U_i$ be any of the basis elements for the product topology $x \in U$, i.e. such that $x_i \in U_i$ and such that $U_i$ is open in $X_i$ for every $i \in I$. Since also $x_i \in \bar A_i$ for all $i$, we can choose a $y_i \in U_i \cap A_i$ for all $i$, so $y = (y_i)_{i \in I} \in U \cap \prod_{i\in I} A_i$. In other words, any neighbourhood $U$ of $x$ contains points from $\prod_{i\in I} A_i$ so $x \in \bar{\prod_{i\in I} A_i}$.
   
-  For the converse, suppose that $x \in \bar{\prod_{i\in I} A_i}$. Let $V_i$ be any open set that contains $x_i$. Then by definition of the product topology, $\pi_i^{-1}(V_i)\subset X$ is a neighbourhood of $x$ and so contains a point $y \in \prod_{i\in I} A_i$. This says that $y_i \in A_i \cap V_i$ so that $x_i \in \bar{A_i}$ and $x \in \prod_{i \in I} \bar{A_i}$.
+  For the converse, suppose that $x \in \bar{\prod_{i\in I} A_i}$. Let $i \in I$ be given, and let $V_i$ be any open set that contains $x_i$. Then by definition of the product topology, $\pi_i^{-1}(V_i)\subset X$ is a neighbourhood of $x$ and so contains a point $y \in \prod_{i\in I} A_i$. This says that $y_i \in A_i \cap V_i$ so that $x_i \in \bar{A_i}$ and since $i$ was arbitrary, $x \in \prod_{i \in I} \bar{A_i}$.
 \end{proof}
 
 \subsection{Separation axioms and Hausdorff spaces}
@@ -659,7 +659,7 @@ Note that clearly, a $T_2$-space is $T_1$, and a $T_1$-space is $T_0$.
   Let $X$ contain at least two points, and endow $X$ with the trivial topology. Then $X$ is not $T_0$ (or $T_1$ or $T_2$), since the only neighborhood of a point $x$ is $X$.
 \end{example}
 \begin{example}
-  If $X$ has the discrete topology, then $X$ is Hausdorff (and $T_1$ and $T_2$).
+  If $X$ has the discrete topology, then $X$ is Hausdorff (and $T_1$ and $T_0$).
 \end{example}
 \begin{example}
   Any poset $(X,\preceq)$ with the poset topology (Proposition~\ref{poset-top-def}) is $T_0$: let $x,y \in X$, $x \not= y$, and suppose that $x \preceq y$. Then $P_y = \{ z \in X \mid y \preceq z\}$ is a neighbourhood of $y$ which does not contain $x$.
@@ -711,7 +711,7 @@ In spaces like $\bbR^n$ we are used to convergent sequences only having a single
   Let $X$ be Hausdorff. If $x_n \to x$ and $x_n \to y$ in $X$, then $x = y$.
 \end{prop}
 \begin{proof}
-  Suppose that $x \not= y$. Choose $U$ and $V$ disjoint neighbourhoods of $x$ and $y$ respectively. By definition of convergence, we get $N_U, N_V > 0$ so that $x_n \in U$ for all $n > N_U$ and $x_n \in V$ for all $n > N_V$. For $n > \max(N_U,N_V)$ we therefore have $x_n \in U \cap V = \emptyset$ which is a contradiction.
+  Suppose that $x \not= y$ and assume that $x_n \to y$ and $x_n \to y$. Choose $U$ and $V$ disjoint neighbourhoods of $x$ and $y$ respectively. By definition of convergence, we get $N_U, N_V > 0$ so that $x_n \in U$ for all $n > N_U$ and $x_n \in V$ for all $n > N_V$. For $n > \max(N_U,N_V)$ we therefore have $x_n \in U \cap V = \emptyset$ which is a contradiction.
 \end{proof}
 In analysis, one might have encountered the important characterization of continuity in $\bbR^n$ that a function $f$ is continuous if and only $x_n \to x$ implies that $f(x_n) \to f(x)$. It turns out that this is not quite true for general continuous maps between topological spaces without further assumptions.
 \begin{defn}
