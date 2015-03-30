@@ -14,7 +14,7 @@ ball = Show[
      ContourStyle -> colour[r]], {r, 0, 1, 1/contours}], 
    ImageSize -> imagesize];
 plane = Show[
-   Table[ContourPlot[x^2 + y^2 == 1/(1 - r^2), {x, -2, 2}, {y, -2, 2},
+   Table[ContourPlot[x^2 + y^2 == r^2/(1 - r^2), {x, -2, 2}, {y, -2, 2},
       ContourStyle -> colour[r]], {r, 0, 1 - 1/contours, 1/contours}],
     ImageSize -> imagesize];
 sphere = Show[
