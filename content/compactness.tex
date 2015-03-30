@@ -291,3 +291,30 @@ We also now have the necessary tools to prove a claim we gave in Example~\ref{ba
 \end{figure}
 
 \subsection{Local compactness and one-point compactification}
+In this section we will see how we can turn a Hausdorff space into a compact space by adding one more point, and we will see how the new space is Hausdorff at self, as long as it looks sufficiently much like a compact space close to points.
+\begin{defn}
+  Let $(X,\calT)$ be a Hausdorff space. The \word{one-point compactification}{enpunktskompaktifiering} of $X$ is the space $\hat{X} = X \cup \{\star\}$ obtained from $X$ by adding a single point, called $\star$, equipped with the topology
+  \[
+    \hat{\calT} = \calT \cup \{ (X \setminus K) \cup \{\star\} \mid \text{$K \subset X$ compact} \}.
+  \]
+\end{defn}
+\trans{one-point compactification}{enpunktskompaktifiering}
+\begin{prop}
+  The collection $\hat{\calT}$ is actually a topology on $\hat{X}$.
+\end{prop}
+\begin{proof}
+  Exercise~\ref{one-point-exercise}.
+\end{proof}
+\begin{defn}
+  A topological space is called \word{locally compact}{lokalt kompakt} if every point $x \in X$ has a neighbourhood contained in a compact subspace. I.e. if there exists a neighbourhood $U$ of $x$ and a compact set $K \subset X$ so that $x \in U \subset K \subset X$.
+\end{defn}
+\trans{locally compact}{lokalt kompakt}
+\begin{example}
+  All compact spaces are locally compact.
+\end{example}
+\begin{example}
+  Euclidean space $\bbR^n$ is locally compact. For instance, for any $x$, $\bar{B(x,1)}$ is compact (by the Heine--Borel theorem) and contains $B(x,1)$.
+\end{example}
+\begin{example}
+  
+\end{example}
