@@ -615,6 +615,7 @@ For any topological space $X$, we say that $U$ is a \word{neighbourhood}{omgivni
   
   On the other hand, if $x \in Y' \setminus Y$, any neighborhood $U$ of $x$ will intersect $Y$; it will also intersect $X \setminus Y$, since $x$ belongs to that set. This implies that $x \in \dd Y$, and as before, $x \in \dd Y \setminus Y$. This completes the proof.
 \end{proof}
+The above theorem provides us with the following useful characterisation of the closure: we see that $x \in \bar Y$ if and only if every neighbourhood of $x$ intersects $Y$.
 \begin{example}
   We claim that $\bbQ$ is dense in $\bbR$, i.e. that $\bar \bbQ = \bbR$. By the above theorem, it suffices to show that $\dd \bbQ \cup \bbQ = \bbR$. To see this, let $x \in \bbR$ be arbitrary, and let $U$ be any neighbourhood of $x$. Now, an open set like $U$ is the union of a number of intervals, any interval contains (an infinite number of) both rational and irrational numbers, that is, $U \cap \bbQ \not= \emptyset$, and $U \cap (\bbR \setminus \bbQ) \not= \emptyset$. This is exactly the condition that $x \in \dd \bbQ$. Notice, not only did we show that $\dd \bbQ \cup \bbQ = \bbR$; we actually see that $\dd \bbQ = \bbR$.
 \end{example}
