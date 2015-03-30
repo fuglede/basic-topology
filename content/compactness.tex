@@ -291,7 +291,7 @@ We also now have the necessary tools to prove a claim we gave in Example~\ref{ba
 \end{figure}
 
 \subsection{Local compactness and one-point compactification}
-In this section we will see how we can turn a Hausdorff space into a compact space by adding one more point, and we will see how the new space is Hausdorff at self, as long as it looks sufficiently much like a compact space close to points.
+In this section we will see how we can turn a Hausdorff space into a compact space by adding one more point, in a way that the open sets of the original space are still open. We will also see that the new space is Hausdorff itself, as long as it looks sufficiently much like a compact space close to points.
 \begin{defn}
   Let $(X,\calT)$ be a Hausdorff space. The \word{one-point compactification}{enpunktskompaktifiering} of $X$ is the space $\hat{X} = X \cup \{\star\}$ obtained from $X$ by adding a single point, called $\star$, equipped with the topology
   \[
@@ -305,6 +305,19 @@ In this section we will see how we can turn a Hausdorff space into a compact spa
 \begin{proof}
   Exercise~\ref{one-point-exercise}.
 \end{proof}
+\begin{prop}
+  The one-point compactification is compact.
+\end{prop}
+\begin{proof}
+  Let $\calU = \{U_i\}_{i \in I}$ be an open cover of $\hat{X}$ and let us show that it has a finite subcover. There is a $j \in I$ so that $\star \in U_j$. Clearly, $U_j \in \hat{\calT} \setminus \calT$, so we see that $U_j = (X \setminus K) \cup \{\star\}$ for a compact set $K \subset X$.
+  
+  Now clearly, $\{U_i \cap K\}_{i \in I}$ is an open cover of $K$, so by compactness there are $i_1, \dots, i_n$ so that $\{U_{i_1} \cap K, \dots, U_{i_n} \cap K\}$ cover $K$ by compactness. In particular, $K \subset U_{i_1} \cup \dots \cup U_{u_n}$. Now
+  \[
+    \hat{X} = X \setminus K \cup \{\star\} \cup K = U_j \cup K \subset U_j \cup U_{i_1} \cup \dots \cup U_{i_n},
+  \]
+  so we have found a finite subcover.
+\end{proof}
+
 \begin{defn}
   A topological space is called \word{locally compact}{lokalt kompakt} if every point $x \in X$ has a neighbourhood contained in a compact subspace. I.e. if there exists a neighbourhood $U$ of $x$ and a compact set $K \subset X$ so that $x \in U \subset K \subset X$.
 \end{defn}
