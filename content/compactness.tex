@@ -330,9 +330,59 @@ The point $\star$ is often called the \emph{point at infinity}\index{point at in
   
   So, assume that $x \in X$ and $y = \star$. Let $U \subset X$ be any neighbourhood at $x$, and choose a set $K \subset X$, compact in $X$, so that $x \in U \subset K \subset X$. It follows that $U \cap ((X \setminus K) \cup \{\star\}) = \emptyset$, and since $(X \setminus K) \cup \{\star\}$ is a neighbourhood of $\star$, we are done.
 \end{proof}
+
+Before going into details on what the one-point compactification looks like, let us provide some examples of locally compact spaces.
+
 \begin{example}
   All compact spaces are locally compact.
 \end{example}
 \begin{example}
   Euclidean space $\bbR^n$ is locally compact. For instance, for any $x$, $\bar{B(x,1)}$ is compact (by the Heine--Borel theorem) and contains $B(x,1)$.
 \end{example}
+Now as the inquisitive reader will have noticed, the word ``locally'' used in our definition of ``locally compact'' does not quite match up with how we used the word when talking about locally connected and locally path-connected spaces. The next result says that for Hausdorff spaces, the use of the word ``local'' will agree in these various cases.
+\begin{thm}
+  \label{local-compactness-in-hausdorff}
+  Let $X$ be a Hausdorff space. Then $X$ is locally compact if and only if for very $x \in X$ and every neighbourhood $U$ of $x$, there is a neighbourhood $V$ of $x$ so that $\bar{V}$ is compact and $\bar V \subset U$.
+\end{thm}
+\begin{proof}
+  Exercise.
+\end{proof}
+We can use this to create a ton of locally compact spaces as subspaces of locally compact spaces. As for compact spaces, whenever we say that a subset of a topological space is locally compact, we mean that it is locally compact in the subspace topology.
+\begin{prop}
+  If $X$ is a locally compact space, and let $A \subset X$ be a subspace. Then $A$ is locally compact if $A$ is closed. If furthermore $X$ is Hausdorff, then $A$ is locally compact if $A$ is open.
+\end{prop}
+\begin{proof}
+  Suppose that $A$ is closed, and let $x \in A$. Let $K$ and $U$ be a compact subspace and neighbourhood of $x$ respectively, with $x \in U \subset K \subset X$. Now $A \cap K$ is closed and thus compact by Theorem~\ref{closed-in-compact}. Also, $U \cup A$ is a neighbourhood of $x$, and $x \in U \cap A \subset K \cap A \subset A$, so $A$ is locally compact.
+  
+  Assume now that $X$ is Hausdorff, let $A$ be open, and let $x \in A$. Then $A$ is a neighbourhood of $x$, and by Theorem~\ref{local-compactness-in-hausdorff} we obtain a neighbourhood $V$ of $x$ so that $\bar{V}$ is compact, and $\bar{V} \subset A$, so $A$ is locally compact.
+\end{proof}
+Equipped with a number of examples, we now look at concrete examples of one-point compactifications. First we show that one-point compactifications are in a certain sense unique.
+\begin{prop}
+  \label{one-point-compactification-unique}
+  Let $X$ be a locally compact Hausdorff space. Suppose that $Y$ has the properties that
+  \begin{enumerate}
+    \item $X$ is a subspace of $Y$,
+    \item $Y \setminus X$ consists of a single point, and
+    \item $Y$ is compact and Hausdorff.
+  \end{enumerate}
+  If $Y'$ is another space with the same properties, then $Y \simeq Y'$.
+\end{prop}
+\begin{proof}
+  Exercise.
+\end{proof}
+
+\begin{prop}
+  \label{self-compactification}
+  If $Y$ is a compact Hausdorff space, then $\hat{Y \setminus \{x\}} \simeq Y$ for any $x \in Y$.
+\end{prop}
+\begin{proof}
+  This follows from Proposition~\ref{one-point-compactification-unique} since both $\hat{Y \setminus \{x\}}$ and $Y$ have the listed properties, where, in the notation of the proposition, $X = Y \setminus \{x\}$.
+\end{proof}
+
+\begin{prop}
+  We have $\hat{\bbR^n} \simeq S^n$.
+\end{prop}
+\begin{proof}
+  This follows immediately from Proposition~\ref{self-compactification} and Proposition~\ref{north-pole-removed}.
+\end{proof}
+One way to picture this result is shown in Figure~\ref{one-point-compactification-figure}.
