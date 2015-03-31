@@ -46,12 +46,60 @@ Notice that claerly, $T_3$-spaces are Hausdorff.
   Just as we saw above that a $T_2$-space need not be $T_3$, a $T_3$-space need not be $T_4$: an example of a $T_3$-space which is not $T_4$ is the so-called \emph{Sorgenfrey plane}\index{Sorgenfrey plane} $\bbR_l \times \bbR_l$, where $\bbR_l$ was defined in Example~\ref{lower-limit-topology}. For details, see~\cite[\S 31, Example 3]{Mun}.
 \end{example}
 
+\begin{lem}
+  Let $X$ be $T_1$. Then
+  \begin{itemize}
+    \item[(i)] $X$ is $T_3$ if and only if for each $x \in X$ and every neighbourhood $U$ of $x$, there is a neighbourhood $V$ of $x$ with $x \in \bar V \subset U$, and
+    \item[(ii)] $X$ is $T_4$ if and only if for every closed set $F \subset X$ and every open $U \subset X$ with $F \subset U$ there is an open set $V \subset X$ with $F \subset V \subset \bar V \subset U$.
+  \end{itemize}
+\end{lem}
+\begin{proof}
+  Assume that $X$ is $T_3$, let $x \in X$, and let $U$ be a neighbourhood of $x$. Then $F = X \setminus U$ is closed and we can find open disjoint subsets $V,W \subset X$ so that $x \in V$ and $F \subset W$. We claim that $\bar V \cap F = \emptyset$ from which it follows that $\bar V \subset U$. If $y \in F$, then $W$ is a neighbourhood of $y$ which does not intersect $V$ so $y \notin \dd V$, and $y \notin V$ so $y \notin \bar V$.
+  
+  For the converse, let $x \in X$ and let $F \subset X$ be closed with $x \notin F$. Then $X \setminus F$ is a neighbourhood of $x$, so we can find a neighbourhood $V$ of $x$ with $x \in V \subset \bar V \subset X \setminus F$. That is, $X \setminus \bar V$ is open, contains $F$, and is disjoint from $V$.
+  
+  For the second part of the theorem, one uses the same argument with $x$ replaced by a general closed set.
+\end{proof}
+
 \begin{thm}
   A subspace of a Hausdorff-space is Hausdorff, and a product of Hausdorff spaces is Hausdorff. A subspace of a $T_3$-space is $T_3$, and a product of $T_3$-spaces is $T_3$.
 \end{thm}
 \begin{proof}
-  The first part of the Theorem was Exercise~\ref{subspace-Hausdorff}. Likewise, in Exercise~\ref{products-Hausdorff} it is claimed that the product of two Hausdorff spaces is Hausdorff. Let us include a proof of the general case here: Let $\{X_i\}_{i \in I}$ be Hausdorff spaces, and let $x, y \in \prod_{i \in I} X_i$, $x \not= y$. Now for some $i \in I$, $x_i \not= y_i$, so choose $U$ and $V$, neighbourhoods of $x_i$ and $y_i$ respectively with $U \cap V = \emptyset$. Then $\pi_i^{-1}(U)$ and $\pi_i^{-1}(V)$ are disjoint neighbourhoods of $x$ and $y$ respectively.
+  The first part of the Theorem was Exercise~\ref{subspace-Hausdorff}.
+  
+  Likewise, in Exercise~\ref{products-Hausdorff} it is claimed that the product of two Hausdorff spaces is Hausdorff. Let us include a proof of the general case here: Let $\{X_i\}_{i \in I}$ be Hausdorff spaces, and let $x, y \in \prod_{i \in I} X_i$, $x \not= y$. Now for some $i \in I$, $x_i \not= y_i$, so choose $U$ and $V$, neighbourhoods of $x_i$ and $y_i$ respectively with $U \cap V = \emptyset$. Then $\pi_i^{-1}(U)$ and $\pi_i^{-1}(V)$ are disjoint neighbourhoods of $x$ and $y$ respectively.
 
-  Let $Y \subset X$ be a subset of a $T_3$-space $X$. By Exercise~\ref{subspace-Hausdorff}, $Y$ is Hausdorff so in particular $Y$ is $T_1$. Let $y \in Y$ be a point, and let $F \subset Y$ be closed in $Y$.
+  Let $Y \subset X$ be a subset of a $T_3$-space $X$. By the first part, $Y$ is Hausdorff so in particular $Y$ is $T_1$. Let $y \in Y$ be a point, and let $F \subset Y$ be closed in $Y$. Let $\bar{F}$ be the closure of $F$ in $X$. Then $\bar{F} \cap Y = F$ so $y \notin \bar{F}$. By the $T_3$-property for $X$, we get open sets $U_y$, $U_{\bar F}$ with $y \in U_y$, $\bar F \subset U_{\bar F}$ and $U_y \cap U_{\bar F} = \emptyset$. Now the sets $Y \cap U_y$ and $Y \cap U_{\bar F}$ do the job; they are open in $Y$, disjoint, $y \in Y \cap U_y$ and $F \subset Y \cap U_{\bar F}$.
+  
+  Let $\{X_i\}_{i \in I}$ be $T_3$-spaces and let $X = \prod_{i \in I} X_i$. As before, $X$ is $T_1$ since $X$ is $T_2$.
 \end{proof}
+
+
+\subsection{Second countability}
+\begin{defn}
+  A topological space $X$ is called \word{second-countable}{?} if the topology on $X$ has a countable basis.
+\end{defn}
+\trans{second-countable}{?}
+Notice that a second-countable space is always first-countable.
+\begin{example}
+  Euclidean space $\bbR^n$ is second-countable (Exercise~\ref{second-countable-exercise}).
+\end{example}
+\begin{thm}
+  Let $X$ be second-countable. Then
+  \begin{itemize}
+    \item[(i)] every open cover of $X$ has a countable subcover, and
+    \item[(ii)] there is a countable dense subset of $X$.
+  \end{itemize}
+\end{thm}
+A general space which has the property in (i) is called \emph{Lindel{\"o}f}\index{Lindel{\"o}f}, and a space with the property in (ii) is called \word{separable}{separabelt}. The theorem then says that a second-countable space is Lindel{\"o}f and separable.
+\begin{proof}
+  Let $\{B_n\}_{n \in \bbN}$ be a countable basis for the topology on $X$.
+  
+  Let $\calU$ be an open cover of $X$, and construct a countable cover as follows: for every $n \in \bbN$, we put $U_n = \emptyset$ if $B_n$ is not contained in any $U \in \calU$, and otherwise we let $U_n = U$ for some $U$ with $B_n \subset U$. We need to show that $\{U_n\}$ cover $X$. So, let $x \in X$. Then there is a $U \in \calU$ so that $x \in U$, and since $U$ is open, there is a basis element $B_n$ with $x \in B_n \subset U$. Now $x \in B_n \subset U_n$, so $x \in \bigcup_{n\in \bbN} U_n$, so the $\{U_n\}$ cover $X$.
+  
+  For the second part, choose $x_n \in B_n$ for every $n \in \bbN$. For each $x \in X \setminus \{x_n\}_{n \in \bbN}$, and for any neighbourhood $U$ of $x$, there is an $n$ with $x \in B_n \subset U$. this implies that $x \in \bar{\{x_n\}_{n \in \bbN}}$, and since $x$ was arbitrary, $\bar{\{x_n\}_{n \in \bbN}} = X$.
+\end{proof}
+\begin{example}
+  Let $X$ be an uncountable set with the discrete topology. Then $\{ \{x\} \mid x \in X\}$ is an open cover of $X$ which has no countable subcover, so $X$ is not second-countable.
+\end{example}
 
