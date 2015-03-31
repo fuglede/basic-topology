@@ -5,6 +5,24 @@ We encountered the first separation axioms in Section~\ref{separation-1}; in thi
 \begin{defn}
   A topological space is called \word{regular}{regulj{\"a}rt} if for every closed set $F \subset X$ and any point $x \in X \setminus F$ there exist open sets $U_x, U_F \subset X$ so that $x \in U_x$, $F \subset U_F$, and $U_x \cap U_F = \emptyset$.
   
-  A regular $T_1$-space is called $T_3$\index{T_3}.
+  A regular $T_1$-space is called $T_3$\index{$T_3$}.
 \end{defn}
 \trans{regular}{regulj{\"a}rt}
+Notice that claerly, $T_3$-spaces are Hausdorff.
+\begin{prop}
+  Metric spaces are regular.
+\end{prop}
+\begin{proof}
+  Let $(X,d)$ be a metric space, let $F \subset X$ be closed, and let $x \in X \setminus F$. Since $X \setminus F$ is open, there is an $\eps > 0$ so that $B_d(x,\eps) \subset X \setminus F$. Now let
+  \[
+    V = \bigcup_{y \in F} B(y,\eps/2).
+  \]
+  Then $V$ is open and $F \subset V$. We claim that $V \cap B(x,\eps/2) = \emptyset$ which completes the proof. Assume that $z \in V \cap B(x,\eps/2)$. Then there is a $y \in F$ with $d(z,y) < \eps/2$. Since also $d(x,z) < \eps/2$, the triangle inequality implies that
+  \[
+    d(x,y) \leq d(x,z) + d(y,z) < \eps,
+  \]
+  which is impossible by definition of $\eps$.
+\end{proof}
+\begin{example}
+  Consider the set $\bbR_K$ from Example~\ref{K-topology}.
+\end{example}
