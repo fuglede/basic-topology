@@ -299,11 +299,12 @@ In this section we will see how we can turn a Hausdorff space into a compact spa
   \]
 \end{defn}
 \trans{one-point compactification}{enpunktskompaktifiering}
+The point $\star$ is often called the \emph{point at infinity}\index{point at infinity}.
 \begin{prop}
   The collection $\hat{\calT}$ is actually a topology on $\hat{X}$.
 \end{prop}
 \begin{proof}
-  Exercise~\ref{one-point-exercise}.
+  Exercise~3.\ref{one-point-exercise}.
 \end{proof}
 \begin{prop}
   The one-point compactification is compact.
@@ -317,17 +318,21 @@ In this section we will see how we can turn a Hausdorff space into a compact spa
   \]
   so we have found a finite subcover.
 \end{proof}
-
 \begin{defn}
   A topological space is called \word{locally compact}{lokalt kompakt} if every point $x \in X$ has a neighbourhood contained in a compact subspace. I.e. if there exists a neighbourhood $U$ of $x$ and a compact set $K \subset X$ so that $x \in U \subset K \subset X$.
 \end{defn}
 \trans{locally compact}{lokalt kompakt}
+\begin{prop}
+  If $X$ is a locally compact Hausdorff space, then its one-point compactification is Hausdorff.
+\end{prop}
+\begin{proof}
+  Let $x,y \in \hat{X}$ be given, and assume that $x \not= y$. If $x,y \in X$, then we are done since $X$ is Hausdorff and the open sets in $\hat{X}$ include those that are open in $X$.
+  
+  So, assume that $x \in X$ and $y = \star$. Let $U \subset X$ be any neighbourhood at $x$, and choose a set $K \subset X$, compact in $X$, so that $x \in U \subset K \subset X$. It follows that $U \cap ((X \setminus K) \cup \{\star\}) = \emptyset$, and since $(X \setminus K) \cup \{\star\}$ is a neighbourhood of $\star$, we are done.
+\end{proof}
 \begin{example}
   All compact spaces are locally compact.
 \end{example}
 \begin{example}
   Euclidean space $\bbR^n$ is locally compact. For instance, for any $x$, $\bar{B(x,1)}$ is compact (by the Heine--Borel theorem) and contains $B(x,1)$.
-\end{example}
-\begin{example}
-  
 \end{example}
