@@ -43,7 +43,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   
   Now to see the claim, assume that $I = U \cup V$ is a separation of $I$, let $x \in U$, $y \in V$, and assume without loss of generality that $x < y$. Then we have $[x,y] \subset I$. Let $U_0 = [x,y] \cap U$, $V_0 = [x,y] \cap V$ so that $[x,y] = U_0 \cap V_0$ is a separation of $[x,y]$, and define $z = \sup U_0 \in [x,y]$. Now as noticed above, $U_0$ is both open and closed in $[x,y]$ so in particular $U_0$ is also closed in $\bbR$, so $z \in \bar{U_0} = U_0$. If $z = y \in V_0$, we have a contradiction, so assume that $z \not= y$. Since $U_0$ is open in $[x,y]$ we can find $u \in U_0$ so that $z < u \leq y$, which contradicts the fact that $z = \sup U_0$ (to be completely precise about this last point, $U_0 = [x,y] \cap U_1$ for an open set $U_1 \subset \bbR$, and we can find a neighbourhood $B(z,r)$ of $z \in U_1$ so small that $B(z,r) \subset U_0$; we now just take $u = z+r/2$).
   
-  On the other hand, one can show that if $I \subset \bbR$ is connected, then $I$ is an interval (this is Exercise~2.\ref{connected-implies-interval}).
+  On the other hand, one can show that if $I \subset \bbR$ is connected, then $I$ is an interval (this is Exercise~\ref{connected-implies-interval}).
 \end{example}
 \begin{rem}
   Being connected is a topological property which can be used to define a simple topological invariant: if $X$ is connected any $Y$ is not, then $X$ and $Y$ are not homeomorphic.
@@ -96,7 +96,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   Let $f : X \to \bbR$ be continuous and assume that $X$ is connected. If there is an $r \in \bbR$ and $x,y \in X$ so that $f(x) < r < f(y)$, then there is a $z \in X$ with $f(z) = r$.
 \end{cor}
 \begin{proof}
-  By Theorem~\ref{images-of-connected}, $f(X)$ is connected, thus an interval by Exercise~2.\ref{connected-implies-interval}. Since $f(x),f(y) \in f(X)$, we therefore have $r \in [f(x),f(y)] \subset f(X)$.
+  By Theorem~\ref{images-of-connected}, $f(X)$ is connected, thus an interval by Exercise~\ref{connected-implies-interval}. Since $f(x),f(y) \in f(X)$, we therefore have $r \in [f(x),f(y)] \subset f(X)$.
 \end{proof}
 \begin{thm}
   \label{products-connected}
@@ -105,7 +105,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
 \begin{proof}
   Suppose that the product is connected. Recall that the projection $\pi_j : \prod_{i \in I} X_i \to X_j$ is continuous for every $j$, so every $X_j$ is connected by Theorem~\ref{images-of-connected}.
   
-  Let us show the converse in the case where $I$ is finite. The infinite case is left as Exercise~2.\ref{exercise-products-connected}. Moreover, we can reduce to the case $\abs{I} = 2$ by induction since $(X_1 \times \cdots X_{n-1}) \times X_n \simeq X_1 \times \cdots X_n$, which is not difficult to show.
+  Let us show the converse in the case where $I$ is finite. The infinite case is left as Exercise~\ref{exercise-products-connected}. Moreover, we can reduce to the case $\abs{I} = 2$ by induction since $(X_1 \times \cdots X_{n-1}) \times X_n \simeq X_1 \times \cdots X_n$, which is not difficult to show.
   
   Thus, we are left to show that $X \times Y$ is connected when $X$ and $Y$ are. We will write $X \times Y$ as a union of connected spaces with a common point and use Theorem~\ref{unions-connected}. For any point $x \in X$, we let $A_x = \{x \} \times Y$. Then $A_x$ is the image of the map $Y \to X \times Y$ given by $y \mapsto (x,y)$, so $A_x$ is connected by Theorem~\ref{images-of-connected}. Similarly one shows that $B_y = X \times \{y\}$ is connected for all $y \in Y$. By Theorem~\ref{unions-connected}, $A_x \cup B_y$ is connected for all $y \in Y$ since $(x,y)$ is contained in both $A_x$ and $B_y$. Now clearly,
   \[
@@ -125,7 +125,7 @@ Since we have seen that $\bbR$ is connected, we immediately obtain the following
   
   Let us show that $S^n$ is connected. Recall from Proposition~\ref{north-pole-removed} That $S^n \setminus \{p\} \simeq \bbR^n$, where $p$ is the north pole. It follows that $S^n \setminus \{p\}$ is connected. Now one can show that $\bar{S^n \setminus \{p\}} = S^n$ and so the result follows from Theorem~\ref{connected-closures}.
 \end{proof}
-Alternatively, one can show that $\bbR^{n+1} \setminus \{0\}$ is connected when $n \geq 1$ (Exercise~2.\ref{origin-removed-connected}); then the connectedness of $S^n$ follows because $S^n$ is the image of the continuous map $f : \bbR^{n+1} \setminus \{0 \} \to \bbR^{n+1}$ given by $f(x) = x/\Abs{x}$.
+Alternatively, one can show that $\bbR^{n+1} \setminus \{0\}$ is connected when $n \geq 1$ (Exercise~\ref{origin-removed-connected}); then the connectedness of $S^n$ follows because $S^n$ is the image of the continuous map $f : \bbR^{n+1} \setminus \{0 \} \to \bbR^{n+1}$ given by $f(x) = x/\Abs{x}$.
 
 The following is an example of how to use connectedness as a topological invariant:
 \begin{prop}
@@ -258,7 +258,7 @@ The special case where $X$ consists of a single path-connected component is exac
   If $X$ is locally (path-)connected, then all its (path-)connected components are open.
 \end{lem}
 \begin{proof}
-  Let us only show the result for locally path-connected spaces and leave the other part of the claim as Exercise~2.\ref{locally-connected-open}. Let $P$ be a path-connected component, and let us show that $P = \Int P$, so let $x \in P$. Since $X$ is locally path-connected, we can choose a path-connected neighbourhood $U$ of $x$. By Proposition~\ref{prop-path-connected-components}, $U \subset P$, so $x \in \Int P$.
+  Let us only show the result for locally path-connected spaces and leave the other part of the claim as Exercise~\ref{locally-connected-open}. Let $P$ be a path-connected component, and let us show that $P = \Int P$, so let $x \in P$. Since $X$ is locally path-connected, we can choose a path-connected neighbourhood $U$ of $x$. By Proposition~\ref{prop-path-connected-components}, $U \subset P$, so $x \in \Int P$.
 \end{proof}
 \begin{example}
   Any open subset of $\bbR^n$ is locally path-connected. Thus in particular, connectedness and path-connectedness are equivalent for open subsets in $\bbR^n$.
