@@ -31,6 +31,7 @@ Notice that claerly, $T_3$-spaces are Hausdorff.
 \end{defn}
 \trans{normal}{normalt}
 \begin{prop}
+  \label{metric-spaces-normal}
   Metric spaces are normal.
 \end{prop}
 \begin{proof}
@@ -47,6 +48,7 @@ Notice that claerly, $T_3$-spaces are Hausdorff.
 \end{example}
 
 \begin{lem}
+  \label{separation-squeeze-lemma}
   Let $X$ be $T_1$. Then
   \begin{itemize}
     \item[(i)] $X$ is $T_3$ if and only if for each $x \in X$ and every neighbourhood $U$ of $x$, there is a neighbourhood $V$ of $x$ with $x \in \bar V \subset U$, and
@@ -71,7 +73,7 @@ Notice that claerly, $T_3$-spaces are Hausdorff.
 
   Let $Y \subset X$ be a subset of a $T_3$-space $X$. By the first part, $Y$ is Hausdorff so in particular $Y$ is $T_1$. Let $y \in Y$ be a point, and let $F \subset Y$ be closed in $Y$. Let $\bar{F}$ be the closure of $F$ in $X$. Then $\bar{F} \cap Y = F$ so $y \notin \bar{F}$. By the $T_3$-property for $X$, we get open sets $U_y$, $U_{\bar F}$ with $y \in U_y$, $\bar F \subset U_{\bar F}$ and $U_y \cap U_{\bar F} = \emptyset$. Now the sets $Y \cap U_y$ and $Y \cap U_{\bar F}$ do the job; they are open in $Y$, disjoint, $y \in Y \cap U_y$ and $F \subset Y \cap U_{\bar F}$.
   
-  Let $\{X_i\}_{i \in I}$ be $T_3$-spaces and let $X = \prod_{i \in I} X_i$. As before, $X$ is $T_1$ since $X$ is $T_2$.
+  Let $\{X_i\}_{i \in I}$ be $T_3$-spaces and let $X = \prod_{i \in I} X_i$. As before, $X$ is $T_1$ since $X$ is $T_2$. Let $x = (x_i)_{i \in I} \in X$ be a point. We will use Lemma~\ref{separation-squeeze-lemma} to show that $X$ is $T_3$, so let $U$ be any neighbourhood of $x$. By definition of the product topology we can find open sets $U_i$ in $X_i$ so that $x \in \prod_{i \in I} U_i \subset U$. Since each $X_i$ is $T_3$, Lemma~\ref{separation-squeeze-lemma} provides us with neighbourhoods $V_i$ of $x_i$ so that $x_i \in V_i \subset \bar{V_i} \subset U_i$; if $U_i = X_i$ we simply take $V_i = X_i$. That is, $V_i = X_i$ for all but finitely many $i$ so that $V = \prod_{i \in I} V_i$ is open in $X$, and by Proposition~\ref{closures-of-products}, we have $\bar V = \prod_{i \in I} \bar{V_i}$. Altogether we see that $x \in V \subset \bar V \subset U$, so $X$ is $T_3$.
 \end{proof}
 
 
@@ -100,6 +102,54 @@ A general space which has the property in (i) is called \emph{Lindel{\"o}f}\inde
   For the second part, choose $x_n \in B_n$ for every $n \in \bbN$. For each $x \in X \setminus \{x_n\}_{n \in \bbN}$, and for any neighbourhood $U$ of $x$, there is an $n$ with $x \in B_n \subset U$. this implies that $x \in \bar{\{x_n\}_{n \in \bbN}}$, and since $x$ was arbitrary, $\bar{\{x_n\}_{n \in \bbN}} = X$.
 \end{proof}
 \begin{example}
+  \label{non-second-countable}
   Let $X$ be an uncountable set with the discrete topology. Then $\{ \{x\} \mid x \in X\}$ is an open cover of $X$ which has no countable subcover, so $X$ is not second-countable.
 \end{example}
+\begin{thm}
+  A second-countable $T_3$-space is normal (and thus $T_4$).
+\end{thm}
+\begin{proof}
+  Let $X$ be a $T_3$-space with a countable basis $\{B_n\}_{n \in \bbN}$, and let $F$ and $G$ be closed in $X$. Since $X$ is $T_3$, every $x \in F$ has a neighbourhood $U_x$ which is disjoint from $G$. By Lemma~\ref{separation-squeeze-lemma}, we can also find a neighbourhood $V_x$ of $x$ with $\bar{V_x} \subset U_x$, and finally we can find a basis element $B_n$ so that $x \in B_n \subset V_x$. Carrying out this procedure for every $x \in F$, we obtain a countable family of basis elements $\{B^F_k\}_{k \in \bbN}$ that covers $F$ and whose closures do not intersect $G$. Now, let $\tilde{U}^F = \bigcup_{k \in \bbN} B^F_k$.
+  
+  By doing the same for all points in $G$, we find a countable family $\{B^G_k\}_{k \in \bbN}$ that covers $G$ and such that the closure of each basis element does not intersect $F$, and we let $\tilde{U}^G = \bigcup_{k \in \bbN} B^G_k$. Now $\tilde{U}^F$ and $\tilde{U}^G$ are open and contain $F$ and $G$ respectively, but they need not be disjoint.
+  
+  What we do instead is essentially remove all the problematic points from $\tilde{U}^F$ and $\tilde{U}^G$ as follows: for every given $n \in \bbN$, define
+  \[
+    \hat{B}^F_n = B^F_n \setminus \bigcup_{k=1}^n \bar{B^G_k}, \quad \hat{B}^G_n = B^G_n \setminus \bigcup_{k=1}^n \bar{B^F_k}
+  \]
+  Then $\hat{B}^F_n$ and $\hat{B}^G_n$ are open for all $n$ since we remove from an open set something closed (and in general, such a difference can be written as the intersection of two open sets). Let
+  \[
+    U_F = \bigcup_{n \in \bbN} \hat{B}^F_n, \quad U_G = \bigcup_{n \in \bbN} \hat{B}^G_n.
+  \]
+  Then the sets $U_F$ and $U_G$ are open, and we claim that $F \subset U_F$, $G \subset U_G$, and $U_F \cap U_G = \emptyset$.
+  
+  If $x \in F$, then $x \in B^F_n$ for some $n$. Since none of the $\bar{B^G_k}$ intersect $F$, we know that $x$ does not belong to any of these, so it follows that $x \in \hat{B}^F_n \subset U_F$. Now $G \subset U_G$ by the same logic.
+  
+  To see that $U_F$ and $U_G$ are disjoint, let $x \in U_F \cap U_G$. Then $x \in \hat{B}^F_n \cap \hat{B}^G_m$ for some $n$ and $m$. We see that this is impossible by definition of $\hat{B}^F_n$ and $\hat{B}^G_m$ by considering the two cases $n \leq m$ and $m \leq n$.
+\end{proof}
 
+\subsection{Urysohn's lemma}
+By definition, a $T_4$-space is a space where disjoint closed sets can be separated by disjoint open sets containing the closed sets. In this section, we mention Urysohn's lemma, which says that disjoint closed sets can be separated by continuous functions, in a very concrete sense.
+\begin{lem}[Urysohn's lemma]
+  \index{Urysohn's lemma}
+  Let $X$ be a $T_4$-space, let $F$ and $G$ be closed disjoint subsets, and let $a, b \in \bbR$ be real numbers with $a \leq b$. Then there is a continuous function $f : X \to [a,b]$ so that $f(F) = \{a\}$, $f(G) = \{b\}$.
+\end{lem}
+The proof is rather involved and unlike all other results that we have encountered so far, it is not sufficient to simply juggle definitions. Instead of giving a proof, which can be found in \cite[\S 33]{Mun}, we will provide an example of its power in the next section.
+
+Let us end this section with a different application of Urysohn's lemma. Notice that so far, most of the concrete examples of topological spaces that we have considered have all been metric spaces. Likewise we know that any given set can be given both a topology and a metric, so there is a natural question: given a topological space $(X,\calT)$, is there a metric $d$ on $X$ so that $\calT$ is the metric topology? If so, we say that $X$ is \word{metrisable}{metriserbart}.
+\begin{example}
+  All metric spaces are metrisable.
+\end{example}
+\begin{example}
+  Any discrete topological space is metrisable by Example~\ref{discrete-metric}.
+\end{example}
+If a topological space $X$ is metrisable, it has all the topological properties that general metric spaces have. For instance, all metrisable spaces are normal by Proposition~\ref{metric-spaces-normal}. Therefore a space which is not normal is also not metrisable, and such spaces exist.
+
+Now Urysohn's metrisation theorem provide a sufficient condition for a topological space to be metrisable. A proof can be found in \cite[\S 34]{Mun}.
+
+\begin{thm}[Urysohn's metrisation theorem]
+  \index{Urysohn's metrisation theorem}
+  All second-countable $T_3$-spaces are metrisable.
+\end{thm}
+
+Notice that the converse is not true: an uncountable metric space with the discrete metric (Example~\ref{discrete-metric}) is not second-countable (Example~\ref{non-second-countable}).
