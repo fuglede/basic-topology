@@ -91,9 +91,43 @@ The exercises are split into four sets, corresponding to the four exercise sessi
 
 \subsection{Set \#3}
   \begin{enumerate}[label=3.\arabic*]
-    \item \label{one-point-exercise}Prove Proposition~\ref{one-point}.
+    \item \label{one-point-exercise}Let $X$ be a topological space.
+    \begin{itemize}
+      \item[(a)] Show that if $K_1, \dots, K_n$ are compact subspaces, then $K_1 \cup \dots \cup K_n$ is compact.
+      \item[(b)] Suppose that $X$ is Hausdorff. Show that if $\{K_i\}_{i \in I}$ is a family of compact subspaces of $X$, then $\bigcap_{i \in I} K_i$ is compact.
+      \item[(c)] Prove Proposition~\ref{one-point}.
+    \end{itemize}
     \item \label{local-compactness-in-hausdorff-exercise}Prove Theorem~\ref{local-compactness-in-hausdorff}.
     \item \label{one-point-compactification-unique-exercise}Prove Proposition~\ref{one-point-compactification-unique}.
+    \item Show that if $X$ is $T_3$ and $C \subset X$ a closed subset, then the quotient space $X/C$ is Hausdorff.
     \item \label{second-countable-exercise}Show that $\{B(x,r) \mid x \in \bbQ^n, r \in \bbQ_{> 0}\}$ is a basis for the standard topology on $\bbR^n$. Conclude that $\bbR^n$ is second-countable.
+    \item Show that compact Hausdorff spaces are normal.
+    \item Let $Y$ be a compact space, and let $X$ be any topological space.
+      \begin{itemize}
+      \item[(a)] Show the canonical projection map $\pi_1 : X \times Y \to X$ is closed, i.e. that images of closed sets are closed.
+      \item[(b)] Suppose moreover that $Y$ is Hausdorff, and let $f : X \to Y$ be a map. Show that $f$ is continuous if and only if its graph
+        \[
+          G_f = \{(x,f(x)) \mid x \in X\} \subset X \times Y
+        \]
+        is closed.
+      \end{itemize}
+    \item Let $(X,\preceq)$ be a totally ordered set with the order topology, and assume that all every closed interval $[a,b]$ is compact. Show that $X$ has the \emph{least-upper-bound property}\index{least-upper-bound property}; that is, show that every subset of $X$ that is bounded from above has a least upper bound in $X$.
+    \item Let $X$ be a compact Hausdorff space, and let $\{F_n\}_{n \in \bbN}$ be a countable family of closed subsets of $X$. Show that if $\Int(F_m) = \emptyset$ for every $m \in \bbN$, then $\Int\left(\bigcup_{n \in \bbN} F_n\right) = \emptyset$.
+    \item Let $X$ be a sequentially compact topological space.
+      \begin{itemize}
+        \item[(a)] If $f : X \to Y$ is continuous, does it follow that $f(X)$ is sequentially compact?
+        \item[(b)] If $C \subset X$ is closed, does it follow that $C$ is sequentially compact?
+        \item[(c)] If $X$ is a subspace of a Hausdorff space $Z$, does it follow that $X$ is closed in $Z$?
+      \end{itemize}
+  \item Let $(X,d)$ be a metric space. A function $f : X \to X$ satisfying
+    \[
+      d(f(x),f(y)) = d(x,y)  
+    \]
+    for all $x, y \in X$ is called an \word{isometry}{isometri} of $X$. Show that if $f$ is an isometry, and $X$ is compact, then $f$ is a homeomorphism. Hint: if $a \in f(X)$, choose $\eps > 0$ so that $B_d(a,\eps) \cap f(X) = \emptyset$. Construct recursively a sequence $\{x_n\}$ so that $x_1 = a$, $x_{n+1} = f(x_n)$ and show that $d(x_m,x_n) \geq \eps$ for $n \not= m$.
+  \item Show that the one-point compactification of $\bbN \subset \bbR$ is homeomorphic to
+    \[
+      \{0 \} \cup \{1/n \mid n \in \bbN \} \subset \bbR.
+    \]
   \end{enumerate}
+  
 \subsection{Set \#4}
