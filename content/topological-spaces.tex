@@ -246,6 +246,7 @@ We will now show how to use the open balls to define a topology, called \wordexp
   As already alluded to above, Euclidean space $\bbR^n$ is a metric space with metric $d(x,y) = \Abs{x-y}$.
 \end{example}
 \begin{example}
+  \label{discrete-metric}
   Let $X$ be any set. Then we can define a metric on $X$ by
   \[
     d(x,y) = \begin{cases} 0, & \text{if $x = y$,} \\ 1, & \text{if $x \not= y$.} \end{cases}
@@ -255,8 +256,10 @@ We will now show how to use the open balls to define a topology, called \wordexp
     \calB = \{ \{x \} \mid x \in X \} \cup \{X\},
   \]
   and as previously, any set $U \subset X$ is the union of sets that are elements of $\calB$.
+  
+  The metric $d$ is often called the \word{discrete metric}{?}.
 \end{example}
-
+\trans{discrete metric}{?}
 
 \subsection{Continuous functions}
 As mentioned in the introduction, having the data of open sets turns out to be sufficient to define continuous functions. Recall that if $f : X \to Y$ is a function between two sets, and $A \subset Y$ is a subset, then we define the \word{preimage}{urbild} of $A$ to be the set
