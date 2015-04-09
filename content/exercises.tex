@@ -112,22 +112,36 @@ The exercises are split into four sets, corresponding to the four exercise sessi
         is closed.
       \end{itemize}
     \item Let $(X,\preceq)$ be a totally ordered set with the order topology, and assume that all every closed interval $[a,b]$ is compact. Show that $X$ has the \emph{least-upper-bound property}\index{least-upper-bound property}; that is, show that every non-empty subset of $X$ which is bounded from above has a least upper bound in $X$.
-%     \item Let $X$ be a compact Hausdorff space, and let $\{F_n\}_{n \in \bbN}$ be a countable family of closed subsets of $X$. Show that if $\Int(F_m) = \emptyset$ for every $m \in \bbN$, then $\Int\left(\bigcup_{n \in \bbN} F_n\right) = \emptyset$.
-    \item Let $X$ be a sequentially compact topological space.
+    \item \label{baires-exercise} Let $X$ be a locally compact Hausdorff space, and let $U_1, U_2, U_3, \dots$ be open dense subsets of $X$. Show that $\bigcap_{n \in \bbN} U_n$ is dense; a result known as Baire's category theorem\index{Baire's category theorem}. Hints:
       \begin{itemize}
-        \item[(a)] If $f : X \to Y$ is continuous, does it follow that $f(X)$ is sequentially compact?
-        \item[(b)] If $C \subset X$ is closed, does it follow that $C$ is sequentially compact?
-        \item[(c)] If $X$ is a subspace of a Hausdorff space $Z$, does it follow that $X$ is closed in $Z$?
+        \item[(a)] Let $B_0$ be any non-empty open subset of $X$. Construct open sets $B_1, B_2, \dots$ so that
+          \[
+            \bar{B_n} \subset U_n \cap B_{n-1}
+          \]
+          for $n \geq 1$ and so that $\bar{B_n}$ is compact for all $n$.
+        \item[(b)] Let $K_1, K_2, \dots$ be non-empty compact subsets of $X$. Show that if we have inclusions $K_1 \supset K_2 \supset \cdots$, then
+          \[
+            \bigcap_{n \in \bbN} K_n \not= \emptyset.
+          \]
+          This result is known as Cantor's intersection theorem\index{Cantor's intersection theorem}.
       \end{itemize}
-  \item Let $(X,d)$ be a metric space. A function $f : X \to X$ satisfying
-    \[
-      d(f(x),f(y)) = d(x,y)  
-    \]
-    for all $x, y \in X$ is called an \word{isometry}{isometri} of $X$. Show that if $f$ is an isometry, and $X$ is compact, then $f$ is a homeomorphism. Hint: if $a \in f(X)$, choose $\eps > 0$ so that $B_d(a,\eps) \cap f(X) = \emptyset$. Construct recursively a sequence $\{x_n\}$ so that $x_1 = a$, $x_{n+1} = f(x_n)$ and show that $d(x_m,x_n) \geq \eps$ for $n \not= m$.
-  \item Show that the one-point compactification of $\bbN \subset \bbR$ is homeomorphic to
-    \[
-      \{0 \} \cup \{1/n \mid n \in \bbN \} \subset \bbR.
-    \]
+      What happens if we replace the countable family $\{U_n\}_{n \in \bbN}$ with an arbitrary family of open dense subsets?
+    \item Let $X$ be a locally compact Hausdorff space, and let $\{F_n\}_{n \in \bbN}$ be a countable family of closed subsets of $X$. Show that if $\Int(F_m) = \emptyset$ for every $m \in \bbN$, then $\Int\left(\bigcup_{n \in \bbN} F_n\right) = \emptyset$. (Hint: use Exercise~\ref{baires-exercise}.)
+%     \item Let $X$ be a sequentially compact topological space.
+%       \begin{itemize}
+%         \item[(a)] If $f : X \to Y$ is continuous, does it follow that $f(X)$ is sequentially compact?
+%         \item[(b)] If $C \subset X$ is closed, does it follow that $C$ is sequentially compact?
+%         \item[(c)] If $X$ is a subspace of a Hausdorff space $Z$, does it follow that $X$ is closed in $Z$?
+%       \end{itemize}
+%   \item Let $(X,d)$ be a metric space. A function $f : X \to X$ satisfying
+%     \[
+%       d(f(x),f(y)) = d(x,y)  
+%     \]
+%     for all $x, y \in X$ is called an \word{isometry}{isometri} of $X$. Show that if $f$ is an isometry, and $X$ is compact, then $f$ is a homeomorphism. Hint: if $a \in f(X)$, choose $\eps > 0$ so that $B_d(a,\eps) \cap f(X) = \emptyset$. Construct recursively a sequence $\{x_n\}$ so that $x_1 = a$, $x_{n+1} = f(x_n)$ and show that $d(x_m,x_n) \geq \eps$ for $n \not= m$.
+%   \item Show that the one-point compactification of $\bbN \subset \bbR$ is homeomorphic to
+%     \[
+%       \{0 \} \cup \{1/n \mid n \in \bbN \} \subset \bbR.
+%     \]
   \end{enumerate}
   
 \subsection{Set \#4}
