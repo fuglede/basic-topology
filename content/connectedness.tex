@@ -135,6 +135,12 @@ The following is an example of how to use connectedness as a topological invaria
   Suppose that we had a homeomorphism $f : S^n \to \bbR$. Then $f$ would restrict to a homeomorphism if we removed the north pole $p$ from $S^n$; that is, $f|_{S^n \setminus \{p \}} : S^n \setminus \{p\} \to \bbR \setminus \{f(p)\}$ is a homeomorphism. This implies that $\bbR^n \simeq S^n \setminus \{p\} \simeq \bbR \setminus \{f(p)\}$, but $\bbR^n$ is connected while $\bbR \setminus \{f(p)\}$ is not connected, so they can not be homeomorphic, and we obtain a contradiction.
 \end{proof}
 
+Along the same lines, we mention the following result.
+\begin{thm}[Brouwer's invariance of dimension]
+  \label{invariance-of-dimension}
+  \index{Brouwer's invariance of dimension}If two non-empty open sets $U \subset \bbR^n$ and $V \subset \bbR^n$ and $U \simeq V$, then $n = m$.
+\end{thm}
+The proof uses methods from algebraic topology and will not be covered here; see e.g. \cite[Thm.~2.26]{Hat}. A special case is contained in Exercise~\ref{invariance-of-dimension-exercise}.
 \subsection{Paths and path-connectedness}
 Another natural notion of connectedness is obtained by requiring that all points in a space can be connected to each other; what exactly to mean by this is contained in the following definition
 
