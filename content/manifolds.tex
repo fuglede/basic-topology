@@ -4,16 +4,21 @@ The concept of a manifold is central in all of differential geometry and mathema
 
 \subsection{Topological manifolds}
 \begin{defn}
-  An \emph{$n$-dimensional} \word{manifold}{m{\aa}ngfald} or simply an \emph{$n$-manifold} is a second countable Hausdorff space such that every point has a neighbourhood which is homeomorphic to $\bbR^n$.
+  \label{definition-locally-euclidean}
+  A topological space $X$ is called \word{locally Euclidean}{?} if there is an $n \in \bbN$ so that every point in $X$ has a neighbourhood which is homeomorphic to $\bbR^n$.
+\end{defn}
+\trans{locally Euclidean}{?}
+\begin{defn}
+  An \emph{$n$-dimensional} \word{manifold}{m{\aa}ngfald} or simply an \emph{$n$-manifold} is a locally Euclidean second-countable Hausdorff space. The $n$ refers to the $n$ of Definition~\ref{definition-locally-euclidean}.
 \end{defn}
 \trans{manifold}{m{\aa}ngfald}
 Really what we have defined above is a \emph{topological manifold}\index{topological manifold}; since this is the only kind of manifold we will encounter, we will simply call them ``manifolds''.
 \begin{example}
-  Euclidean space $\bbR^n$ is a manifold since $\bbR^n$ itself is a neighbourhood of all of its points.
+  Euclidean space $\bbR^n$ is an $n$-manifold since $\bbR^n$ itself is a neighbourhood of all of its points.
 \end{example}
 \begin{example}
   \label{spheres-are-manifolds}
-  The $n$-sphere $S^n$ is a manifold. If $x \in S^n$ is a point different from the north pole $p = (0,\dots,0,1)$, then $S^n \setminus \{p\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Proposition~\ref{north-pole-removed}. If $x = p$, let $q$ denote the south pole. Then $S^n \setminus \{q\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Remark~\ref{south-pole-removed}.
+  The $n$-sphere $S^n$ is an $n$-manifold. If $x \in S^n$ is a point different from the north pole $p = (0,\dots,0,1)$, then $S^n \setminus \{p\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Proposition~\ref{north-pole-removed}. If $x = p$, let $q$ denote the south pole. Then $S^n \setminus \{q\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Remark~\ref{south-pole-removed}.
 \end{example}
 \begin{lem}
   \label{products-of-manifolds-lemma}
@@ -35,7 +40,7 @@ Notice that by definition, $S^n$ can be embedded in $\bbR^{n+1}$. Similarly, $T^
 In this section we will see how to use Urysohn's lemma to show the following result.
 \begin{thm}
   \label{embedding-of-manifolds}
-  Any compact $n$-manifold can be embedded in $\bbR^N$ for some $N \in \bbN$.
+  Any compact $m$-manifold can be embedded in $\bbR^N$ for some $N \in \bbN$.
 \end{thm}
 \begin{defn}
   Let $X$ be a topological space and $f : X \to \bbR$ a function. The \word{support}{?} of $f$ is the set
@@ -104,5 +109,34 @@ In fact, it turns out that the condition of Theorem~\ref{embedding-of-manifolds}
 The following result extends Theorem~\ref{embedding-of-manifolds} to the non-compact case and provides an explicit bound on the required dimension. We do not include a proof and refer instead to \cite[\S 50, Exercises~6--7]{Mun}.
 
 \begin{thm}
+  \label{general-embedding}
   Any $m$-manifold can be embedded in $\bbR^{2m+1}$.
+\end{thm}
+Recall that manifolds are assumed to be both Hausdorff and second-countable. Since we argued that manifolds are natural objects in geometry, we should provide some motivation for these requirements. Now as we have seen plenty of times, the property of Hausdorff is necessary to do any kind of calculus -- for instance, without this conditions, one would have manifolds with convergent sequences but no unique limit (compare with Proposition~\ref{limits-unique-hausdorff}).
+
+It is less clear though, why we require manifolds to be second-countable, but it turns out that if we did not add this condition, Theorem~\ref{general-embedding} would be false; a counter-example is the so-called long line -- see \cite[\S 24, Exercise~12]{Mun}. Thus insofar that one considers embedding into Euclidean space to be a sufficient amount of motivation, second-countability is necessary.
+
+\subsection{Paracompactness}
+As it turns out, one of the most useful tools for studying manifolds are the partitions of unity that we encountered in the previous section. In the proof of Theorem~\ref{embedding-of-manifolds} -- where they played an essential role -- we saw that these exist for compact manifolds but many interesting manifolds are not compact; second-countability provides us with something almost as good. Here, we will illustrate how, referring to \cite{Mun} for most of the proofs.
+
+\begin{defn}
+  Let $X$ be a topological space. A collection $\calU$ of subsets of $X$ is called \word{locally finite}{?} if every point of $X$ has a neighbourhood that intersects only finitely many elements of $\calU$.
+\end{defn}
+\trans{locally finite}{?}
+\begin{defn}
+  A topological space $X$ is called \word{paracompact}{?} if every open cover has a locally finite subcover.
+\end{defn}
+\trans{paracompact}{?}
+Notice that a finite cover is always locally finite. Thus in particular, all compact spaces are paracompact. The next result says that for paracompact Hausdorff spaces, we always have a locally finite version of partitions of unity. It turns out that such spaces are normal \cite[Thm.~41.1]{Mun} and so the proof is almost identical to that of Theorem~\ref{t4-partition-of-unity}; see \cite[Thm.~41.7]{Mun}
+\begin{thm}
+  Let $X$ be a paracompact Hausdorff space, and let $\{U_i\}_{i \in I}$ be an open cover of $X$. Then there exists a partition of unity dominated by $\{U_i\}_{i \in I}$; that is, there exists a family $\{\phi_i\}_{i \in I}$ of continuous functions $\phi_i : X \to [0, 1]$ so that
+  \begin{itemize}
+    \item[(i)] $\supp(\phi_i) \subset U_i$ for all $i \in I$,
+    \item[(ii)] $\{\supp(\phi_i)\}_{i \in I}$ is locally finite, and
+    \item[(iii)] $\sum_{i \in I} \phi_i(x) = 1$ for every $x \in I$.
+  \end{itemize}
+\end{thm}
+Notice here that the sum appearing in (iii) makes sense because of the locally finiteness from (ii). We end our discussion by noting that in the context of manifolds, paracompactness and second-countability is almost the same thing.
+\begin{thm}
+  Let $X$ be a locally Euclidean Hausdorff space. Then $X$ is second-countable if and only if $X$ is paracompact and has countably many connected components.
 \end{thm}
