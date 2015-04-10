@@ -1,2 +1,32 @@
 \section{Manifolds}
 \label{manifolds}
+The concept of a manifold is central in all of differential geometry and mathematical physics; roughly, a manifold is a topological space which locally looks like $\bbR^n$. Another way of viewing it is that a manifold is something which is obtained by gluing together copies of $\bbR^n$. As such, its usefulness in for instance geometry comes from the fact that we can transfer everything we know about calculus on $\bbR^n$ to this much more general family of topological spaces, as long as one ensures that the gluing is sufficiently compatible with calculus. Now, we will not be discussing calculus here but rather take a look at manifolds from a purely topological point of view.
+
+\subsection{Topological manifolds}
+\begin{defn}
+  An \emph{$n$-dimensional} \word{manifold}{m{\aa}ngfald} or simply an \emph{$n$-manifold} is a second countable Hausdorff space such that every point has a neighbourhood which is homeomorphic to $\bbR^n$.
+\end{defn}
+\trans{manifold}{m{\aa}ngfald}
+Really what we have defined above is a \emph{topological manifold}\index{topological manifold}; since this is the only kind of manifold we will encounter, we will simply call them ``manifolds''.
+\begin{example}
+  Euclidean space $\bbR^n$ is a manifold since $\bbR^n$ itself is a neighbourhood of all of its points.
+\end{example}
+\begin{example}
+  \label{spheres-are-manifolds}
+  The $n$-sphere $S^n$ is a manifold. If $x \in S^n$ is a point different from the north pole $p = (0,\dots,0,1)$, then $S^n \setminus \{p\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Proposition~\ref{north-pole-removed}. If $x = p$, let $q$ denote the south pole. Then $S^n \setminus \{q\}$ is a neighbourhood of $x$ which is homeomorphic to $\bbR^n$ by Remark~\ref{south-pole-removed}.
+\end{example}
+\begin{lem}
+  \label{products-of-manifolds-lemma}
+  The product of an $n$-manifold and an $m$-manifold is an $(n+m)$-manifold.
+\end{lem}
+\begin{proof}
+  Exercise~\ref{product-of-manifolds-exercise}.
+\end{proof}
+\begin{example}
+  The $n$-torus $T^n$ is an $n$-manifold by Lemma~\ref{products-of-manifolds-lemma} and Example~\ref{spheres-are-manifolds}.
+\end{example}
+\begin{example}
+  The genus $g$ surfaces from Example~\ref{surface-example} are $2$-manifolds.
+\end{example}
+
+\subsection{Embeddings of manifolds}
