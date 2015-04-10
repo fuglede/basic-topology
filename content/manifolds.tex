@@ -34,6 +34,7 @@ Notice that by definition, $S^n$ can be embedded in $\bbR^{n+1}$. Similarly, $T^
 
 In this section we will see how to use Urysohn's lemma to show the following result.
 \begin{thm}
+  \label{embedding-of-manifolds}
   Any compact $n$-manifold can be embedded in $\bbR^N$ for some $N \in \bbN$.
 \end{thm}
 \begin{defn}
@@ -52,6 +53,7 @@ In this section we will see how to use Urysohn's lemma to show the following res
 \end{defn}
 \trans{partition of unity}{?}
 \begin{thm}
+  \label{t4-partition-of-unity}
   Let $X$ be a $T_4$-space, and let $\{U_1, \dots, U_n\}$ be a finite open cover. Then there exists a partition of unity dominated by $\{U_1,\dots,U_n\}$.
 \end{thm}
 \begin{proof}
@@ -75,3 +77,32 @@ In this section we will see how to use Urysohn's lemma to show the following res
   \]
   so $\{\phi_i\}$ is a partition of unity dominated by $\{U_1,\dots,U_n\}$.
 \end{proof}
+\begin{proof}[Proof of Theorem~\ref{embedding-of-manifolds}]
+  Let $X$ be a compact $m$-manifold, and choose for every $x \in X$, choose a neighbourhood $U_x$ of $x$ so that $U_x \simeq \bbR^m$. These will cover $X$, so since $X$ is compact, we obtain a finite open cover $\{U_1, \dots, U_n\}$ together with homeomorphisms $g_i : U_i \to \bbR^m$ for every $i$. Since $X$ is compact and Hausdorff, $X$ is $T_4$ by Proposition~\ref{compact-hausdorff-normal}, so by Theorem~\ref{t4-partition-of-unity} we can find a partition of unity $\{\phi_i\}$ dominated by $\{U_i\}$. Let $A_i = \supp(\phi_i)$, note that $X = U_i \cup (X \setminus A_i)$, and define for each $i = 1, \dots, n$ a function $h_i : X \to \bbR^m$ by
+  \[
+    h_i(x) = \begin{cases} \phi_i(x)g_i(x), & \text{for $x \in U_i$} \\ 0, & \text{for $x \in X \setminus A_i$.} \end{cases}
+  \]
+  Notice that $h_i$ is well-defined since $\phi_i(x)g_i(x) = 0$ for $x \in X \setminus A_i$, and $h_i$ is continuous by Lemma~\ref{pasting-lemma}; here one has to check that $x \mapsto \phi_i(x)g_i(x)$ is continuous on $U_i$ which can be seen by Theorem~\ref{sequential-continuity}. The desired embedding will be the map
+  \[
+    F : X \to \underbrace{\bbR \times \cdots \times \bbR}_{\text{$n$ factors}} \times \underbrace{\bbR^m \times \cdots \times \bbR^m}_{\text{$n$ factors}} \simeq \bbR^{(m+1)n}
+  \]
+  given by
+  \[
+    F(x) = (\phi_1(x),\dots,\phi_n(x),h_1(x),\dots,h_n(x))
+  \]
+  Now $F$ is continuous since the $\phi_i$ and $h_i$ are, so since $X$ is compact, it follows from Corollary~\ref{cont-compact-Hausdorff} that $F$ is an embedding if we can show that $F$ is injective.
+  
+  Suppose that $F(x) = F(y)$. Then $\phi_i(x) = \phi_i(y)$ and $h_i(x) = h_i(y)$ for all $i$. Since $\sum_{i=1}^n \phi_i(x) = 1$, there is an $i$ with $\phi_i(x) > 0$, so $\phi_i(y) > 0$ as well, which implies that $x, y \in \supp(\phi_i) \subset U_i$. Now
+  \[
+    \phi_i(x) g_i(x) = h_i(x) = h_i(y) = \phi_i(y) g_i(y),
+  \]
+  so we must also have $g_i(x) = g_i(y)$. Since each $g_i$ was a homeomorphism, this implies that $x = y$.
+\end{proof}
+
+In fact, it turns out that the condition of Theorem~\ref{embedding-of-manifolds} that the manifold is compact is not necessary. Moreover, one could ask how small it is possible to choose $N$ in the theorem; in the proof we saw that an $m$-manifold $X$ can be embedded in $\bbR^{(m+1)n}$, where $n$ is the cardinality of an open cover of $X$ whose constituent open sets are homeomorphic to $\bbR^m$. As the examples in the beginning of this section illustrate however, we should be able to do better: $S^m$ is an $m$-manifold which can be covered by $2$ such open sets, so the theorem provides us with an embedding $S^m \to \bbR^{2(m+1)}$, but we also know that there is also an embedding $S^m \to \bbR^{m+1}$.
+
+The following result extends Theorem~\ref{embedding-of-manifolds} to the non-compact case and provides an explicit bound on the required dimension. We do not include a proof and refer instead to \cite[\S 50, Exercises~6--7]{Mun}.
+
+\begin{thm}
+  Any $m$-manifold can be embedded in $\bbR^{2m+1}$.
+\end{thm}
