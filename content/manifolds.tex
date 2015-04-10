@@ -26,7 +26,52 @@ Really what we have defined above is a \emph{topological manifold}\index{topolog
   The $n$-torus $T^n$ is an $n$-manifold by Lemma~\ref{products-of-manifolds-lemma} and Example~\ref{spheres-are-manifolds}.
 \end{example}
 \begin{example}
-  The genus $g$ surfaces from Example~\ref{surface-example} are $2$-manifolds.
+  The genus $g$ surfaces $\Sigma_g$ from Example~\ref{surface-example} are $2$-manifolds.
 \end{example}
 
 \subsection{Embeddings of manifolds}
+Notice that by definition, $S^n$ can be embedded in $\bbR^{n+1}$. Similarly, $T^n$ can be embedded in $\bbR^{2n}$, and Figures~\ref{genus-1-surface}-\ref{genus-3-surface} suggest that $\Sigma_g$ can be embedded in $\bbR^3$.
+
+In this section we will see how to use Urysohn's lemma to show the following result.
+\begin{thm}
+  Any compact $n$-manifold can be embedded in $\bbR^N$ for some $N \in \bbN$.
+\end{thm}
+\begin{defn}
+  Let $X$ be a topological space and $f : X \to \bbR$ a function. The \word{support}{?} of $f$ is the set
+  \[
+    \supp(f) = \bar{\{x \mid f(x) \not= 0\}}.
+  \]
+\end{defn}
+\trans{support}{?}
+\begin{defn}
+  Let $X$ be a topological space, and let $\{U_1, \dots, U_n\}$ be an open cover of $X$. A family $\{\phi_1,\dots,\phi_n\}$ of continuous functions $\phi_i : X \to [0,1]$ is called a \word{partition of unity}{?} dominated by $\{U_i\}$ if
+  \begin{itemize}
+    \item $\supp(\phi_i) \subset U_i$ for $i = 1, \dots, n$, and
+    \item $\sum_{i=1}^n \phi_i(x) = 1$ for all $x \in X$.
+  \end{itemize}
+\end{defn}
+\trans{partition of unity}{?}
+\begin{thm}
+  Let $X$ be a $T_4$-space, and let $\{U_1, \dots, U_n\}$ be a finite open cover. Then there exists a partition of unity dominated by $\{U_1,\dots,U_n\}$.
+\end{thm}
+\begin{proof}
+  We first show that we can find an open cover $\{V_1, \dots, V_n\}$ so that $\bar{V_i} \subset U_i$ for all $i$. Consider the set $A_1 = X \setminus (U_2 \cup \dots \cup U_n)$. This is clearly closed, and $A_1 \subset U_1$ since $\{U_i\}$ is a cover. Since $X$ is $T_4$, by Theorem~\ref{separation-squeeze-lemma} we obtain an open set $V_1$ so that $A_1 \subset V_1 \subset \bar{V_1} \subset U_1$, and in particular $\{V_1,U_2,\dots,U_n\}$ is still an open cover. We proceed now by finite induction: suppose that $\{V_1, \dots, V_{k-1},U_k,\dots,U_n\}$ covers $X$, and let
+  \[
+    A_k = X \setminus (V_1 \cup \dots \cup V_{k-1} \cup U_{k+1} \cup \dots \cup U_n).
+  \]
+  Then $A_k \subset U_k$, and we find as above an open set $V_k$ with $A_k \subset V_k \subset \bar{V_k} \subset U_k$ so that $\{V_1, \dots, V_k, U_{k+1}, \dots, U_n\}$.
+  
+  Now go through the same procedure again to obtain an open cover $\{W_1, \dots, W_n\}$ with $\bar{W_i} \subset V_i$ for all $i$. Applying Urysohn's lemma for each $i = 1, \dots, n$, we find continuous functions $\psi_i : X \to [0,1]$ so that $f(X \setminus V_i) = \{0\}$ and $f(\bar{W_i}) = \{1\}$. It follows that
+  \[
+    \supp(\psi_i) \subset \bar{V_i} \subset U_i.
+  \]
+  Since $\{W_i\}$ is a cover of $X$, it follows that $\psi(x) = \sum_{i=1}^n \psi_i(x) > 0$ for all $x$. Now define $\phi_i : X \to [0,1]$ by
+  \[
+    \phi_i(x) = \frac{\psi_i(x)}{\psi(x)}.
+  \]
+  We then have $\supp(\phi_i) = \supp(\psi_i) \subset U_i$, and for every $x \in X$, we have
+  \[
+    \sum_{i=1}^n \phi_i(x) = \frac{1}{\psi(x)} \sum_{i=1}^n \psi_i(x) = 1,
+  \]
+  so $\{\phi_i\}$ is a partition of unity dominated by $\{U_1,\dots,U_n\}$.
+\end{proof}
