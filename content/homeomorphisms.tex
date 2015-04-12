@@ -14,7 +14,7 @@ In the example above, we notice that crucial property of two topological spaces 
 \begin{defn}
   A bijection $f : X \to Y$ between two topological spaces is called a \word{homeomorphism}{homeomorfi} if $f$ and its inverse $f^{-1}$ are continuous. In this case, we say that $X$ and $Y$ are \word{homeomorphic}{homeomorfa} and we write $X \simeq Y$.
 \end{defn}
-Equivalently, since a bijection $f$ always satisfies $f = (f^{-1})^{-1}$, one could define a homeomorphism to be a bijection such that $f(U)$ is open whenever $U$ is. Notice also that $\simeq$ satisfies the property of an equivalence relation.
+Equivalently, since a bijection $f$ always satisfies $f = (f^{-1})^{-1}$, one could define a homeomorphism to be a continuous bijection such that $f(U)$ is open whenever $U$ is. Notice also that $\simeq$ satisfies the property of an equivalence relation.
 \trans{homeomorphism}{homeomorfi}\trans{homeomorphic}{homeomorfa}
 \begin{example}
   In the example in the beginning of this section, the bijection $f : X \to Y$ given by $f(1) = 4$, $f(2) = 5$, $f(3) = 6$ is a homeomorphism.
@@ -71,7 +71,7 @@ The important thing to note is that if $f$ is a topological invariant and $f(X) 
   \[
     f(X) = \begin{cases} \text{yes}, &\text{ if $X$ is Hausdorff,}\\ \text{no}, &\text{ if $X$ is not Hausdorff.} \end{cases}
   \]
-  Then $f$ is a topological invariant: if $X \simeq Y$ and $X$ is Hausdorff, then so is $Y$. For this reason, the property of being Hausdorff is often called a topological property. Again, one can turn this around and say that if $X$ is Hausdorff but $Y$ is not, then $X$ and $Y$ are not homeomorphic. Similarly, being $T_0$ or $T_1$ are topological properties. As is being first-countable and any other property that is defined using only in terms of open sets.
+  Then $f$ is a topological invariant: if $X \simeq Y$ and $X$ is Hausdorff, then so is $Y$. For this reason, the property of being Hausdorff is often called a topological property. Again, one can turn this around and say that if $X$ is Hausdorff but $Y$ is not, then $X$ and $Y$ are not homeomorphic. Similarly, being $T_0$ or $T_1$ are topological properties. As is being first-countable and so is any other property that is defined using only in terms of open sets.
 \end{example}
 
 We will encounter many other topological properties later on, one of the most important ones being the fundamental group, which is to be introduced in Section~\ref{homotopy}. The reader is encouraged to try to discover these topological properties as we move along.
@@ -82,18 +82,41 @@ We will encounter many other topological properties later on, one of the most im
   \[
     S^n = \{ x \in \bbR^{n+1} \mid \Abs{x} = 1 \} \subset \bbR^{n+1}
   \]
-  with the subspace topology from $\bbR^{n+1}$.
+  with the subspace topology from $\bbR^{n+1}$ (see Figure~\ref{spheres-figure}).
 \end{defn}
+\begin{figure}
+  \centering
+  \begin{overpic}[scale=0.75]{images/spheres}
+	  \put(3,33){$S^0$}
+	  \put(44,33){$S^1$}
+	  \put(90,33){$S^2$}
+    \put(3,2){$\bbR$}
+    \put(46,2){$\bbR^2$}
+    \put(92,2){$\bbR^3$}
+  \end{overpic}
+  \caption{The spheres $S^0$, $S^1$, and $S^2$ in $\bbR$, $\bbR^2$, and $\bbR^3$.}
+  \label{spheres-figure}
+\end{figure}
 \begin{prop}
   \label{north-pole-removed}
   Let $p = (0,0,\dots,0,1) \in S^n$ be the ``north pole''. Then $S^n \setminus \{p\} \simeq \bbR^n$.
 \end{prop}
 \begin{proof}
+  \begin{figure}
+    \centering
+    \begin{overpic}{images/stereographic}
+	    \put(54,87){$p$}
+	    \put(83,64){$x$}
+	    \put(94,46){$(\Pi(x),0)$}
+    \end{overpic}
+    \caption{Stereographic projection of $S^1$.}
+    \label{stereographic-figure}
+  \end{figure}
   We will construct a homeomorphism explicitly, leaving some of the details to the reader. Let $x = (x_1, \dots, x_{n+1}) \in S^n \setminus \{ p \}$ so that $x_{n+1} \not= 1$. We then define the \word{stereographic projection}{stereografisk projektion} of $x$ by
   \[
     \Pi(x) = \Pi(x_1,\dots,x_n,x_{n+1}) = \frac{1}{1-x_{n+1}} (x_1, \dots, x_n) \in \bbR^n.
   \]
-  Geometrically, if one draws a straight line through $x$ and $p$, then its intersection with $\bbR^n \times \{0 \}$ will be the point $(\Pi(x),0)$. Now $\Pi$ is continuous because each of its components are (use Proposition~\ref{props-subspace-top} and Lemma~\ref{universal-inclusion-lemma}), and one can check that it has an inverse $g : \bbR^n \to S^n \setminus \{p \}$ given by
+  Geometrically, if one draws a straight line through $x$ and $p$, then its intersection with $\bbR^n \times \{0 \}$ will be the point $(\Pi(x),0)$ (see Figure~\ref{stereographic-figure}). Now $\Pi$ is continuous because each of its components are (use Proposition~\ref{props-subspace-top} and Lemma~\ref{universal-inclusion-lemma}), and one can check that it has an inverse $g : \bbR^n \to S^n \setminus \{p \}$ given by
   \[
     g(y_1, \dots, y_n) = (t(y) y_1, \dots, t(y)y_n, 1-t(y)),
   \]
