@@ -707,7 +707,7 @@ Let us show that we recover the possibly well-known definition of convergence fo
   \label{metric-convergence}
   Let $(X,d)$ be a metric space with the metric topology. Then a sequence $\{x_n\}$ in $X$ converges to $x \in X$ if and only if
   \[
-    \forall \eps > 0, \exists N > 0 : n > N \Rightarrow d(x_n,x) < \eps
+    \forall \eps > 0, \exists N > 0 : n > N \Rightarrow d(x_n,x) < \eps.
   \] 
 \end{prop}
 \begin{proof}
@@ -736,18 +736,20 @@ In analysis, one might have encountered the important characterization of contin
   Let $X$ be a topological space and let $A \subset X$. If there is a sequence in $A$ that converges to $x$ then $x \in \bar A$. The converse holds if $X$ is first-countable.
 \end{lem}
 \begin{proof}
-  Suppose that $x_n \to x$ and that $x_n \in A$ for all $N$. If $x \in A$ we are done, so suppose that $x \in X \setminus A$. Let $U$ be a neighbourhood of $x$; then there is an $N > 0$ so that $x_n \in U$ for all $n > N$. This implies that $U \cap A \not= \emptyset$ and $U \cap X \setminus A \not= \emptyset$, so $x \in \dd A$, and so $x \in \bar A$ by Theorem~\ref{relations-closure-boundary}.
+  Suppose that $x_n \to x$ and that $x_n \in A$ for all $n$. If $x \in A$ we are done, so suppose that $x \in X \setminus A$. Let $U$ be a neighbourhood of $x$; then there is an $N > 0$ so that $x_n \in U$ for all $n > N$. This implies that $U \cap A \not= \emptyset$ and $U \cap X \setminus A \not= \emptyset$, so $x \in \dd A$, and so $x \in \bar A$ by Theorem~\ref{relations-closure-boundary}.
   
   Suppose that $X$ is first-countable. Let $x \in \bar A$ and let us show that there is a sequence $\{x_n\}$ in $A$ with $x_n \to x$. Let $\{B_n\}$ be a countable basis at $x$ and define for every $n \in \bbN$ an open neighbourhood $U_n = \bigcap_{k=1}^n B_k$ of $x$. Since $x \in A$ or $x \in \dd A$ by Theorem~\ref{relations-closure-boundary} it follows that $U_n \cap A \not= \emptyset$ for every $n$, and we can choose $x_n \in U_n \cap A$ for every $n$. We claim that $x_n \to x$. To see this, let $U$ be any neighbourhood of $x$. Then by definition of first-countability there is an $N \in \bbN$ so that $B_N \subset U$. Now clearly, $U_n \subset U_N \subset B_N$ for all $n > N$ so $x_n \in B_N \subset U$ for all $n > N$ which means that $x_n \to x$.
 \end{proof}
 \begin{thm}
   \label{sequential-continuity}
-  Let $X$ and $Y$ be topological spaces. If $f : X \to Y$ be continuous, then $x_n \to x$ in $X$ implies that $f(x_n) \to f(x)$ in $Y$. The converse holds if $X$ is first countable.
+  Let $X$ and $Y$ be topological spaces. If $f : X \to Y$ be continuous, then $x_n \to x$ in $X$ implies that $f(x_n) \to f(x)$ in $Y$. The converse holds if $X$ is first countable; that is, if if $x_n \to x$ implies that $f(x_n) \to f(x)$ for all convergent sequences $\{x_n\}$, then $f$ is continuous.
 \end{thm}
 \begin{proof}
   Suppose that $f$ is continuous, let $\{x_n\}$ be a sequence with $x_n \to x$, and let us show that $f(x_n) \to f(x)$. Let $U$ be a neighborhood of $f(x)$. Then $f^{-1}(U)$ is a neighbourhood of $x$, and we can choose an $N > 0$ so that $x_n \in f^{-1}(U)$ for all $n > N$. Thus $f(x_n) \in U$ for all $n > N$ so $f(x_n) \to f(x)$.
   
-  Suppose that $X$ is first-countable and that all sequences satisfy the condition that if $x_n \to x$ then $f(x_n) \to f(x)$. Let $A$ be a subset in $X$ and let us show that $f(\bar A) \subset \bar f(A)$. Assume that there is a point $x$ so that $f$ is not continuous at $x$. That is, that there is a neighbourhood $U$ of $f(x)$ so that no matter which neighbourhood $V$ of $x$ we choose, it is \emph{not} true that $f(V) \subset U$.
+  Suppose that $X$ is first-countable and that $f(x_n) \to x$ whenever $x_n \to x$. Let $B \subset Y$ be a closed set, let $A = f^{-1}(B)$, and let us show that $\bar{A} = A$, so that $A$ is closed, which means that $f$ is continuous. Let $x \in \bar{A}$ be arbitrary. Then by Lemma~\ref{closure-convergence}, there is a sequence $\{x_n\}$ with $x_n \in A$ so that $x_n \to x$. This means that $f(x_n) \in B$, and since $f(x_n) \to f(x)$, Lemma~\ref{closure-convergence} tells us that $f(x) \in \bar{B} = B$, so $x \in A$.
+% The proof below also works but the one above is much better.
+%   Suppose that $X$ is first-countable, and assume that there is a point $x$ so that $f$ is not continuous at $x$. That is, that there is a neighbourhood $U$ of $f(x)$ so that no matter which neighbourhood $V$ of $x$ we choose, it is \emph{not} true that $f(V) \subset U$.
   
-  As before, take $\{B_n\}$ a countable basis at $x$ and let $U_n = \bigcap_{k=1}^n B_k$. Then in particular, $f(U_n) \not\subset U$ for all $n \in \bbN$. Let $x_n \in U_n$ be arbitrary. Then by the exact same argument as in the proof of Lemma~\ref{closure-convergence} we see that $x_n \to x$, but $f(x_n) \notin U$ for all $n$ so $f(x_n)$ does not converge to $f(x)$.
+%   As before, take $\{B_n\}$ a countable basis at $x$ and let $U_n = \bigcap_{k=1}^n B_k$. Then in particular, $f(U_n) \not\subset U$ for all $n \in \bbN$. Let $x_n \in U_n$ be arbitrary. Then by the exact same argument as in the proof of Lemma~\ref{closure-convergence} we see that $x_n \to x$, but $f(x_n) \notin U$ for all $n$ so $f(x_n)$ does not converge to $f(x)$.
 \end{proof}
