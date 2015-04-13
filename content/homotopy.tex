@@ -67,7 +67,7 @@ If $\gamma$ is a path, denote by $[\gamma]$ its path homotopy equivalence class 
 \begin{proof}
   Suppose that $F$ is a path homotopy from $\gamma$ to some other curve $\tilde{\gamma}$ and that $G$ is a path homotopy from $\gamma'$ to $\widetilde{\gamma'}$. The claim that the operation is well-defined is then the claim that $\gamma \star \gamma' \sim_p \tilde{\gamma} \star \widetilde{\gamma'}$. Define $H : [0,1] \times [0,1] \to X$ by
   \[
-    H(s,t) = \begin{cases} F(2s,t),& \text{if $s \in [0,\tfrac{1}{2}]$,} \\G(2s-1,t), & \text{if $t \in [\tfrac{1}{2},1]$.} \end{cases}
+    H(s,t) = \begin{cases} F(2s,t),& \text{if $s \in [0,\tfrac{1}{2}]$,} \\G(2s-1,t), & \text{if $s \in [\tfrac{1}{2},1]$.} \end{cases}
   \]
   Then $H$ is continuous by Remark~\ref{pasting-closed} and it is easy to check that $H$ is a path homotopy from $\gamma \star \gamma'$ to $\tilde{\gamma} \star \widetilde{\gamma'}$.
 \end{proof}
@@ -124,9 +124,9 @@ For a point $x \in X$ in a topological space, let $e_x : [0,1] \to X$ denote the
     G(s,0) &= (\gamma_0 \star \gamma_0^\inv)(s) = \gamma(0) = x = e_x(s),\\
     G(s,1) &= (\gamma_1 \star \gamma_1^\inv)(s) = (\gamma \star \gamma^\inv)(s),\\
     G(0,t) &= \gamma_t(0) = \gamma(0) = x,\\
-    G(1,t) &= \gamma_t^\inv(1) = \gamma(0) = x.
+    G(1,t) &= \gamma_t^\inv(1) = \gamma(0) = x,
   \end{align*}
-  That $\gamma^\inv \star \gamma \sim_p e_y$ follows by an analogous argument.
+  for every $s$ and $t$. That $\gamma^\inv \star \gamma \sim_p e_y$ follows by an analogous argument.
 \end{proof}
 
 
