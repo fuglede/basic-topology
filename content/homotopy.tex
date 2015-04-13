@@ -74,8 +74,60 @@ If $\gamma$ is a path, denote by $[\gamma]$ its path homotopy equivalence class 
 For a point $x \in X$ in a topological space, let $e_x : [0,1] \to X$ denote the constant path $e_x(t) = x$, $t \in [0,1]$.
 
 \begin{thm}
-  The operation $\star$ has the following properties.
+  The operation $\star$ has the following properties for all paths $\gamma$, $\gamma'$, and $\gamma''$ in a topological space $X$:
+  \begin{itemize}
+    \item[(i)] $[\gamma] \star ([\gamma'] \star [\gamma'']) = ([\gamma] \star [\gamma']) \star [\gamma'']$ when one (and thus both) are defined,
+    \item[(ii)] $[\gamma] \star [e_y] = [e_x] \star [\gamma] = [\gamma]$, if $\gamma$ is a path from $x$ to $y$, and
+    \item[(iii)] $[\gamma] \star [\gamma^\inv] = [e_x]$, $[\gamma^\inv] \star [\gamma] = [e_y]$, if $\gamma$ is a path from $x$ to $y$.
+  \end{itemize}
 \end{thm}
+\begin{proof}
+  We begin by showing that the homotopy class of a curve $\gamma$ from $x$ to $y$ does not depend on its parametrisation. To be precise, let $\phi : [0,1] \to [0,1]$ be any continuous map with $\phi(0) = 0$, $\phi(1) = 1$. Then $\gamma \circ \phi$ is a path from $x$ to $y$, and we claim that $\gamma \sim_p \gamma \circ \phi$. To see this, let $F : [0,1] \times [0,1] \to X$ be the map
+  \[
+    F(s,t) = \gamma(t\phi(s) + (1-t)s).
+  \]
+  Then $F$ is continuous, $F(s,0) = \gamma(s)$, $F(s,1) = \gamma \circ \phi(s)$, $F(0,t) = \gamma(0) = x$, and $F(1,t) = \gamma(1) = y$, so $F$ is a homotopy from $\gamma$ to $\gamma \circ \phi$.
+  
+  Now we can show each of the first two cases of the theorem by picking $\phi$ appropriately. Let us begin, for instance, by showing (ii). We have to show that $\gamma \star e_y \sim_p \gamma$, and that $e_x \star \gamma \sim_p \gamma$. By definition,
+  \[
+    (\gamma \star e_y) (s) = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ e_y(2s-1), & s \in [\tfrac{1}{2},1], \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ y, & s \in [\tfrac{1}{2},1]. \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ \gamma(1), & s \in [\tfrac{1}{2},1]. \end{cases}
+  \]
+  That is, $(\gamma \star e_y)(s) = \gamma(\phi_1(s))$, where $\phi_1 : [0,1] \to [0,1]$ is first map illustrated in Figure~\ref{graph-reparametrisation}. Thus $\gamma \star e_y \sim_p \gamma \circ \phi_1 \sim_p \gamma$.
+  
+  Similarly, $e_x \star \gamma = \gamma \circ \phi_2$, which completes the proof of (ii). For (i), one finds that $\gamma \star (\gamma' \star \gamma'') = ((\gamma \star \gamma' ) \star \gamma'') \circ \phi_3$.
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \draw[step=0.5cm,gray,very thin] (0,0) grid (2,2);
+      \draw[thick] (0,0) -- (1,2) -- (2,2);
+    \end{tikzpicture}
+    \quad
+    \begin{tikzpicture}
+      \draw[step=0.5cm,gray,very thin] (0,0) grid (2,2);
+      \draw[thick] (0,0) -- (1,0) -- (2,2);
+    \end{tikzpicture}
+    \quad
+    \begin{tikzpicture}
+      \draw[step=0.5cm,gray,very thin] (0,0) grid (2,2);
+      \draw[thick] (0,0) -- (1,0.5) -- (1.5,1) -- (2,2);
+    \end{tikzpicture}
+    \caption{Graphs of the functions $\phi_1$, $\phi_2$, and $\phi_3$ respectively.}
+    \label{graph-reparametrisation}
+  \end{figure}
+  
+  For (iii) we give a homotopy explicitly. Let us show that $\gamma \star \gamma^\inv \sim_p e_x$. For $t \in [0,1]$, define a path $\gamma_t : [0,1] \to X$ by $\gamma(s) = \gamma(ts)$, and define $G : [0,1] \times [0,1] \to X$ by
+  \[
+    G(s,t) = (\gamma_t \star \gamma_t^\inv)(s).
+  \]
+  That $G$ is continuous follows once again from an argument using Remark~\ref{pasting-closed}, and we see that $G$ is a homotopy from $e_x$ to $\gamma \star \gamma^\inv$ since
+  \begin{align*}
+    G(s,0) &= (\gamma_0 \star \gamma_0^\inv)(s) = \gamma(0) = x = e_x(s),\\
+    G(s,1) &= (\gamma_1 \star \gamma_1^\inv)(s) = (\gamma \star \gamma^\inv)(s),\\
+    G(0,t) &= \gamma_t(0) = \gamma(0) = x,\\
+    G(1,t) &= \gamma_t^\inv(1) = \gamma(0) = x.
+  \end{align*}
+  That $\gamma^\inv \star \gamma \sim_p e_y$ follows by an analogous argument.
+\end{proof}
 
 
 \subsection{The fundamental group}
