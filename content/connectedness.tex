@@ -71,7 +71,7 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   Let $A \subset X$ be connected. If a subset $B \subset X$ satisfies $A \subset B \subset \bar A$, then $B$ is also connected. In particular, $\bar A$ is connected when $A$ is.
 \end{thm}
 \begin{proof}
-  Suppose that $B = U \cap V$ for disjoint subsets $U$ and $V$ that are open in $B$. Then by Lemma~\ref{connectedness-subspace-lemma} we must have that $A \subset U$ or $A \subset V$, so assume without loss of generality that $A \subset U$. Then $B \subset \bar A \subset \bar U$ (where all closures are in the bigger space $X$).
+  Suppose that $B = U \cup V$ for disjoint subsets $U$ and $V$ that are open in $B$. Then by Lemma~\ref{connectedness-subspace-lemma} we must have that $A \subset U$ or $A \subset V$, so assume without loss of generality that $A \subset U$. Then $B \subset \bar A \subset \bar U$ (where all closures are in the bigger space $X$).
   
   By definition of the subspace topology, there are open sets $U'$ and $V'$ in $X$ so that $U = B \cap U'$, $V = B \cap V'$, and
   \[
@@ -87,13 +87,13 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   Suppose that $f(X) = U \cup V$ for disjoint subsets $U$ and $V$ that are open in $f(X)$. Then $f^{-1}(U)$ and $f^{-1}(V)$ are disjoint open subsets of $X$ with $X = f^{-1}(U) \cup f^{-1}(V)$. This means that either $f^{-1}(U)$ or $f^{-1}(V)$ is empty. Suppose that $f^{-1}(U)$ is empty. Then since $U \subset f(X)$ we must have $U = \emptyset$.
 \end{proof}
 \begin{cor}
-  Let $X$ be a connected topological space, and let $Y$ be any set. Suppose that $f : X \to Y$ is a locally constant map, meaning that every point $x \in X$ has a neighbourhood $U$ so that $f|_U$ is constant. Then $f$ is constant.
+  Let $X$ be a connected topological space, and let $Y$ be any set. Suppose that $f : X \to Y$ is a locally constant\index{locally constant} map, meaning that every point $x \in X$ has a neighbourhood $U$ so that $f|_U$ is constant. Then $f$ is constant.
 \end{cor}
 \begin{proof}
   Give $Y$ the discrete topology. Then the condition that $f$ is locally constant implies that $f$ is continuous at every point, so $f$ is continuous. Thus $f(X)$ is connected by Theorem~\ref{images-of-connected}, but $f(X)$ also has the discrete topology, so by Example~\ref{discrete-connectedness} it consists of a single point which is the same as saying that $f$ is constant.
 \end{proof}
 \begin{cor}[Intermediate value theorem]
-  Let $f : X \to \bbR$ be continuous and assume that $X$ is connected. If there is an $r \in \bbR$ and $x,y \in X$ so that $f(x) < r < f(y)$, then there is a $z \in X$ with $f(z) = r$.
+  \index{intermediate value theorem}Let $f : X \to \bbR$ be continuous and assume that $X$ is connected. If there is an $r \in \bbR$ and $x,y \in X$ so that $f(x) < r < f(y)$, then there is a $z \in X$ with $f(z) = r$.
 \end{cor}
 \begin{proof}
   By Theorem~\ref{images-of-connected}, $f(X)$ is connected, thus an interval by Exercise~\ref{connected-implies-interval}. Since $f(x),f(y) \in f(X)$, we therefore have $r \in [f(x),f(y)] \subset f(X)$.
