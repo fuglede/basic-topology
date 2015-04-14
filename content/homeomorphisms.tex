@@ -197,17 +197,23 @@ The following result allows us to determine continuity of functions defined on q
   
   Now if $g$ is continuous, so is $f$ since it is a composition of continuous maps.
   
-  Assume that $f$ is continuous and let $V \subset Y$ be open. Then $f^{-1}(V) = p^{-1}(g^{-1}(V))$ is open, but the quotient topology is defined to ensure that $p$ is a quotient map, which implies that $g^{-1}(V)$ is open, so $g$ is continuous.
+  Assume that $f$ is continuous and let $V \subset Y$ be open. Then $f^{-1}(V) = p^{-1}(g^{-1}(V))$ is open, which implies that $g^{-1}(V)$ is open by definition of the quotient topology, so $g$ is continuous.
 \end{proof}
 Above we have seen how equivalence relations can be used to define interesting quotient spaces. We will now turn to a result which says that all such quotient spaces may be described in terms of quotient maps.
 
-More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ by requiring that $x \sim_f y$ if and only if $f(x) = f(y)$. With this relation, the equivalence classes are exactly the sets in $X$ of the form $f^{-1}(\{p\})$ for $p \in Y$, and there is a bijection $g: X/\!\sim_f \to Y$ given by $g(f^{-1}(\{p\})) = p$. Notice that we need $f$ to be surjective for this construction to work.
+More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivalence relation $\sim_f$ on $X$ by requiring that $x \sim_f x'$ if and only if $f(x) = f(x')$.
+
+With this relation, the equivalence classes are exactly the sets in $X$ of the form $f^{-1}(\{y\})$ for $y \in Y$, and as before, there is a bijection $g: X/\!\sim_f \to Y$ given by $g(f^{-1}(\{y\})) = y$; that is, $f = g \circ p$ where $p : X \to X/\!\sim_f$ is as before. Notice that we need $f$ to be surjective for this construction to work.
 \begin{prop}
   \label{quotients-are-equivalence-classes}
-  Let $X$ and $Y$ be topological spaces, let $f : X \to Y$ be a surjective map, and let $g : X/ \!\sim_f \to Y$ be the bijection defined by $f^{-1}(\{p\}) \mapsto p$. If $f$ is a quotient map, then $g$ is a homeomorphism.
+  Let $X$ and $Y$ be topological spaces, let $f : X \to Y$ be a surjective map, and let $g : X/ \!\sim_f \to Y$ be the bijection defined by $f^{-1}(\{y\}) \mapsto y$. If $f$ is a quotient map, then $g$ is a homeomorphism.
 \end{prop}
 \begin{proof}
-  It follows from Lemma~\ref{universal-property-quotients} that $g$ is continuous, since $f$ is. Let $U \subset X/\!\sim_f$ be an open set, and let us show that $g(U)$ is open in $Y$ by showing that $g(U) = f(p^{-1}(U))$ which is open since $f$ is a quotient map. If $y \in g(U)$ there is an $[x] \in U$ so that $y = g([x]) = g(p(x)) = f(x)$, so $y \in f(U)$. Likewise, if $y \in f(p^{-1}(U))$, there is an $x \in p^{-1}(U)$ so that $f(x) = y$. This says that $[x] \in U$ and $g([x]) = f(x) = y$, so $y \in g(U)$.
+  It follows from Lemma~\ref{universal-property-quotients} that $g$ is continuous, since $f$ is. Let $V \subset X/\!\sim_f$ be an open set, and let $U = g(V) \subset Y$. Then we can write $V = g^{-1}(U)$, and
+  \[
+    p^{-1}(V) = p^{-1}(g^{-1}(U)) = f^{-1}(U)
+  \]
+  is open since $p$ is continuous. Since $f$ is a quotient map, this implies that $U = g(V)$ is open, so $g$ is a homeomorphism.
 \end{proof}
 \begin{rem}
   In general, if $f : X \to Y$ is a surjection, and $(X,\calT_X)$ is a topological space, it is customary to define the quotient topology $\calT_Y$ on $Y$ by
