@@ -40,6 +40,7 @@ We will primarily be interested in the special case where the maps $f$ and $g$ a
   Then $H$ is continuous by Remark~\ref{pasting-closed}, and $H$ is a homotopy from $f$ to $h$, so $f \sim h$. If $F$ and $G$ are path-homotopies, then so is $H$.
 \end{proof}
 \begin{example}
+  \label{euclidean-path-homotopy}
   Let $f, g : X \to \bbR^n$ be two continuous functions. Then the map $F : X \times [0,1] \to \bbR^n$ given by
   \[
     F(x,t) = (1-t)f(x) + tg(x)
@@ -74,6 +75,7 @@ If $\gamma$ is a path, denote by $[\gamma]$ its path homotopy equivalence class 
 For a point $x \in X$ in a topological space, let $e_x : [0,1] \to X$ denote the constant path $e_x(t) = x$, $t \in [0,1]$.
 
 \begin{thm}
+  \label{concatenation-homotopy}
   The operation $\star$ has the following properties for all paths $\gamma$, $\gamma'$, and $\gamma''$ in a topological space $X$:
   \begin{itemize}
     \item[(i)] $[\gamma] \star ([\gamma'] \star [\gamma'']) = ([\gamma] \star [\gamma']) \star [\gamma'']$ when one (and thus both) are defined,
@@ -131,5 +133,124 @@ For a point $x \in X$ in a topological space, let $e_x : [0,1] \to X$ denote the
 
 
 \subsection{The fundamental group}
+The idea in this section will be to use the operation $\star$ on path homotopy classes to associate an algebraic structure to any pair $(X,x)$ for $X$ a topological space and $x \in X$. Moreover, when $X$ is path-connected, this structure will form a powerful topological invariant. If $\gamma$ is a path from $x$ to $x$, we say that $\gamma$ is a \word{loop}{{\"o}gla} based at $x$.
+\begin{defn}
+  Let $X$ be a topological space, and let $x \in X$. Then the \word{fundamental group}{fundamentalgrupp} $\pi_1(X,x)$ is the set of all path homotopy classes of loops based at $x$. 
+\end{defn}
+\trans{fundamental group}{fundamentalgrupp}
+To make sense of the terminology, let us recall a few basic notions from abstract algebra.
+\begin{defn}
+  A \word{group}{grupp} is a set $G$ with an operation $G \times G \to G$, denoted $(g,h) \mapsto g \cdot h$, an element $e \in G$ called a unit, and a bijection $G \to G$ denoted $x \mapsto x^{-1}$ called the inverse, so that
+  \begin{itemize}
+    \item $g \cdot (h \cdot k) = (g \cdot h) \cdot k$ for all $g,h,k \in G$,
+    \item $e \cdot g = g = g \cdot e$ for all $g \in G$, and
+    \item $g \cdot g^{-1} = g^{-1} \cdot g = e$ for all $g \in G$.
+  \end{itemize}
+  If $G$ and $H$ are groups, then a map $\phi : G \to H$ is called a \word{homomorphism}{homomorfi} if $\phi(gh) = \phi(g)\phi(h)$ for all $g,h \in G$. A bijective group homomorphism is called an \word{isomorphism}{isomorfi}.
+\end{defn}
+\trans{group}{grupp}
+\trans{homomorphism}{homomorfi}
+\trans{isomorphism}{isomorfi}
+\begin{example}
+  The integers form a group under the operation $(g,h) \mapsto g+h$. The unit is $0 \in \bbZ$, and if $n \in \bbZ$, then the inverse of $n$ is $-n$.
+\end{example}
+\begin{example}
+  The set $\bbR \setminus \{0\}$ is a group with operation $(g,h) \mapsto gh$. The unit is $1$, and the inverse of $x \in \bbR \setminus \{0\}$ is $1/x$.
+\end{example}
+\begin{example}
+  The set $\GL(n,\bbR)$ of invertible $(n \times n)$-matrices with entries in $\bbR$ is a group under matrix multiplication. The unit is the unit matrix.
+\end{example}
+\begin{prop}
+  The fundamental group $\pi_1(X,x)$ is a group under the operation $\star$ on homotopy classes of loops for any topological space $X$ and any $x \in X$.
+\end{prop}
+\begin{proof}
+  This follows immediately from Theorem~\ref{concatenation-homotopy}.
+\end{proof} 
+
+\begin{example}
+  \label{fundemental-group-euclidean}
+  In Example~\ref{euclidean-path-homotopy} we saw that any two given paths in $\bbR^n$ between the same points were homotopic. This in particular implies that any loop based at a point $x \in \bbR^n$ is null-homotopic; that is, homotopic to $e_x$. In other words,
+  \[
+    \pi_1(\bbR^n, x) = \{[e_x]\},
+  \]
+  the trivial group, for all $x \in \bbR^n$.
+\end{example}
+As the next thing, let us see how $\pi_1(X,x)$ depends on $x$.
+\begin{thm}
+  Let $X$ be a topological space, and let $\alpha$ be a path from $x$ to $y$ in $X$. Define a map $\hat{\alpha} : \pi_1(X,x) \to \pi_1(X,y)$ by
+  \[
+    \hat{\alpha}([\gamma]) = [\alpha^\inv] \star [\gamma] \star [\alpha].
+  \]
+  Then $\hat{\alpha}$ is well-defined and an isomorphism.
+\end{thm}
+\begin{proof}
+  That $\hat{\alpha}$ is well-defined means that $\hat{\alpha}([\gamma]) = \hat{\alpha}([\gamma'])$ whenever $[\gamma] = [\gamma']$, i.e. $\gamma \sim_p \gamma'$. And indeed, if $F: [0,1] \times [0,1] \to X$ is a path-homotopy from $\gamma$ to $\gamma'$, then $G : [0,1] \times [0,1] \to X$, defined by
+  \[
+    G(s,t) = (\alpha^\inv \star F(\cdot,t) \star \alpha)(s)
+  \]
+  is a path-homotopy from $\alpha^\inv \star \gamma \star \alpha$ to $\alpha^\inv \star \gamma' \star \alpha$, so $\hat{\alpha}$ is well-defined.
+
+  To see that $\hat{\alpha}$ is an homomorphism, notice that for any $[\gamma], [\gamma'] \in \pi_1(X,x)$, we have
+  \begin{align*}
+    \hat{\alpha}([\gamma]) \star \hat{\alpha}([\gamma']) &= [\alpha^\inv] \star [\gamma] \star [\alpha] \star [\alpha^\inv] \star [\gamma'] \star [\alpha] \\
+      &= [\alpha^\inv] \star ([\gamma] \star [\gamma']) \star [\alpha] = \hat{\alpha}([\gamma] \star [\gamma']).
+  \end{align*}
+  To see that $\hat{\alpha}$ is a bijection, notice that $\widehat{\alpha^\inv} \circ \hat{\alpha}$ is the identity on $\pi_1(X,x)$ since for any $[\gamma] \in \pi_1(X,x)$, we have
+  \[
+    (\widehat{\alpha^\inv} \circ \hat{\alpha})[\gamma] = \widehat{\alpha^\inv}([\alpha^\inv] \star [\gamma] \star [\alpha]) = [\alpha] \star [\alpha^\inv] \star [\gamma] \star [\alpha] \star [\alpha^\inv] = [\gamma],
+  \]
+  and $\hat{\alpha} \circ \widehat{\alpha^\inv}$ is the identity on $\pi_1(X,y)$ by the same reasoning, so $\hat{\alpha}$ is a bijection and thus a group isomorphism.
+\end{proof}
+\begin{cor}
+  If $X$ is a path-connected topological space, then $\pi_1(X,x)$ is independent of $x \in X$ up to isomorphism.
+\end{cor}
+\begin{defn}
+  A topological space $X$ is called \word{simply-connected}{enkelt sammanh{\"a}ngande} if it is path-connected and $\pi_1(X)$ consists of a single point.
+\end{defn}
+\begin{example}
+  By Example~\ref{fundemental-group-euclidean}, $\bbR^n$ is simply-connected.
+\end{example}
+
+The next result says that for path-connected spaces, $\pi_1$ is a topological invariant. Even when the spaces in question are not path-connected, one obtains a topological invariant by considering the collection groups $\pi_1(X,x_i)$ up to isomorphism, where each of the $x_i$ to a path-component of $X$.
+
+As preparation, suppose that $f : X \to Y$ is a continuous map, and let $x \in X$. Define a map
+\[
+  f_* : \pi_1(X,x) \to \pi_1(Y,f(x))
+\]
+by
+\[
+  f_*([\gamma]) = [f \circ \gamma].
+\]
+
+\begin{thm}
+  Let $f : X \to Y$ and $g : Y \to Z$ be continuous maps, and let $x \in X$. Then
+  \begin{itemize}
+    \item[(i)] $f_*: \pi_1(X,x) \to \pi_1(Y,f(x))$ is a well-defined homomorphism,
+    \item[(ii)] $(g \circ f)_* = g_* \circ f_*$, and if $\id : X \to X$ is the identity, then so is $\id_* : \pi_1(X,x) \to \pi_1(X,x)$.
+    \item[(iii)] Finally, if $f$ is a homeomorphism, then $f_*$ is an isomorphism.
+  \end{itemize}
+\end{thm}
+\begin{proof}
+  That $f_*$ is well-defined means that $f \circ \gamma \sim_p f \circ \gamma'$ whenever $\gamma \sim_p \gamma'$. This is the case since if $F$ is a homotopy from $\gamma$ to $\gamma'$, then $f \circ F$ is a homotopy from $f \circ \gamma$ to $f \circ \gamma'$.
+  
+  To see that $f_*$ is a homomorphism, let $\gamma, \gamma' \in \pi_1(X,x)$. We first notice that by definition of concatenation, we have
+  \[
+    f \circ ( \gamma \star \gamma') = (f \circ \gamma) \star (f \circ \gamma'),
+  \]
+  from which it follows that
+  \begin{align*}
+    f_*([\gamma] \star [\gamma']) &= f_*([\gamma \star \gamma']) = [f \circ (\gamma \star \gamma')] = [(f \circ \gamma) \star (f \circ \gamma')] \\
+      &= [ f \circ \gamma] \star [f \circ \gamma'] = f_*([\gamma]) \star f_*([\gamma']),
+  \end{align*}
+  so $f_*$ is a homomorphism, which shows (i).
+  
+  Similarly,
+  \[
+    (g_* \circ f_*)([\gamma]) = g_* ( [f \circ \gamma]) = [g \circ f \circ \gamma] = (g \circ f)_*([\gamma]),
+  \]
+  which shows the first part of (ii). The last part of (ii) is obvious.
+  
+  Finally, (iii) follows from (ii) as it follows that $(f^{-1})_*$ satisfies that both $f_* \circ (f^{-1})_*$ and $(f^{-1})_* \circ f_*$ are the identity homomorphisms. Thus $f_*$ is a bijection and therefore an isomorphism.
+\end{proof} 
 
 \subsection{Covering spaces and examples}
