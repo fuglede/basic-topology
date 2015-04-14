@@ -1,6 +1,6 @@
 \section{Connectedness}
 \label{connectedness}
-In $\bbR^n$, we have a good intuituion about what it means for subsets to be connected or not. For example, the subset $(-2,-1) \cup (1,2)$ does seem very connected: how would we connect $-1$ and $1$? On the other hand, $(-2,2)$ should probably deserve to be called connected.
+In $\bbR^n$, we have a good intuition about what it means for subsets to be connected or not. For example, the subset $(-2,-1) \cup (1,2)$ does seem very connected: how would we connect $-1$ and $1$? On the other hand, $(-2,2)$ should probably deserve to be called connected.
 
 It turns out that having open sets is sufficient to define a notion of connectedness that agrees with out intuition in the intuitive examples; this is the subject of this sections.
 
@@ -39,9 +39,9 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
 \end{example}
 \begin{example}
   \label{intervals-are-connected}
-  Let $I \subset \bbR$ be any interval (bounded, unbounded, open, closed, or half-open). We claim that $I$ is connected. We will use the (hopefully) well-known fact that any subset $A \subset \bbR$ satisfies $\sup A \in \bar A$.
+  Let $I \subset \bbR$ be any interval (bounded, unbounded, open, closed, or half-open). We claim that $I$ is connected. We will use the (hopefully) well-known fact that any subset $A \subset \bbR$ satisfies $\sup A \in \bar A$ (since, for instance, $\sup A$ is a limit of a sequence in $A$ so that we can use Lemma~\ref{closure-convergence}).
   
-  Now to see the claim, assume that $I = U \cup V$ is a separation of $I$, let $x \in U$, $y \in V$, and assume without loss of generality that $x < y$. Then we have $[x,y] \subset I$. Let $U_0 = [x,y] \cap U$, $V_0 = [x,y] \cap V$ so that $[x,y] = U_0 \cap V_0$ is a separation of $[x,y]$, and define $z = \sup U_0 \in [x,y]$. Now as noticed above, $U_0$ is both open and closed in $[x,y]$ so in particular $U_0$ is also closed in $\bbR$, so $z \in \bar{U_0} = U_0$. If $z = y \in V_0$, we have a contradiction, so assume that $z \not= y$. Since $U_0$ is open in $[x,y]$ we can find $u \in U_0$ so that $z < u \leq y$, which contradicts the fact that $z = \sup U_0$ (to be completely precise about this last point, $U_0 = [x,y] \cap U_1$ for an open set $U_1 \subset \bbR$, and we can find a neighbourhood $B(z,r)$ of $z \in U_1$ so small that $B(z,r) \subset U_0$; we now just take $u = z+r/2$).
+  Now to see the claim, assume that $I = U \cup V$ is a separation of $I$, let $x \in U$, $y \in V$, and assume without loss of generality that $x < y$. Then we have $[x,y] \subset I$. Let $U_0 = [x,y] \cap U$, $V_0 = [x,y] \cap V$ so that $[x,y] = U_0 \cup V_0$ is a separation of $[x,y]$, and define $z = \sup U_0 \in [x,y]$. Now as noticed above, $U_0$ is both open and closed in $[x,y]$ so in particular $U_0$ is also closed in $\bbR$, so $z \in \bar{U_0} = U_0$. If $z = y \in V_0$, we have a contradiction, so assume that $z \not= y$. Since $U_0$ is open in $[x,y]$ we can find $u \in U_0$ so that $z < u$, which contradicts the fact that $z = \sup U_0$ (to be completely precise about this last point, $U_0 = [x,y] \cap U_1$ for an open set $U_1 \subset \bbR$, and we can find a neighbourhood $B(z,r)$ of $z \in U_1$ so small that $B(z,r) \subset U_0$; we now just take $u = z+r/2$).
   
   On the other hand, one can show that if $I \subset \bbR$ is connected, then $I$ is an interval (this is Exercise~\ref{connected-implies-interval}).
 \end{example}
