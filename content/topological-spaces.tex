@@ -733,7 +733,7 @@ In analysis, one might have encountered the important characterization of contin
 \trans{first-countable}{?}
 \begin{lem}[The sequence lemma]
   \label{closure-convergence}
-  Let $X$ be a topological space and let $A \subset X$. If there is a sequence in $A$ that converges to $x$ then $x \in \bar A$. The converse holds if $X$ is first-countable.
+  \index{sequence lemma}Let $X$ be a topological space and let $A \subset X$. If there is a sequence in $A$ that converges to $x$ then $x \in \bar A$. The converse holds if $X$ is first-countable.
 \end{lem}
 \begin{proof}
   Suppose that $x_n \to x$ and that $x_n \in A$ for all $n$. If $x \in A$ we are done, so suppose that $x \in X \setminus A$. Let $U$ be a neighbourhood of $x$; then there is an $N > 0$ so that $x_n \in U$ for all $n > N$. This implies that $U \cap A \not= \emptyset$ and $U \cap X \setminus A \not= \emptyset$, so $x \in \dd A$, and so $x \in \bar A$ by Theorem~\ref{relations-closure-boundary}.
