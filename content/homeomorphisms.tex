@@ -139,6 +139,7 @@ We will encounter many other topological properties later on, one of the most im
   More generally, one can show that $S^n \setminus \{x\} \simeq \bbR^n$ for all $x \in S^n$.
 \end{rem}
 \begin{example}
+  \label{not-quotient-map}
   Let $f : [0,1) \to S^1$ be the map $f(x) = (\cos (2\pi x), \sin(2\pi x))$. Then $f$ is a bijection and moreover, just as in the remark above, $f$ is continuous by Proposition~\ref{props-subspace-top} and Lemma~\ref{universal-inclusion-lemma}: consider the map $\tilde{f} : \bbR \to \bbR^2$ given by $\tilde{f}(x) = (\cos (2\pi x), \sin(2\pi x))$. This is clearly continuous, so its restriction $\tilde{f}|_{[0,1)} : [0,1) \to \bbR^2$ is continuous. If $\iota : S^1 \to \bbR^2$ denotes the inclusion map, then $\tilde{f}|_{[0,1)} = \iota \circ f$, so $f$ is continuous.
   
   Now $U = [0,\tfrac{1}{2})$ is open in $[0,1)$ (recall Example~\ref{weird-opens-subspace-example}) but $f(U)$ is not open in $S^1$ (this is intuitively clear but of course requires a formal proof -- try to cook one up!). Thus $f$ is not a homeomorphism, even though it is a continuous bijection.
@@ -172,7 +173,7 @@ One motivation for studying quotient maps is that they allow us to glue topologi
 We will use the notation $X/U = X/\!\sim_U$ for the space obtained using the equivalence relation of Example~\ref{collapse-space}.
 \begin{example}
   \label{bag-closing-example}
-  Let us see what the above construction means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We will show this precisely in Example~\ref{circle-from-interval}.
+  Let us see what the above construction means for the topology of the space. Let $X = [-1,1]$ and let $U = \{-1,1\}$ be the endpoints of the interval. One can then show that $X/U \simeq S^1$: that is, we can tie together the ends of the interval to obtain a circle. We will consider this example again in Example~\ref{circle-from-interval}.
   
   More generally, if $X = D^n \subset \bbR^n$ is the closed unit ball, 
   \[
@@ -217,7 +218,7 @@ More precisely, let $f :X \to Y$ be a surjective map. Then we define an equivale
 \end{rem}
 \begin{example}
   \label{circle-from-interval}
-  Let us show that $[0,1]/\{0,1\}$, with the quotient topology, is homeomorphic to $S^1$. Let $f : [0,1] \to S^1$ be the map $f(x) = (\cos(2\pi x), \sin(2\pi x))$. Then $f(x) = f(y)$ if and only if $x = y$ or either $x=1,y=0$ or $x=0,y=1$. This implies that $[0,1]/\!\sim_f\, = [0,1]/\{0,1\}$. As before, $f$ is continuous, and $f$ is clearly surjective, so the induced map $g : [0,1]/\!\sim_f \,\to S^1$ is a homeomorphism by Proposition~\ref{quotients-are-equivalence-classes}.
+  Let us show that $[0,1]/\{0,1\}$, with the quotient topology, is homeomorphic to $S^1$. Let $f : [0,1] \to S^1$ be the map $f(x) = (\cos(2\pi x), \sin(2\pi x))$. Then $f(x) = f(y)$ if and only if $x = y$ or either $x=1,y=0$ or $x=0,y=1$. This implies that $[0,1]/\!\sim_f\, = [0,1]/\{0,1\}$. As before, $f$ is continuous, and $f$ is clearly surjective, so the induced map $g : [0,1]/\!\sim_f \,\to S^1$ is a homeomorphism by Proposition~\ref{quotients-are-equivalence-classes}; we only need to argue that if $f^{-1}(U)$ is open, then so is $U$; then $f$ is a quotient map. Now one can see this by simply examining the open sets in $[0,1]$; these are unions of open intervals, which are allowed to be half-open at $0$ and $1$. In the sphere these correspond to unions circular intervals which are clearly open. The main point being that the construction ensures that $0 \in f^{-1}(U)$ if and only if $1 \in f^{-1}(U)$ so that we do not run into the same problem as in Example~\ref{not-quotient-map}. While intuitively clear, this is a bit annoying to prove with the tools at hand, and as mentioned, a more precise proof can be found in Proposition~\ref{closing-the-bag}.
 \end{example}
 \begin{example}
   Another way of viewing the same example is as follows: let $\sim$ be the equivalence relation on $\bbR$ given by $x \sim y$ if $x-y \in \bbZ$. Define $f : \bbR \to S^1$ by $f(x) = (\cos(2\pi x), \sin(2\pi x))$ just like above. Then $f(x) = f(y)$ if and only if $x \sim y$, so $\sim \,=\, \sim_f$. This implies that $\bbR/\sim$ is homeomorphic to $S^1$.
