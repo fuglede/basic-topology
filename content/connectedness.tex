@@ -141,8 +141,10 @@ Along the same lines, we mention the following result.
   \index{Brouwer's invariance of dimension}If two non-empty open sets $U \subset \bbR^n$ and $V \subset \bbR^n$ and $U \simeq V$, then $n = m$.
 \end{thm}
 The proof uses methods from algebraic topology and will not be covered here; see e.g. \cite[Thm.~2.26]{Hat}. A special case is contained in Exercise~\ref{invariance-of-dimension-exercise}.
+
+
 \subsection{Paths and path-connectedness}
-Another natural notion of connectedness is obtained by requiring that all points in a space can be connected to each other; what exactly to mean by this is contained in the following definition
+Another natural notion of connectedness is obtained by requiring that all points in a space can be connected to each other; what exactly to mean by this is contained in the following definition.
 
 \begin{defn}
   Given two points $x$ and $y$ in a topological space $X$, a \word{path}{?} from $x$ to $y$ is a continuous map $\gamma : [0,1] \to X$ so that $\gamma(0) = x$, $\gamma(1) = y$. If for any pair $x,y$ in $X$ there is a path from $x$ to $y$, we say that $X$ is \word{path-connected}{b{\aa}gvis sammanh{\"a}ngande}.
@@ -153,7 +155,7 @@ Another natural notion of connectedness is obtained by requiring that all points
   A path-connected space is connected.
 \end{prop}
 \begin{proof}
-  We will prove the contrapositive, so let $X = U \cup V$ be a separation of $X$. Suppose that $\gamma : [0,1] \to X$ is any path. Then by Theorem~\ref{images-of-connected} we see that $\gamma([0,1])$ is connected and by Lemma~\ref{connectedness-subspace-lemma}, $\gamma([0,1])$ is contained entirely in $U$ or in $V$, it is not possible to find paths from points in $U$ to points in $V$.
+  We will prove the contrapositive, so let $X = U \cup V$ be a separation of $X$. Suppose that $\gamma : [0,1] \to X$ is any path. Then by Example~\ref{intervals-are-connected} and Theorem~\ref{images-of-connected} we see that $\gamma([0,1])$ is connected and by Lemma~\ref{connectedness-subspace-lemma}, $\gamma([0,1])$ is contained entirely in $U$ or in $V$. This means that it is not possible to find paths from points in $U$ to points in $V$.
 \end{proof}
 \begin{example}
   For $x, y \in \bbR^n$, the path $\gamma : [0,1] \to \bbR^n$ defined by
@@ -165,7 +167,11 @@ Another natural notion of connectedness is obtained by requiring that all points
 \begin{example}
   A subset $A$ of $\bbR^n$ is called convex if for any $x,y \in A$, the image of the straight line $\gamma(t) = (1-t)x + ty$ belongs to $A$. As in the previous example, it follows that convex subsets are path-connected and thus also connected.
   
-  Some examples of convex subsets are the upper half-plane $\{(x_1,\dots,x_n) \in \bbR^n \mid x_n > 0\}$ and any ball $B(x,r)$, $x \in \bbR^n$, $r > 0$.
+  Some examples of convex subsets are the upper half-plane
+  \[
+    \{(x_1,\dots,x_n) \in \bbR^n \mid x_n > 0\}
+  \]
+  and any ball $B(x,r)$, $x \in \bbR^n$, $r > 0$.
 \end{example}
 \begin{example}
   A connected space does not need to be path-connected. A counter-example is the so-called topologist's sine curve
@@ -196,7 +202,7 @@ One direction follows immediately from Proposition~\ref{path-connected-implies-c
 Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It does however have two natural subspaces, $(-2,1)$ and $(1,2)$ which \emph{are} connected. We will now see how to split every topological space into connected parts.
 
 \begin{prop}
-  Let $X$ be a topological space. Define a relation $\sim$ by $x \sim y$ if and only if there is a connected set $A \subset X$ so that $x,y \in A$. Then $\sim$ is an equivalence relation. The equivalence classes of $\sim$ are called the \wordexp{connected components}{sammanh{\"a}ngande komponenter}{connected component}{sammanh{\"a}ngande komponent} of $X$.
+  Let $X$ be a topological space. Define a relation $\sim$ by on $X$ by declaring that $x \sim y$ if and only if there is a connected set $A \subset X$ so that $x,y \in A$. Then $\sim$ is an equivalence relation. The equivalence classes of $\sim$ are called the \wordexp{connected components}{sammanh{\"a}ngande komponenter}{connected component}{sammanh{\"a}ngande komponent} of $X$.
 \end{prop}
 \trans{connected component}{sammanh{\"a}ngande komponent}
 \begin{proof}
@@ -219,7 +225,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
 \begin{proof}
   The first part is trivial since it it always true for equivalence classes of an equivalence relation. Let $Y \subset X$ be connected, and let $x \in Y$. Then $y \in [x]$ for all other $y \in Y$ since $Y$ is a connected set containing both $x$ and $y$, so $Y \subset [x]$, and $[x]$ is one of the $C_i$ by definition.
   
-  Similarly, fix $x \in C_i$. Then for every other $y \in C_i$ there a connected subset $A_y$ so that $x, y \in A_y$. Now we use our usual trick and find that $C_i = \bigcup_{y \in C_i} A_y$. Since all of the $A_y$ contain $x$, we use Theorem~\ref{unions-connected} to conclude that $C_i$ is connected.
+  Similarly, fix $x \in C_i$. Then for every other $y \in C_i$ there a connected subset $A_y$ so that $x, y \in A_y$. Then $A_y \subset C_i$ by (ii), and we now use our usual trick and find that $C_i = \bigcup_{y \in C_i} A_y$. Since all of the $A_y$ contain $x$, we use Theorem~\ref{unions-connected} to conclude that $C_i$ is connected.
   
   Finally, we will show that $C_i$ is closed by showing that $C_i = \bar{C_i}$. Once more, write $C_i = [x]$ for any $x \in C_i$. Let $y \in \bar{C_i}$. Then $\bar{C_i}$ is a subset containing both $x$ and $y$, and $\bar{C_i}$ is connected by Theorem~\ref{connected-closures}, so $y \in [x] = C_i$.
 \end{proof}
@@ -242,7 +248,7 @@ We need to check that $\gamma_1 \star \gamma_2$ is actually continuous. This, ho
 
 With this, we can define a relation on $X$ by saying that $x \sim_{\mathrm{path}} y$ if there is a path from $x$ to $y$.
 \begin{lem}
-  The relation $\sim_{\mathrm{path}}$ is an equivalence relation. The equivalence classes of $\sim_{\mathrm{path}}$ are called the \word{path-connected components}{b{\aa}gvis sammanh{\"a}ngande komponenter}{path-connected component}{b{\aa}gvis sammanh{\"a}ngande komponent} of $X$.
+  The relation $\sim_{\mathrm{path}}$ is an equivalence relation. The equivalence classes of $\sim_{\mathrm{path}}$ are called the \wordexp{path-connected components}{b{\aa}gvis sammanh{\"a}ngande komponenter}{path-connected component}{b{\aa}gvis sammanh{\"a}ngande komponent} of $X$.
 \end{lem}
 \trans{path-connected component}{b{\aa}gvis sammanh{\"a}ngande komponent}
 \begin{proof}
