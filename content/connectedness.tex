@@ -230,7 +230,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
   Finally, we will show that $C_i$ is closed by showing that $C_i = \bar{C_i}$. Once more, write $C_i = [x]$ for any $x \in C_i$. Let $y \in \bar{C_i}$. Then $\bar{C_i}$ is a subset containing both $x$ and $y$, and $\bar{C_i}$ is connected by Theorem~\ref{connected-closures}, so $y \in [x] = C_i$.
 \end{proof}
 \begin{example}
-  It follows from Proposition~\ref{props-of-conn-components} that connected components are open if there are only finitely many of them. This need not be the case though: we claim that the connected components of $\bbQ$ are the singleton sets $\{x\}$. Indeed, let $X$ be any subset of $\bbQ$ containing at least two points, and suppose that $x, y \in \bbQ$, $x \not= y$. There there is an irrational number $r$, $x < r < y$, and 
+  It follows from Proposition~\ref{props-of-conn-components} that connected components are open if there are only finitely many of them. This need not be the case though: we claim that the connected components of $\bbQ$ are the singleton sets $\{x\}$. Indeed, let $X$ be any subset of $\bbQ$ containing at least two points, and suppose that $x, y \in X$, $x \not= y$. There there is an irrational number $r$, $x < r < y$, and 
   \[
     X = (X \cap (-\infty,r)) \cup (X \cap (r,\infty))
   \]
@@ -240,7 +240,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
   The number of connected components is a topological invariant $\mathbf{Top} \to \bbZ \cup \{\infty\}$. That is, if two topological spaces have a different number of connected components, then they can not be homeomorphic.
 \end{rem}
 
-We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define $\gamma^\inv$ by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$, so that $\gamma_1$ is a path from $x$ to $y$, and $\gamma_2$ is a path from $y$ to $z$. We then form a path from $x$ to $z$ as follows: define the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2$ by
+We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define the \emph{reverse}\index{reverse} of $\gamma$, denoted $\gamma^\inv$, by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$, so that $\gamma_1$ is a path from $x$ to $y$, and $\gamma_2$ is a path from $y$ to $z$. We then form a path from $x$ to $z$ as follows: define the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2$ by
 \[
   \gamma_1 \star \gamma_2(t) = \begin{cases} \gamma_1(2t), & t \in [0,\tfrac{1}{2}],\\ \gamma_2(2t-1), & t \in [\tfrac{1}{2},1]. \end{cases}
 \]
