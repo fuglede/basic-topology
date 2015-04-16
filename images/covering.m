@@ -1,3 +1,11 @@
+(*
+    This Mathematica file generates an image to
+    illustrate covering maps.
+
+    Usage:
+    math -script covering.m
+*)
+
 start = 3; (* lowest z-coordinate of helix *)
 height = 3; (* number of turns of helix - 1 *)
 imageSize = 600;
