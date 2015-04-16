@@ -204,6 +204,7 @@ As the next thing, let us see how $\pi_1(X,x)$ depends on $x$.
 \begin{cor}
   If $X$ is a path-connected topological space, then $\pi_1(X,x)$ is independent of $x \in X$ up to isomorphism.
 \end{cor}
+Because of this result, one often writes $\pi(X) = \pi(X,x)$ for any $x \in X$ when $X$ is path-connected. It is then understood that the equality is really up to isomorphism.
 \begin{defn}
   A topological space $X$ is called \word{simply-connected}{enkelt sammanh{\"a}ngande} if it is path-connected and $\pi_1(X)$ consists of a single point.
 \end{defn}
@@ -254,3 +255,37 @@ by
 \end{proof} 
 
 \subsection{Covering spaces and examples}
+The main result of this section is a calculation of $\pi_1(S^n)$ for all $n \geq 1$.
+\begin{thm}
+  We have $\pi_1(S^1) = \bbZ$, and $S^n$ is simply-connected for $n \geq 2$.
+\end{thm}
+\begin{wrapfigure}{r}{0.3\textwidth}
+  \begin{center}
+    \begin{overpic}[width=0.28\textwidth]{images/covering}
+      \put(37,60){$E$}
+      \put(37,13){$B$}
+      \put(24,33){$p$}
+      \put(18,17){$U$}
+      \put(13,91){$p^{-1}(U)$}
+    \end{overpic}
+  \end{center}
+  \caption{A covering map $p : E \to B$.}
+  \label{covering-figure}
+\end{wrapfigure}
+To prove the case $n = 1$, it will be convenient to have at our disposal some basic results about covering spaces.
+% \trans{covering space}{?}
+% \trans{covering map}{?}
+\begin{defn}
+  Let $B$ be a topological space. A \wordnotrans{covering space}{?} of $B$ is a topological space $E$ and a continuous surjective map $p : E \to B$, called a \wordnotrans{covering map}{?}, so that each point $b \in B$ has an open neighbourhood $U$ with the property that $p^{-1}(U)$ is a disjoint union of open sets in $E$, each of which is mapped homeomorphically to $U$ by $p$. See Figure~\ref{covering-figure}.
+\end{defn}
+
+\begin{example}
+  The real line $\bbR$ is a covering space of $S^1$ with covering map $p : \bbR \to S^1$ given by $p(x) = (\cos(2\pi x), \sin(2\pi x))$.
+\end{example}
+
+\begin{defn}
+  Let $p : E \to B$ be a covering map, and let $f : X \to B$ be a continuous map. A map $\tilde{f} : X \to E$ is called a \word{lifting}{?} of $f$ if $f = p \circ \tilde{f}$.
+\end{defn}
+\begin{lem}[Path lifting lemma]
+  Let $p : E \to B$ be a covering map, let $b \in B$, and let $e \in E$ with $p(e) = b$. Any path $\gamma : [0,1] \to B$ with $\gamma(0) = b$ has a lift $\tilde{\gamma} : [0,1] \to E$ so that $\tilde{\gamma}(0) = e$.
+\end{lem}
