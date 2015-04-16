@@ -254,11 +254,19 @@ by
   Finally, (iii) follows from (ii) as it follows that $(f^{-1})_*$ satisfies that both $f_* \circ (f^{-1})_*$ and $(f^{-1})_* \circ f_*$ are the identity homomorphisms. Thus $f_*$ is a bijection and therefore an isomorphism.
 \end{proof} 
 
-\subsection{Covering spaces and examples}
+\subsection{Covering spaces and fundamental groups of spheres}
 The main result of this section is a calculation of $\pi_1(S^n)$ for all $n \geq 1$.
 \begin{thm}
-  We have $\pi_1(S^1) = \bbZ$, and $S^n$ is simply-connected for $n \geq 2$.
+  \label{fundamental-group-of-spheres}
+  We have $\pi_1(S^1) = \bbZ$, but $S^n$ is simply-connected for $n \geq 2$.
 \end{thm}
+
+To prove the case $n = 1$, it will be convenient to have at our disposal some basic results about covering spaces. Before going into any detail about these, let us consider the ``easy'' part of the claim.
+\begin{proof}[Proof of Theorem~\ref{fundamental-group-of-spheres} for $n \geq 2$]
+  To be added.
+\end{proof}
+
+
 \begin{wrapfigure}{r}{0.3\textwidth}
   \begin{center}
     \begin{overpic}[width=0.28\textwidth]{images/covering}
@@ -272,7 +280,7 @@ The main result of this section is a calculation of $\pi_1(S^n)$ for all $n \geq
   \caption{A covering map $p : E \to B$.}
   \label{covering-figure}
 \end{wrapfigure}
-To prove the case $n = 1$, it will be convenient to have at our disposal some basic results about covering spaces.
+
 % \trans{covering space}{?}
 % \trans{covering map}{?}
 \begin{defn}
@@ -286,6 +294,39 @@ To prove the case $n = 1$, it will be convenient to have at our disposal some ba
 \begin{defn}
   Let $p : E \to B$ be a covering map, and let $f : X \to B$ be a continuous map. A map $\tilde{f} : X \to E$ is called a \word{lifting}{?} of $f$ if $f = p \circ \tilde{f}$.
 \end{defn}
+
 \begin{lem}[Path lifting lemma]
-  Let $p : E \to B$ be a covering map, let $b \in B$, and let $e \in E$ with $p(e) = b$. Any path $\gamma : [0,1] \to B$ with $\gamma(0) = b$ has a lift $\tilde{\gamma} : [0,1] \to E$ so that $\tilde{\gamma}(0) = e$.
+  \label{path-lifting-lemma}
+  \index{path lifting lemma}Let $p : E \to B$ be a covering map, let $b \in B$, and let $e \in E$ with $p(e) = b$. Any path $\gamma : [0,1] \to B$ with $\gamma(0) = b$ has a unique lifting $\tilde{\gamma} : [0,1] \to E$ so that $\tilde{\gamma}(0) = e$.
 \end{lem}
+\begin{proof}
+  To be added.
+\end{proof}
+
+\begin{lem}[Homotopy lifting lemma]
+  \label{homotopy-lifting-lemma}
+  \index{homotopy lifting lemma}Let $p : E \to B$ be a covering map, and let $p(e) = b$ as above. Let $F : [0,1] \times [0,1] \to B$ be a homotopy with $F(0,0) = b$. Then there is a a unique lifting $\tilde{F} : [0,1] \times [0,1] \to E$ so that $\tilde{F}(0,0) = e$. If $F$ is a path homotopy then so is $\tilde{F}$.
+\end{lem}
+\begin{proof}
+  To be added.
+\end{proof}
+
+Now as above, let $p : E \to B$ be a covering map, let $b \in B$, and choose $e \in E$ with $p(e) = b$. Let $[\gamma] \in \pi_1(B,b)$ be a homotopy class of a path $\gamma$, and let $\tilde{\gamma}$ be the unique lifting from Lemma~\ref{path-lifting-lemma}, with $\tilde{\gamma}(0) = e$. Define a map, called the \word{lifting correspondence}{?},
+\[
+  \phi_e : \pi_1(B,b) \to p^{-1}(b)
+\]
+by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, assume that $\gamma \sim_p \gamma'$, and let $F$ denote a path homotopy from $\gamma$ to $\gamma'$. Then the unique lifting $\tilde{F}$ from Lemma~\ref{homotopy-lifting-lemma} is a path homotopy from $\tilde{\gamma}$ to $\widetilde{\gamma'}$, and in particular $\tilde{\gamma}(1) = \widetilde{\gamma'}(1)$.
+
+\begin{prop}
+  Let $p : E \to B$, $p(e) = b$, be as above. If $E$ is path-connected then $\phi_e$ is surjective. If $E$ is simply-connected, then $\phi_e$ is bijective.
+\end{prop}
+\begin{proof}
+  To be added.
+\end{proof}
+
+We are now in a position to prove our main result.
+\begin{proof}[Proof of Theorem~\ref{fundamental-group-of-spheres} for $n = 1$]
+  To be added.
+\end{proof}
+
+Up until this point, it is not clear how useful $\pi_1$ actually is as an invariant: indeed, most of the calculations of fundamental groups that we have done turned out to yield trivial groups, and, for instance, we can not use the fundamental group to tell apart the spaces $\bbR^n$ and $S^n$ even though one can show by elementary means that these spaces are non-homeomorphic. A theorem, whose proof is recent enough that the result still goes by the name of a conjecture, 
