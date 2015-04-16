@@ -113,10 +113,13 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   \]
   and all the sets on the right hand side have the common point $(x,y') \in A_x$, where $y' \in Y$ can be taken to be anything. Therefore, their union is connected by Theorem~\ref{unions-connected}.
 \end{proof}
-Since we have seen that $\bbR$ is connected, we immediately obtain the following.
+Since we have seen that $\bbR$ is connected, we obtain the following.
 \begin{cor}
   Euclidian space $\bbR^n$ is connected for any $n \in \bbN$.
 \end{cor}
+\begin{proof}
+  It follows from Theorem~\ref{products-connected} that $\bbR^n = \bbR \times \cdots \times \bbR$ is connected in the product topology, so it suffices to check that the product topology and the standard topology on $\bbR^n$ are the same; this may be done by applying Lemma~\ref{compare-bases} twice. The case $n = 2$ is Exercise~\ref{product-topology-is-standard}.
+\end{proof}
 \begin{prop}
   The $n$-sphere $S^n$ and the $n$-torus $T^n$ are connected for all $n \in \bbN$.
 \end{prop}
