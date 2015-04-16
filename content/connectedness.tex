@@ -45,9 +45,6 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
   
   On the other hand, one can show that if $I \subset \bbR$ is connected, then $I$ is an interval (this is Exercise~\ref{connected-implies-interval}).
 \end{example}
-\begin{rem}
-  Being connected is a topological property which can be used to define a simple topological invariant: if $X$ is connected any $Y$ is not, then $X$ and $Y$ are not homeomorphic.
-\end{rem}
 \begin{lem}
   \label{connectedness-subspace-lemma}
   Let $X = U \cup V$ for disjoint open sets $U$ and $V$, and let $Y \subset X$ be a subspace. If $Y$ is connected, then $Y \subset U$ or $Y \subset V$.
@@ -98,6 +95,9 @@ Notice that if $X = U \cup V$ is a separation, then $U = X \setminus V$ and $V =
 \begin{proof}
   By Theorem~\ref{images-of-connected}, $f(X)$ is connected, thus an interval by Exercise~\ref{connected-implies-interval}. Since $f(x),f(y) \in f(X)$, we therefore have $r \in [f(x),f(y)] \subset f(X)$.
 \end{proof}
+\begin{rem}
+  Being connected is a topological property which can be used to define a simple topological invariant: if $X$ is connected any $Y$ is not, then $X$ and $Y$ are not homeomorphic.
+\end{rem}
 \begin{thm}
   \label{products-connected}
   If $\{X_i\}_{i \in I}$ is a family of topological spaces, then their product $\prod_{i \in I} X_i$ is connected if and only if every $X_i$ is.
