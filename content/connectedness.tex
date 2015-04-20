@@ -202,10 +202,10 @@ One direction follows immediately from Proposition~\ref{path-connected-implies-c
 
 \subsection{Connected components and path-connected components}
 \label{component-section}
-Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It does however have two natural subspaces, $(-2,1)$ and $(1,2)$ which \emph{are} connected. We will now see how to split every topological space into connected parts.
+Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It does however have two natural subspaces, $(-2,-1)$ and $(1,2)$ which \emph{are} connected. We will now see how to split every topological space into connected parts.
 
 \begin{prop}
-  Let $X$ be a topological space. Define a relation $\sim$ by on $X$ by declaring that $x \sim y$ if and only if there is a connected set $A \subset X$ so that $x,y \in A$. Then $\sim$ is an equivalence relation. The equivalence classes of $\sim$ are called the \wordexp{connected components}{sammanh{\"a}ngande komponenter}{connected component}{sammanh{\"a}ngande komponent} of $X$.
+  Let $X$ be a topological space. Define a relation $\sim$ on $X$ by declaring that $x \sim y$ if and only if there is a connected set $A \subset X$ so that $x,y \in A$. Then $\sim$ is an equivalence relation. The equivalence classes of $\sim$ are called the \wordexp{connected components}{sammanh{\"a}ngande komponenter}{connected component}{sammanh{\"a}ngande komponent} of $X$.
 \end{prop}
 \trans{connected component}{sammanh{\"a}ngande komponent}
 \begin{proof}
@@ -221,7 +221,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
   \begin{itemize}
     \item[(i)] $X = \bigcup_{i \in I} C_i$ and the $C_i$ are pairwise disjoint,
     \item[(ii)] if $Y \subset X$ is connected, then $Y \subset C_i$ for some $i \in I$,
-    \item[(iii)] $C_i \subset X$ is connected for each $i \in I$
+    \item[(iii)] $C_i \subset X$ is connected for each $i \in I$, and
     \item[(iv)] $C_i$ is closed for all $i \in I$.
   \end{itemize}
 \end{prop}
@@ -243,7 +243,7 @@ Recall that the subset $(-2,-1) \cup (1,2) \subset \bbR$ was not connected. It d
   The number of connected components is a topological invariant $\mathbf{Top} \to \bbZ \cup \{\infty\}$. That is, if two topological spaces have a different number of connected components, then they can not be homeomorphic.
 \end{rem}
 
-We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define the \emph{reverse}\index{reverse} of $\gamma$, denoted $\gamma^\inv$, by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$, so that $\gamma_1$ is a path from $x$ to $y$, and $\gamma_2$ is a path from $y$ to $z$. We then form a path from $x$ to $z$ as follows: define the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2$ by
+We now turn back to our study of path-connected spaces, creating an analogous construction of path-connected components. For this, it will first be useful to introduce the following two operations on paths. For any path $\gamma : [0,1] \to X$ in a topological space $X$, define the \emph{reverse}\index{reverse} of $\gamma$, denoted $\gamma^\inv$, by $\gamma^\inv(t) = \gamma(1-t)$. Then $\gamma^\inv$ is continuous, and if $\gamma$ is a path from $x$ to $y$, then $\gamma^\inv$ is a path from $y$ to $x$. Let $\gamma_1,\gamma_2 : [0,1] \to X$ be two paths so that $\gamma_1(1) = \gamma_2(0)$, so that $\gamma_1$ is a path from $x$ to $y$, and $\gamma_2$ is a path from $y$ to $z$. We then form a path from $x$ to $z$ as follows: define the \word{concatenation}{konkatenering} $\gamma_1 \star \gamma_2 : [0,1] to X$ by
 \[
   \gamma_1 \star \gamma_2(t) = \begin{cases} \gamma_1(2t), & t \in [0,\tfrac{1}{2}],\\ \gamma_2(2t-1), & t \in [\tfrac{1}{2},1]. \end{cases}
 \]

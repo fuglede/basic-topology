@@ -10,6 +10,7 @@
 \end{defn}
 \trans{cover}{{\"o}vert{\"a}ckning}
 \trans{compact}{kompakt}
+We will often be concerned with compactness of subspaces of topological space. In each such case, the subspace in question is called compact if it is compact in the subspace topology.
 \begin{example}
   Every finite topological space is compact, since there are only finitely many open sets. Thus, given any open cover $\calU$, the open cover $\calU$ is itself a finite subcover.
 \end{example}
@@ -43,7 +44,7 @@ In the following theorems, we will collect a number of properties of compact set
   A compact subspace of a Hausdorff space is closed.
 \end{thm}
 \begin{proof}
-  Assume that $X$ is a Hausdorff space, and let $A \subset X$ be compact. We want to show that $A^c$ is open, and we will use the usual trick of showing that very point in $A^c$ has an open neighbourhood contained entirely in $A^c$, so that $A^c = \Int A^c$.
+  Assume that $X$ is a Hausdorff space, and let $A \subset X$ be compact. We want to show that $A^c$ is open, and we will use the usual trick of showing that every point in $A^c$ has an open neighbourhood contained entirely in $A^c$, so that $A^c = \Int A^c$.
   
   Let $x \in A^c$ be a fixed point (and notice that if $A^c = \emptyset$, there is little to prove). For every point $y \in A$, we can find disjoint neighbourhoods $U_y$ and $V_y$ of $x$ and $y$ respectively, since $X$ is Hausdorff. Now the collection $\{A \cap V_y\}_{y \in A}$ is an open cover of $A$, and since $A$ is compact, we can choose finitely many $y_1, \dots, y_n$ so that $\{A \cap V_{y_i}\}_{i=1,\dots,n}$ is a finite subcover. In particular, $A \subset V_{y_1} \cup \dots \cup V_{y_n}$.
   
@@ -74,7 +75,7 @@ In the following theorems, we will collect a number of properties of compact set
 \end{proof}
 \begin{example}
   \label{s1-compact}
-  If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective. Alternatively, one could combine Example~\ref{circle-from-interval} and Corollary~\ref{compact-quotient}
+  If we trust Example~\ref{interval-compact} which says that $[0,1]$ is compact, it follows that $S^1$ is compact, since the map $f:[0,1] \to S^1$ given by $f(x) = (\cos(2\pi x),\sin(2\pi x))$ is continuous and surjective. Alternatively, one could combine Example~\ref{circle-from-interval} and Corollary~\ref{compact-quotient}.
 \end{example}
 \begin{example}
   A \word{simple closed curve}{enkel sluten kurva} in a topological space $X$ is a continuous injective map $f : S^1 \to X$. If $X$ is Hausdorff, then $f : S^1 \to f(S^1)$ is a homeomorphism by Corollary~\ref{cont-compact-Hausdorff}.
