@@ -92,7 +92,7 @@ For a point $x \in X$ in a topological space, let $e_x : [0,1] \to X$ denote the
   
   Now we can show each of the first two cases of the theorem by picking $\phi$ appropriately. Let us begin, for instance, by showing (ii). We have to show that $\gamma \star e_y \sim_p \gamma$, and that $e_x \star \gamma \sim_p \gamma$. By definition,
   \[
-    (\gamma \star e_y) (s) = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ e_y(2s-1), & s \in [\tfrac{1}{2},1], \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ y, & s \in [\tfrac{1}{2},1]. \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ \gamma(1), & s \in [\tfrac{1}{2},1]. \end{cases}
+    (\gamma \star e_y) (s) = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ e_y(2s-1), & s \in [\tfrac{1}{2},1], \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ y, & s \in [\tfrac{1}{2},1], \end{cases} = \begin{cases} \gamma(2s), & s \in [0,\tfrac{1}{2}], \\ \gamma(1), & s \in [\tfrac{1}{2},1]. \end{cases}
   \]
   That is, $(\gamma \star e_y)(s) = \gamma(\phi_1(s))$, where $\phi_1 : [0,1] \to [0,1]$ is first map illustrated in Figure~\ref{graph-reparametrisation}. Thus $\gamma \star e_y \sim_p \gamma \circ \phi_1 \sim_p \gamma$.
   
@@ -227,7 +227,7 @@ by
   Let $f : X \to Y$ and $g : Y \to Z$ be continuous maps, and let $x \in X$. Then
   \begin{itemize}
     \item[(i)] $f_*: \pi_1(X,x) \to \pi_1(Y,f(x))$ is a well-defined homomorphism,
-    \item[(ii)] $(g \circ f)_* = g_* \circ f_*$, and if $\id : X \to X$ is the identity, then so is $\id_* : \pi_1(X,x) \to \pi_1(X,x)$.
+    \item[(ii)] $(g \circ f)_* = g_* \circ f_*$, and if $\id : X \to X$ denotes the identity, then $\id_* : \pi_1(X,x) \to \pi_1(X,x)$ is the identity on $\pi_1(X,x)$.
     \item[(iii)] Finally, if $f$ is a homeomorphism, then $f_*$ is an isomorphism.
   \end{itemize}
 \end{thm}
@@ -288,6 +288,7 @@ To prove the case $n = 1$, it will be convenient to have at our disposal some ba
 \end{defn}
 
 \begin{example}
+  \label{covering-of-circle}
   The real line $\bbR$ is a covering space of $S^1$ with covering map $p : \bbR \to S^1$ given by $p(x) = (\cos(2\pi x), \sin(2\pi x))$.
 \end{example}
 
@@ -313,11 +314,12 @@ To prove the case $n = 1$, it will be convenient to have at our disposal some ba
 
 Now as above, let $p : E \to B$ be a covering map, let $b \in B$, and choose $e \in E$ with $p(e) = b$. Let $[\gamma] \in \pi_1(B,b)$ be a homotopy class of a path $\gamma$, and let $\tilde{\gamma}$ be the unique lifting from Lemma~\ref{path-lifting-lemma}, with $\tilde{\gamma}(0) = e$. Define a map, called the \word{lifting correspondence}{?},
 \[
-  \phi_e : \pi_1(B,b) \to p^{-1}(b)
+  \phi_e : \pi_1(B,b) \to p^{-1}(\{b\})
 \]
 by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, assume that $\gamma \sim_p \gamma'$, and let $F$ denote a path homotopy from $\gamma$ to $\gamma'$. Then the unique lifting $\tilde{F}$ from Lemma~\ref{homotopy-lifting-lemma} is a path homotopy from $\tilde{\gamma}$ to $\widetilde{\gamma'}$, and in particular $\tilde{\gamma}(1) = \widetilde{\gamma'}(1)$.
 
 \begin{prop}
+  \label{lifting-correspondence-props}
   Let $p : E \to B$, $p(e) = b$, be as above. If $E$ is path-connected then $\phi_e$ is surjective. If $E$ is simply-connected, then $\phi_e$ is bijective.
 \end{prop}
 \begin{proof}
@@ -326,7 +328,17 @@ by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, ass
 
 We are now in a position to prove our main result.
 \begin{proof}[Proof of Theorem~\ref{fundamental-group-of-spheres} for $n = 1$]
-  To be added.
+  Let $p : \bbR \to S^1$ be the covering map from Example~\ref{covering-of-circle}, let $b = (1,0) \in S^1$, and let $e = 0$. In this case, since $p^{-1}(\{b\}) = \bbZ$, and since $\bbR$ is simply-connected, Proposition~\ref{lifting-correspondence-props} implies that $\phi_e : \pi_1(S^1,b) \to \bbZ$ is bijective, and we claim that it is a homomorphism.
+  
+  Let $m \in \bbZ$, and let $\gamma_m : [0,1] \to \bbZ$ be the loop given by
+  \[
+    \gamma_m(t) = (\cos(2\pi mt), \sin(2\pi mt)).
+  \]
+  This loop lifts to $\widetilde{\gamma_m} : [0,1] \to \bbR$ given by $\widetilde{\gamma_m}(t) = mt$. This tells us that $\phi_e([\gamma_m]) = m$. Since $\phi_e$ was a projection, each loop $\gamma$ based at $b$ will belong to $[\gamma_m]$ for some $m \in \bbZ$, so to show that $\phi_e$ is a homomorphism, it suffices to show that
+  \[
+    \phi_e([\gamma_m \star \gamma_n]) = m + n = \phi_e([\gamma_m]) + \phi_e([\gamma_n]),
+  \]
+  for all $m , n \in \bbZ$. Let $\widetilde{\gamma_n^m} = m + \widetilde{\gamma_n}$ be the lifting of $\gamma_n$ starting at $m$. Then $\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}$ is a path from $0$ to $m+n$ and $p \circ (\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}) = \gamma_m \star \gamma_n$, so by definition of $\phi_e$, this tells us that $\phi_e([\gamma_m \star \gamma_n]) = m+n$.
 \end{proof}
 
 Up until this point, it is not clear how useful $\pi_1$ actually is as an invariant: indeed, most of the calculations of fundamental groups that we have done turned out to yield trivial groups, and, for instance, we can not use the fundamental group to tell apart the spaces $\bbR^n$ and $S^n$ for $n \geq 2$, even though one can show by elementary means that these spaces are non-homeomorphic.
