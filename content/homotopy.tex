@@ -254,6 +254,18 @@ by
   Finally, (iii) follows from (ii) as it follows that $(f^{-1})_*$ satisfies that both $f_* \circ (f^{-1})_*$ and $(f^{-1})_* \circ f_*$ are the identity homomorphisms. Thus $f_*$ is a bijection and therefore an isomorphism.
 \end{proof} 
 
+If $G$ and $H$ are two groups, then their Cartesian product $G \times H$ is a group with multiplication given by
+\[
+  (g,h) \cdot (g',h') = (g\cdot g', h \cdot h').
+\]
+\begin{prop}
+  \label{product-fundamental-group}
+  Let $X$ and $Y$ be topological spaces, and let $x \in X$, $y \in Y$. Then $\pi_1(X \times Y,(x,y))$ is isomorphic to $\pi_1(X,x) \times \pi_1(Y,y)$.
+\end{prop}
+\begin{proof}
+  Exercise~\ref{product-fundamental-group-exercise}.
+\end{proof}
+
 \subsection{Covering spaces and fundamental groups of spheres}
 The main result of this section is a calculation of $\pi_1(S^n)$ for all $n \geq 1$.
 \begin{thm}
@@ -263,30 +275,34 @@ The main result of this section is a calculation of $\pi_1(S^n)$ for all $n \geq
 
 To prove the case $n = 1$, it will be convenient to have at our disposal some basic results about covering spaces. Before going into any detail about these, let us consider the ``easy'' part of the claim.
 \begin{proof}[Proof of Theorem~\ref{fundamental-group-of-spheres} for $n \geq 2$]
-  Let $\gamma$ be a loop in $S^n$, based at some point $\gamma(0)$, and let us show that $\gamma$ is null-homotopic. If there is a point $p$ not in the image of $\gamma$, we can view $\gamma$ as a loop in $S^n \setminus \{p\}$, which is homeomorphic to $\bbR^n$ by Remark~\ref{south-pole-removed}. Since $\bbR^n$ is simply-connected, this tells us that $\gamma$ is null-homotopic as a loop in $S^n \setminus \{ p \}$, and the same homotopy can be used to show that $\gamma$ is null-homotopic as a loop in $S^n$.
+  Let $\gamma$ be a loop in $S^n$, based at some point $\gamma(0)$, and let us show that $\gamma$ is null-homotopic. If there is a point $p$ not in the image of $\gamma$, we can view $\gamma$ as a loop in $S^n \setminus \{p\}$, which is homeomorphic to $\bbR^n$ by Remark~\ref{south-pole-removed}. Since $\bbR^n$ is simply-connected, this tells us that $\gamma$ is null-homotopic as a loop in $S^n \setminus \{ p \}$ through some homotopy $[0,1] \times [0,1] \to S^n \setminus \{p\}$. By composition with the inclusion, this gives us a homotopy $[0,1] \times [0,1] \to S^n$, so $\gamma$ is also null-homotopic as a loop in $S^n$.
   
   This shows the claim in the case where $\gamma([0,1]) \not= S^n$, and let $p$ be a point in $S^n$ distinct from $\gamma(0)$. We will show how to make a path homotopy from $\gamma$ so some other loop, denoted $\gamma_k$ below, whose image does not contain $p$. This other loop will then be null-homotopic by the first part of the proof, so $\gamma$ will be as well.
   
   Let $U$ be any neighbourhood of $p$ which does not contain $\gamma(0)$. After possibly having to pass to a smaller neighbourhood we can assume that $U$ is homeomorphic to an open ball in $\bbR^n$. Now $\gamma^{-1}(U) \subset (0,1) \subset [0,1]$ is an open set and therefore a union of open disjoint intervals $\{(a_i,b_i)\}_{i \in I}$. Since $\{p\}$ is closed in $S^n$, $\gamma^{-1}(\{p\})$ is closed in $[0,1]$, and since $[0,1]$ is compact, so is $\gamma^{-1}(\{p\})$. Since $\{(a_i,b_i)\}_{i \in I}$ is an open cover of $\gamma^{-1}(\{p\})$ this compactness implies that we can find finitely many intervals $(a_1,b_1), \dots, (a_k,b_k)$ that cover $\gamma^{-1}(\{p\})$. We will now cook up the desired homotopy for each of these finitely many intervals.
   
-  Since $(a_1,b_1) \subset \gamma^{-1}(U)$ with $a_1,b_1 \notin \gamma^{-1}(U)$, we get that $\gamma([a_1,b_1]) \subset \bar{U}$ and $\gamma(a_1),\gamma(b_1) \in \dd U$. Now take any path $\tilde{\gamma_1}$ in $\bar{U}$ from $\gamma(a_1)$ to $\gamma(b_1)$ which does not go through $p$. Since $U$ was assumed to be homeomorphic to a ball, $\gamma|_{[a_1,b_1]}$ is path homotopic to $\tilde{\gamma_1}$ (ignoring the minor detail that the paths in question have to be defined on $[0,1]$) and this path homotopy extends to a path homotopy from $\gamma$ to some loop $\gamma_1$ with the property that $p \notin \gamma_1|_{[a_1,b_1]}$ and so that $\gamma_1$ agrees with $\gamma$ on the complement of $[a_1,b_1]$ in $[0,1]$. We now iterate this procedure to obtain for each $l = 1, \dots, k$ a loop $\gamma_l$ so that $\gamma \sim_p \gamma_l$ and $p \notin \gamma_l|_{[a_1,b_1] \cup \dots \cup [a_l,b_l]}$. Then $p \notin \gamma_k([0,1])$ and $\gamma \sim \gamma_k$, so we are done.
+  Since $(a_1,b_1) \subset \gamma^{-1}(U)$ with $a_1,b_1 \notin \gamma^{-1}(U)$, we get that $\gamma([a_1,b_1]) \subset \bar{U}$ and $\gamma(a_1),\gamma(b_1) \in \dd U$. Now take any path $\tilde{\gamma_1}$ in $\bar{U}$ from $\gamma(a_1)$ to $\gamma(b_1)$ which does not go through $p$. Since $U$ was assumed to be homeomorphic to a ball, $\gamma|_{[a_1,b_1]}$ is path homotopic to $\tilde{\gamma_1}$ (ignoring the minor detail that the paths in question have to be defined on $[0,1]$) and this path homotopy extends to a path homotopy from $\gamma$ to some loop $\gamma_1$ with the property that $p \notin \gamma_1|_{[a_1,b_1]}$ and so that $\gamma_1$ agrees with $\gamma$ on the complement of $[a_1,b_1]$ in $[0,1]$. We now iterate this procedure to obtain for each $j = 1, \dots, k$ a loop $\gamma_j$ so that $\gamma \sim_p \gamma_j$ and $p \notin \gamma_j|_{[a_1,b_1] \cup \dots \cup [a_j,b_j]}$. Then $p \notin \gamma_k([0,1])$ and $\gamma \sim \gamma_k$, so we are done.
 \end{proof}
 
-
-\begin{wrapfigure}{r}{0.3\textwidth}
-  \begin{center}
-    \begin{overpic}[width=0.28\textwidth]{images/covering}
-      \put(37,60){$E$}
-      \put(37,13){$B$}
-      \put(24,33){$p$}
-      \put(18,17){$U$}
-      \put(13,91){$p^{-1}(U)$}
-    \end{overpic}
-  \end{center}
+Before moving on to the case $n = 1$, let us notice the following non-trivial corollary of the theorem.
+\begin{cor}
+  We have $S^n \simeq T^m$ if and only if $n = m = 1$.
+\end{cor}
+\begin{proof}
+  By Proposition~\ref{product-fundamental-group} and Theorem~\ref{fundamental-group-of-spheres}, $\pi_1(T^m) = \pi_1(S^1 \times \cdots \times S^1)$ is the product of $m$ copies of $\bbZ$. Since $\bbZ^m$ is not isomorphic to $\bbZ$ if $m > 1$, $\pi_1(T^m)$ can only be isomorphic to $\pi_1(S^n)$ if $n = m = 1$.
+\end{proof}
+\begin{wrapfigure}{R}{0.3\textwidth}
+  \centering
+  \begin{overpic}[width=0.28\textwidth]{images/covering}
+    \put(37,60){$E$}
+    \put(37,13){$B$}
+    \put(24,33){$p$}
+    \put(18,17){$U$}
+    \put(13,91){$p^{-1}(U)$}
+  \end{overpic}
   \caption{A covering map $p : E \to B$.}
   \label{covering-figure}
 \end{wrapfigure}
-
 % \trans{covering space}{?}
 % \trans{covering map}{?}
 \begin{defn}
@@ -302,21 +318,16 @@ To prove the case $n = 1$, it will be convenient to have at our disposal some ba
   Let $p : E \to B$ be a covering map, and let $f : X \to B$ be a continuous map. A map $\tilde{f} : X \to E$ is called a \word{lifting}{?} of $f$ if $f = p \circ \tilde{f}$.
 \end{defn}
 
+The two following lemmas will be proven in Section~\ref{proofs-lifting-lemmas} below.
 \begin{lem}[Path lifting lemma]
   \label{path-lifting-lemma}
-  \index{path lifting lemma}Let $p : E \to B$ be a covering map, let $b \in B$, and let $e \in E$ with $p(e) = b$. Any path $\gamma : [0,1] \to B$ with $\gamma(0) = b$ has a unique lifting $\tilde{\gamma} : [0,1] \to E$ so that $\tilde{\gamma}(0) = e$.
+  \index{path lifting lemma}Let $p : E \to B$ be a covering map, let $b \in B$, and let $e \in E$ with $p(e) = b$. Then any path $\gamma : [0,1] \to B$ with $\gamma(0) = b$ has a unique lifting $\tilde{\gamma} : [0,1] \to E$ so that $\tilde{\gamma}(0) = e$.
 \end{lem}
-\begin{proof}
-  To be added.
-\end{proof}
 
 \begin{lem}[Homotopy lifting lemma]
   \label{homotopy-lifting-lemma}
   \index{homotopy lifting lemma}Let $p : E \to B$ be a covering map, and let $p(e) = b$ as above. Let $F : [0,1] \times [0,1] \to B$ be a homotopy with $F(0,0) = b$. Then there is a a unique lifting $\tilde{F} : [0,1] \times [0,1] \to E$ so that $\tilde{F}(0,0) = e$. If $F$ is a path homotopy then so is $\tilde{F}$.
 \end{lem}
-\begin{proof}
-  To be added.
-\end{proof}
 
 Now as above, let $p : E \to B$ be a covering map, let $b \in B$, and choose $e \in E$ with $p(e) = b$. Let $[\gamma] \in \pi_1(B,b)$ be a homotopy class of a path $\gamma$, and let $\tilde{\gamma}$ be the unique lifting from Lemma~\ref{path-lifting-lemma}, with $\tilde{\gamma}(0) = e$. Define a map, called the \word{lifting correspondence}{?},
 \[
@@ -329,7 +340,13 @@ by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, ass
   Let $p : E \to B$, $p(e) = b$, be as above. If $E$ is path-connected then $\phi_e$ is surjective. If $E$ is simply-connected, then $\phi_e$ is bijective.
 \end{prop}
 \begin{proof}
-  To be added.
+  Assume first that $E$ is path-connected and let $q \in p^{-1}(\{b\})$. Choose any path $\tilde{\gamma}$ from $e$ to $q$, and let $\gamma = p \circ \tilde{\gamma}$. Then $\tilde{\gamma}$ is a lift of $\gamma$ by construction, and $\phi_e([\gamma]) = q$, so $\phi_e$ is surjective.
+  
+  Assume now that $E$ is simply-connected, suppose that $\phi_e([\gamma]) = \phi_e([\gamma'])$ for two elements $[\gamma], [\gamma'] \in \pi_1(B,b)$, and let us show that $[\gamma] = [\gamma']$. Let $\tilde{\gamma}$ and $\widetilde{\gamma'}$ denote the corresponding lifts, so that $\tilde{\gamma}(1) = \tilde{\gamma'}(1)$ by assumption. Then $\tilde{\gamma} \star \widetilde{\gamma'}^\inv$ is a loop based at $e$ and thus path homotopic to the constant map since $E$ is simply-connected. This implies that
+  \[
+    [\tilde{\gamma}] = [\tilde{\gamma}] \star [\widetilde{\gamma'}^\inv] \star [\widetilde{\gamma'}] = [\tilde{\gamma} \star \widetilde{\gamma'}^\inv] \star [\widetilde{\gamma'}] = [\widetilde{\gamma'}],
+  \]
+  so there is a path homotopy $\tilde{F}$ from $\tilde{\gamma}$ to $\widetilde{\gamma'}$. Then $p \circ \tilde{F}$ is a path homotopy from $p \circ \tilde{\gamma} = \gamma$ to $p \circ \widetilde{\gamma'} = \gamma'$, or in other words, $[\gamma] = [\gamma']$.
 \end{proof}
 
 We are now in a position to prove our main result.
@@ -344,7 +361,7 @@ We are now in a position to prove our main result.
   \[
     \phi_e([\gamma_m \star \gamma_n]) = m + n = \phi_e([\gamma_m]) + \phi_e([\gamma_n]),
   \]
-  for all $m , n \in \bbZ$. Let $\widetilde{\gamma_n^m} = m + \widetilde{\gamma_n}$ be the lifting of $\gamma_n$ starting at $m$. Then $\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}$ is a path from $0$ to $m+n$ and $p \circ (\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}) = \gamma_m \star \gamma_n$, so by definition of $\phi_e$, this tells us that $\phi_e([\gamma_m \star \gamma_n]) = m+n$.
+  for all $m , n \in \bbZ$. Let $\widetilde{\gamma_n^m} = m + \widetilde{\gamma_n}$ be the lifting of $\gamma_n$ starting at $m$ and ending at $m+n$. Then $\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}$ is a path from $0$ to $m+n$ and $p \circ (\widetilde{\gamma_m} \star \widetilde{\gamma_n^m}) = \gamma_m \star \gamma_n$, so by definition of $\phi_e$, this tells us that $\phi_e([\gamma_m \star \gamma_n]) = m+n$.
 \end{proof}
 
 Up until this point, it is not clear how useful $\pi_1$ actually is as an invariant: indeed, most of the calculations of fundamental groups that we have done turned out to yield trivial groups, and, for instance, we can not use the fundamental group to tell apart the spaces $\bbR^n$ and $S^n$ for $n \geq 2$, even though one can show by elementary means that these spaces are non-homeomorphic.
@@ -354,3 +371,10 @@ Restricting to the class of manifolds considered in Section~\ref{manifolds} one 
   \index{Poincar{\'e} conjecture}If $X$ is a simply-connected compact $3$-manifold, then $X \simeq S^3$.
 \end{thm}
 Conjectured by Henri Poincar{\'e} in 1904, and first proven by Grigori Perelman in 2003, at the time of writing this is the only solved out of the seven so-called Millennium Prize Problems\footnote{See \url{https://en.wikipedia.org/wiki/Millennium_Prize_Problems}.}.
+
+\subsection{Proofs of lifting lemmas}
+\label{proofs-lifting-lemmas}
+We now turn to the proofs of Lemmas~\ref{path-lifting-lemma} and \ref{homotopy-lifting-lemma} where will need the following technical lemma.
+\begin{lem}[Lebesgue number lemma]
+  Let $\calU$ be an open cover of a compact metric space $(X,d)$. Then there exists a $\delta > $
+\end{lem}
