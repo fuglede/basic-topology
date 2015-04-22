@@ -374,7 +374,88 @@ Conjectured by Henri Poincar{\'e} in 1904, and first proven by Grigori Perelman 
 
 \subsection{Proofs of lifting lemmas}
 \label{proofs-lifting-lemmas}
-We now turn to the proofs of Lemmas~\ref{path-lifting-lemma} and \ref{homotopy-lifting-lemma} where will need the following technical lemma.
-\begin{lem}[Lebesgue number lemma]
-  Let $\calU$ be an open cover of a compact metric space $(X,d)$. Then there exists a $\delta > $
+We now turn to the proofs of Lemmas~\ref{path-lifting-lemma} and \ref{homotopy-lifting-lemma} where we will need a technical result on subdivisions of $[0,1]$ and $[0,1] \times [0,1]$. We word it here for general compact metric spaces.
+
+Let $(X,d)$ be a metric space, and let $A$ be a non-empty subset. Then for every $x \in X$, we define the distance from $x$ to $A$ by
+\[
+  d(x,A) = \inf \{ d(x,a) \mid a \in A \}.
+\]
+It is easy to see that for fixed $A$, the function $x \mapsto d(x,A)$ is continuous. If moreover $A$ is bounded in the sense that the set $\{d(a_1,a_2) \mid a_1,a_2 \in A\} \subset \bbR$ is bounded, we define the \word{diameter}{diameter} of $A$ to be
+\[
+  \diam(A) = \sup \{d(a_1,a_2) \mid a_1,a_2 \in A \} \in \bbR.
+\]
+\begin{lem}[Lebesgue's number lemma]
+  \label{lebesgue-number-lemma}
+  \index{Lebesgue's number lemma}Let $\calU$ be an open cover of a compact metric space $(X,d)$. Then there is a $\delta > 0$, called a \index{Lebesgue number}\emph{Lebesgue number}, so that for every subset $A$ of diameter less than $\delta$, there is a $U \in \calU$ with $A \subset U$.
 \end{lem}
+\begin{proof}
+  First of all, if $X \in \calU$, we are done since any $\delta > 0$ does the job, so assume that $X \notin \calU$.
+
+  Now use the compactness of $X$ to take an finite subcover $\{U_1,\dots,U_n\} \subset \calU$. Let $C_i = X \setminus U_i \not= \emptyset$ for $i = 1, \dots, n$, and define a function $f : X \to \bbR$ by
+  \[
+    f(x) = \frac{1}{n} \sum_{i=1}^n d(x,C_i).
+  \]
+  We claim that $f(x) > 0$ for all $x \in X$. To see this, let $x \in X$ and choose an $i$ so that $x \in U_i$. Since $U_i$ is open, we can find a $\eps > 0$ so that $B(x,\eps) \subset U_i$. Then $d(x,C_i) \geq \eps$, so $f(x) \geq \eps/n > 0$. Since $f$ is continuous, it follows from Corollary~\ref{sup-inf-compact-continuous} that $f(X)$ has a minimum $\delta > 0$, and we now claim that this number is our desired Lebesgue number.
+  
+  Let $A \subset X$ have diameter less than $\delta$, and let $a \in A$. Then $A \subset B_d(a,\delta)$, and by taking $m \in \{1,\dots,n\}$ so that $d(a,C_m)$ is maximal, we have
+  \[
+    \delta \leq f(a) \leq d(a,C_m),
+  \]
+  so $A \subset B_d(a,\delta) \subset X \setminus C_m = U_m$.
+\end{proof}
+We can now prove the two lemmas.% As will be clear, the two proofs are very similar, and indeed one could view both of them as following from a more general result on liftings of homotopies. To simplify the exposition, however, we prove the claims separately.
+\begin{proof}[Proof of Lemma~\ref{path-lifting-lemma}]
+  Choose an open cover $\calU$ of $B$ by sets $U \in \calU$ with the property that $p^{-1}(U)$ is a disjoint union of open sets in $E$, each of which is mapped homeomorphically to $U$ by $p$.
+  
+  Now $\{\gamma^{-1}(U) \mid U \in \calU\}$ is an open cover of the compact set $[0,1]$. By Lemma~\ref{lebesgue-number-lemma}, there is a subdivision $0 = s_0 < s_1 < \dots < s_n = 1$ of $[0,1]$ so that for every $i = 1, \dots, k$, we have $[s_{i-1},s_i] \subset \gamma^{-1}(U)$ for some $U \in \calU$. That is, $\gamma([s_{i-1},s_i]) \subset U$. We will now construct the lifting $\tilde{\gamma}$ on each of these smaller intervals through a finite induction.
+  
+  Let $\tilde{\gamma}(0) = e$ and assume that the lifting $\tilde{\gamma}$ has been defined on $[0,s_i]$. We then define $\tilde{\gamma}$ on $[s_i,s_{i+1}]$ as follows: let $V \in \calU$ be the open set so that $\gamma([s_i,s_{i+1}]) \subset U$. Then $\tilde{\gamma}(s_i) \in p^{-1}(U)$, so we can choose $V \subset E$ so that $p|_V : V \to U$ is a homeomorphism and $\tilde{\gamma}(s_i) \in V$. Now, for any $s \in [s_i,s_{i+1}]$, we can define
+  \[
+    \tilde{\gamma}(s) = (p|_V)^{-1}(\gamma(s)).
+  \]
+  Then $\tilde{\gamma}$ is continuous on $[s_i,s_{i+1}]$, agrees with $\tilde{\gamma}$ on the set $\{s_i\}$, and so defines a function $\tilde{\gamma} : [0,s_{i+1}] \to E$ which is continuous by the pasting lemma, Remark~\ref{pasting-closed}. Moreover, $\tilde{\gamma}$ is constructed to satisfy $\gamma = p \circ \tilde{\gamma}$ where it is defined, so repeating this procedure $n$ times we obtain our desired lift.
+  
+  It remains to prove that $\tilde{\gamma}$ is unique. Suppose that $\tilde{\gamma}'$ is another lifting of $\gamma$ with $\tilde{\gamma}'(0) = e$, and suppose that $\tilde{\gamma} = \tilde{\gamma}'$ on $[0,s_i]$ (which we know is true for $i=0$). We then claim that the lifts agree on $[0,s_{i+1}]$ as well, and therefore $\tilde{\gamma} = \tilde{\gamma}'$ on all of $[0,1]$, so let $s \in [s_i,s_{i+1}]$, and let $V$ be as above so that $\tilde{\gamma}(s_i), \tilde{\gamma}'(s_i) \in V$.
+  
+  Since $[s_i,s_{i+1}]$ is connected, so is the set $\tilde{\gamma}'([s_i,s_{i+1}])$ by Theorem~\ref{images-of-connected}, and therefore it must be contained in a single connected component by Proposition~\ref{props-of-conn-components}. Now, since the open sets making up $p^{-1}(U)$ are disjoint, this implies that $\tilde{\gamma}'([s_i,s_{i+1}]) \subset V$, so in particular $\tilde{\gamma}'(s) \in V$. Now, since $p|_V : V \to U$ is bijective, there is only one point in $V$ that is mapped to $\gamma(s)$ under $p$, namely $(p|_V)^{-1}(\gamma(s))$, so since $\tilde{\gamma}'$ is a lifting of $\gamma$, it follows that
+  \[
+    \tilde{\gamma}'(s) = (p|_V)^{-1}(\gamma(s)) = \tilde{\gamma}(s).
+  \]
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{homotopy-lifting-lemma}]
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \draw[step=1cm,gray] (0,0) grid (6,6);
+      \fill[red!60!white] (0,0) rectangle (2,3);
+      \fill[red!60!white] (0,0) rectangle (6,2);
+      \fill[blue!60!white] (2,2) rectangle (3,3);
+      \draw[red!60!white,thick] (0,6) -- (0,0) -- (6,0) -- (6,2);% -- (3,2);
+      %\draw[red!60!white,thick] (0,3) -- (2,3);
+      %\draw[blue!60!white,thick] (3,2) -- (3,3) -- (2,3);
+      \draw[very thick] (2,3) -- (2,2) -- (3,2);
+      \draw[thick,<-] (2.5,2.5) .. controls (4,3.1) .. (4.5,6.5) node[anchor=south]{$R_{3,3}$};
+      \draw[thick,<-] (2,2.5) .. controls (1.5,2.5) .. (0.5,6.5) node[anchor=south]{$A$};
+    \end{tikzpicture}
+    \caption{The sets involved in the proof of Lemma~\ref{homotopy-lifting-lemma}. The red part indicates where $\tilde{F}$ has been defined, and the blue part where we are in the process of defining $\tilde{F}$.}
+    \label{homotopy-lifting-figure}
+  \end{figure}
+  As in the proof above, we will define a lift $\tilde{F}$ in a step-by-step fashion, so let $\calU$ denote an open cover $B$ as above. Begin by letting $\tilde{F}(0,0) = e$, and use Lemma~\ref{path-lifting-lemma} to uniquely define $\tilde{F}$ on $[0,1] \times \{0\}$ and $\{0\} \times [0,1]$, lifting $F$ on these subsets.
+  
+  As above, we can now consider $\{F^{-1}(U) \mid U \in \calU\}$ and conclude by Lemma~\ref{lebesgue-number-lemma} that there exist subdivisions $0 = s_0 < s_1 < \dots < s_m = 1$ and $0 = t_0 < t_1 < \dots < t_n = 1$ so that for each rectangle
+  \[
+    R_{i,j} = [s_{i-1},s_i] \times [t_{j-1},t_j] \subset [0,1] \times [0,1]
+  \]
+  there is a $U \in \calU$ with $F(R_{i,j}) \subset U$. We now define $\tilde{F}$ on the rectangles $R_{i,j}$ in the order
+  \[
+    R_{1,1}, R_{2,1}, \dots, R_{m,1}, R_{1,2}, R_{2,2}, \dots, R_{m,2}, \dots, R_{1,n}, R_{2,n}, \dots, R_{m,n}.
+  \]
+  Assume that the lifting $\tilde{F}$ has been defined on all rectangles up to a certain point, and let us define $\tilde{F}$ on the next rectangle $R_{i,j}$. In particular, $\tilde{F}$ has been defined on $A$: the union of the left and bottom edge of $R_{i,j}$, which is a connected set (see Figure~\ref{homotopy-lifting-figure}). By the exact same logic as in the previous proof, this implies $\tilde{F}(A) \subset V$, where $V \subset E$ is so that $p|_V : V \to U$ is a homeomorphism and $F(R_{i,j}) \subset U$. This means that we can extend $\tilde{F}$ to $R_{i,j}$ by letting
+  \[
+    \tilde{F}(x) = (p|_V)^{-1}(F(x)).
+  \]
+  Proceeding like this for all rectangles, we define $\tilde{F}$ on all of $[0,1] \times [0,1]$. Then $\tilde{F}$ is continuous by the pasting lemma and a lifting of $F$ by construction. That $\tilde{F}$ is the unique lifting with $\tilde{F}(0,0) = e$ follows by the same logic as in the proof of Lemma~\ref{path-lifting-lemma} above.
+  
+  It remains to show that if $F$ is a path homotopy, then so is $\tilde{F}$. So, assume that $F([0,1] \times \{0\}) = \{b\}$. Then $\tilde{F}([0,1]\times\{0\}) \subset p^{-1}(\{b\})$. Now $[0,1] \times \{0\}$ is connected, so its image under $\tilde{F}$ is connected, and on the other hand, $p^{-1}(\{b\})$ is discrete so its connected components are points, which means that $\tilde{F}$ is constant on $[0,1] \times \{0\}$. Similarly, if $F$ is constant on $[0,1] \times \{1\}$, one uses connectedness to argue that $\tilde{F}$ is as well.
+\end{proof}
