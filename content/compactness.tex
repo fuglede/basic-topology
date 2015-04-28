@@ -184,7 +184,7 @@ We will now turn to the promised characterisation of (sequentially) compact subs
   \]
   We are done if we can show that $M = [a,b]$. Clearly, $a \in M$. Let $m = \sup M > a$. Clearly $M$ is an interval, and we claim that $m = b$. Assume that $m < b$.
   
-  Since $m \in [a,b)$, there is a $j \in I$ with $m \in U_j$. Since $U_j$ is open (in the subspace topology of the standard topology on $\bbR$), we get that $(m-\eps,m+\eps) \subset U_j$ and $m - \eps \in M$ for some small enough $\eps$. This says that $[a,m-\eps]$ is covered by finitely many $U_i$, so by adding $U_j$ to this collection, we see that also $[a,m+\eps/2]$ is covered by finitely many $U_i$. That is, $m+\eps/2 \in M$, which contradicts the fact that $m = \sup M$.  
+  Since $m \in [a,b)$, there is a $j \in I$ with $m \in U_j$. Since $U_j$ is open (in the subspace topology of the standard topology on $\bbR$), we get that $(m-\eps,m+\eps) \subset U_j$ and $m - \eps \in M$ for some small enough $\eps > 0$. This says that $[a,m-\eps]$ is covered by finitely many $U_i$, so by adding $U_j$ to this collection, we see that also $[a,m+\eps/2]$ is covered by finitely many $U_i$. That is, $m+\eps/2 \in M$, which contradicts the fact that $m = \sup M$.  
 \end{proof}
 \begin{defn}
   %A subset $A \subset X$ of a metric space $(X,d)$ is called \word{bounded}{begr{\"a}nsad} if there is a number $r > 0$ so that $d(x,y) \leq r$ for all $x,y \in A$.
@@ -356,7 +356,7 @@ We can use this to create a ton of locally compact spaces as subspaces of locall
   If $X$ is a locally compact space, and let $A \subset X$ be a subspace. Then $A$ is locally compact if $A$ is closed. If furthermore $X$ is Hausdorff, then $A$ is locally compact if $A$ is open.
 \end{prop}
 \begin{proof}
-  Suppose that $A$ is closed, and let $x \in A$. Let $K$ and $U$ be a compact subspace and neighbourhood of $x$ respectively, with $x \in U \subset K \subset X$. Now $A \cap K$ is closed and thus compact by Theorem~\ref{closed-in-compact}. Also, $U \cup A$ is a neighbourhood of $x$, and $x \in U \cap A \subset K \cap A \subset A$, so $A$ is locally compact.
+  Suppose that $A$ is closed, and let $x \in A$. Let $K$ and $U$ be a compact subspace and neighbourhood of $x$ respectively, with $x \in U \subset K \subset X$. Now $A \cap K$ is closed and thus compact by Theorem~\ref{closed-in-compact}. Also, $U \cap A$ is a neighbourhood of $x$ in $A$, and $x \in U \cap A \subset K \cap A \subset A$, so $A$ is locally compact.
   
   Assume now that $X$ is Hausdorff, let $A$ be open, and let $x \in A$. Then $A$ is a neighbourhood of $x$, and by Theorem~\ref{local-compactness-in-hausdorff} we obtain a neighbourhood $V$ of $x$ so that $\bar{V}$ is compact, and $\bar{V} \subset A$, so $A$ is locally compact.
 \end{proof}
