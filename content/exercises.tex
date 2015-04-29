@@ -87,7 +87,7 @@ A solution manual is available upon request.
   \item Let $\{A_n\}_{n \in \bbN}$ be a family of connected subspaces of a topological space $X$ so that $A_n \cap A_{n+1} \not= \emptyset$ for every $n \in \bbN$. Show that $\bigcup_{n \in \bbN} A_n$ is connected.
   \item A space is called \emph{totally disconnected}\index{totally disconnected} if its only non-empty connected subspaces are one-point sets. Show that if $X$ has the discrete topology, then $X$ is totally disconnected. Does the converse hold?
   \item Let $f : S^1 \to \bbR$ be continuous. Show that there is a point $x \in S^1$ so that $f(x) = f(-x)$.
-  \item Let $f : [0,1] \to [0,1]$ be continuous. Show that $f$ has a fixed point, i.e. that there is a point $x \in [0,1]$ so that $f(x) = x$.
+  \item \label{Brouwer-interval-exercise} Let $f : [0,1] \to [0,1]$ be continuous. Show that $f$ has a fixed point, i.e. that there is a point $x \in [0,1]$ so that $f(x) = x$.
   \item \label{exercise-products-connected} Show Theorem~\ref{products-connected} in the case where $I$ is infinite. Inspiration can be found in \cite[Ex.~23.7]{Mun}.
 \end{enumerate}
 
@@ -129,21 +129,6 @@ A solution manual is available upon request.
       \end{itemize}
       What happens if we replace the countable family $\{U_n\}_{n \in \bbN}$ with an arbitrary family of open dense subsets?
     \item Let $X$ be a locally compact Hausdorff space, and let $\{F_n\}_{n \in \bbN}$ be a countable family of closed subsets of $X$. Show that if $\Int(F_m) = \emptyset$ for every $m \in \bbN$, then $\Int\left(\bigcup_{n \in \bbN} F_n\right) = \emptyset$. (Hint: use Exercise~\ref{baires-exercise}.)
-%     \item Let $X$ be a sequentially compact topological space.
-%       \begin{itemize}
-%         \item[(a)] If $f : X \to Y$ is continuous, does it follow that $f(X)$ is sequentially compact?
-%         \item[(b)] If $C \subset X$ is closed, does it follow that $C$ is sequentially compact?
-%         \item[(c)] If $X$ is a subspace of a Hausdorff space $Z$, does it follow that $X$ is closed in $Z$?
-%       \end{itemize}
-%   \item Let $(X,d)$ be a metric space. A function $f : X \to X$ satisfying
-%     \[
-%       d(f(x),f(y)) = d(x,y)  
-%     \]
-%     for all $x, y \in X$ is called an \word{isometry}{isometri} of $X$. Show that if $f$ is an isometry, and $X$ is compact, then $f$ is a homeomorphism. Hint: if $a \in f(X)$, choose $\eps > 0$ so that $B_d(a,\eps) \cap f(X) = \emptyset$. Construct recursively a sequence $\{x_n\}$ so that $x_1 = a$, $x_{n+1} = f(x_n)$ and show that $d(x_m,x_n) \geq \eps$ for $n \not= m$.
-%   \item Show that the one-point compactification of $\bbN \subset \bbR$ is homeomorphic to
-%     \[
-%       \{0 \} \cup \{1/n \mid n \in \bbN \} \subset \bbR.
-%     \]
   \end{enumerate}
   
 \subsection{Set \#4}
@@ -163,5 +148,7 @@ A solution manual is available upon request.
       \item[(a)] Show that $r_* : \pi_1(X,a) \to \pi_1(A,a)$ is surjective.
       \item[(b)] Suppose moreover that there is a homotopy $F : X \times [0,1] \to X$ from $\id_X$ to $r$ with the property that $F(x,t) = x$ for all $x \in A$ (such an $F$ is called a \emph{deformation retraction}\index{deformation retraction}). Show that $r_*$ is an isomorphism.
       \item[(c)] Recall that $D^2$ denotes the unit disk in $\bbR^3$. Show that any continuous map $h : D^2 \to D^2$ has a fixed point, i.e. a point $x \in D^2$ so that $h(x) = x$. (Hint: assume that $h$ has no fixed points, and use $h$ to construct a retraction $r : D^2 \to S^1$ to arrive at a contradiction with (a) above.)
+      
+      This is a special case of Brouwer's fixed-point theorem\index{Brouwer's fixed-point-theorem} which says that in general, any continuous map $A \to A$, where $A \subset \bbR^n$ is compact and convex, has a fixed point. The case $A = [0,1]$ was covered in Exercise~\ref{Brouwer-interval-exercise}.\footnote{See \url{https://en.wikipedia.org/wiki/Brouwer_fixed-point_theorem\#Illustrations} for a couple of curious ``real world applications'' of this theorem.}
     \end{itemize}
 \end{enumerate}
