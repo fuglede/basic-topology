@@ -1,6 +1,6 @@
 (*
 	This Mathematica file generates three images to
-	illustrate stereographic projection
+	illustrate a homotopy between two paths.
 
 	Usage:
 	math -script path-homotopy.m
