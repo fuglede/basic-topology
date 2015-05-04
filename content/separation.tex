@@ -100,7 +100,7 @@ A general space which has the property in (i) is called \emph{Lindel{\"o}f}\inde
 \begin{proof}
   Let $\{B_n\}_{n \in \bbN}$ be a countable basis for the topology on $X$.
   
-  Let $\calU$ be an open cover of $X$, and construct a countable cover as follows: for every $n \in \bbN$, we put $U_n = \emptyset$ if $B_n$ is not contained in any $U \in \calU$, and otherwise we let $U_n = U$ for some $U$ with $B_n \subset U$. We need to show that $\{U_n\}$ cover $X$. So, let $x \in X$. Then there is a $U \in \calU$ so that $x \in U$, and since $U$ is open, there is a basis element $B_n$ with $x \in B_n \subset U$. Now $x \in B_n \subset U_n$, so $x \in \bigcup_{n\in \bbN} U_n$, so the $\{U_n\}$ cover $X$.
+  Let $\calU$ be an open cover of $X$, and construct a countable cover as follows: for every $n \in \bbN$, we put $U_n = \emptyset$ if $B_n$ is not contained in any $U \in \calU$, and otherwise we let $U_n = U$ for some $U$ with $B_n \subset U$. We need to show that $\{U_n\}$ cover $X$. So, let $x \in X$. Then there is a $U \in \calU$ so that $x \in U$, and since $U$ is open, there is a basis element $B_n$ with $x \in B_n \subset U$. Now $x \in B_n \subset U_n$, so $x \in \bigcup_{n\in \bbN} U_n$, which means that the $\{U_n\}$ cover $X$.
   
   For the second part, choose $x_n \in B_n$ for every $n \in \bbN$. For each $x \in X \setminus \{x_n\}_{n \in \bbN}$, and for any neighbourhood $U$ of $x$, there is an $n$ with $x \in B_n \subset U$. this implies that $x \in \bar{\{x_n\}_{n \in \bbN}}$, and since $x$ was arbitrary, $\bar{\{x_n\}_{n \in \bbN}} = X$.
 \end{proof}
