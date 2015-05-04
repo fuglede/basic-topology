@@ -85,7 +85,7 @@ In this section we will see how to use Urysohn's lemma to show the following res
   so $\{\phi_i\}$ is a partition of unity dominated by $\{U_1,\dots,U_n\}$.
 \end{proof}
 \begin{proof}[Proof of Theorem~\ref{embedding-of-manifolds}]
-  Let $X$ be a compact $m$-manifold, and choose for every $x \in X$, choose a neighbourhood $U_x$ of $x$ so that $U_x \simeq \bbR^m$. These will cover $X$, so since $X$ is compact, we obtain a finite open cover $\{U_1, \dots, U_n\}$ together with homeomorphisms $g_i : U_i \to \bbR^m$ for every $i$. Since $X$ is compact and Hausdorff, $X$ is $T_4$ by Proposition~\ref{compact-hausdorff-normal}, so by Theorem~\ref{t4-partition-of-unity} we can find a partition of unity $\{\phi_i\}$ dominated by $\{U_i\}$. Let $A_i = \supp(\phi_i)$, note that $X = U_i \cup (X \setminus A_i)$, and define for each $i = 1, \dots, n$ a function $h_i : X \to \bbR^m$ by
+  Let $X$ be a compact $m$-manifold, and choose for every $x \in X$ a neighbourhood $U_x$ of $x$ so that $U_x \simeq \bbR^m$. These will cover $X$, so since $X$ is compact, we obtain a finite open cover $\{U_1, \dots, U_n\}$ together with homeomorphisms $g_i : U_i \to \bbR^m$ for every $i$. Since $X$ is compact and Hausdorff, $X$ is $T_4$ by Proposition~\ref{compact-hausdorff-normal}, so by Theorem~\ref{t4-partition-of-unity} we can find a partition of unity $\{\phi_i\}$ dominated by $\{U_i\}$. Let $A_i = \supp(\phi_i)$, note that $X = U_i \cup (X \setminus A_i)$, and define for each $i = 1, \dots, n$ a function $h_i : X \to \bbR^m$ by
   \[
     h_i(x) = \begin{cases} \phi_i(x)g_i(x), & \text{for $x \in U_i$} \\ 0, & \text{for $x \in X \setminus A_i$.} \end{cases}
   \]
