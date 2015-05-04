@@ -64,11 +64,11 @@ In this section we will see how to use Urysohn's lemma to show the following res
   Let $X$ be a $T_4$-space, and let $\{U_1, \dots, U_n\}$ be a finite open cover. Then there exists a partition of unity dominated by $\{U_1,\dots,U_n\}$.
 \end{thm}
 \begin{proof}
-  We first show that we can find an open cover $\{V_1, \dots, V_n\}$ so that $\bar{V_i} \subset U_i$ for all $i$. Consider the set $A_1 = X \setminus (U_2 \cup \dots \cup U_n)$. This is clearly closed, and $A_1 \subset U_1$ since $\{U_i\}$ is a cover. Since $X$ is $T_4$, by Theorem~\ref{separation-squeeze-lemma} we obtain an open set $V_1$ so that $A_1 \subset V_1 \subset \bar{V_1} \subset U_1$, and in particular $\{V_1,U_2,\dots,U_n\}$ is still an open cover. We proceed now by finite induction: suppose that $\{V_1, \dots, V_{k-1},U_k,\dots,U_n\}$ covers $X$, and let
+  We first show that we can find an open cover $\{V_1, \dots, V_n\}$ so that $\bar{V_i} \subset U_i$ for all $i$. Consider the set $A_1 = X \setminus (U_2 \cup \dots \cup U_n)$. This is clearly closed, and $A_1 \subset U_1$ since $\{U_i\}$ is a cover. Since $X$ is $T_4$, by Theorem~\ref{separation-squeeze-lemma} we obtain an open set $V_1$ so that $A_1 \subset V_1 \subset \bar{V_1} \subset U_1$, and in particular $\{V_1,U_2,\dots,U_n\}$ is still an open cover. We proceed now by finite induction: suppose that we have constructed open sets $V_i$, $i < k$, so that $\bar{V_i} \subset U_i$, and so that $\{V_1, \dots, V_{k-1},U_k,\dots,U_n\}$ covers $X$. Then let
   \[
     A_k = X \setminus (V_1 \cup \dots \cup V_{k-1} \cup U_{k+1} \cup \dots \cup U_n).
   \]
-  Then $A_k \subset U_k$, and we find as above an open set $V_k$ with $A_k \subset V_k \subset \bar{V_k} \subset U_k$ so that $\{V_1, \dots, V_k, U_{k+1}, \dots, U_n\}$.
+  Then $A_k \subset U_k$, and we find as above an open set $V_k$ with $A_k \subset V_k \subset \bar{V_k} \subset U_k$ so that $\{V_1, \dots, V_k, U_{k+1}, \dots, U_n\}$ covers $X$.
   
   Now go through the same procedure again to obtain an open cover $\{W_1, \dots, W_n\}$ with $\bar{W_i} \subset V_i$ for all $i$. Applying Urysohn's lemma for each $i = 1, \dots, n$, we find continuous functions $\psi_i : X \to [0,1]$ so that $f(X \setminus V_i) = \{0\}$ and $f(\bar{W_i}) = \{1\}$. It follows that
   \[
