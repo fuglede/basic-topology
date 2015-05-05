@@ -5,9 +5,9 @@ The concept of a manifold is central in all of differential geometry and mathema
 \subsection{Topological manifolds}
 \begin{defn}
   \label{definition-locally-euclidean}
-  A topological space $X$ is called \word{locally Euclidean}{?} if there is an $n \in \bbN$ so that every point in $X$ has a neighbourhood which is homeomorphic to $\bbR^n$.
+  A topological space $X$ is called \word{locally Euclidean}{lokalt euklidisk} if there is an $n \in \bbN$ so that every point in $X$ has a neighbourhood which is homeomorphic to $\bbR^n$.
 \end{defn}
-\trans{locally Euclidean}{?}
+\trans{locally Euclidean}{lokalt euklidisk}
 \begin{defn}
   An \emph{$n$-dimensional} \word{manifold}{m{\aa}ngfald} or simply an \emph{$n$-manifold} is a locally Euclidean second-countable Hausdorff space. The $n$ refers to the $n$ of Definition~\ref{definition-locally-euclidean}.
 \end{defn}
@@ -45,20 +45,20 @@ In this section we will see how to use Urysohn's lemma to show the following res
   Any compact $m$-manifold can be embedded in $\bbR^N$ for some $N \in \bbN$.
 \end{thm}
 \begin{defn}
-  Let $X$ be a topological space and $f : X \to \bbR$ a function. The \word{support}{?} of $f$ is the set
+  Let $X$ be a topological space and $f : X \to \bbR$ a function. The \word{support}{st{\"o}d} of $f$ is the set
   \[
     \supp(f) = \bar{\{x \mid f(x) \not= 0\}}.
   \]
 \end{defn}
-\trans{support}{?}
+\trans{support}{st{\"o}d}
 \begin{defn}
-  Let $X$ be a topological space, and let $\{U_1, \dots, U_n\}$ be an open cover of $X$. A family $\{\phi_1,\dots,\phi_n\}$ of continuous functions $\phi_i : X \to [0,1]$ is called a \word{partition of unity}{?} dominated by $\{U_i\}$ if
+  Let $X$ be a topological space, and let $\{U_1, \dots, U_n\}$ be an open cover of $X$. A family $\{\phi_1,\dots,\phi_n\}$ of continuous functions $\phi_i : X \to [0,1]$ is called a \word{partition of unity}{partition av enheten} dominated by $\{U_i\}$ if
   \begin{itemize}
     \item $\supp(\phi_i) \subset U_i$ for $i = 1, \dots, n$, and
     \item $\sum_{i=1}^n \phi_i(x) = 1$ for all $x \in X$.
   \end{itemize}
 \end{defn}
-\trans{partition of unity}{?}
+\trans{partition of unity}{partition av enheten}
 \begin{thm}
   \label{t4-partition-of-unity}
   Let $X$ be a $T_4$-space, and let $\{U_1, \dots, U_n\}$ be a finite open cover. Then there exists a partition of unity dominated by $\{U_1,\dots,U_n\}$.
@@ -122,13 +122,13 @@ It is less clear though, why we require manifolds to be second-countable, but it
 As it turns out, one of the most useful tools for studying manifolds are the partitions of unity that we encountered in the previous section. In the proof of Theorem~\ref{embedding-of-manifolds} -- where they played an essential role -- we saw that these exist for compact manifolds but many interesting manifolds are not compact; second-countability provides us with something almost as good. Here, we will illustrate how, referring to \cite{Mun} for most of the proofs.
 
 \begin{defn}
-  Let $X$ be a topological space. A collection $\calU$ of subsets of $X$ is called \word{locally finite}{?} if every point of $X$ has a neighbourhood that intersects only finitely many elements of $\calU$.
+  Let $X$ be a topological space. A collection $\calU$ of subsets of $X$ is called \word{locally finite}{lokalt {\"a}ndlig} if every point of $X$ has a neighbourhood that intersects only finitely many elements of $\calU$.
 \end{defn}
-\trans{locally finite}{?}
+\trans{locally finite}{lokalt {\"a}ndlig}
 \begin{defn}
-  A topological space $X$ is called \word{paracompact}{?} if every open cover has a locally finite subcover.
+  A topological space $X$ is called \word{paracompact}{parakompakt} if every open cover has a locally finite subcover.
 \end{defn}
-\trans{paracompact}{?}
+\trans{paracompact}{parakompakt}
 Notice that a finite cover is always locally finite. Thus in particular, all compact spaces are paracompact. The next result says that for paracompact Hausdorff spaces, we always have a locally finite version of partitions of unity. It turns out that such spaces are normal \cite[Thm.~41.1]{Mun} and so the proof is almost identical to that of Theorem~\ref{t4-partition-of-unity}; see \cite[Thm.~41.7]{Mun}
 \begin{thm}
   Let $X$ be a paracompact Hausdorff space, and let $\{U_i\}_{i \in I}$ be an open cover of $X$. Then there exists a partition of unity dominated by $\{U_i\}_{i \in I}$; that is, there exists a family $\{\phi_i\}_{i \in I}$ of continuous functions $\phi_i : X \to [0, 1]$ so that

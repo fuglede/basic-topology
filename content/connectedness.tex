@@ -6,9 +6,9 @@ It turns out that having open sets is sufficient to define a notion of connected
 
 \subsection{Connectedness}
 \begin{defn}
-  Let $X$ be a topological space. A \word{separation}{?} of $X$ is a pair $U$, $V$ of disjoint non-empty open subsets of $X$ so that $X = U \cup V$. We say that $X$ is \word{connected}{sammanh{\"a}ngande} if it has no separation.
+  Let $X$ be a topological space. A \word{separation}{separation} of $X$ is a pair $U$, $V$ of disjoint non-empty open subsets of $X$ so that $X = U \cup V$. We say that $X$ is \word{connected}{sammanh{\"a}ngande} if it has no separation.
 \end{defn}
-\trans{separation}{?}\trans{connected}{sammanh{\"a}ngande}
+\trans{separation}{separation}\trans{connected}{sammanh{\"a}ngande}
 In the following we will often be dealing with connectedness of subspaces. Keep in mind that when doing so, the subspace will always be equipped with the subspace topology.
 \begin{example}
   The subspace $(-2,-1) \cup (1,2) \subset \bbR$ has a separation.
@@ -150,9 +150,9 @@ The proof uses methods from algebraic topology and will not be covered here; see
 Another natural notion of connectedness is obtained by requiring that all points in a space can be connected to each other; what exactly to mean by this is contained in the following definition.
 
 \begin{defn}
-  Given two points $x$ and $y$ in a topological space $X$, a \word{path}{?} from $x$ to $y$ is a continuous map $\gamma : [0,1] \to X$ so that $\gamma(0) = x$, $\gamma(1) = y$. If for any pair $x,y$ in $X$ there is a path from $x$ to $y$, we say that $X$ is \word{path-connected}{b{\aa}gvis sammanh{\"a}ngande}.
+  Given two points $x$ and $y$ in a topological space $X$, a \word{path}{v{\"a}g} from $x$ to $y$ is a continuous map $\gamma : [0,1] \to X$ so that $\gamma(0) = x$, $\gamma(1) = y$. If for any pair $x,y$ in $X$ there is a path from $x$ to $y$, we say that $X$ is \word{path-connected}{b{\aa}gvis sammanh{\"a}ngande}.
 \end{defn}
-\trans{path}{?}\trans{path-connected}{b{\aa}gvis sammanh{\"a}ngande}
+\trans{path}{v{\"a}g}\trans{path-connected}{b{\aa}gvis sammanh{\"a}ngande}
 \begin{prop}
   \label{path-connected-implies-connected}
   A path-connected space is connected.

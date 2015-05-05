@@ -4,22 +4,22 @@ In this final section of this note, we will introduce a powerful topological inv
 
 \subsection{Homotopy}
 \begin{defn}
-  Let $X$ and $Y$ be topological spaces, and let $f, g : X \to Y$ be continuous maps. We say that $f$ is \word{homotopic}{?} to $g$ if there exists a continuous map $F : X \times [0,1] \to Y$ so that
+  Let $X$ and $Y$ be topological spaces, and let $f, g : X \to Y$ be continuous maps. We say that $f$ is \word{homotopic}{homotop} to $g$ if there exists a continuous map $F : X \times [0,1] \to Y$ so that
   \[
     F(x,0) = f(x) \quad \text{and} \quad F(x,1) = g(x)
   \]
-  for all $x \in X$. The map $F$ is called a \word{homotopy}{homotopi} from $f$ to $g$, and we write $f \sim g$. If $f \sim g$ where $g$ is a constant map, we say that $f$ is \word{null-homotopic}{?}
+  for all $x \in X$. The map $F$ is called a \word{homotopy}{homotopi} from $f$ to $g$, and we write $f \sim g$. If $f \sim g$ where $g$ is a constant map, we say that $f$ is \word{null-homotopic}{nollhomotop}
 \end{defn}
-\trans{homotopic}{?}
+\trans{homotopic}{homotop}
 \trans{homotopy}{homotopi}
-\trans{null-homotopic}{?}
+\trans{null-homotopic}{nollhomotop}
 We will primarily be interested in the special case where the maps $f$ and $g$ are paths that start and end at the same point. In this case, we will furthermore require that the homotopy fixes the two end-points of the paths:
 \begin{defn}
-  Two $\gamma, \gamma' : [0,1] \to X$ be two paths from $x$ to $y$ in a topological space $X$. We sat that $\gamma$ is \word{path homotopic}{?} to $\gamma'$ if there is a homotopy $F: [0,1] \times [0,1] \to X$ from $\gamma$ to $\gamma'$ so that
+  Two $\gamma, \gamma' : [0,1] \to X$ be two paths from $x$ to $y$ in a topological space $X$. We sat that $\gamma$ is \word{path homotopic}{v{\"a}ghomotop} to $\gamma'$ if there is a homotopy $F: [0,1] \times [0,1] \to X$ from $\gamma$ to $\gamma'$ so that
   \[
     F(0,t) = x, \quad F(1,t) = y
   \]
-  for all $t \in [0,1]$. The map $F$ is called a \word{path homotopy}{?}, and we write $\gamma \sim_p \gamma'$. See Figure~\ref{path-homotopy-figure}.
+  for all $t \in [0,1]$. The map $F$ is called a \word{path homotopy}{v{\"a}ghomotopi}, and we write $\gamma \sim_p \gamma'$. See Figure~\ref{path-homotopy-figure}.
 \end{defn}
 \begin{figure}
   \centering
@@ -30,8 +30,8 @@ We will primarily be interested in the special case where the maps $f$ and $g$ a
   \caption{Two homotopic paths $\gamma$ and $\gamma'$ in $\bbR^2$ as well as a path homotopy $F$ between them. That is, we picture $F(0,t) = \gamma(t)$, $F(1,t) = \gamma'(t)$, and the paths $F(\tfrac{1}{10},t), F(\tfrac{2}{10},t), \dots, F(\tfrac{9}{10},t)$.}
   \label{path-homotopy-figure}
 \end{figure}
-\trans{path homotopic}{?}
-\trans{path homotopy}{?}
+\trans{path homotopic}{v{\"a}ghomotop}
+\trans{path homotopy}{v{\"a}ghomotopi}
 \begin{lem}
   Homotopy $\sim$ and path homotopy $\sim_p$ are equivalence relations.
 \end{lem}
@@ -332,8 +332,9 @@ Before moving on to the case $n = 1$, let us notice the following non-trivial co
 \end{example}
 
 \begin{defn}
-  Let $p : E \to B$ be a covering map, and let $f : X \to B$ be a continuous map. A map $\tilde{f} : X \to E$ is called a \word{lifting}{?} of $f$ if $f = p \circ \tilde{f}$.
+  Let $p : E \to B$ be a covering map, and let $f : X \to B$ be a continuous map. A map $\tilde{f} : X \to E$ is called a \word{lifting}{l{\"o}ft} of $f$ if $f = p \circ \tilde{f}$.
 \end{defn}
+\trans{lifting}{l{\"o}ft}
 
 The two following lemmas will be proven in Section~\ref{proofs-lifting-lemmas} below.
 \begin{lem}[Path lifting lemma]
