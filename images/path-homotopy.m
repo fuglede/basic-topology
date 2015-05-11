@@ -14,13 +14,15 @@ gamma2[t_] := {2*Tan[Sin[Pi*t/2] - 1] - Tan[Sin[Pi*0] - 1] + Tan[0 - 1],
                Cos[3*Sin[t] + 2*Pi*t] - Cos[6*Pi*Sin[0]] + Cos[3*Sin[0]]};
 
 (* The straight-line homotopy *)
-F[s_, t_] := (1 - s)*gamma1[t] + s*gamma2[t];
+F[s_, t_] := (1 - t)*gamma1[s] + t*gamma2[s];
 
 homotopy = Show[
-	ParametricPlot[{gamma1[t], gamma2[t]}, {t, 0, 1}, 
-		PlotStyle -> {{Red, Thickness[0.004], CapForm["Round"]}}],
-	ParametricPlot[Table[F[s, t], {s, 0.1, 0.9, 0.1}], {t, 0, 1}, 
+	ParametricPlot[Table[F[s, t], {t, 0.1, 0.9, 0.1}], {s, 0, 1}, 
 		PlotStyle -> {{Red, Opacity[0.5]}}],
+	ParametricPlot[Table[F[s, t], {s, 0.1, 0.9, 0.1}], {t, 0, 1}, 
+		PlotStyle -> {{Blue, Opacity[0.5]}}],
+	ParametricPlot[{gamma1[s], gamma2[s]}, {s, 0, 1}, 
+		PlotStyle -> {{Red, Thickness[0.004], CapForm["Round"]}}],
 	Axes -> None, PlotRange -> {{-3.1, 0.1}, {-1.1, 1.1}}, ImageSize -> imagesize
 ];
 
