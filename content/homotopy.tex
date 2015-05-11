@@ -311,7 +311,6 @@ Before moving on to the case $n = 1$, let us notice the following non-trivial co
   By Proposition~\ref{product-fundamental-group} and Theorem~\ref{fundamental-group-of-spheres}, $\pi_1(T^m) = \pi_1(S^1 \times \cdots \times S^1)$ is the product of $m$ copies of $\bbZ$. Since $\bbZ^m$ is not isomorphic to $\bbZ$ if $m > 1$, $\pi_1(T^m)$ can only be isomorphic to $\pi_1(S^n)$ if $n = m = 1$.
 \end{proof}
 \begin{wrapfigure}{R}{0.3\textwidth}
-  \centering
   \begin{overpic}[width=0.28\textwidth]{images/covering}
     \put(37,60){$E$}
     \put(37,13){$B$}
@@ -346,14 +345,14 @@ The two following lemmas will be proven in Section~\ref{proofs-lifting-lemmas} b
 
 \begin{lem}[Homotopy lifting lemma]
   \label{homotopy-lifting-lemma}
-  \index{homotopy lifting lemma}Let $p : E \to B$ be a covering map, and let $p(e) = b$ as above. Let $F : [0,1] \times [0,1] \to B$ be a homotopy with $F(0,0) = b$. Then there is a a unique lifting $\tilde{F} : [0,1] \times [0,1] \to E$ so that $\tilde{F}(0,0) = e$. If $F$ is a path homotopy then so is $\tilde{F}$.
+  \index{homotopy lifting lemma}Let $p : E \to B$ be a covering map, and let $p(e) = b$ as above. Let $F : [0,1] \times [0,1] \to B$ be a homotopy with $F(0,0) = b$. Then there is a unique lifting $\tilde{F} : [0,1] \times [0,1] \to E$ so that $\tilde{F}(0,0) = e$. If $F$ is a path homotopy then so is $\tilde{F}$.
 \end{lem}
 
 Now as above, let $p : E \to B$ be a covering map, let $b \in B$, and choose $e \in E$ with $p(e) = b$. Let $[\gamma] \in \pi_1(B,b)$ be a homotopy class of a path $\gamma$, and let $\tilde{\gamma}$ be the unique lifting from Lemma~\ref{path-lifting-lemma}, with $\tilde{\gamma}(0) = e$. Define a map, called the \word{lifting correspondence}{?},
 \[
   \phi_e : \pi_1(B,b) \to p^{-1}(\{b\})
 \]
-by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, assume that $\gamma \sim_p \gamma'$, and let $F$ denote a path homotopy from $\gamma$ to $\gamma'$. Then the unique lifting $\tilde{F}$ from Lemma~\ref{homotopy-lifting-lemma} is a path homotopy from $\tilde{\gamma}$ to $\widetilde{\gamma'}$, and in particular $\tilde{\gamma}(1) = \widetilde{\gamma'}(1)$.
+by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, assume that $\gamma \sim_p \gamma'$, and let $F$ denote a path homotopy from $\gamma$ to $\gamma'$. Then the unique lifting $\tilde{F}$ from Lemma~\ref{homotopy-lifting-lemma} is a path homotopy between the unique lifts $\tilde{\gamma}$ and $\widetilde{\gamma'}$, so in particular $\tilde{\gamma}(1) = \widetilde{\gamma'}(1)$.
 
 \begin{prop}
   \label{lifting-correspondence-props}
@@ -362,7 +361,7 @@ by $\phi_e([\gamma]) = \tilde{\gamma}(1)$. To see that this is well-defined, ass
 \begin{proof}
   Assume first that $E$ is path-connected and let $q \in p^{-1}(\{b\})$. Choose any path $\tilde{\gamma}$ from $e$ to $q$, and let $\gamma = p \circ \tilde{\gamma}$. Then $\tilde{\gamma}$ is a lift of $\gamma$ by construction, and $\phi_e([\gamma]) = q$, so $\phi_e$ is surjective.
   
-  Assume now that $E$ is simply-connected, suppose that $\phi_e([\gamma]) = \phi_e([\gamma'])$ for two elements $[\gamma], [\gamma'] \in \pi_1(B,b)$, and let us show that $[\gamma] = [\gamma']$. Let $\tilde{\gamma}$ and $\widetilde{\gamma'}$ denote the corresponding lifts, so that $\tilde{\gamma}(1) = \tilde{\gamma'}(1)$ by assumption. Then $\tilde{\gamma} \star \widetilde{\gamma'}^\inv$ is a loop based at $e$ and thus path homotopic to the constant map since $E$ is simply-connected. This implies that
+  Assume now that $E$ is simply-connected, suppose that $\phi_e([\gamma]) = \phi_e([\gamma'])$ for two homotopy classes $[\gamma], [\gamma'] \in \pi_1(B,b)$, and let us show that $[\gamma] = [\gamma']$. Let $\tilde{\gamma}$ and $\widetilde{\gamma'}$ denote the corresponding lifts, so that $\tilde{\gamma}(1) = \widetilde{\gamma'}(1)$ by assumption. Then $\tilde{\gamma} \star \widetilde{\gamma'}^\inv$ is a loop based at $e$ and thus path homotopic to the constant map since $E$ is simply-connected. This implies that
   \[
     [\tilde{\gamma}] = [\tilde{\gamma}] \star [\widetilde{\gamma'}^\inv] \star [\widetilde{\gamma'}] = [\tilde{\gamma} \star \widetilde{\gamma'}^\inv] \star [\widetilde{\gamma'}] = [\widetilde{\gamma'}],
   \]
@@ -415,7 +414,7 @@ It is easy to see that for fixed $A$, the function $x \mapsto d(x,A)$ is continu
   \[
     f(x) = \frac{1}{n} \sum_{i=1}^n d(x,C_i).
   \]
-  We claim that $f(x) > 0$ for all $x \in X$. To see this, let $x \in X$ and choose an $i$ so that $x \in U_i$. Since $U_i$ is open, we can find a $\eps > 0$ so that $B(x,\eps) \subset U_i$. Then $d(x,C_i) \geq \eps$, so $f(x) \geq \eps/n > 0$. Since $f$ is continuous, it follows from Corollary~\ref{sup-inf-compact-continuous} that $f(X)$ has a minimum $\delta > 0$, and we now claim that this number is our desired Lebesgue number.
+  We claim that $f(x) > 0$ for all $x \in X$. To see this, let $x \in X$ and choose an $i$ so that $x \in U_i$. Since $U_i$ is open, we can find an $\eps > 0$ so that $B(x,\eps) \subset U_i$. Then $d(x,C_i) \geq \eps$, so $f(x) \geq \eps/n > 0$. Since $f$ is continuous, it follows from Corollary~\ref{sup-inf-compact-continuous} that $f(X)$ has a minimum $\delta > 0$, and we now claim that this number is our desired Lebesgue number.
   
   Let $A \subset X$ have diameter less than $\delta$, and let $a \in A$. Then $A \subset B_d(a,\delta)$, and by taking $m \in \{1,\dots,n\}$ so that $d(a,C_m)$ is maximal, we have
   \[
@@ -423,17 +422,17 @@ It is easy to see that for fixed $A$, the function $x \mapsto d(x,A)$ is continu
   \]
   so $A \subset B_d(a,\delta) \subset X \setminus C_m = U_m$.
 \end{proof}
-We can now prove the two lemmas.% As will be clear, the two proofs are very similar, and indeed one could view both of them as following from a more general result on liftings of homotopies. To simplify the exposition, however, we prove the claims separately.
+We can now prove the two lemmas.
 \begin{proof}[Proof of Lemma~\ref{path-lifting-lemma}]
   Choose an open cover $\calU$ of $B$ by sets $U \in \calU$ with the property that $p^{-1}(U)$ is a disjoint union of open sets in $E$, each of which is mapped homeomorphically to $U$ by $p$.
   
-  Now $\{\gamma^{-1}(U) \mid U \in \calU\}$ is an open cover of the compact set $[0,1]$. By Lemma~\ref{lebesgue-number-lemma}, there is a subdivision $0 = s_0 < s_1 < \dots < s_n = 1$ of $[0,1]$ so that for every $i = 1, \dots, k$, we have $[s_{i-1},s_i] \subset \gamma^{-1}(U)$ for some $U \in \calU$. That is, $\gamma([s_{i-1},s_i]) \subset U$. We will now construct the lifting $\tilde{\gamma}$ on each of these smaller intervals through a finite induction.
+  Now $\{\gamma^{-1}(U) \mid U \in \calU\}$ is an open cover of the compact set $[0,1]$. By Lemma~\ref{lebesgue-number-lemma}, there is a subdivision $0 = s_0 < s_1 < \dots < s_n = 1$ of $[0,1]$ so that for every $i = 1, \dots, n$, we have $[s_{i-1},s_i] \subset \gamma^{-1}(U)$ for some $U \in \calU$. That is, $\gamma([s_{i-1},s_i]) \subset U$. We will now construct the lifting $\tilde{\gamma}$ on each of these smaller intervals through a finite induction.
   
-  Let $\tilde{\gamma}(0) = e$ and assume that the lifting $\tilde{\gamma}$ has been defined on $[0,s_i]$. We then define $\tilde{\gamma}$ on $[s_i,s_{i+1}]$ as follows: let $V \in \calU$ be the open set so that $\gamma([s_i,s_{i+1}]) \subset U$. Then $\tilde{\gamma}(s_i) \in p^{-1}(U)$, so we can choose $V \subset E$ so that $p|_V : V \to U$ is a homeomorphism and $\tilde{\gamma}(s_i) \in V$. Now, for any $s \in [s_i,s_{i+1}]$, we can define
+  Let $\tilde{\gamma}(0) = e$ and assume that the lifting $\tilde{\gamma}$ has been defined on $[0,s_i]$. We then define $\tilde{\gamma}$ on $[s_i,s_{i+1}]$ as follows: let $U \in \calU$ be the open set so that $\gamma([s_i,s_{i+1}]) \subset U$. Then $\tilde{\gamma}(s_i) \in p^{-1}(U)$, so we can choose $V \subset E$ so that $p|_V : V \to U$ is a homeomorphism and $\tilde{\gamma}(s_i) \in V$. Now, for any $s \in [s_i,s_{i+1}]$, we can define
   \[
     \tilde{\gamma}(s) = (p|_V)^{-1}(\gamma(s)).
   \]
-  Then $\tilde{\gamma}$ is continuous on $[s_i,s_{i+1}]$, agrees with $\tilde{\gamma}$ on the set $\{s_i\}$, and so defines a function $\tilde{\gamma} : [0,s_{i+1}] \to E$ which is continuous by the pasting lemma, Remark~\ref{pasting-closed}. Moreover, $\tilde{\gamma}$ is constructed to satisfy $\gamma = p \circ \tilde{\gamma}$ where it is defined, so repeating this procedure $n$ times we obtain our desired lift.
+  Then $\tilde{\gamma}$ is continuous on $[s_i,s_{i+1}]$, agrees with $\tilde{\gamma}$ on the one-point set $\{s_i\}$, and so defines a function $\tilde{\gamma} : [0,s_{i+1}] \to E$ which is continuous by the pasting lemma, Remark~\ref{pasting-closed}. Moreover, $\tilde{\gamma}$ is constructed to satisfy $\gamma = p \circ \tilde{\gamma}$ where it is defined, so repeating this procedure $n$ times we obtain our desired lift.
   
   It remains to prove that $\tilde{\gamma}$ is unique. Suppose that $\tilde{\gamma}'$ is another lifting of $\gamma$ with $\tilde{\gamma}'(0) = e$, and suppose that $\tilde{\gamma} = \tilde{\gamma}'$ on $[0,s_i]$ (which we know is true for $i=0$). We then claim that the lifts agree on $[0,s_{i+1}]$ as well, and therefore $\tilde{\gamma} = \tilde{\gamma}'$ on all of $[0,1]$, so let $s \in [s_i,s_{i+1}]$, and let $V$ be as above so that $\tilde{\gamma}(s_i), \tilde{\gamma}'(s_i) \in V$.
   
@@ -461,7 +460,7 @@ We can now prove the two lemmas.% As will be clear, the two proofs are very simi
     \caption{The sets involved in the proof of Lemma~\ref{homotopy-lifting-lemma}. The red part indicates where $\tilde{F}$ has been defined, and the blue part where we are in the process of defining $\tilde{F}$.}
     \label{homotopy-lifting-figure}
   \end{figure}
-  As in the proof above, we will define a lift $\tilde{F}$ in a step-by-step fashion, so let $\calU$ denote an open cover $B$ as above. Begin by letting $\tilde{F}(0,0) = e$, and use Lemma~\ref{path-lifting-lemma} to uniquely define $\tilde{F}$ on $[0,1] \times \{0\}$ and $\{0\} \times [0,1]$, lifting $F$ on these subsets.
+  As in the proof above, we will define a lift $\tilde{F}$ in a step-by-step fashion, so let $\calU$ denote an open cover of $B$ as above. Begin by letting $\tilde{F}(0,0) = e$, and use Lemma~\ref{path-lifting-lemma} to uniquely define $\tilde{F}$ on $[0,1] \times \{0\}$ and $\{0\} \times [0,1]$, lifting $F$ on these subsets.
   
   As above, we can now consider $\{F^{-1}(U) \mid U \in \calU\}$ and conclude by Lemma~\ref{lebesgue-number-lemma} that there exist subdivisions $0 = s_0 < s_1 < \dots < s_m = 1$ and $0 = t_0 < t_1 < \dots < t_n = 1$ so that for each rectangle
   \[
@@ -471,11 +470,11 @@ We can now prove the two lemmas.% As will be clear, the two proofs are very simi
   \[
     R_{1,1}, R_{2,1}, \dots, R_{m,1}, R_{1,2}, R_{2,2}, \dots, R_{m,2}, \dots, R_{1,n}, R_{2,n}, \dots, R_{m,n}.
   \]
-  Assume that the lifting $\tilde{F}$ has been defined on all rectangles up to a certain point, and let us define $\tilde{F}$ on the next rectangle $R_{i,j}$. In particular, $\tilde{F}$ has been defined on $A$: the union of the left and bottom edge of $R_{i,j}$, which is a connected set (see Figure~\ref{homotopy-lifting-figure}). By the exact same logic as in the previous proof, this implies $\tilde{F}(A) \subset V$, where $V \subset E$ is so that $p|_V : V \to U$ is a homeomorphism and $F(R_{i,j}) \subset U$. This means that we can extend $\tilde{F}$ to $R_{i,j}$ by letting
+  Assume that the lifting $\tilde{F}$ has been defined on all rectangles up to a certain point, and let us define $\tilde{F}$ on the next rectangle, $R_{i,j}$, say. In particular, $\tilde{F}$ has been defined on $A$: the union of the left and bottom edge of $R_{i,j}$, which is a connected set (see Figure~\ref{homotopy-lifting-figure}). By the exact same logic as in the previous proof, this implies that $\tilde{F}(A) \subset V$, where $V \subset E$ is so that $p|_V : V \to U$ is a homeomorphism, and where $U \in \calU$ is so that $F(R_{i,j}) \subset U$. This means that we can extend $\tilde{F}$ to $R_{i,j}$ by letting
   \[
     \tilde{F}(x) = (p|_V)^{-1}(F(x)).
   \]
   Proceeding like this for all rectangles, we define $\tilde{F}$ on all of $[0,1] \times [0,1]$. Then $\tilde{F}$ is continuous by the pasting lemma and a lifting of $F$ by construction. That $\tilde{F}$ is the unique lifting with $\tilde{F}(0,0) = e$ follows by the same logic as in the proof of Lemma~\ref{path-lifting-lemma} above.
   
-  It remains to show that if $F$ is a path homotopy, then so is $\tilde{F}$. So, assume that $F([0,1] \times \{0\}) = \{b\}$. Then $\tilde{F}([0,1]\times\{0\}) \subset p^{-1}(\{b\})$. Now $[0,1] \times \{0\}$ is connected, so its image under $\tilde{F}$ is connected, and on the other hand, $p^{-1}(\{b\})$ is discrete so its connected components are points, which means that $\tilde{F}$ is constant on $[0,1] \times \{0\}$. Similarly, if $F$ is constant on $[0,1] \times \{1\}$, one uses connectedness to argue that $\tilde{F}$ is as well.
+  It remains to show that if $F$ is a path homotopy, then so is $\tilde{F}$. So, assume that $F(\{0\} \times [0,1]) = \{b\}$. Then $\tilde{F}(\{0\} \times [0,1]) \subset p^{-1}(\{b\})$. Now $\{0\} <\times [0,1]$ is connected, so its image under $\tilde{F}$ is connected, and on the other hand, $p^{-1}(\{b\})$ is discrete so its connected components are points, which means that $\tilde{F}$ is constant on $\{0\} \times [0,1]$. Similarly, if $F$ is constant on $\{1\} \times [0,1]$, one uses connectedness to argue that $\tilde{F}$ is as well.
 \end{proof}
