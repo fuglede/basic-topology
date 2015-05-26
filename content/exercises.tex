@@ -16,7 +16,9 @@ A solution manual is available upon request.
 		Show that the subspace topology $\calT_Y$ is the smallest (meaning coarsest) topology on $Y\subset X$ for which the inclusion $\iota:Y \rightarrow X$ is a continuous map.
 	
 	\item \label{opens-in-opens} Let $Y\subset X$ be an open (closed) subset of a topological space $X$. Show that a set $U \subset Y$ is open (closed) in the subspace topology on $Y$ if and only if $U$ is open (closed) in $X$.
-	
+  	
+  \item Let $X$ be a topological space, and let $A$ and $B$ be subspaces of $X$ so that $A \subset B \subset X$. Then $A$ can be endowed with the subspace topology $\calT_A$ from $X$, or the subspace topology $(\calT_B)_A$ from $B$ (which in turn has the subspace topology coming from $X$). Show that $\calT_A = (\calT_B)_A$.
+
 	\item \label{universal-inclusion} Prove Lemma~\ref{universal-inclusion-lemma}.
 	
   \item \begin{itemize}
@@ -98,6 +100,11 @@ A solution manual is available upon request.
       \item[(a)] Show that if $K_1, \dots, K_n$ are compact subspaces of $X$, then $K_1 \cup \dots \cup K_n$ is compact.
       \item[(b)] Suppose that $X$ is Hausdorff. Show that if $\{K_i\}_{i \in I}$ is a family of compact subspaces of $X$, then $\bigcap_{i \in I} K_i$ is compact.
       \item[(c)] Prove Proposition~\ref{one-point}.
+    \end{itemize}
+    \item Let $A \subset X$ be a subspace of a topological space $(X,\calT)$. Show that the following are equivalent:
+    \begin{itemize}
+      \item $A$ is compact (in the subspace topology)
+      \item For every collection of open sets $\calU \subset \calT$ so that $A \subset \bigcup_{U \in \calU}U$, there exists a finite subcollection $U_1, \dots, U_n \in \calU$ so that $A \subset U_1 \cup \dots \cup U_n$.
     \end{itemize}
     \item \label{compact-hausdorff-are-normal-exercise} Show that compact Hausdorff spaces are normal.
     \item \label{local-compactness-in-hausdorff-exercise}Prove Theorem~\ref{local-compactness-in-hausdorff} (Hint: Use the one-point compactification.)
