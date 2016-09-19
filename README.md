@@ -13,4 +13,4 @@ latexmk, run
     $ cd basic-topology
     $ latexmk -pdf main
 
-The result will be available as main.pdf.
+The result will be available as `main.pdf`.
